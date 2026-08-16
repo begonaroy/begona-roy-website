@@ -1,0 +1,6 @@
+{
+  "name": "Begoña Roy · Psicología Sanitaria & Psicooncología",
+  "description": "Sitio web profesional y aplicación para Begoña Roy: Psicología Sanitaria, Psicooncología, Acompañamiento Integral y Liberación del Pericardio en Plaza Europa, Zaragoza (50003) y Online.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
