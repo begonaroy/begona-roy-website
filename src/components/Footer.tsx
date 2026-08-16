@@ -208,7 +208,7 @@ export const Footer: React.FC<FooterProps> = ({
           }`}
         >
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2">
-            <span>© {new Date().getFullYear()} Begoña Roy. Todos los derechos reservados.</span>
+            <span>© {new Date().getFullYear()} John Vicent. Todos los derechos reservados.</span>
             <button
               onClick={() => onOpenPrivacy('privacidad')}
               className="hover:underline hover:text-[#C28469]"
