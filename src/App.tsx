@@ -28,13 +28,13 @@ export default function App() {
     if (savedTheme === 'dark') {
       setIsDark(true);
       document.documentElement.classList.add('dark');
-      document.body.classList.remove('bg-[#FBF9F5]', 'text-[#222823]');
-      document.body.classList.add('bg-[#151B17]', 'text-[#F0F4F1]');
+      document.body.classList.remove('bg-[#FDFBF7]', 'text-[#24211F]');
+      document.body.classList.add('bg-[#171A17]', 'text-[#F3EFE7]');
     } else {
       setIsDark(false);
       document.documentElement.classList.remove('dark');
-      document.body.classList.add('bg-[#FBF9F5]', 'text-[#222823]');
-      document.body.classList.remove('bg-[#151B17]', 'text-[#F0F4F1]');
+      document.body.classList.add('bg-[#FDFBF7]', 'text-[#24211F]');
+      document.body.classList.remove('bg-[#171A17]', 'text-[#F3EFE7]');
     }
   }, []);
 
@@ -45,12 +45,12 @@ export default function App() {
 
     if (newDark) {
       document.documentElement.classList.add('dark');
-      document.body.classList.remove('bg-[#FBF9F5]', 'text-[#222823]');
-      document.body.classList.add('bg-[#151B17]', 'text-[#F0F4F1]');
+      document.body.classList.remove('bg-[#FDFBF7]', 'text-[#24211F]');
+      document.body.classList.add('bg-[#171A17]', 'text-[#F3EFE7]');
     } else {
       document.documentElement.classList.remove('dark');
-      document.body.classList.add('bg-[#FBF9F5]', 'text-[#222823]');
-      document.body.classList.remove('bg-[#151B17]', 'text-[#F0F4F1]');
+      document.body.classList.add('bg-[#FDFBF7]', 'text-[#24211F]');
+      document.body.classList.remove('bg-[#171A17]', 'text-[#F3EFE7]');
     }
   };
 
@@ -68,7 +68,7 @@ export default function App() {
     <div
       id="app-root"
       className={`min-h-screen flex flex-col font-sans transition-colors duration-300 ${
-        isDark ? 'bg-[#151B17] text-[#F0F4F1]' : 'bg-[#FBF9F5] text-[#222823]'
+        isDark ? 'bg-[#171A17] text-[#F3EFE7]' : 'bg-[#FDFBF7] text-[#24211F]'
       }`}
     >
       {/* Top Navbar */}

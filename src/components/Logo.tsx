@@ -34,7 +34,7 @@ export const Logo: React.FC<LogoProps> = ({
             r="47"
             stroke="currentColor"
             strokeWidth="3"
-            className={isDark ? 'text-[#7C9682]' : 'text-[#4A5D4E]'}
+            className={isDark ? 'text-[#A7B39A]' : 'text-[#4A5D4E]'}
           />
 
           {/* Organic gentle yin-yang leaf curve */}
@@ -45,7 +45,7 @@ export const Logo: React.FC<LogoProps> = ({
                C50 97, 60 70, 50 50
                C40 30, 50 3, 50 3Z"
             fill="currentColor"
-            className={isDark ? 'text-[#7C9682]' : 'text-[#4A5D4E]'}
+            className={isDark ? 'text-[#A7B39A]' : 'text-[#4A5D4E]'}
           />
 
           {/* Complementary inner drop/leaf */}
@@ -57,7 +57,7 @@ export const Logo: React.FC<LogoProps> = ({
                C60 70, 50 97, 50 97Z"
             fill="currentColor"
             fillOpacity="0.25"
-            className={isDark ? 'text-[#7C9682]' : 'text-[#4A5D4E]'}
+            className={isDark ? 'text-[#A7B39A]' : 'text-[#4A5D4E]'}
           />
 
           {/* Center heart / seed focal point */}
@@ -66,7 +66,7 @@ export const Logo: React.FC<LogoProps> = ({
             cy="50"
             r="4.5"
             fill="currentColor"
-            className={isDark ? 'text-[#D99B82]' : 'text-[#C28469]'}
+            className={isDark ? 'text-[#C7B3A3]' : 'text-[#3D342E]'}
           />
         </svg>
       </div>
@@ -75,14 +75,14 @@ export const Logo: React.FC<LogoProps> = ({
         <div className="flex flex-col text-left">
           <span
             className={`font-serif tracking-tight font-medium leading-none text-xl md:text-2xl ${
-              isDark ? 'text-[#F0F4F1]' : 'text-[#222823]'
+              isDark ? 'text-[#F3EFE7]' : 'text-[#24211F]'
             }`}
           >
             Begoña Roy
           </span>
           <span
             className={`text-[10px] md:text-xs tracking-[0.18em] uppercase font-sans font-medium mt-1 ${
-              isDark ? 'text-[#A9B8AD]' : 'text-[#5C7462]'
+              isDark ? 'text-[#B7BEA3]' : 'text-[#667052]'
             }`}
           >
             Psicología Sanitaria

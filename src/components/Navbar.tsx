@@ -48,11 +48,11 @@ export const Navbar: React.FC<NavbarProps> = ({
       className={`sticky top-0 z-40 w-full transition-all duration-300 ${
         isScrolled
           ? isDark
-            ? 'bg-[#151B17]/90 backdrop-blur-md shadow-sm border-b border-[#2D3930]'
-            : 'bg-[#FBF9F5]/90 backdrop-blur-md shadow-sm border-b border-[#E8E2D9]'
+            ? 'bg-[#171A17]/90 backdrop-blur-md shadow-sm border-b border-[#667052]'
+            : 'bg-[#FDFBF7]/90 backdrop-blur-md shadow-sm border-b border-[#E6DFD3]'
           : isDark
-          ? 'bg-[#151B17] border-b border-transparent'
-          : 'bg-[#FBF9F5] border-b border-transparent'
+          ? 'bg-[#171A17] border-b border-transparent'
+          : 'bg-[#FDFBF7] border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,18 +80,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? isDark
-                        ? 'text-[#F0F4F1] font-semibold bg-[#222C26]'
-                        : 'text-[#222823] font-semibold bg-[#E8ECE9]'
+                        ? 'text-[#F3EFE7] font-semibold bg-[#21251F]'
+                        : 'text-[#24211F] font-semibold bg-[#E6DFD3]'
                       : isDark
-                      ? 'text-[#A9B8AD] hover:text-[#F0F4F1] hover:bg-[#1C2420]'
-                      : 'text-[#5A655C] hover:text-[#222823] hover:bg-[#F3EFEA]'
+                      ? 'text-[#B7BEA3] hover:text-[#F3EFE7] hover:bg-[#21251F]'
+                      : 'text-[#667052] hover:text-[#24211F] hover:bg-[#E6DFD3]'
                   }`}
                 >
                   <span>{link.label}</span>
                   {isActive && (
                     <span
                       className={`absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full ${
-                        isDark ? 'bg-[#7C9682]' : 'bg-[#4A5D4E]'
+                        isDark ? 'bg-[#A7B39A]' : 'bg-[#4A5D4E]'
                       }`}
                     />
                   )}
@@ -109,8 +109,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label={isDark ? 'Activar modo claro' : 'Activar modo oscuro'}
               className={`p-2.5 rounded-full transition-colors duration-200 ${
                 isDark
-                  ? 'text-[#ADC0B0] hover:text-[#F0F4F1] hover:bg-[#222C26]'
-                  : 'text-[#5C7462] hover:text-[#222823] hover:bg-[#E8ECE9]'
+                  ? 'text-[#8F9779] hover:text-[#F3EFE7] hover:bg-[#21251F]'
+                  : 'text-[#667052] hover:text-[#24211F] hover:bg-[#E6DFD3]'
               }`}
               title={isDark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
             >
@@ -127,8 +127,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={onOpenBooking}
               className={`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98] ${
                 isDark
-                  ? 'bg-[#7C9682] hover:bg-[#8EA694] text-[#151B17]'
-                  : 'bg-[#4A5D4E] hover:bg-[#3D4C40] text-white'
+                  ? 'bg-[#A7B39A] hover:bg-[#B7BEA3] text-[#171A17]'
+                  : 'bg-[#4A5D4E] hover:bg-[#3D342E] text-[#FDFBF7]'
               }`}
             >
               <Calendar className="w-3.5 h-3.5" />
@@ -142,8 +142,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
               className={`md:hidden p-2 rounded-lg transition-colors ${
                 isDark
-                  ? 'text-[#F0F4F1] hover:bg-[#222C26]'
-                  : 'text-[#222823] hover:bg-[#E8ECE9]'
+                  ? 'text-[#F3EFE7] hover:bg-[#21251F]'
+                  : 'text-[#24211F] hover:bg-[#E6DFD3]'
               }`}
             >
               {mobileMenuOpen ? (
@@ -162,8 +162,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           id="mobile-nav-drawer"
           className={`md:hidden border-b px-4 pt-3 pb-6 space-y-2 transition-all duration-200 ${
             isDark
-              ? 'bg-[#151B17] border-[#2D3930]'
-              : 'bg-[#FBF9F5] border-[#E8E2D9]'
+              ? 'bg-[#171A17] border-[#667052]'
+              : 'bg-[#FDFBF7] border-[#E6DFD3]'
           }`}
         >
           {navLinks.map((link) => {
@@ -175,18 +175,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className={`w-full text-left px-4 py-3 rounded-xl text-base font-medium flex items-center justify-between transition-colors ${
                   isActive
                     ? isDark
-                      ? 'bg-[#222C26] text-[#F0F4F1] font-semibold'
-                      : 'bg-[#E8ECE9] text-[#222823] font-semibold'
+                      ? 'bg-[#21251F] text-[#F3EFE7] font-semibold'
+                      : 'bg-[#E6DFD3] text-[#24211F] font-semibold'
                     : isDark
-                    ? 'text-[#A9B8AD] hover:bg-[#1C2420]'
-                    : 'text-[#5A655C] hover:bg-[#F3EFEA]'
+                    ? 'text-[#B7BEA3] hover:bg-[#21251F]'
+                    : 'text-[#667052] hover:bg-[#E6DFD3]'
                 }`}
               >
                 <span>{link.label}</span>
                 {isActive && (
                   <span
                     className={`w-2 h-2 rounded-full ${
-                      isDark ? 'bg-[#7C9682]' : 'bg-[#4A5D4E]'
+                      isDark ? 'bg-[#A7B39A]' : 'bg-[#4A5D4E]'
                     }`}
                   />
                 )}
@@ -202,8 +202,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               }}
               className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-full text-sm font-semibold uppercase tracking-wider shadow-sm ${
                 isDark
-                  ? 'bg-[#7C9682] text-[#151B17]'
-                  : 'bg-[#4A5D4E] text-white'
+                  ? 'bg-[#A7B39A] text-[#171A17]'
+                  : 'bg-[#4A5D4E] text-[#FDFBF7]'
               }`}
             >
               <Calendar className="w-4 h-4" />
@@ -214,11 +214,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               href="tel:+34622458912"
               className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium border transition-colors ${
                 isDark
-                  ? 'border-[#2D3930] text-[#A9B8AD] hover:bg-[#222C26]'
-                  : 'border-[#D8D0C4] text-[#5A655C] hover:bg-[#F3EFEA]'
+                  ? 'border-[#667052] text-[#B7BEA3] hover:bg-[#21251F]'
+                  : 'border-[#E6DFD3] text-[#667052] hover:bg-[#E6DFD3]'
               }`}
             >
-              <Phone className="w-3.5 h-3.5 text-[#C28469]" />
+              <Phone className="w-3.5 h-3.5 text-[#3D342E]" />
               <span>Llamar directamente (+34 622 45 89 12)</span>
             </a>
           </div>

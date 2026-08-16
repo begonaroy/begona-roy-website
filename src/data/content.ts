@@ -10,16 +10,16 @@ export const CLINICAL_INFO = {
   pericardiumSince: 'Facilitadora de Liberación del Pericardio desde 2017',
   location: 'Plaza Europa, 50003 Zaragoza',
   fullAddress: 'Plaza Europa, 50003 Zaragoza (Dirección detallada al concertar la cita)',
-  phone: '+34 622 45 89 12',
-  phoneDisplay: '+34 622 45 89 12',
-  whatsappUrl: 'https://wa.me/34622458912?text=Hola%20Bego%C3%B1a,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20una%20sesi%C3%B3n.',
+  phone: '+34 622 00 00 00',
+  phoneDisplay: '+34 622 00 00 00',
+  whatsappUrl: 'https://wa.me/34622000000?text=Hola%20Bego%C3%B1a,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20una%20sesi%C3%B3n.',
   email: 'info@begonaroy.com',
   workingHours: 'Lunes a Viernes: 09:00 - 20:00 (Cita previa)',
 };
 
 export const IMAGES = {
   heroAtmosphere: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80', // Cozy calm interior with ceramic vase and warm light
-  begonaPortrait: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80', // Professional warm empathetic woman psychologist in sunlit space
+  begonaPortrait: '/public/people/begona-roy.png', // Professional warm empathetic woman psychologist in sunlit space
   clinicInterior: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80', // Peaceful consultation room with soft armchair and plant
   ansiedad: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80', // Serene breathing, hands on heart / meditation
   duelo: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80', // Soft morning mist, gentle sunlight in nature
