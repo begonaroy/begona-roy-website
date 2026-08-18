@@ -128,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98] ${
                 isDark
                   ? 'bg-[#A7B39A] hover:bg-[#B7BEA3] text-[#171A17]'
-                  : 'bg-[#4A5D4E] hover:bg-[#AA4664] text-[#FDFBF7]'
+                  : 'bg-[#4A5D4E] hover:bg-[#AA4664] dark:hover:bg-[#D8659B] text-[#FDFBF7]'
               }`}
             >
               <Calendar className="w-3.5 h-3.5" />
@@ -218,7 +218,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : 'border-[#E6DFD3] text-[#667052] hover:bg-[#E6DFD3]'
               }`}
             >
-              <Phone className="w-3.5 h-3.5 text-[#AA4664]" />
+              <Phone className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
               <span>Llamar directamente (+34 622 45 89 12)</span>
             </a>
           </div>

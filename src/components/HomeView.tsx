@@ -51,7 +51,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E6DFD3] dark:border-[#667052] bg-[#FDFBF7] dark:bg-[#21251F] text-[#4A5D4E] dark:text-[#A7B39A]">
-                <Sparkles className="w-3.5 h-3.5 text-[#AA4664]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
                 <span>BEGOÑA ROY · PSICOLOGÍA SANITARIA & PSICOONCOLOGÍA</span>
               </div>
 
@@ -76,7 +76,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   className={`w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] ${
                     isDark
                       ? 'bg-[#A7B39A] hover:bg-[#B7BEA3] text-[#171A17]'
-                      : 'bg-[#4A5D4E] hover:bg-[#AA4664] text-white'
+                      : 'bg-[#4A5D4E] hover:bg-[#AA4664] dark:hover:bg-[#D8659B] text-white'
                   }`}
                 >
                   <Calendar className="w-4 h-4" />
@@ -93,24 +93,24 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   }`}
                 >
                   <span>Conoce mi enfoque</span>
-                  <ArrowRight className="w-4 h-4 text-[#AA4664]" />
+                  <ArrowRight className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
                 </button>
               </div>
 
               {/* Trust Indicators */}
               <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
                 <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#AA4664]" />
+                  <ShieldCheck className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
                   Col. Nº {CLINICAL_INFO.collegiateNumber}
                 </span>
                 <span className="hidden sm:inline opacity-40">•</span>
                 <span className="flex items-center gap-1.5">
-                  <Heart className="w-4 h-4 text-[#AA4664]" />
+                  <Heart className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
                   {CLINICAL_INFO.yearsExperience}
                 </span>
                 <span className="hidden sm:inline opacity-40">•</span>
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-[#AA4664]" />
+                  <MapPin className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
                   Espacio K alma (Zaragoza) & Online
                 </span>
               </div>
@@ -120,7 +120,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 {/* Decorative background aura */}
-                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#4A5D4E]/10 to-[#AA4664]/15 blur-xl -z-10" />
+                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#4A5D4E]/10 to-[#AA4664]/15 dark:to-[#D8659B]/15 blur-xl -z-10" />
 
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E6DFD3] dark:border-[#667052] aspect-[4/5] bg-gray-100 dark:bg-[#21251F]">
                   <img
@@ -137,7 +137,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     <p className="font-serif italic text-sm text-[#24211F] dark:text-[#F3EFE7]">
                       "Un espacio seguro donde respirar y reencontrarte."
                     </p>
-                    <p className="text-[11px] font-medium text-[#AA4664] mt-1">
+                    <p className="text-[11px] font-medium text-[#AA4664] dark:text-[#D8659B] mt-1">
                       Espacio K alma (C. del Río Huerva, 21, Zaragoza)
                     </p>
                   </div>
@@ -160,18 +160,18 @@ export const HomeView: React.FC<HomeViewProps> = ({
               : 'bg-[#FDFBF7] border-[#E6DFD3]'
           }`}
         >
-          <span className="text-3xl sm:text-4xl text-[#AA4664] block font-serif mb-2">
+          <span className="text-3xl sm:text-4xl text-[#AA4664] dark:text-[#D8659B] block font-serif mb-2">
             “
           </span>
           <p className="font-script text-2xl sm:text-3xl md:text-4xl leading-relaxed text-[#24211F] dark:text-[#F3EFE7] font-semibold">
             Mi objetivo fundamental es acompañarte para traducir las soluciones que ya están en ti y descubrir tus fortalezas...
           </p>
           <div className="mt-4 flex items-center justify-center gap-2">
-            <span className="h-px w-8 bg-[#AA4664]" />
+            <span className="h-px w-8 bg-[#AA4664] dark:bg-[#D8659B]" />
             <span className="font-serif text-sm italic text-[#667052] dark:text-[#B7BEA3]">
               Begoña Roy · Psicología Sanitaria & Liberación del Pericardio
             </span>
-            <span className="h-px w-8 bg-[#AA4664]" />
+            <span className="h-px w-8 bg-[#AA4664] dark:bg-[#D8659B]" />
           </div>
         </div>
       </section>
@@ -203,7 +203,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           {/* Bio Text */}
           <div className="lg:col-span-7 space-y-6 order-1 lg:order-2 text-left">
             <div className="space-y-2">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
                 QUIÉN SOY
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -238,7 +238,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
               <button
                 onClick={onOpenBooking}
-                className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] hover:underline"
+                className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B] hover:underline"
               >
                 Pedir cita con Begoña
               </button>
@@ -253,7 +253,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-14">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             ACOMPAÑAMIENTO Y ATENCIÓN
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -280,7 +280,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       : 'bg-white border-[#4A5D4E]/40 shadow-lg ring-1 ring-[#4A5D4E]/20'
                     : isDark
                     ? 'bg-[#171A17] border-[#667052] hover:border-[#A7B39A]/40'
-                    : 'bg-[#FDFBF7] border-[#E6DFD3] hover:border-[#AA4664]/50'
+                    : 'bg-[#FDFBF7] border-[#E6DFD3] hover:border-[#AA4664]/50 dark:hover:border-[#D8659B]/50'
                 }`}
               >
                 {/* Accordion Header Toggle */}
@@ -294,7 +294,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     <span
                       className={`font-serif text-base sm:text-lg font-bold flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center ${
                         isOpen
-                          ? 'bg-[#AA4664] text-white'
+                          ? 'bg-[#AA4664] dark:bg-[#D8659B] text-white'
                           : isDark
                           ? 'bg-[#21251F] text-[#B7BEA3]'
                           : 'bg-[#E6DFD3] text-[#667052]'
@@ -309,7 +309,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                           {service.title}
                         </h3>
                         {service.featured && (
-                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#AA4664] text-white shadow-sm">
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#AA4664] dark:bg-[#D8659B] text-white shadow-sm">
                             Especialidad Destacada
                           </span>
                         )}
@@ -335,7 +335,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <div
                     className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
                       isOpen
-                        ? 'bg-[#AA4664]/15 text-[#AA4664] rotate-180'
+                        ? 'bg-[#AA4664]/15 dark:bg-[#D8659B]/15 text-[#AA4664] dark:text-[#D8659B] rotate-180'
                         : isDark
                         ? 'bg-[#21251F] text-[#B7BEA3]'
                         : 'bg-[#E6DFD3] text-[#667052]'
@@ -351,7 +351,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     {/* Subtitle & Image row */}
                     <div className="flex flex-col md:flex-row gap-6 items-start">
                       <div className="flex-1 space-y-3">
-                        <p className="font-serif italic text-base sm:text-lg text-[#AA4664]">
+                        <p className="font-serif italic text-base sm:text-lg text-[#AA4664] dark:text-[#D8659B]">
                           {service.subtitle}
                         </p>
 
@@ -394,7 +394,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                         <ul className="space-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
                           {service.benefits.map((b, bIdx) => (
                             <li key={bIdx} className="flex items-start gap-2">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#AA4664] flex-shrink-0 mt-1.5" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#AA4664] dark:bg-[#D8659B] flex-shrink-0 mt-1.5" />
                               <span>{b}</span>
                             </li>
                           ))}
@@ -410,7 +410,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                         }`}
                       >
                         <h4 className="font-serif font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2">
-                          <Compass className="w-4 h-4 text-[#AA4664]" />
+                          <Compass className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
                           <span>Indicado especialmente para:</span>
                         </h4>
                         <ul className="space-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
@@ -428,7 +428,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     <div className="pt-3 border-t border-[#E6DFD3] dark:border-[#667052] flex flex-col sm:flex-row items-center justify-between gap-3">
                       <div className="flex items-center gap-3 text-xs text-[#667052] dark:text-[#B7BEA3]">
                         <span className="inline-flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5 text-[#AA4664]" />
+                          <Clock className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
                           <span>{service.duration}</span>
                         </span>
                         <span>•</span>
@@ -455,7 +455,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                           className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                             isDark
                               ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                              : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                              : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
                           }`}
                         >
                           <Calendar className="w-3.5 h-3.5" />
@@ -492,7 +492,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             FLEXIBILIDAD Y CERCANÍA
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -519,7 +519,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <h3 className="font-serif text-xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
                 Terapia Presencial
               </h3>
-              <p className="text-xs text-[#AA4664] font-semibold uppercase tracking-wider">
+              <p className="text-xs text-[#AA4664] dark:text-[#D8659B] font-semibold uppercase tracking-wider">
                 Espacio K alma · Zaragoza (50006)
               </p>
               <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
@@ -548,7 +548,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <h3 className="font-serif text-xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
                 Terapia Online
               </h3>
-              <p className="text-xs text-[#AA4664] font-semibold uppercase tracking-wider">
+              <p className="text-xs text-[#AA4664] dark:text-[#D8659B] font-semibold uppercase tracking-wider">
                 Videoconsulta Segura
               </p>
               <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
@@ -567,7 +567,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             className={`p-8 rounded-3xl border flex flex-col justify-between text-white shadow-xl ${
               isDark
                 ? 'bg-gradient-to-br from-[#21251F] to-[#171A17] border-[#A7B39A]/40'
-                : 'bg-gradient-to-br from-[#4A5D4E] to-[#21251F] border-[#4A5D4E]'
+                : 'bg-gradient-to-br from-[#4A5D4E] to-[#3e4e42] border-[#4A5D4E]'
             }`}
           >
             <div className="space-y-4">
@@ -601,7 +601,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* 6. TESTIMONIOS Y PALABRAS DE CONFIANZA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             ESPACIO DE CONFIANZA
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -628,7 +628,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <span className="font-semibold block text-[#24211F] dark:text-[#F3EFE7]">
                     {item.author}
                   </span>
-                  <span className="text-[#AA4664]">{item.service}</span>
+                  <span className="text-[#AA4664] dark:text-[#D8659B]">{item.service}</span>
                 </div>
                 <span className="text-[11px] text-[#667052] dark:text-[#B7BEA3]">
                   {item.context}

@@ -78,7 +78,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       <section className="pt-6 sm:pt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E6DFD3] dark:border-[#667052] bg-[#FDFBF7] dark:bg-[#21251F] text-[#4A5D4E] dark:text-[#A7B39A]">
-            <Sparkles className="w-3.5 h-3.5 text-[#AA4664]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
             <span>PSICOLOGÍA SANITARIA & ACOMPAÑAMIENTO INTEGRAL</span>
           </span>
 
@@ -103,8 +103,8 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
         >
           {/* Accent decoration */}
           <div className="flex items-center gap-2 mb-3">
-            <Feather className="w-4 h-4 text-[#AA4664]" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+            <Feather className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
               VISIÓN DEL ACOMPAÑAMIENTO
             </span>
           </div>
@@ -130,7 +130,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       {/* 3. ¿QUÉ ENCONTRARÁS EN NUESTRAS SESIONES? */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             EN CONSULTA
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
@@ -169,7 +169,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 : 'bg-white border-[#E6DFD3]'
             }`}
           >
-            <div className="w-10 h-10 rounded-xl bg-[#AA4664]/10 text-[#AA4664] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-[#AA4664]/10 dark:bg-[#D8659B]/10 text-[#AA4664] dark:text-[#D8659B] flex items-center justify-center">
               <Compass className="w-5 h-5" />
             </div>
             <h3 className="font-serif text-lg font-medium text-[#24211F] dark:text-[#F3EFE7]">
@@ -229,7 +229,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     : 'bg-white border-[#E6DFD3] text-[#24211F]'
                 }`}
               >
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#AA4664]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
                 <span>{tech}</span>
               </span>
             ))}
@@ -240,7 +240,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       {/* 4. LOS 3 ABORDAJES TERAPÉUTICOS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             DISCIPLINAS Y ENFOQUES
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
@@ -293,7 +293,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                   <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A]">
                     Enfoque Global
                   </span>
-                  <span className="text-xs font-medium text-[#AA4664]">Cuerpo · Mente · Emociones</span>
+                  <span className="text-xs font-medium text-[#AA4664] dark:text-[#D8659B]">Cuerpo · Mente · Emociones</span>
                 </div>
 
                 <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
@@ -314,7 +314,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     }`}
                   >
                     <h4 className="font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2 mb-1.5">
-                      <Sun className="w-4 h-4 text-[#AA4664]" />
+                      <Sun className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
                       <span>Aporta una visión global</span>
                     </h4>
                     <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
@@ -362,7 +362,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     }`}
                   >
                     <h4 className="font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2 mb-1.5">
-                      <Target className="w-4 h-4 text-[#AA4664]" />
+                      <Target className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
                       <span>Enfoque práctico</span>
                     </h4>
                     <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
@@ -377,7 +377,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                       isDark
                         ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                        : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                        : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
                     }`}
                   >
                     <Calendar className="w-4 h-4" />
@@ -416,7 +416,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
             <div className="flex flex-col lg:flex-row gap-8 items-start">
               <div className="flex-1 space-y-5">
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#AA4664]/10 text-[#AA4664]">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#AA4664]/10 dark:bg-[#D8659B]/10 text-[#AA4664] dark:text-[#D8659B]">
                     Avalado por la OMS
                   </span>
                   <span className="text-xs font-medium text-[#4A5D4E] dark:text-[#A7B39A]">
@@ -489,7 +489,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                       isDark
                         ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                        : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                        : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
                     }`}
                   >
                     <Calendar className="w-4 h-4" />
@@ -528,7 +528,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
             <div className="flex flex-col lg:flex-row gap-8 items-start">
               <div className="flex-1 space-y-5">
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#AA4664] text-white shadow-sm">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#AA4664] dark:bg-[#D8659B] text-white shadow-sm">
                     Especialidad Destacada
                   </span>
                   <span className="text-xs font-medium text-[#4A5D4E] dark:text-[#A7B39A]">
@@ -555,7 +555,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     }`}
                   >
                     <h4 className="font-serif font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2">
-                      <Heart className="w-4 h-4 text-[#AA4664]" />
+                      <Heart className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
                       <span>¿Qué hace un psicooncólogo?</span>
                     </h4>
                     <ul className="space-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
@@ -592,15 +592,15 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     </h4>
                     <ul className="space-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
                       <li className="flex items-start gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#AA4664] flex-shrink-0 mt-1.5" />
+                        <span className="w-2 h-2 rounded-full bg-[#AA4664] dark:bg-[#D8659B] flex-shrink-0 mt-1.5" />
                         <span><strong>Diagnóstico:</strong> baja el impacto inicial del shock y el miedo.</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#AA4664] flex-shrink-0 mt-1.5" />
+                        <span className="w-2 h-2 rounded-full bg-[#AA4664] dark:bg-[#D8659B] flex-shrink-0 mt-1.5" />
                         <span><strong>Tratamiento:</strong> da herramientas para soportar el cansancio y el dolor.</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#AA4664] flex-shrink-0 mt-1.5" />
+                        <span className="w-2 h-2 rounded-full bg-[#AA4664] dark:bg-[#D8659B] flex-shrink-0 mt-1.5" />
                         <span><strong>Supervivencia o cuidados paliativos:</strong> acompaña en el regreso a la rutina o en el duelo.</span>
                       </li>
                     </ul>
@@ -613,7 +613,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                       isDark
                         ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                        : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                        : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
                     }`}
                   >
                     <Calendar className="w-4 h-4" />
@@ -644,7 +644,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       {/* 4.5. TE PUEDO AYUDAR EN (ACORDEÓN INTERACTIVO) */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             MOTIVOS DE CONSULTA Y ACOMPAÑAMIENTO
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -671,7 +671,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                       : 'bg-white border-[#4A5D4E]/40 shadow-lg ring-1 ring-[#4A5D4E]/20'
                     : isDark
                     ? 'bg-[#171A17] border-[#667052] hover:border-[#A7B39A]/40'
-                    : 'bg-[#FDFBF7] border-[#E6DFD3] hover:border-[#AA4664]/50'
+                    : 'bg-[#FDFBF7] border-[#E6DFD3] hover:border-[#AA4664]/50 dark:hover:border-[#D8659B]/50'
                 }`}
               >
                 {/* Accordion Header Toggle */}
@@ -685,7 +685,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     <span
                       className={`font-serif text-base sm:text-lg font-bold flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center ${
                         isOpen
-                          ? 'bg-[#AA4664] text-white'
+                          ? 'bg-[#AA4664] dark:bg-[#D8659B] text-white'
                           : isDark
                           ? 'bg-[#21251F] text-[#B7BEA3]'
                           : 'bg-[#E6DFD3] text-[#667052]'
@@ -700,7 +700,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                           {service.title}
                         </h3>
                         {service.featured && (
-                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#AA4664] text-white shadow-sm">
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#AA4664] dark:bg-[#D8659B] text-white shadow-sm">
                             Especialidad Destacada
                           </span>
                         )}
@@ -726,7 +726,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                   <div
                     className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
                       isOpen
-                        ? 'bg-[#AA4664]/15 text-[#AA4664] rotate-180'
+                        ? 'bg-[#AA4664]/15 dark:bg-[#D8659B]/15 text-[#AA4664] dark:text-[#D8659B] rotate-180'
                         : isDark
                         ? 'bg-[#21251F] text-[#B7BEA3]'
                         : 'bg-[#E6DFD3] text-[#667052]'
@@ -742,7 +742,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     {/* Subtitle & Image row */}
                     <div className="flex flex-col md:flex-row gap-6 items-start">
                       <div className="flex-1 space-y-3">
-                        <p className="font-serif italic text-base sm:text-lg text-[#AA4664]">
+                        <p className="font-serif italic text-base sm:text-lg text-[#AA4664] dark:text-[#D8659B]">
                           {service.subtitle}
                         </p>
 
@@ -785,7 +785,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                         <ul className="space-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
                           {service.benefits.map((b, bIdx) => (
                             <li key={bIdx} className="flex items-start gap-2">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#AA4664] flex-shrink-0 mt-1.5" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#AA4664] dark:bg-[#D8659B] flex-shrink-0 mt-1.5" />
                               <span>{b}</span>
                             </li>
                           ))}
@@ -801,7 +801,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                         }`}
                       >
                         <h4 className="font-serif font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2">
-                          <Compass className="w-4 h-4 text-[#AA4664]" />
+                          <Compass className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
                           <span>Indicado especialmente para:</span>
                         </h4>
                         <ul className="space-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
@@ -819,7 +819,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     <div className="pt-3 border-t border-[#E6DFD3] dark:border-[#667052] flex flex-col sm:flex-row items-center justify-between gap-3">
                       <div className="flex items-center gap-3 text-xs text-[#667052] dark:text-[#B7BEA3]">
                         <span className="inline-flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5 text-[#AA4664]" />
+                          <Clock className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
                           <span>{service.duration}</span>
                         </span>
                         <span>•</span>
@@ -846,7 +846,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                           className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                             isDark
                               ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                              : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                              : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
                           }`}
                         >
                           <Calendar className="w-3.5 h-3.5" />
@@ -865,7 +865,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       {/* 5. METODOLOGÍA: ¿CÓMO TRABAJAMOS EN CONSULTA? (INTACTA) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             PROCESO TERAPÉUTICO
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -889,7 +889,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-serif text-2xl font-bold text-[#AA4664]/50">
+                  <span className="font-serif text-2xl font-bold text-[#AA4664]/50 dark:text-[#D8659B]/50">
                     {item.step}
                   </span>
                   <div className="w-10 h-10 rounded-xl bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex items-center justify-center">
@@ -924,7 +924,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
           <div className="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-[#4A5D4E]/10 blur-3xl pointer-events-none" />
 
           <div className="relative space-y-5 max-w-xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] block">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B] block">
               COMIENZA TU PROCESO
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight">
@@ -940,7 +940,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-md active:scale-[0.98] ${
                   isDark
                     ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
                 }`}
               >
                 <Calendar className="w-4 h-4" />
@@ -955,7 +955,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     : 'border-[#E6DFD3] text-[#24211F] hover:bg-white'
                 }`}
               >
-                <MessageSquare className="w-4 h-4 text-[#AA4664]" />
+                <MessageSquare className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
                 <span>Ver Preguntas Frecuentes</span>
               </button>
             </div>
