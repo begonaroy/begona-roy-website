@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavigationTab } from '../types';
+import { ROUTES } from '../routes';
+import { CLINICAL_INFO } from '../data/content';
 import { Logo } from './Logo';
 import { Sun, Moon, Calendar, Menu, X, Phone, Heart } from 'lucide-react';
 
@@ -73,10 +75,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             {navLinks.map((link) => {
               const isActive = currentTab === link.id;
               return (
-                <button
+                <a
                   key={link.id}
                   id={`nav-link-${link.id}`}
-                  onClick={() => handleNavClick(link.id)}
+                  href={ROUTES[link.id]}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    handleNavClick(link.id);
+                  }}
                   className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? isDark
@@ -95,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       }`}
                     />
                   )}
-                </button>
+                </a>
               );
             })}
           </nav>
@@ -169,9 +175,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           {navLinks.map((link) => {
             const isActive = currentTab === link.id;
             return (
-              <button
+              <a
                 key={link.id}
-                onClick={() => handleNavClick(link.id)}
+                href={ROUTES[link.id]}
+                onClick={(event) => {
+                  event.preventDefault();
+                  handleNavClick(link.id);
+                }}
                 className={`w-full text-left px-4 py-3 rounded-xl text-base font-medium flex items-center justify-between transition-colors ${
                   isActive
                     ? isDark
@@ -190,7 +200,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     }`}
                   />
                 )}
-              </button>
+              </a>
             );
           })}
 
@@ -211,7 +221,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
 
             <a
-              href="tel:+34622458912"
+              href={`tel:${CLINICAL_INFO.phone}`}
               className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium border transition-colors ${
                 isDark
                   ? 'border-[#667052] text-[#B7BEA3] hover:bg-[#21251F]'
@@ -219,7 +229,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               }`}
             >
               <Phone className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
-              <span>Llamar directamente (+34 622 45 89 12)</span>
+              <span>Llamar directamente ({CLINICAL_INFO.phoneDisplay})</span>
             </a>
           </div>
         </div>

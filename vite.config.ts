@@ -6,6 +6,16 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
+    build: {
+      rollupOptions: {
+        input: {
+          home: path.resolve(__dirname, 'index.html'),
+          psicologia: path.resolve(__dirname, 'psicologia-zaragoza/index.html'),
+          pericardio: path.resolve(__dirname, 'liberacion-del-pericardio-zaragoza/index.html'),
+          contacto: path.resolve(__dirname, 'contacto-psicologa-zaragoza/index.html'),
+        },
+      },
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
