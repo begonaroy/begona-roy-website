@@ -69,7 +69,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
       <section className="pt-6 sm:pt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E6DFD3] dark:border-[#667052] bg-[#FDFBF7] dark:bg-[#21251F] text-[#4A5D4E] dark:text-[#A7B39A]">
-            <Sparkles className="w-3.5 h-3.5 text-[#3D342E]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#AA4664]" />
             <span>ESTOY A TU LADO</span>
           </div>
 
@@ -78,7 +78,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
           </h1>
 
           <p className="text-base text-[#667052] dark:text-[#B7BEA3] leading-relaxed">
-            Si deseas resolver cualquier duda o solicitar tu primera sesión en Zaragoza (Plaza Europa) o en modalidad online, estaré encantada de atenderte.
+            Si deseas resolver cualquier duda o solicitar tu primera sesión en Espacio K alma, Zaragoza, o en modalidad online, estaré encantada de atenderte.
           </p>
         </div>
       </section>
@@ -302,7 +302,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                       className={`inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all disabled:opacity-50 ${
                         isDark
                           ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                          : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#3D342E]'
+                          : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664]'
                       }`}
                     >
                       {isSending ? (
@@ -355,7 +355,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                     </span>
                     <a
                       href={`tel:${CLINICAL_INFO.phone}`}
-                      className="font-medium hover:text-[#3D342E] transition-colors"
+                      className="font-medium hover:text-[#AA4664] transition-colors"
                     >
                       {CLINICAL_INFO.phoneDisplay}
                     </a>
@@ -372,7 +372,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                     </span>
                     <a
                       href={`mailto:${CLINICAL_INFO.email}`}
-                      className="font-medium hover:text-[#3D342E] transition-colors"
+                      className="font-medium hover:text-[#AA4664] transition-colors"
                     >
                       {CLINICAL_INFO.email}
                     </a>
@@ -391,7 +391,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                       {CLINICAL_INFO.location}
                     </p>
                     <p className="text-xs text-[#667052] dark:text-[#B7BEA3] mt-0.5">
-                      Dirección completa facilitada al agendar la cita.
+                      Espacio K alma · C. del Río Huerva, 21 · 50006 Zaragoza
                     </p>
                   </div>
                 </div>
@@ -424,25 +424,25 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                 <h4 className="font-serif text-lg font-medium text-[#24211F] dark:text-[#F3EFE7]">
                   Cómo llegar a la consulta
                 </h4>
-                <MapPin className="w-4 h-4 text-[#3D342E]" />
+                <MapPin className="w-4 h-4 text-[#AA4664]" />
               </div>
 
               <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
-                Ubicada en Plaza Europa, en una zona estratégica de Zaragoza, junto a la ribera del Ebro y la Aljafería, con excelentes conexiones:
+                Ubicada en Espacio K alma, en C. del Río Huerva, 21, en la zona de Ruiseñores de Zaragoza, con buenas conexiones:
               </p>
 
               <div className="space-y-2 text-xs">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#3D342E]" />
-                  <span><strong>Autobús Urbano (Avanza):</strong> Líneas 36, 42, Ci1, Ci2, 23 y 34 con parada en Plaza Europa.</span>
+                  <span className="w-2 h-2 rounded-full bg-[#AA4664]" />
+                  <span><strong>Autobús urbano:</strong> Paradas cercanas en la zona de Paseo de Sagasta y Ruiseñores.</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#3D342E]" />
-                  <span><strong>Tranvía de Zaragoza:</strong> Parada Plaza del Pilar - Murallas o César Augusto a pocos minutos a pie.</span>
+                  <span className="w-2 h-2 rounded-full bg-[#AA4664]" />
+                  <span><strong>Tranvía de Zaragoza:</strong> Conexión próxima desde las paradas de la zona de Gran Vía.</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#3D342E]" />
-                  <span><strong>Aparcamiento:</strong> Plazas en el entorno de Plaza Europa y Paseo Echegaray y Caballero.</span>
+                  <span className="w-2 h-2 rounded-full bg-[#AA4664]" />
+                  <span><strong>Aparcamiento:</strong> Disponible en las calles y aparcamientos públicos del entorno.</span>
                 </div>
               </div>
             </div>
@@ -453,7 +453,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
       {/* 3. PREGUNTAS FRECUENTES (FAQS) ACCORDION */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center space-y-2 mb-10">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#3D342E]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
             RESOLVEMOS TUS DUDAS
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -534,7 +534,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#3D342E] flex-shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-[#AA4664] flex-shrink-0 transition-transform duration-300 ${
                       isOpen ? 'rotate-180' : 'rotate-0'
                     }`}
                   />
@@ -567,7 +567,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
           }`}
         >
           <div className="space-y-4 max-w-lg mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#C7B3A3]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#D8659B]">
               EMPIEZA HOY
             </span>
             <h2 className="font-serif text-3xl font-medium tracking-tight">

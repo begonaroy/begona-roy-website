@@ -42,7 +42,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
       <section className="pt-6 sm:pt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E6DFD3] dark:border-[#667052] bg-[#FDFBF7] dark:bg-[#21251F] text-[#4A5D4E] dark:text-[#A7B39A]">
-            <Heart className="w-3.5 h-3.5 text-[#3D342E] fill-current" />
+            <Heart className="w-3.5 h-3.5 text-[#AA4664] fill-current" />
             <span>TERAPIA FÍSICA Y EMOCIONAL</span>
           </span>
 
@@ -54,7 +54,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
             {PERICARDIUM_INFO.subtitle}
           </p>
 
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#3D342E]">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#AA4664]">
             {PERICARDIUM_INFO.facilitatorNote}
           </p>
         </div>
@@ -72,7 +72,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
           <p className="font-script text-2xl sm:text-3xl leading-relaxed text-[#24211F] dark:text-[#F3EFE7] font-semibold">
             "{PERICARDIUM_INFO.quote}"
           </p>
-          <span className="font-serif text-xs uppercase tracking-widest text-[#3D342E] font-medium block mt-3">
+          <span className="font-serif text-xs uppercase tracking-widest text-[#AA4664] font-medium block mt-3">
             Begoña Roy · Facilitadora de Pericardio
           </span>
         </div>
@@ -84,7 +84,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
           {/* Left Column: What is it Text */}
           <div className="lg:col-span-6 space-y-6 text-left">
             <div className="space-y-2">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#3D342E]">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
                 ENTENDIENDO LA TERAPIA
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -104,7 +104,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
                 className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                   isDark
                     ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#3D342E]'
+                    : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664]'
                 }`}
               >
                 <Calendar className="w-4 h-4" />
@@ -138,7 +138,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
                     stroke="currentColor"
                     strokeWidth="1.5"
                     strokeDasharray="4 6"
-                    className="text-[#8F9779] dark:text-[#3D342E]"
+                    className="text-[#8F9779] dark:text-[#AA4664]"
                   />
 
                   {/* Botanical Leaves Surrounding */}
@@ -170,28 +170,28 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
                        C180 280, 120 240, 110 180
                        C100 120, 155 80, 200 120Z"
                     fill="currentColor"
-                    className="text-[#3D342E] opacity-80"
+                    className="text-[#AA4664] opacity-80"
                   />
 
                   {/* Anatomical Ribbon Insertions */}
                   {/* Top: Base of Skull & Vagus */}
-                  <line x1="200" y1="70" x2="200" y2="25" stroke="#3D342E" strokeWidth="2.5" strokeDasharray="3 3" />
+                  <line x1="200" y1="70" x2="200" y2="25" stroke="#AA4664" strokeWidth="2.5" strokeDasharray="3 3" />
                   {/* Bottom: Diaphragm */}
-                  <line x1="200" y1="360" x2="200" y2="390" stroke="#3D342E" strokeWidth="2.5" strokeDasharray="3 3" />
+                  <line x1="200" y1="360" x2="200" y2="390" stroke="#AA4664" strokeWidth="2.5" strokeDasharray="3 3" />
                   {/* Left: Sternum / Costal */}
-                  <line x1="70" y1="210" x2="30" y2="210" stroke="#3D342E" strokeWidth="2.5" strokeDasharray="3 3" />
+                  <line x1="70" y1="210" x2="30" y2="210" stroke="#AA4664" strokeWidth="2.5" strokeDasharray="3 3" />
                   {/* Right: Spine / Dorsal */}
-                  <line x1="330" y1="210" x2="370" y2="210" stroke="#3D342E" strokeWidth="2.5" strokeDasharray="3 3" />
+                  <line x1="330" y1="210" x2="370" y2="210" stroke="#AA4664" strokeWidth="2.5" strokeDasharray="3 3" />
 
                   {/* Center Sparkle */}
                   <circle cx="200" cy="200" r="12" fill="#FDFBF7" fillOpacity="0.8" />
-                  <circle cx="200" cy="200" r="6" fill="#3D342E" />
+                  <circle cx="200" cy="200" r="6" fill="#AA4664" />
                 </svg>
               </div>
 
               {/* Interactive Connection Tabs */}
               <div className="mt-4 space-y-3">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#3D342E] block">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] block">
                   Conexiones Anatómicas Principales (Haz clic para ver):
                 </span>
 
@@ -237,7 +237,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
       {/* 4. ¿CÓMO SON LAS SESIONES? (3 STEPS) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#3D342E]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
             EL ENCUENTRO EN CAMILLA
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -260,7 +260,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-serif text-3xl font-bold text-[#3D342E]">
+                  <span className="font-serif text-3xl font-bold text-[#AA4664]">
                     {stepItem.step}
                   </span>
                   <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A]">
@@ -271,7 +271,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
                 <h3 className="font-serif text-xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
                   {stepItem.title}
                 </h3>
-                <p className="text-xs font-semibold text-[#3D342E]">
+                <p className="text-xs font-semibold text-[#AA4664]">
                   {stepItem.subtitle}
                 </p>
                 <p className="text-xs sm:text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
@@ -299,7 +299,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
           }`}
         >
           <div className="text-center space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#3D342E]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
               EFECTOS VIVENCIALES
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl font-medium">
@@ -335,14 +335,14 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
           }`}
         >
           <div className="space-y-4 max-w-lg mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#C7B3A3]">
-              CONSULTA EN PLAZA EUROPA · ZARAGOZA
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#D8659B]">
+              CONSULTA EN ESPACIO K ALMA · ZARAGOZA
             </span>
             <h2 className="font-serif text-3xl font-medium tracking-tight">
               ¿Sientes que tu corazón necesita respirar?
             </h2>
             <p className="text-sm leading-relaxed text-[#E6DFD3]">
-              Reserva tu sesión presencial de Liberación del Pericardio en Zaragoza (Plaza Europa, 50003). Una experiencia transformadora para tu salud física y emocional.
+              Reserva tu sesión presencial de Liberación del Pericardio en Espacio K alma, C. del Río Huerva, 21 (50006 Zaragoza). Una experiencia transformadora para tu salud física y emocional.
             </p>
 
             <div className="pt-4 flex justify-center">

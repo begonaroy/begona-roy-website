@@ -13,14 +13,14 @@
   --color-green-strong: #4A5D4E;
   --color-olive-soft: #8F9779;
   --color-olive-functional: #667052;
-  --color-earth: #3D342E;
+  --color-cherry: #AA4664;
   --color-sand: #E6DFD3;
   --color-dark-background: #171A17;
   --color-dark-surface: #21251F;
   --color-soft-linen: #F3EFE7;
   --color-light-green: #A7B39A;
   --color-light-olive: #B7BEA3;
-  --color-light-earth: #C7B3A3;
+  --color-intense-cherry: #D8659B;
 }
 
 @layer base {
