@@ -18,12 +18,16 @@ export const CLINICAL_INFO = {
 };
 
 export const IMAGES = {
-  heroAtmosphere: '/public/people/begona-roy-2.png', // Cozy calm interior with ceramic vase and warm light
-  begonaPortrait: '/public/people/begona-roy.png', // Professional warm empathetic woman psychologist in sunlit space
+  heroAtmosphere: '/people/begona-roy-2.png', // Cozy calm interior with ceramic vase and warm light
+  begonaPortrait: '/people/begona-roy.png', // Professional warm empathetic woman psychologist in sunlit space
   clinicInterior: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80', // Peaceful consultation room with soft armchair and plant
   ansiedad: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80', // Serene breathing, hands on heart / meditation
+  depresion: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=800&q=80', // Gentle light filtering through morning trees, hope
   duelo: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80', // Soft morning mist, gentle sunlight in nature
   psicooncologia: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80', // Gentle warm hands holding each other in trust
+  trauma: 'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80', // Dawn breaking over mountains, gentle release and safety
+  psicosomaticos: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80', // Somatic gentle hands therapy / healing hands
+  espiritual: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80', // Open horizon, clear light, calm awareness
   pericardio: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80', // Somatic gentle hands therapy / healing hands
   zaragozaCity: 'https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=1000&q=80', // Architectural calm
 };
@@ -32,11 +36,11 @@ export const SERVICES_DATA: ServiceDetail[] = [
   {
     id: 'ansiedad-estres',
     slug: 'ansiedad',
-    title: 'Gestión de la Ansiedad y Estrés',
-    subtitle: 'Regula tu sistema nervioso y recupera el centro de tu vida',
-    description: 'Abordaje integral que combina herramientas cognitivas, regulación vagal y consciencia somática para desactivar la hiperalerta y reencontrar la calma.',
+    title: 'Ansiedad / Estrés',
+    subtitle: 'Regula tu sistema nervioso, desactiva la alarma interna y recupera la calma',
+    description: 'Abordaje integral que combina herramientas cognitivas, regulación del sistema nervioso y consciencia somática para salir del estado de hiperalerta continuo.',
     fullContent: [
-      'La ansiedad no es un defecto personal ni una debilidad; es una respuesta adaptativa del organismo cuando el sistema nervioso percibe una amenaza o sobrecarga prolongada.',
+      'La ansiedad no es un defecto personal ni una debilidad; es una respuesta adaptativa del organismo cuando el sistema nervioso percibe una sobrecarga o amenaza prolongada.',
       'En consulta trabajamos desde la comprensión neurobiológica de la alarma interna, integrando técnicas de regulación del nervio vago, desactivación del bucle de pensamientos catastróficos y anclajes corporales.',
       'Aprenderás a escuchar el mensaje de tu síntoma sin luchar contra él, desarrollando recursos de autorregulación y autocompasión que perduran en el tiempo.'
     ],
@@ -44,13 +48,13 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Disminución del estado de alerta continuo y la tensión muscular',
       'Herramientas prácticas de respiración y autorregulación somática',
       'Desactivación de pensamientos rumiantes e insomnio',
-      'Mayor claridad para la toma de decisiones cotidianas'
+      'Mayor serenidad y claridad para la toma de decisiones cotidianas'
     ],
     forWhom: [
-      'Personas con sensación constante de agobio o nudo en el estómago',
+      'Personas con sensación constante de prisa, nudo en el estómago o agobio',
       'Quienes experimentan ataques de pánico o miedo a perder el control',
       'Profesionales con sobrecarga laboral y síndrome de burnout',
-      'Personas con somatizaciones (palpitaciones, bruxismo, molestias digestivas)'
+      'Personas con somatizaciones como palpitaciones, bruxismo o molestias digestivas'
     ],
     duration: '50 - 60 minutos por sesión',
     modalities: ['Presencial en Zaragoza', 'Online'],
@@ -58,27 +62,55 @@ export const SERVICES_DATA: ServiceDetail[] = [
     image: IMAGES.ansiedad
   },
   {
-    id: 'duelo-trauma',
+    id: 'tristeza-depresion',
+    slug: 'depresion',
+    title: 'Tristeza / Depresión',
+    subtitle: 'Un espacio compasivo para comprender el vacío y reencontrar la luz y el sentido',
+    description: 'Acompañamiento sin juicios ni exigencias para transitar la falta de energía, la desmotivación profunda y el dolor emocional desde el respeto absoluto por tus ritmos.',
+    fullContent: [
+      'La tristeza profunda o el estado depresivo nos indica que algo en nuestra vida necesita ser escuchado, atendido o despedido. Forzarse a "estar bien" suele generar más culpa y aislamiento.',
+      'En sesión creamos un lugar seguro donde poder ser tal y como estás en este momento, comprendiendo el origen de tu desánimo sin etiquetas que te limiten.',
+      'Poco a poco reconstruimos puentes con tu bienestar, rescatando tus recursos internos y reconectando con deseos genuinos a tu propio compás.'
+    ],
+    benefits: [
+      'Validación de tu estado emocional sin exigencias sociales de positividad forzada',
+      'Recuperación gradual de la energía vital y la motivación',
+      'Alivio de la autocrítica destructiva, la apatía y la culpa',
+      'Reconexión con el sentido vital y el autocuidado consciente'
+    ],
+    forWhom: [
+      'Sensación de vacío, abatimiento prolongado o pérdida de ilusión',
+      'Dificultad para levantarse con energía o afrontar las tareas diarias',
+      'Personas que sienten que han perdido el rumbo o la conexión consigo mismas',
+      'Estados de tristeza recurrente tras cambios de etapa vital'
+    ],
+    duration: '50 - 60 minutos por sesión',
+    modalities: ['Presencial en Zaragoza', 'Online'],
+    tag: 'Reconexión Vital',
+    image: IMAGES.depresion
+  },
+  {
+    id: 'duelo',
     slug: 'duelo',
-    title: 'Procesos de Duelo y Trauma',
-    subtitle: 'Elaborar la pérdida con ternura, presencia y respeto por tus tiempos',
-    description: 'Acompañamiento cercano en duelos significativos, rupturas, pérdida de salud o traumas acumulativos que dificultan avanzar en el presente.',
+    title: 'Duelo',
+    subtitle: 'Elaborar las pérdidas vitales con ternura, presencia y respeto por tus tiempos',
+    description: 'Acompañamiento en el proceso de despedida y reorganización interna ante el fallecimiento de un ser querido, rupturas o pérdidas de salud y proyectos.',
     fullContent: [
       'El duelo es el proceso natural de reorganización interna tras una pérdida significativa: un ser querido, un proyecto de vida, la salud o una relación.',
       'No existen fórmulas mágicas ni tiempos preestablecidos. Te ofrezco un espacio seguro y sin juicios donde expresar la tristeza, la rabia, la culpa o el desconcierto.',
       'Trabajamos con respeto profundo por tu ritmo biológico, facilitando la integración de la memoria emocional para que el dolor se transforme en recuerdo amoroso y sentido vital.'
     ],
     benefits: [
-      'Validación y expresión emocional sin exigencias sociales de "estar bien"',
+      'Validación y expresión emocional sin exigencias de "superarlo rápido"',
       'Comprensión de las diferentes etapas y ondulaciones del duelo',
       'Alivio de la culpa y la sensación de vacío abrumador',
       'Reconstrucción gradual de la identidad y del proyecto vital'
     ],
     forWhom: [
       'Pérdida reciente o no elaborada de un ser querido',
-      'Duelo por diagnóstico médico de enfermedad crónica o degenerativa',
+      'Duelo por diagnóstico médico o pérdida de capacidades físicas',
       'Rupturas afectivas y cambios vitales drásticos',
-      'Experiencias traumáticas que reaparecen en forma de recuerdos intrusivos'
+      'Duelos desautorizados o congelados en el tiempo'
     ],
     duration: '50 - 60 minutos por sesión',
     modalities: ['Presencial en Zaragoza', 'Online'],
@@ -88,12 +120,12 @@ export const SERVICES_DATA: ServiceDetail[] = [
   {
     id: 'psicooncologia',
     slug: 'psicooncologia',
-    title: 'Psicooncología y Acompañamiento Oncológico',
-    subtitle: 'Sostén psicológico especializado para pacientes y familias en cada etapa',
+    title: 'Psicooncología',
+    subtitle: 'Sostén psicológico especializado para pacientes y familiares en todas las etapas del cáncer',
     description: 'Acompañamiento compasivo desde el impacto del diagnóstico inicial, durante los tratamientos (quimio, radio, cirugía) y en la etapa de supervivencia o final de vida.',
     fullContent: [
       'El diagnóstico de cáncer genera un impacto existencial que sacude todas las áreas de la vida: emocional, corporal, familiar y espiritual.',
-      'Como psicóloga sanitaria especializada en Psicooncología con más de dos décadas de experiencia, acompaño tanto a la persona diagnosticada como a sus cuidadores y familiares.',
+      'Como psicóloga sanitaria especializada en Psicooncología con más de dos décadas de experiencia asistencial, acompaño tanto a la persona diagnosticada como a sus cuidadores y familiares.',
       'Trabajamos el manejo de la incertidumbre, el miedo a la recidiva, los cambios en la imagen corporal, la fatiga asociada al tratamiento y la comunicación con el entorno cercano.'
     ],
     benefits: [
@@ -103,10 +135,10 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Soporte al cuidador principal para prevenir el desgaste emocional y físico'
     ],
     forWhom: [
-      'Personas recién diagnosticadas o en tratamiento activo',
-      'Supervivientes de cáncer que experimentan temor a la recaída o desorientación vital',
+      'Personas recién diagnosticadas o en tratamiento activo de cáncer',
+      'Supervivientes que experimentan temor a la recaída o desorientación vital',
       'Familiares y parejas que desean aprender a acompañar sin sobrecargarse',
-      'Pacientes en fases avanzadas que buscan serenidad y cierre emocional'
+      'Pacientes en fases avanzadas que buscan serenidad, alivio y cierre emocional'
     ],
     duration: '50 - 60 minutos por sesión',
     modalities: ['Presencial en Zaragoza', 'Online'],
@@ -115,46 +147,122 @@ export const SERVICES_DATA: ServiceDetail[] = [
     image: IMAGES.psicooncologia
   },
   {
-    id: 'bloqueo-emocional',
-    slug: 'bloqueo',
-    title: 'Bloqueo Emocional y Trastornos Psicosomáticos',
-    subtitle: 'Escucha lo que tu cuerpo y tus emociones intentan comunicarte',
-    description: 'Cuando la palabra no alcanza, el cuerpo habla. Integramos la escucha del síntoma físico y la comprensión de patrones repetitivos o crisis existenciales.',
+    id: 'bloqueo-emocional-trauma',
+    slug: 'trauma',
+    title: 'Bloqueo Emocional y Trauma',
+    subtitle: 'Desbloquear recuerdos dolorosos, heridas del pasado e integrar tu historia',
+    description: 'Terapia integrativa con EMDR y enfoque somático para procesar experiencias traumáticas (físicas, emocionales o relacionales) que impiden avanzar en el presente.',
     fullContent: [
-      'Muchos de nuestros malestares físicos recurrentes (opresiones, contracturas crónicas, alteraciones digestivas o fatiga) son ecos de emociones retenidas que no encontraron cauce en su momento.',
-      'Mediante un enfoque integrador cuerpo-mente, exploramos el origen de los bloqueos emocionales y las crisis de sentido vital o despertar de consciencia.',
-      'Te acompaño a descodificar el mensaje del cuerpo, liberando lealtades inconscientes y reconectando con tu propia verdad y bienestar.'
+      'Cuando vivimos situaciones abrumadoras o de indefensión, nuestro sistema de procesamiento de información puede quedar bloqueado, generando síntomas que reaparecen años después.',
+      'Mediante la terapia EMDR (avalada por la OMS) y técnicas de integración somática, facilitamos que el cerebro procese de forma adaptativa los recuerdos que causan dolor.',
+      'El objetivo es que el pasado deje de doler en el presente y puedas habitar tu vida con mayor seguridad, ligereza y autoconfianza.'
     ],
     benefits: [
-      'Comprensión del sentido biológico y emocional del síntoma',
-      'Desbloqueo de emociones atrapadas (ira, tristeza reprimida, miedo arcaico)',
-      'Alineación entre lo que sientes, lo que piensas y lo que haces',
-      'Apertura a una mayor paz interior y autenticidad en tus relaciones'
+      'Reprocesamiento y desensibilización de recuerdos dolorosos con EMDR',
+      'Disolución de bloqueos emocionales recurrentes y miedos paralizantes',
+      'Recuperación de la sensación de seguridad y calma en el propio cuerpo',
+      'Mayor libertad para elegir cómo responder ante las situaciones de la vida'
     ],
     forWhom: [
-      'Sensación de estar estancado o desconectado de tus propios deseos',
-      'Síntomas físicos sin causa médica concluyente o exacerbados por estrés',
-      'Personas en procesos de cambio profundo o búsqueda espiritual sincera',
-      'Patrones de autoexigencia extrema y dificultad para poner límites'
+      'Experiencias traumáticas pasadas (accidentes, abusos, negligencias emocionales)',
+      'Recuerdos intrusivos, pesadillas o hipervigilancia',
+      'Bloqueos repentinos ante retos personales, laborales o de pareja',
+      'Sensación de vivir atrapado/a en vivencias del pasado'
     ],
     duration: '50 - 60 minutos por sesión',
     modalities: ['Presencial en Zaragoza', 'Online'],
-    tag: 'Integración Somática',
-    image: IMAGES.clinicInterior
+    tag: 'Terapia EMDR & Somática',
+    image: IMAGES.trauma
+  },
+  {
+    id: 'trastornos-psicosomaticos',
+    slug: 'psicosomaticos',
+    title: 'Trastornos Psicosomáticos',
+    subtitle: 'Escucha lo que tu cuerpo expresa cuando las palabras no alcanzan',
+    description: 'Abordaje psicosomático integrador para descodificar el síntoma físico (contracturas crónicas, colon irritable, cefaleas, opresiones) y restaurar el equilibrio mente-cuerpo.',
+    fullContent: [
+      'Muchos de nuestros malestares físicos recurrentes (opresiones torácicas, contracturas crónicas, problemas digestivos o fatiga sin causa médica concluyente) son ecos de emociones retenidas que no encontraron cauce en su momento.',
+      'Mediante un enfoque integrador cuerpo-mente, exploramos el sentido y la raíz del síntoma, facilitando la autorregulación del sistema nervioso y la liberación de tensiones profundas.',
+      'Aprenderás a dialogar con las señales corporales como guías de salud y autoconocimiento en lugar de vivirlas como enemigas.'
+    ],
+    benefits: [
+      'Comprensión del sentido biológico y emocional del síntoma físico',
+      'Alivio de la tensión somática crónica y mejora del descanso',
+      'Alineación entre lo que sientes, lo que piensas y lo que haces en tu vida',
+      'Autorregulación neurovegetativa y mayor bienestar integral'
+    ],
+    forWhom: [
+      'Personas con somatizaciones frecuentes (cefaleas tensionales, colon irritable, bruxismo)',
+      'Síntomas físicos agravados por épocas de estrés o tensión emocional',
+      'Sensación de desconexión corporal o cuerpo en tensión continua',
+      'Dificultad para poner límites o expresar emociones que terminan somatizándose'
+    ],
+    duration: '50 - 60 minutos por sesión',
+    modalities: ['Presencial en Zaragoza', 'Online'],
+    tag: 'Mente y Cuerpo',
+    image: IMAGES.psicosomaticos
+  },
+  {
+    id: 'despertar-espiritual',
+    slug: 'espiritual',
+    title: 'Síntomas del Despertar Espiritual',
+    subtitle: 'Anclaje, sentido y sostén psicológico en procesos de transformación interior y alta sensibilidad',
+    description: 'Un marco de acogida profesional, cálido y sin dogmas para integrar aperturas de conciencia, hipersensibilidad y crisis existenciales profundas.',
+    fullContent: [
+      'En momentos de despertar de conciencia o de profundas crisis existenciales, las viejas estructuras caen y podemos experimentar desorientación, hipersensibilidad, cambios de valores o sensación de no encajar en el entorno habitual.',
+      'Te ofrezco un espacio seguro y profesional donde validar estas vivencias sin patologizarlas, combinando la psicología integradora con el enraizamiento a tierra y la presencia consciente.',
+      'Trabajamos para que tu evolución interior se traduzca en una vida cotidiana más coherente, amorosa, pacífica y arraigada.'
+    ],
+    benefits: [
+      'Validación y comprensión de crisis existenciales y procesos de despertar',
+      'Herramientas prácticas de anclaje a tierra (grounding) y gestión de la alta sensibilidad',
+      'Clarificación del propósito y alineación con tus valores esenciales',
+      'Paz interior y armonía entre tu vida espiritual y tu día a día'
+    ],
+    forWhom: [
+      'Personas viviendo crisis de sentido, cambios repentinos de valores o noche oscura del alma',
+      'Personas con Alta Sensibilidad (PAS) que sienten sobrecarga energética o sensorial',
+      'Quienes buscan un terapeuta que comprenda la dimensión espiritual sin perder el rigor clínico',
+      'Procesos de búsqueda interior, meditación profunda o necesidad de reconectar con la esencia'
+    ],
+    duration: '50 - 60 minutos por sesión',
+    modalities: ['Presencial en Zaragoza', 'Online'],
+    tag: 'Consciencia y Sentido',
+    image: IMAGES.espiritual
   }
 ];
 
 export const PERICARDIUM_INFO = {
   title: 'Liberación del Pericardio',
-  subtitle: 'Una puerta de entrada suave y profunda para liberar las memorias guardadas en el corazón',
-  facilitatorNote: 'Facilito este acompañamiento manual y celular desde el año 2017 tras formarme con el método original.',
+  subtitle: 'Método de desbloqueo físico, emocional y espiritual descubierto y creado por Montserrat Gascón.',
+  websiteUrl: 'https://pericardium.org',
+  websiteDisplay: 'pericardium.org',
+  facilitatorNote: 'Una formación y experiencia de vida en mí ha sido el tratamiento de liberación de pericardio: llevo formándome y practicándolo desde 2017.',
   quote: 'El corazón se abre cuando se siente seguro.',
   quoteAuthor: 'Begoña Roy',
-  whatIsText: [
-    'El pericardio es una membrana fibroserosa sumamente resistente que envuelve, protege y sostiene al corazón en el centro de la caja torácica. Es el guardián biológico y emocional de nuestro centro vital.',
-    'Ante cualquier impacto emocional intenso —miedo súbito, shock, duelo, estrés crónico o trauma— el pericardio reacciona de forma automática contrayéndose para amortiguar el impacto sobre el miocardio.',
-    'Cuando esta contracción se vuelve crónica, el pericardio no recupera su elasticidad natural, traccionando de sus múltiples inserciones ligamentosas anatómicas (diafragma, esternón, columna vertebral, base del cráneo) y alterando el equilibrio neurovegetativo y circulatorio.',
-    'La Liberación del Pericardio es una terapia manual sutil y profunda que restablece el movimiento natural de los tejidos y permite liberar las memorias celulares atrapadas, devolviendo al cuerpo su capacidad innata de autorregulación y alegría de vivir.'
+  popularExpressions: [
+    '“Tengo el corazón en un puño”',
+    '“Me rompió el corazón”',
+    '“Me ha dado un vuelco el corazón”',
+    '“Tiene el corazón duro como una piedra”'
+  ],
+  whatIsParagraphs: [
+    'El pericardio físicamente es una membrana muy especial que envuelve, sostiene, contiene y PROTEGE al corazón sosteniéndolo en el centro de nuestro ser.',
+    'Por sus múltiples inserciones anatómicas y neurofisiológicas, cualquier reacción del pericardio afecta a todo nuestro organismo. El pericardio está íntimamente ligado al corazón, y a través de sus múltiples inserciones anatómicas y neurofisiológicas está directamente ligado a todos los sistemas de nuestro cuerpo: el cardio-vascular, respiratorio (pulmones, diafragma), neuro-vegetativo (responsable del estrés y del relax), inmunitario, neuro-hormonal, digestivo y musculo-esquelético (base del cráneo, costillas y toda la columna).',
+    'Su misión principal es guardar y proteger al corazón a todos los niveles: físico, microbiológico y sobre todo a nivel emocional.',
+    'El pericardio guarda todas las memorias emocionales desde nuestra infancia y esta membrana se retrae como una célula cuando sufrimos impactos emocionales. Cada vez que vivimos situaciones dolorosas y sentimos tristeza, miedo, ansiedad, soledad, rabia, incertidumbre, etc., se retrae, se endurece y se cierra.',
+    'El pericardio hace esto de forma natural y automática para proteger al corazón y que siga bombeando para mantenernos con vida. Nuestro corazón es nuestro centro, el primer órgano en formarse y el último en morir. Si el pericardio está cerrado por los impactos emocionales, se bloquea nuestra energía y movimiento de vida, bloqueándose también nuestra energía espiritual.',
+    'Cuando tenemos el pericardio retraído, la expresión y la expansión de quienes somos —de nuestra Esencia, Luz, Energía, Amor y Vibración— se encuentra limitada y cerrada. Físicamente, al estar conectado con otras partes de nuestro cuerpo, se producen todo tipo de problemas digestivos, de circulación, lumbalgias, presión en el pecho, dolores de cabeza, etc. Y al estar conectado también con el sistema nervioso simpático se produce mayor ansiedad, estrés, bloqueos y síntomas emocionales.',
+    'Cuando el pericardio permanece cerrado durante un tiempo prolongado, comienza a generar bloqueos que afectan a todo el cuerpo.'
+  ],
+  processDescription: [
+    'Es un masaje a través del cuerpo físico que se realiza en la camilla y donde el terapeuta utiliza sus manos para sentir el movimiento sutil de las células, órganos y fascias.',
+    'Ponemos la atención para reconocer y sentir ese movimiento y, sin imponer ni poner intención —solo la atención—, permitimos que tu propio cuerpo recupere su equilibrio. Liberando la energía contenida en el corazón, liberando las retracciones y tensiones del cuerpo físico, energético y emocional, haciendo llegar toda esta energía del corazón, donde está contenida toda la información de nuestra esencia, a todas las partes de nuestro cuerpo, sin forzar ni realizar maniobras bruscas, solo acompañando su propio movimiento.',
+    'Restableciendo así el equilibrio de salud, la homeostasis y la armonía.',
+    'En el tratamiento no ponemos ninguna energía externa: cada persona tiene, de origen, su propia energía sanadora y ponemos la atención para que se sienta reconocida y poder expresarse desde la alegría y el amor.',
+    'Cada sesión es específica para cada persona, no se trata de maniobras, y por eso también cada día se puede sentir diferente. La posición habitual es vestido, con su propia ropa y tumbado en la camilla. Aunque si se requiere, se puede adaptar la posición a las circunstancias de cada persona: tumbados de lado, en silla, sillas de ruedas… No tiene ninguna contraindicación. Es maravilloso para todas las edades, desde bebés hasta embarazadas o ancianos. Porque el terapeuta se adapta al ritmo, al baile, de cada ser.',
+    'Cada tratamiento puede sentirse de forma diferente, dependiendo del momento y el ritmo de cada persona, pero siempre se conecta con ese estado de relajación, mayor conciencia y conexión con uno mismo desde la paz y la calma.',
+    'Este tratamiento es un método de desbloqueo que llega a la raíz de cualquier problema a nivel físico, visceral, metabólico, emocional y energético cuyo resultado es una profunda relajación, bienestar, armonización y ligereza de todo el organismo.'
   ],
   anatomicalConnections: [
     {
@@ -189,21 +297,22 @@ export const PERICARDIUM_INFO = {
       step: '02',
       title: 'Trabajo Suave en Camilla',
       subtitle: 'Toque respetuoso y sutil',
-      description: 'Completamente vestido, te recuestas cómodamente. Mediante una escucha tisular muy suave y respetuosa, sin manipulaciones bruscas ni dolor, se van liberando las tensiones en las inserciones pericárdicas.'
+      description: 'Completamente vestido con tu propia ropa, te recuestas cómodamente. Mediante una escucha tisular muy suave y respetuosa, sin maniobras bruscas ni dolor, se van liberando las tensiones y retracciones en las inserciones pericárdicas.'
     },
     {
       step: '03',
       title: 'Integración y Calma Celular',
       subtitle: 'Asimilación y descanso profundo',
-      description: 'Unos minutos de reposo permiten al sistema nervioso central integrar la apertura torácica, restableciendo la circulación energética y la coherencia cardíaca.'
+      description: 'Unos minutos de reposo permiten al sistema nervioso central integrar la apertura torácica, restableciendo la circulación energética, la homeostasis y la coherencia cardíaca.'
     }
   ],
   benefitsList: [
-    'Sensación inmediata de apertura y ligereza en la caja torácica',
-    'Respiración diafragmática fluida, amplia y natural',
-    'Disminución del insomnio y la tensión nerviosa acumulada',
-    'Liberación de llanto retenido o emociones contenidas sin catarsis forzadas',
-    'Mayor conexión afectiva con uno mismo y con los demás'
+    'Sensación inmediata de apertura, ligereza y desahogo en la caja torácica',
+    'Respiración diafragmática fluida, amplia, profunda y natural',
+    'Alivio de opresión en el pecho, dolores de cabeza, lumbalgias y tensiones musculares',
+    'Disminución notable de la ansiedad, el estrés crónico y el insomnio',
+    'Liberación de memorias emocionales, llanto retenido y bloqueos sin catarsis forzadas',
+    'Reconexión profunda con la propia Esencia, la paz interior, la alegría y la vitalidad'
   ]
 };
 
@@ -248,7 +357,7 @@ export const FAQS_DATA: FAQItem[] = [
     id: 'faq-7',
     category: 'tarifas',
     question: '¿Cómo se realiza el abono de las sesiones?',
-    answer: 'Para las sesiones presenciales en Espacio K alma (C. del Río Huerva, 21, Zaragoza), el abono puede realizarse en efectivo, tarjeta o Bizum al finalizar. Para las sesiones online, el pago se realiza previamente mediante transferencia bancaria o Bizum.'
+    answer: 'Para las sesiones presenciales en la consulta de Espacio K alma (C. del Río Huerva, 21, Zaragoza), el abono puede realizarse en efectivo, tarjeta o Bizum al finalizar. Para las sesiones online, el pago se realiza previamente mediante transferencia bancaria o Bizum.'
   },
   {
     id: 'faq-8',
@@ -283,19 +392,69 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const BIO_FULL_STORY = {
-  headline: 'Una mirada integradora al ser humano: Ciencia, Presencia y Corazón',
+  headline: 'Acompañamiento desde la escucha, la empatía y la sencillez',
   paragraphs: [
-    'Comencé mi andadura profesional licenciándome en Psicología por la prestigiosa Universidad de Valencia en el año 1995. Desde mis primeros pasos en la profesión supe que mi vocación residía en el acompañamiento profundo del sufrimiento humano.',
-    'Durante más de dos décadas he trabajado en el ámbito hospitalario, organizaciones no gubernamentales (ONGs) y en mi consulta privada, especializándome en situaciones de alta vulnerabilidad emocional como los procesos oncológicos, las pérdidas traumáticas y el duelo severo.',
-    'Con el paso de los años y la experiencia clínica acumulada, comprendí que el ser humano no puede dividirse en compartimentos estancos: lo que la mente calla o reprime, el cuerpo lo manifiesta en forma de síntoma, dolor o enfermedad.',
-    'Por ello, fui complementando mi formación académica tradicional con enfoques humanistas y corporales de vanguardia: Máster en Psicooncología, EMDR (Desensibilización y Reprocesamiento por Movimientos Oculares), Mindfulness aplicado a la salud, BioNeuroEmoción y, desde 2017, la Formación Internacional en Liberación del Pericardio.',
-    'Mi misión no es darte respuestas prefabricadas, sino acompañarte a recordar y activar las soluciones y la sabiduría que ya habitan en ti, creando un espacio seguro donde puedas sentirte escuchado, acogido y en paz.'
+    'Hola, me llamo Begoña Roy. Y aunque a veces es difícil hablar de uno mismo, sí que sé con claridad que mi principal impulso ha sido siempre intentar ayudar y acompañar a personas que estuviesen pasando por momentos vitales difíciles desde la escucha, la empatía y la sencillez.',
+    'Por ello decidí estudiar psicología en la Universidad de Valencia, finalizando mi formación en 1995. Mientras terminaba inicié un máster en Psicología Clínica para ampliar mi preparación, y he continuado formándome buscando distintos enfoques para realizar mi trabajo de la forma más honesta, responsable y humana de la que soy capaz, y ofrecer así el servicio que todo ser humano merece.',
+    'Mi enfoque es integral y humanista. Como seres humanos que somos estamos formados por cuerpo, emoción, mente y espíritu, y es desde esa visión más amplia que puedo ir acompañando a cada persona en su proceso individual según sus ritmos, necesidades y prioridades, de una manera más específica y concreta, encontrando soluciones juntos para seguir desarrollándote y creciendo.',
+    'El enfoque humanista es particularmente eficaz para afrontar una amplia variedad de problemas psicológicos, ya que está basado en la comprensión de cómo la persona percibe e interpreta sus sentimientos, pensamientos y experiencias y cómo esto, a su vez, influye en su comportamiento y bienestar emocional.',
+    'Además, empecé a practicar meditación de la tradición de Thich Nhat Hanh a través de la Sangha Respira en Zaragoza, y esto me ayudó a conectar con esa parte interior espiritual que poco a poco he ido desarrollando y conociendo más.',
+    'Y en todo este proceso de búsqueda, de aprendizaje, de conocimiento y mejora personal, apareció en mi vida el tratamiento de Liberación del Pericardio creado por Montserrat Gascón, que ayuda a conectar con tu propia esencia desde el corazón.',
+    'Mi objetivo fundamental es acompañarte para que sepas traducir las soluciones que ya están en ti, descubrir tus fortalezas —que en muchas ocasiones las tenemos olvidadas o no las hemos reconocido ni visto— y también mostrarte otras que puedan ayudarte a conocerte más y estar mejor.'
   ],
+  trainings: [
+    'Licenciatura en Psicología (Universidad de Valencia, 1995)',
+    'Máster en Psicología Clínica (Valencia)',
+    'Máster en Psicooncología (Universidad Complutense de Madrid)',
+    'Formación Básica de Terapia Familiar Fásica',
+    'Diploma en Gerontología Social (Fundación Universidad-Empresa de Valencia)',
+    'Curso de Trastornos de Personalidad (Asociación de Psicoterapia)',
+    'Tratamiento Transdiagnóstico de los Trastornos Emocionales',
+    'Certificado Internacional en PNL (Programación Neurolingüística)',
+    'EMDR Europe Nivel I',
+    'Liberación del Pericardio (Método Montserrat Gascón, facilitadora desde 2017)'
+  ],
+  experienceOverview: 'Desde 1995 he trabajado como psicóloga en diferentes ONGs llevando a cabo distintas tareas tanto de gestión como de atención individual y grupal en torno a temas de la salud, así como profesora en una academia especializada de psicología y en consulta privada.',
   milestones: [
-    { year: '1995', title: 'Licenciatura en Psicología', desc: 'Universidad de Valencia. Especialidad Clínica.' },
-    { year: '2000 - 2010', title: 'Acompañamiento en ONGs y Salud', desc: 'Coordinación de programas psicosociales y apoyo en duelo.' },
-    { year: '2012', title: 'Máster en Psicooncología', desc: 'Formación avanzada en soporte emocional para pacientes de cáncer.' },
-    { year: '2017', title: 'Liberación del Pericardio', desc: 'Certificación internacional en el método de liberación celular y pericárdica.' },
-    { year: 'Actualidad', title: 'Consulta Sanitaria en Espacio K alma (Zaragoza) & Online', desc: 'Práctica clínica integradora con más de 25 años de vocación.' }
+    {
+      year: '1995 - 1996',
+      title: 'Cruz Roja Castellón',
+      desc: 'Psicóloga en programa de atención a drogodependientes en la prisión de Castellón. Formación intensiva en adicciones, duelo y counselling centrado en la persona y comunicación consciente.'
+    },
+    {
+      year: '1996 - 2000',
+      title: 'Fundación Salud y Comunidad',
+      desc: 'Psicóloga atendiendo a personas con VIH-Sida, profundizando en la preparación en duelo, cuidados paliativos, salud y acompañamiento en situaciones críticas.'
+    },
+    {
+      year: '2001 - 2007',
+      title: 'Profesora en Academia Especializada ARKE',
+      desc: 'Docente universitaria impartiendo distintas asignaturas de la carrera de Psicología para la UNED en Zaragoza.'
+    },
+    {
+      year: '2003',
+      title: 'Asociación OMSIDA (Zaragoza)',
+      desc: 'Psicóloga de apoyo emocional y acompañamiento individual y grupal para personas afectadas por VIH y sus familias.'
+    },
+    {
+      year: '2005 - 2011',
+      title: 'Asociación de Mujeres AMAC-GEMA',
+      desc: 'Psicóloga y psicooncóloga atendiendo a mujeres diagnosticadas de cáncer de mama y/o genital y a sus familiares. Cursó en esta etapa el Máster en Psicooncología en la Universidad Complutense de Madrid.'
+    },
+    {
+      year: '2015 - 2016',
+      title: 'Fundación de Ayuda a Accidentados de Tráfico',
+      desc: 'Atención psicológica y acompañamiento en trauma repentino, duelo y reestructuración vital tras accidentes graves.'
+    },
+    {
+      year: '2015 - 2018',
+      title: 'Grupo Quirón · Psicooncología',
+      desc: 'Psicooncóloga integrada en equipo médico y asistencial multidisciplinar para el soporte de pacientes oncológicos y sus allegados.'
+    },
+    {
+      year: '2014 - Actualidad',
+      title: 'Consulta Privada (Zaragoza & Online)',
+      desc: 'Atención integral como Psicóloga Sanitaria, Psicooncóloga y Facilitadora de Liberación del Pericardio, aunando cuerpo, mente, emoción y alma.'
+    }
   ]
 };

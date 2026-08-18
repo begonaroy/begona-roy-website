@@ -182,7 +182,7 @@ export const Footer: React.FC<FooterProps> = ({
                   🌿 Consulta Presencial
                 </span>
                 <p className="text-[11px] mt-0.5">
-                  Espacio K alma · C. del Río Huerva, 21 · 50006 Zaragoza.
+                  Espacio K alma, C. del Río Huerva, 21, 50006 Zaragoza.
                 </p>
               </div>
               <div

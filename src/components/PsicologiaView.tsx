@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { ServiceDetail, NavigationTab } from '../types';
-import { SERVICES_DATA, CLINICAL_INFO, IMAGES } from '../data/content';
+import { IMAGES, SERVICES_DATA } from '../data/content';
 import {
   Sparkles,
-  ArrowRight,
   ShieldCheck,
   CheckCircle2,
   Brain,
@@ -11,7 +10,19 @@ import {
   Activity,
   Compass,
   Calendar,
-  MessageSquare
+  MessageSquare,
+  Eye,
+  Heart,
+  Layers,
+  Sparkle,
+  Clock,
+  Target,
+  Users,
+  Feather,
+  Sun,
+  ArrowRight,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 interface PsicologiaViewProps {
@@ -27,11 +38,12 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
   onSelectServiceDetail,
   isDark,
 }) => {
-  const [activeFilter, setActiveFilter] = useState<'todos' | 'ansiedad' | 'duelo' | 'psicooncologia' | 'bloqueo'>('todos');
+  const [activeApproach, setActiveApproach] = useState<'integral' | 'emdr' | 'psicooncologia'>('integral');
+  const [openAccordionId, setOpenAccordionId] = useState<string | null>('ansiedad-estres');
 
-  const filteredServices = activeFilter === 'todos' 
-    ? SERVICES_DATA 
-    : SERVICES_DATA.filter((s) => s.slug === activeFilter);
+  const toggleAccordion = (id: string) => {
+    setOpenAccordionId((prev) => (prev === id ? null : id));
+  };
 
   const pillars = [
     {
@@ -67,69 +79,197 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E6DFD3] dark:border-[#667052] bg-[#FDFBF7] dark:bg-[#21251F] text-[#4A5D4E] dark:text-[#A7B39A]">
             <Sparkles className="w-3.5 h-3.5 text-[#AA4664]" />
-            <span>PSICOLOGÍA SANITARIA & PSICOONCOLOGÍA</span>
+            <span>PSICOLOGÍA SANITARIA & ACOMPAÑAMIENTO INTEGRAL</span>
           </span>
 
           <h1 className="font-serif text-3xl sm:text-5xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7] leading-tight">
-            Encontrar la luz en el acompañamiento
+            Un espacio de encuentro, respeto y evolución personal
           </h1>
 
           <p className="text-base sm:text-lg text-[#667052] dark:text-[#B7BEA3] leading-relaxed">
-            La terapia no consiste en "arreglar" a nadie, sino en crear el espacio seguro y las condiciones necesarias para que puedas comprender lo que te sucede, regular tu biología y reencontrar tu equilibrio.
+            Acompañamiento terapéutico personalizado desde la escucha, la empatía y la integración de cuerpo, mente y emoción.
           </p>
         </div>
       </section>
 
-      {/* 2. REFINED QUOTE BLOCK (Dancing Script) */}
-      <section className="max-w-4xl mx-auto px-4">
+      {/* 2. ¿CÓMO FUNCIONA EL PROCESO TERAPÉUTICO? */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`p-8 sm:p-10 rounded-3xl border text-center transition-all ${
+          className={`p-8 sm:p-12 rounded-3xl border shadow-sm relative overflow-hidden transition-all ${
             isDark
               ? 'bg-[#21251F] border-[#667052]'
-              : 'bg-[#E6DFD3] border-[#E6DFD3]'
+              : 'bg-[#FBF9F5] border-[#E6DFD3]'
           }`}
         >
-          <p className="font-script text-2xl sm:text-3xl leading-relaxed text-[#24211F] dark:text-[#F3EFE7] font-semibold">
-            "El equilibrio no es algo que encuentras, es algo que creas en el espacio entre lo que sucede y cómo eliges responder."
-          </p>
-          <span className="font-serif text-xs uppercase tracking-widest text-[#AA4664] font-medium block mt-3">
-            Begoña Roy · Consulta Sanitaria Zaragoza
-          </span>
+          {/* Accent decoration */}
+          <div className="flex items-center gap-2 mb-3">
+            <Feather className="w-4 h-4 text-[#AA4664]" />
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+              VISIÓN DEL ACOMPAÑAMIENTO
+            </span>
+          </div>
+
+          <h2 className="font-serif text-2xl sm:text-3xl font-medium text-[#24211F] dark:text-[#F3EFE7] mb-6">
+            ¿Cómo funciona el proceso terapéutico?
+          </h2>
+
+          <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+            <p>
+              Para mí implica una <strong>evolución personal</strong>, donde cada uno llevamos nuestro ritmo, nuestros tiempos y donde, como seres individuales y diferentes que somos, aprendemos a mirarnos con ese mimo, cuidado y respeto para poder escucharnos con amabilidad y comprensión.
+            </p>
+            <p>
+              Este proceso tiene movimiento, aunque a veces no lo parezca o pensemos que no avanzamos, pero es tan importante respetarnos y cuidarnos, que poco a poco se van produciendo los pasos que nos van construyendo y que nos permiten conocernos y querernos tal y como somos. Desde nuestro origen somos seres únicos, diversos y llenos de habilidades y experiencias múltiples, que en el transcurso de nuestra vida se van mostrando y a veces nos sentimos perdidos porque los queremos entender y no sabemos de dónde vienen.
+            </p>
+            <p>
+              Miraremos todo esto con mucho respeto y cuidado, para poder dejar espacio también a otras partes que, igual no se han dejado ver tanto, pero que contienen también toda esa <strong>fuerza, reconocimiento, valor y amor</strong> para crear nuevas conexiones con nuestro verdadero ser y esencia.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* 3. INTERACTIVE FILTER TABS & SPECIALIZED AREAS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-4 border-b border-[#E6DFD3] dark:border-[#667052]">
-          <div>
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
-              ÁREAS DE INTERVENCIÓN
-            </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-medium text-[#24211F] dark:text-[#F3EFE7] mt-1">
-              Acompañamiento Especializado
-            </h2>
+      {/* 3. ¿QUÉ ENCONTRARÁS EN NUESTRAS SESIONES? */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+            EN CONSULTA
+          </span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
+            ¿Qué encontrarás en nuestras sesiones?
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {/* Card 1: Espacio seguro y escucha */}
+          <div
+            className={`p-6 sm:p-8 rounded-3xl border space-y-3 ${
+              isDark
+                ? 'bg-[#171A17] border-[#667052]'
+                : 'bg-white border-[#E6DFD3]'
+            }`}
+          >
+            <div className="w-10 h-10 rounded-xl bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex items-center justify-center">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
+            <h3 className="font-serif text-lg font-medium text-[#24211F] dark:text-[#F3EFE7]">
+              Espacio Seguro, Confidencial y a tu Ritmo
+            </h3>
+            <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+              Un espacio seguro donde poder expresarte con total libertad, con confidencialidad, a tu ritmo y atendiendo lo que, para ti, en esos momentos, es lo más importante y necesario para tu mejoría.
+            </p>
+            <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+              Te escucho <strong>sin prisas, sin juicio y con mucha calma</strong>, para poder ir conociéndonos y poder ofrecerte ese lugar seguro que puedas encontrar también en ti y desde ahí escucharte a ti misma.
+            </p>
           </div>
 
-          {/* Filter Pills */}
+          {/* Card 2: Dirección compartida y herramientas */}
+          <div
+            className={`p-6 sm:p-8 rounded-3xl border space-y-3 ${
+              isDark
+                ? 'bg-[#171A17] border-[#667052]'
+                : 'bg-white border-[#E6DFD3]'
+            }`}
+          >
+            <div className="w-10 h-10 rounded-xl bg-[#AA4664]/10 text-[#AA4664] flex items-center justify-center">
+              <Compass className="w-5 h-5" />
+            </div>
+            <h3 className="font-serif text-lg font-medium text-[#24211F] dark:text-[#F3EFE7]">
+              Tú Marcas el Ritmo y Acordamos el Camino
+            </h3>
+            <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+              Tú marcas el ritmo y llegamos a acuerdos juntas. Revisando la dirección para no perder el foco.
+            </p>
+            <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+              Existen diferentes herramientas acordes a cada persona dependiendo de su sistema de creencias y valores y la fase en la que se encuentra. Lo importante es saber que <strong>no a todos nos sirve lo mismo</strong>, y que no todas las técnicas encajan por igual en todas las personas.
+            </p>
+          </div>
+        </div>
+
+        {/* Visión global y abanico de técnicas */}
+        <div
+          className={`p-6 sm:p-8 rounded-3xl border ${
+            isDark
+              ? 'bg-[#21251F] border-[#667052]'
+              : 'bg-[#FDFBF7] border-[#E6DFD3]'
+          }`}
+        >
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
+            <div className="w-9 h-9 rounded-lg bg-[#4A5D4E]/15 text-[#4A5D4E] dark:text-[#A7B39A] flex items-center justify-center flex-shrink-0">
+              <Layers className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="font-serif text-base sm:text-lg font-medium text-[#24211F] dark:text-[#F3EFE7]">
+                Visión Global del Ser Humano
+              </h4>
+              <p className="text-xs text-[#667052] dark:text-[#B7BEA3]">
+                Integración personalizada según tus necesidades únicas
+              </p>
+            </div>
+          </div>
+
+          <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3] mb-4">
+            Por esto, tener en cuenta esta visión global del ser humano nos aporta un conjunto integrado de herramientas, utilizando solamente aquellas que se ajustan más a ti como persona:
+          </p>
+
           <div className="flex flex-wrap gap-2">
             {[
-              { id: 'todos', label: 'Todas las áreas' },
-              { id: 'ansiedad', label: 'Ansiedad y Estrés' },
-              { id: 'duelo', label: 'Duelo y Trauma' },
-              { id: 'psicooncologia', label: 'Psicooncología' },
-              { id: 'bloqueo', label: 'Bloqueo Emocional' }
+              'Técnicas Cognitivo-Conductuales',
+              'Técnicas Centradas en la Emoción',
+              'Técnicas Somáticas',
+              'EMDR',
+              'Mindfulness',
+              'Relajación',
+              'Visualizaciones',
+              'Técnicas Energéticas'
+            ].map((tech, idx) => (
+              <span
+                key={idx}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border ${
+                  isDark
+                    ? 'bg-[#171A17] border-[#667052] text-[#B7BEA3]'
+                    : 'bg-white border-[#E6DFD3] text-[#24211F]'
+                }`}
+              >
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#AA4664]" />
+                <span>{tech}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. LOS 3 ABORDAJES TERAPÉUTICOS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+            DISCIPLINAS Y ENFOQUES
+          </span>
+          <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
+            Nuestros Abordajes Principales
+          </h2>
+          <p className="text-sm text-[#667052] dark:text-[#B7BEA3]">
+            Descubre las bases de nuestro trabajo terapéutico adaptado a cada momento de tu vida.
+          </p>
+        </div>
+
+        {/* Navigation Selector for the 3 Approaches */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex p-1.5 rounded-full border border-[#E6DFD3] dark:border-[#667052] bg-[#FDFBF7] dark:bg-[#21251F] gap-1">
+            {[
+              { id: 'integral', label: '1. Psicología Integral' },
+              { id: 'emdr', label: '2. EMDR' },
+              { id: 'psicooncologia', label: '3. Psicooncología' }
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveFilter(tab.id as any)}
-                className={`px-4 py-2 rounded-full text-xs font-medium transition-all ${
-                  activeFilter === tab.id
+                onClick={() => setActiveApproach(tab.id as any)}
+                className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-all ${
+                  activeApproach === tab.id
                     ? isDark
                       ? 'bg-[#A7B39A] text-[#171A17] font-semibold shadow-sm'
-                      : 'bg-[#4A5D4E] text-[#FDFBF7] font-semibold shadow-sm'
+                      : 'bg-[#4A5D4E] text-white font-semibold shadow-sm'
                     : isDark
-                    ? 'bg-[#21251F] text-[#B7BEA3] hover:text-[#F3EFE7] border border-[#667052]'
-                    : 'bg-[#FDFBF7] text-[#667052] hover:text-[#24211F] border border-[#E6DFD3]'
+                    ? 'text-[#B7BEA3] hover:text-[#F3EFE7]'
+                    : 'text-[#667052] hover:text-[#24211F]'
                 }`}
               >
                 {tab.label}
@@ -138,101 +278,591 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
           </div>
         </div>
 
-        {/* Specialized Areas Detailed Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredServices.map((service) => (
-            <div
-              key={service.id}
-              className={`rounded-3xl border overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl ${
-                service.featured
-                  ? isDark
-                    ? 'bg-gradient-to-b from-[#21251F] to-[#171A17] border-[#A7B39A]/70 ring-1 ring-[#A7B39A]/50'
-                    : 'bg-gradient-to-b from-[#FDFBF7] to-white border-[#4A5D4E]/60 ring-1 ring-[#4A5D4E]/40'
-                  : isDark
-                  ? 'bg-[#171A17] border-[#667052]'
-                  : 'bg-[#FDFBF7] border-[#E6DFD3]'
-              }`}
-            >
-              {/* Header Image */}
-              <div className="relative h-56 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#FDFBF7]/95 text-[#4A5D4E] dark:bg-[#171A17]/95 dark:text-[#A7B39A] backdrop-blur-sm">
-                    {service.tag}
+        {/* APPROACH 1: PSICOLOGÍA INTEGRAL */}
+        {activeApproach === 'integral' && (
+          <div
+            className={`rounded-3xl border p-6 sm:p-10 transition-all ${
+              isDark
+                ? 'bg-[#171A17] border-[#667052]'
+                : 'bg-white border-[#E6DFD3]'
+            }`}
+          >
+            <div className="flex flex-col lg:flex-row gap-8 items-start">
+              <div className="flex-1 space-y-5">
+                <div className="flex items-center gap-2">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A]">
+                    Enfoque Global
                   </span>
-                  {service.featured && (
-                    <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#AA4664] text-[#FDFBF7] shadow-sm">
-                      Especialidad Principal
-                    </span>
-                  )}
+                  <span className="text-xs font-medium text-[#AA4664]">Cuerpo · Mente · Emociones</span>
                 </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#FDFBF7] drop-shadow-sm">
-                    {service.title}
-                  </h3>
+
+                <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
+                  1. Psicología Integral
+                </h3>
+
+                <p className="text-sm sm:text-base leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                  La <strong>psicología integral</strong> es un enfoque que une distintas corrientes de la psicología —como la cognitivo-conductual, la humanista y la psicodinámica—. Ve a la persona como un todo, uniendo cuerpo, mente, emociones, para crear un tratamiento a la medida de cada paciente.
+                </p>
+
+                {/* 4 Pillars Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div
+                    className={`p-4 rounded-2xl border ${
+                      isDark
+                        ? 'bg-[#21251F] border-[#667052]'
+                        : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                    }`}
+                  >
+                    <h4 className="font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2 mb-1.5">
+                      <Sun className="w-4 h-4 text-[#AA4664]" />
+                      <span>Aporta una visión global</span>
+                    </h4>
+                    <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                      No mira solo el problema actual, también mira la historia personal, el entorno y el cuerpo.
+                    </p>
+                  </div>
+
+                  <div
+                    className={`p-4 rounded-2xl border ${
+                      isDark
+                        ? 'bg-[#21251F] border-[#667052]'
+                        : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                    }`}
+                  >
+                    <h4 className="font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2 mb-1.5">
+                      <Layers className="w-4 h-4 text-[#4A5D4E] dark:text-[#A7B39A]" />
+                      <span>Utiliza diferentes técnicas</span>
+                    </h4>
+                    <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                      Combina herramientas de diferentes escuelas según lo que funcione mejor para ti.
+                    </p>
+                  </div>
+
+                  <div
+                    className={`p-4 rounded-2xl border ${
+                      isDark
+                        ? 'bg-[#21251F] border-[#667052]'
+                        : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                    }`}
+                  >
+                    <h4 className="font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2 mb-1.5">
+                      <Compass className="w-4 h-4 text-[#4A5D4E] dark:text-[#A7B39A]" />
+                      <span>Tratamiento flexible</span>
+                    </h4>
+                    <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                      Puesto que se adapta a tus cambios y necesidades únicas en cada fase del proceso.
+                    </p>
+                  </div>
+
+                  <div
+                    className={`p-4 rounded-2xl border ${
+                      isDark
+                        ? 'bg-[#21251F] border-[#667052]'
+                        : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                    }`}
+                  >
+                    <h4 className="font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2 mb-1.5">
+                      <Target className="w-4 h-4 text-[#AA4664]" />
+                      <span>Enfoque práctico</span>
+                    </h4>
+                    <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                      Busca sanar la raíz del malestar y no solo quitar los síntomas superficiales.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-4 flex items-center gap-3">
+                  <button
+                    onClick={() => onOpenBooking('integral')}
+                    className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
+                      isDark
+                        ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
+                        : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                    }`}
+                  >
+                    <Calendar className="w-4 h-4" />
+                    <span>Pedir Cita para Psicología Integral</span>
+                  </button>
                 </div>
               </div>
 
-              {/* Body */}
-              <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
-                <div className="space-y-4">
-                  <p className="font-serif italic text-sm text-[#AA4664]">
-                    {service.subtitle}
+              <div className="w-full lg:w-80 h-72 lg:h-96 rounded-2xl overflow-hidden flex-shrink-0 shadow-md relative">
+                <img
+                  src={IMAGES.clinicInterior}
+                  alt="Psicología Integral"
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <p className="font-serif text-sm italic">
+                    "Unir cuerpo, mente y emociones para un tratamiento a tu medida."
                   </p>
-                  <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
-                    {service.description}
-                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
-                  {/* Highlights */}
-                  <div className="space-y-2 pt-2">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#24211F] dark:text-[#F3EFE7] block">
-                      Puntos clave del abordaje:
-                    </span>
-                    <ul className="space-y-1.5 text-xs text-[#667052] dark:text-[#B7BEA3]">
-                      {service.benefits.slice(0, 3).map((b, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0 mt-0.5" />
-                          <span>{b}</span>
-                        </li>
-                      ))}
+        {/* APPROACH 2: EMDR */}
+        {activeApproach === 'emdr' && (
+          <div
+            className={`rounded-3xl border p-6 sm:p-10 transition-all ${
+              isDark
+                ? 'bg-[#171A17] border-[#667052]'
+                : 'bg-white border-[#E6DFD3]'
+            }`}
+          >
+            <div className="flex flex-col lg:flex-row gap-8 items-start">
+              <div className="flex-1 space-y-5">
+                <div className="flex items-center gap-2">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#AA4664]/10 text-[#AA4664]">
+                    Avalado por la OMS
+                  </span>
+                  <span className="text-xs font-medium text-[#4A5D4E] dark:text-[#A7B39A]">
+                    Desensibilización y Reprocesamiento
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
+                  2. EMDR (Desensibilización y Reprocesamiento por Movimientos Oculares)
+                </h3>
+
+                <p className="text-sm sm:text-base leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                  El <strong>EMDR</strong> (Desensibilización y Reprocesamiento por Movimientos Oculares) es una terapia psicológica eficaz avalada por la <strong>Organización Mundial de la Salud (OMS)</strong>. Ayuda a sanar recuerdos dolorosos o traumáticos. El método usa movimientos de los ojos u otros estímulos rítmicos para desbloquear la mente y procesar de forma sana el pasado.
+                </p>
+
+                <div className="space-y-3.5 text-xs sm:text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                  <div
+                    className={`p-4 rounded-2xl border ${
+                      isDark
+                        ? 'bg-[#21251F] border-[#667052]'
+                        : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                    }`}
+                  >
+                    <p className="font-medium text-[#24211F] dark:text-[#F3EFE7] mb-1">
+                      🌿 Origen y Evidencia Científica:
+                    </p>
+                    <p>
+                      Fue descubierta de forma casual. En 1987, <strong>Francine Shapiro</strong>, psicóloga norteamericana, descubrió que los movimientos oculares voluntarios reducían la intensidad de la angustia de los pensamientos negativos. Los resultados de investigaciones concluyeron que EMDR reducía de manera significativa los síntomas del <strong>trastorno por estrés postraumático (TEPT)</strong>.
+                    </p>
+                  </div>
+
+                  <div
+                    className={`p-4 rounded-2xl border ${
+                      isDark
+                        ? 'bg-[#21251F] border-[#667052]'
+                        : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                    }`}
+                  >
+                    <p className="font-medium text-[#24211F] dark:text-[#F3EFE7] mb-1">
+                      🧠 Desbloqueo del Procesamiento de Información:
+                    </p>
+                    <p>
+                      La terapia EMDR es un abordaje psicoterapéutico que trabaja sobre el sistema de procesamiento de información del paciente que puede llegar a bloquearse por diversos motivos como <strong>muertes, abusos de todo tipo (psicológicos, emocionales, físicos o sexuales), etc.</strong>, lo cual comienza a generar en el paciente una gran diversidad de síntomas.
+                    </p>
+                  </div>
+
+                  <div
+                    className={`p-4 rounded-2xl border ${
+                      isDark
+                        ? 'bg-[#21251F] border-[#667052]'
+                        : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                    }`}
+                  >
+                    <p className="font-medium text-[#24211F] dark:text-[#F3EFE7] mb-1">
+                      ✨ Rendimiento y Otras Aplicaciones:
+                    </p>
+                    <p>
+                      También podemos utilizar la terapia EMDR para <strong>aliviar la angustia de hablar en público</strong> o para mejorar el rendimiento en el trabajo, en los deportes y en las interpretaciones artísticas.
+                    </p>
+                  </div>
+
+                  <p className="italic text-[#4A5D4E] dark:text-[#A7B39A] pt-1">
+                    La terapia EMDR puede integrarse con éxito con el resto de abordajes, ya que de un modo u otro, todos trabajan con la historia del paciente.
+                  </p>
+                </div>
+
+                <div className="pt-4 flex items-center gap-3">
+                  <button
+                    onClick={() => onOpenBooking('emdr')}
+                    className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
+                      isDark
+                        ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
+                        : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                    }`}
+                  >
+                    <Calendar className="w-4 h-4" />
+                    <span>Pedir Cita para Terapia EMDR</span>
+                  </button>
+                </div>
+              </div>
+
+              <div className="w-full lg:w-80 h-72 lg:h-96 rounded-2xl overflow-hidden flex-shrink-0 shadow-md relative">
+                <img
+                  src={IMAGES.duelo}
+                  alt="Terapia EMDR"
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <p className="font-serif text-sm italic">
+                    "Desbloquear la mente y procesar de forma sana el pasado."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* APPROACH 3: PSICOONCOLOGÍA */}
+        {activeApproach === 'psicooncologia' && (
+          <div
+            className={`rounded-3xl border p-6 sm:p-10 transition-all ${
+              isDark
+                ? 'bg-[#171A17] border-[#667052]'
+                : 'bg-white border-[#E6DFD3]'
+            }`}
+          >
+            <div className="flex flex-col lg:flex-row gap-8 items-start">
+              <div className="flex-1 space-y-5">
+                <div className="flex items-center gap-2">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#AA4664] text-white shadow-sm">
+                    Especialidad Destacada
+                  </span>
+                  <span className="text-xs font-medium text-[#4A5D4E] dark:text-[#A7B39A]">
+                    Pacientes y Familias
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
+                  3. Psicooncología
+                </h3>
+
+                <p className="text-sm sm:text-base leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                  La <strong>psicooncología</strong> es una rama de la psicología que estudia y trata el impacto emocional, social y conductual del cáncer. Ayuda a los pacientes y a sus familias a manejar el miedo, la ansiedad y la tristeza en todas las fases de la enfermedad.
+                </p>
+
+                {/* Qué hace un psicooncólogo & Etapas */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
+                  {/* Bloque: Qué hace */}
+                  <div
+                    className={`p-5 rounded-2xl border space-y-3 ${
+                      isDark
+                        ? 'bg-[#21251F] border-[#667052]'
+                        : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                    }`}
+                  >
+                    <h4 className="font-serif font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2">
+                      <Heart className="w-4 h-4 text-[#AA4664]" />
+                      <span>¿Qué hace un psicooncólogo?</span>
+                    </h4>
+                    <ul className="space-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0 mt-0.5" />
+                        <span>Evalúa el estado emocional del paciente.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0 mt-0.5" />
+                        <span>Enseña técnicas para reducir el estrés y la ansiedad.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0 mt-0.5" />
+                        <span>Mejora la comunicación entre la familia y el enfermo.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0 mt-0.5" />
+                        <span>Ayuda a aceptar los cambios físicos del tratamiento.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Bloque: Etapas de apoyo */}
+                  <div
+                    className={`p-5 rounded-2xl border space-y-3 ${
+                      isDark
+                        ? 'bg-[#21251F] border-[#667052]'
+                        : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                    }`}
+                  >
+                    <h4 className="font-serif font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2">
+                      <Compass className="w-4 h-4 text-[#4A5D4E] dark:text-[#A7B39A]" />
+                      <span>Etapas de apoyo</span>
+                    </h4>
+                    <ul className="space-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
+                      <li className="flex items-start gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#AA4664] flex-shrink-0 mt-1.5" />
+                        <span><strong>Diagnóstico:</strong> baja el impacto inicial del shock y el miedo.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#AA4664] flex-shrink-0 mt-1.5" />
+                        <span><strong>Tratamiento:</strong> da herramientas para soportar el cansancio y el dolor.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#AA4664] flex-shrink-0 mt-1.5" />
+                        <span><strong>Supervivencia o cuidados paliativos:</strong> acompaña en el regreso a la rutina o en el duelo.</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#E6DFD3] dark:border-[#667052] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                <div className="pt-4 flex items-center gap-3">
                   <button
-                    onClick={() => onSelectServiceDetail(service)}
-                    className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#4A5D4E] dark:text-[#A7B39A] hover:text-[#AA4664] transition-colors py-2"
-                  >
-                    <span>Conocer más sobre {service.title.split(' ')[0]}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-
-                  <button
-                    onClick={() => onOpenBooking(service.id)}
-                    className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
+                    onClick={() => onOpenBooking('psicooncologia')}
+                    className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                       isDark
                         ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                        : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664]'
+                        : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
                     }`}
                   >
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>Pedir Cita</span>
+                    <Calendar className="w-4 h-4" />
+                    <span>Pedir Cita para Psicooncología</span>
                   </button>
                 </div>
               </div>
+
+              <div className="w-full lg:w-80 h-72 lg:h-96 rounded-2xl overflow-hidden flex-shrink-0 shadow-md relative">
+                <img
+                  src={IMAGES.psicooncologia}
+                  alt="Psicooncología"
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <p className="font-serif text-sm italic">
+                    "Acompañar el miedo, la incertidumbre y el corazón en cada fase."
+                  </p>
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
+        )}
+      </section>
+
+      {/* 4.5. TE PUEDO AYUDAR EN (ACORDEÓN INTERACTIVO) */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
+            MOTIVOS DE CONSULTA Y ACOMPAÑAMIENTO
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
+            Te puedo ayudar en
+          </h2>
+          <p className="text-sm sm:text-base text-[#667052] dark:text-[#B7BEA3]">
+            Despliega cada una de las áreas para conocer en profundidad cómo trabajamos cada proceso y las herramientas específicas que utilizaremos juntas.
+          </p>
+        </div>
+
+        {/* Accordion List */}
+        <div className="space-y-4">
+          {SERVICES_DATA.map((service, index) => {
+            const isOpen = openAccordionId === service.id;
+            const indexFormatted = String(index + 1).padStart(2, '0');
+
+            return (
+              <div
+                key={service.id}
+                className={`rounded-2xl sm:rounded-3xl border transition-all duration-300 overflow-hidden ${
+                  isOpen
+                    ? isDark
+                      ? 'bg-[#21251F] border-[#A7B39A]/60 shadow-lg ring-1 ring-[#A7B39A]/30'
+                      : 'bg-white border-[#4A5D4E]/40 shadow-lg ring-1 ring-[#4A5D4E]/20'
+                    : isDark
+                    ? 'bg-[#171A17] border-[#667052] hover:border-[#A7B39A]/40'
+                    : 'bg-[#FDFBF7] border-[#E6DFD3] hover:border-[#AA4664]/50'
+                }`}
+              >
+                {/* Accordion Header Toggle */}
+                <button
+                  type="button"
+                  onClick={() => toggleAccordion(service.id)}
+                  aria-expanded={isOpen}
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 transition-colors"
+                >
+                  <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+                    <span
+                      className={`font-serif text-base sm:text-lg font-bold flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center ${
+                        isOpen
+                          ? 'bg-[#AA4664] text-white'
+                          : isDark
+                          ? 'bg-[#21251F] text-[#B7BEA3]'
+                          : 'bg-[#E6DFD3] text-[#667052]'
+                      }`}
+                    >
+                      {indexFormatted}
+                    </span>
+
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="font-serif text-lg sm:text-xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
+                          {service.title}
+                        </h3>
+                        {service.featured && (
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#AA4664] text-white shadow-sm">
+                            Especialidad Destacada
+                          </span>
+                        )}
+                        <span
+                          className={`hidden sm:inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider ${
+                            isDark
+                              ? 'bg-[#21251F] text-[#A7B39A]'
+                              : 'bg-[#E6DFD3] text-[#4A5D4E]'
+                          }`}
+                        >
+                          {service.tag}
+                        </span>
+                      </div>
+                      {!isOpen && (
+                        <p className="text-xs text-[#667052] dark:text-[#B7BEA3] truncate mt-0.5">
+                          {service.description}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Toggle Indicator Button */}
+                  <div
+                    className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
+                      isOpen
+                        ? 'bg-[#AA4664]/15 text-[#AA4664] rotate-180'
+                        : isDark
+                        ? 'bg-[#21251F] text-[#B7BEA3]'
+                        : 'bg-[#E6DFD3] text-[#667052]'
+                    }`}
+                  >
+                    <ChevronDown className="w-5 h-5" />
+                  </div>
+                </button>
+
+                {/* Accordion Expanded Body */}
+                {isOpen && (
+                  <div className="px-5 pb-6 sm:px-8 sm:pb-8 pt-2 border-t border-[#E6DFD3] dark:border-[#667052]/80 animate-fadeIn space-y-6">
+                    {/* Subtitle & Image row */}
+                    <div className="flex flex-col md:flex-row gap-6 items-start">
+                      <div className="flex-1 space-y-3">
+                        <p className="font-serif italic text-base sm:text-lg text-[#AA4664]">
+                          {service.subtitle}
+                        </p>
+
+                        <div className="space-y-3 text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                          {service.fullContent.map((paragraph, pIdx) => (
+                            <p key={pIdx}>{paragraph}</p>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Side Image */}
+                      <div className="w-full md:w-64 h-48 rounded-2xl overflow-hidden shadow-md relative flex-shrink-0">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full object-cover"
+                          referrerPolicy="no-referrer"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                        <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#4A5D4E] dark:bg-[#171A17]/90 dark:text-[#A7B39A] backdrop-blur-sm">
+                          {service.tag}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Benefits & For Whom */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
+                      {/* Objetivos y Beneficios */}
+                      <div
+                        className={`p-5 rounded-2xl border space-y-3 ${
+                          isDark
+                            ? 'bg-[#171A17] border-[#667052]'
+                            : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                        }`}
+                      >
+                        <h4 className="font-serif font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-[#4A5D4E] dark:text-[#A7B39A]" />
+                          <span>¿Qué trabajamos y logramos?</span>
+                        </h4>
+                        <ul className="space-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
+                          {service.benefits.map((b, bIdx) => (
+                            <li key={bIdx} className="flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#AA4664] flex-shrink-0 mt-1.5" />
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Para quién es */}
+                      <div
+                        className={`p-5 rounded-2xl border space-y-3 ${
+                          isDark
+                            ? 'bg-[#171A17] border-[#667052]'
+                            : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                        }`}
+                      >
+                        <h4 className="font-serif font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2">
+                          <Compass className="w-4 h-4 text-[#AA4664]" />
+                          <span>Indicado especialmente para:</span>
+                        </h4>
+                        <ul className="space-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
+                          {service.forWhom.map((w, wIdx) => (
+                            <li key={wIdx} className="flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#4A5D4E] dark:bg-[#A7B39A] flex-shrink-0 mt-1.5" />
+                              <span>{w}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Action Bar */}
+                    <div className="pt-3 border-t border-[#E6DFD3] dark:border-[#667052] flex flex-col sm:flex-row items-center justify-between gap-3">
+                      <div className="flex items-center gap-3 text-xs text-[#667052] dark:text-[#B7BEA3]">
+                        <span className="inline-flex items-center gap-1">
+                          <Clock className="w-3.5 h-3.5 text-[#AA4664]" />
+                          <span>{service.duration}</span>
+                        </span>
+                        <span>•</span>
+                        <span>{service.modalities.join(' / ')}</span>
+                      </div>
+
+                      <div className="flex items-center gap-3 w-full sm:w-auto">
+                        <button
+                          type="button"
+                          onClick={() => onSelectServiceDetail(service)}
+                          className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold border transition-all ${
+                            isDark
+                              ? 'border-[#667052] text-[#B7BEA3] hover:bg-[#21251F]'
+                              : 'border-[#E6DFD3] text-[#24211F] hover:bg-white'
+                          }`}
+                        >
+                          <span>Ver en ventana modal</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => onOpenBooking(service.id)}
+                          className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
+                            isDark
+                              ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
+                              : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                          }`}
+                        >
+                          <Calendar className="w-3.5 h-3.5" />
+                          <span>Pedir Cita</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* 4. METODOLOGÍA: ¿CÓMO TRABAJAMOS EN CONSULTA? */}
+      {/* 5. METODOLOGÍA: ¿CÓMO TRABAJAMOS EN CONSULTA? (INTACTA) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
@@ -255,7 +885,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 className={`p-6 sm:p-8 rounded-3xl border flex flex-col justify-between space-y-4 relative ${
                   isDark
                     ? 'bg-[#21251F] border-[#667052]'
-                    : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                    : 'bg-white border-[#E6DFD3]'
                 }`}
               >
                 <div className="flex items-center justify-between">
@@ -281,13 +911,13 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
         </div>
       </section>
 
-      {/* 5. BOTTOM CTA BLOCK "¿Preparado para dar el primer paso?" */}
+      {/* 6. BOTTOM CTA BLOCK "¿Preparado para dar el primer paso?" (INTACTA) */}
       <section className="max-w-4xl mx-auto px-4">
         <div
           className={`p-10 sm:p-14 rounded-3xl border text-center relative overflow-hidden shadow-xl ${
             isDark
               ? 'bg-gradient-to-br from-[#21251F] to-[#171A17] border-[#A7B39A]/40 text-[#F3EFE7]'
-              : 'bg-gradient-to-br from-[#E6DFD3] to-[#FDFBF7] border-[#E6DFD3] text-[#24211F]'
+              : 'bg-gradient-to-br from-[#FDFBF7] to-[#FDFBF7] border-[#E6DFD3] text-[#24211F]'
           }`}
         >
           {/* Subtle background radial aura */}
@@ -301,7 +931,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
               ¿Preparado para dar el primer paso?
             </h2>
             <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
-              Estoy a tu disposición para atenderte tanto en mi consulta en Espacio K alma, C. del Río Huerva, 21 (50006 Zaragoza), como por videoconsulta desde donde estés.
+              Estoy a tu disposición para atenderte tanto en mi consulta en Espacio K alma (C. del Río Huerva, 21, 50006 Zaragoza) como por videoconsulta desde donde estés.
             </p>
 
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -310,7 +940,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-md active:scale-[0.98] ${
                   isDark
                     ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664]'
+                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
                 }`}
               >
                 <Calendar className="w-4 h-4" />
@@ -322,7 +952,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider border transition-all ${
                   isDark
                     ? 'border-[#667052] text-[#F3EFE7] hover:bg-[#21251F]'
-                    : 'border-[#E6DFD3] text-[#24211F] hover:bg-[#FDFBF7]'
+                    : 'border-[#E6DFD3] text-[#24211F] hover:bg-white'
                 }`}
               >
                 <MessageSquare className="w-4 h-4 text-[#AA4664]" />

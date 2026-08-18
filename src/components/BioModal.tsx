@@ -1,6 +1,6 @@
 import React from 'react';
 import { BIO_FULL_STORY, CLINICAL_INFO, IMAGES } from '../data/content';
-import { X, Award, GraduationCap, Heart, CheckCircle2, Calendar } from 'lucide-react';
+import { X, Award, GraduationCap, Heart, CheckCircle2, Calendar, Briefcase } from 'lucide-react';
 
 interface BioModalProps {
   isOpen: boolean;
@@ -28,7 +28,7 @@ export const BioModal: React.FC<BioModalProps> = ({
         className={`relative w-full max-w-3xl rounded-3xl p-6 sm:p-10 shadow-2xl transition-all max-h-[90vh] overflow-y-auto ${
           isDark
             ? 'bg-[#171A17] border border-[#667052] text-[#F3EFE7]'
-            : 'bg-[#FDFBF7] border border-[#E6DFD3] text-[#24211F]'
+            : 'bg-[#FBF9F5] border border-[#E6DFD3] text-[#24211F]'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -93,30 +93,62 @@ export const BioModal: React.FC<BioModalProps> = ({
           ))}
         </div>
 
+        {/* Formación y Especializaciones */}
+        <div className="py-6 border-t border-[#E6DFD3] dark:border-[#667052]">
+          <div className="flex items-center gap-2 mb-4">
+            <GraduationCap className="w-5 h-5 text-[#4A5D4E] dark:text-[#A7B39A]" />
+            <h4 className="font-serif text-lg font-medium text-[#24211F] dark:text-[#F3EFE7]">
+              Formación y Especializaciones
+            </h4>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {BIO_FULL_STORY.trainings.map((item, idx) => (
+              <div
+                key={idx}
+                className={`p-3 rounded-xl border flex items-start gap-2.5 text-xs ${
+                  isDark
+                    ? 'bg-[#21251F] border-[#667052] text-[#B7BEA3]'
+                    : 'bg-white border-[#E6DFD3] text-[#24211F]'
+                }`}
+              >
+                <CheckCircle2 className="w-4 h-4 text-[#AA4664] flex-shrink-0 mt-0.5" />
+                <span className="leading-snug">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Timeline Milestones */}
         <div className="py-6 border-t border-[#E6DFD3] dark:border-[#667052]">
-          <h4 className="font-serif text-lg font-medium mb-6 text-[#24211F] dark:text-[#F3EFE7]">
-            Hitos y Formación
-          </h4>
+          <div className="flex items-center gap-2 mb-2">
+            <Briefcase className="w-5 h-5 text-[#4A5D4E] dark:text-[#A7B39A]" />
+            <h4 className="font-serif text-lg font-medium text-[#24211F] dark:text-[#F3EFE7]">
+              Trayectoria y Experiencia Profesional
+            </h4>
+          </div>
+          <p className="text-xs text-[#667052] dark:text-[#B7BEA3] mb-6">
+            {BIO_FULL_STORY.experienceOverview}
+          </p>
 
-          <div className="space-y-4">
+          <div className="space-y-3.5">
             {BIO_FULL_STORY.milestones.map((item, i) => (
               <div
                 key={i}
-                className={`p-4 rounded-xl border flex items-start gap-4 transition-all ${
+                className={`p-4 rounded-2xl border flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 transition-all ${
                   isDark
                     ? 'bg-[#21251F] border-[#667052]'
-                    : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                    : 'bg-white border-[#E6DFD3]'
                 }`}
               >
-                <span className="font-serif font-bold text-xs sm:text-sm px-2.5 py-1 rounded-md bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0">
+                <span className="font-serif font-semibold text-xs px-2.5 py-1 rounded-md bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] self-start flex-shrink-0">
                   {item.year}
                 </span>
-                <div>
+                <div className="space-y-0.5">
                   <h5 className="font-medium text-sm text-[#24211F] dark:text-[#F3EFE7]">
                     {item.title}
                   </h5>
-                  <p className="text-xs mt-0.5 text-[#667052] dark:text-[#B7BEA3]">
+                  <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
                     {item.desc}
                   </p>
                 </div>
@@ -139,7 +171,7 @@ export const BioModal: React.FC<BioModalProps> = ({
               className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                 isDark
                   ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                  : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664]'
+                  : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
               }`}
             >
               <Calendar className="w-4 h-4" />

@@ -78,7 +78,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
           </h1>
 
           <p className="text-base text-[#667052] dark:text-[#B7BEA3] leading-relaxed">
-            Si deseas resolver cualquier duda o solicitar tu primera sesión en Espacio K alma, Zaragoza, o en modalidad online, estaré encantada de atenderte.
+            Si deseas resolver cualquier duda o solicitar tu primera sesión en Zaragoza (Espacio K alma, C. del Río Huerva, 21) o en modalidad online, estaré encantada de atenderte.
           </p>
         </div>
       </section>
@@ -391,7 +391,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                       {CLINICAL_INFO.location}
                     </p>
                     <p className="text-xs text-[#667052] dark:text-[#B7BEA3] mt-0.5">
-                      Espacio K alma · C. del Río Huerva, 21 · 50006 Zaragoza
+                      Dirección completa facilitada al agendar la cita.
                     </p>
                   </div>
                 </div>
@@ -428,21 +428,21 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
               </div>
 
               <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
-                Ubicada en Espacio K alma, en C. del Río Huerva, 21, en la zona de Ruiseñores de Zaragoza, con buenas conexiones:
+                Ubicada en <strong>Espacio K alma</strong> (C. del Río Huerva, 21, 50006 Zaragoza), en un entorno tranquilo y acogedor junto al río Huerva y la zona centro / Universidad:
               </p>
 
               <div className="space-y-2 text-xs">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#AA4664]" />
-                  <span><strong>Autobús urbano:</strong> Paradas cercanas en la zona de Paseo de Sagasta y Ruiseñores.</span>
+                  <span><strong>Tranvía de Zaragoza:</strong> Parada Goya o Plaza San Francisco a pocos minutos a pie.</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#AA4664]" />
-                  <span><strong>Tranvía de Zaragoza:</strong> Conexión próxima desde las paradas de la zona de Gran Vía.</span>
+                  <span><strong>Autobús Urbano:</strong> Líneas 24, 31, 33, 34, 38, 41 y Circulares Ci1 / Ci2 con paradas muy próximas en Goya y Gran Vía.</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#AA4664]" />
-                  <span><strong>Aparcamiento:</strong> Disponible en las calles y aparcamientos públicos del entorno.</span>
+                  <span><strong>Cercanías Renfe:</strong> Estación Zaragoza-Goya a menos de 5 minutos caminando.</span>
                 </div>
               </div>
             </div>

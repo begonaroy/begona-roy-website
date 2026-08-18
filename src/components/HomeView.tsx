@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavigationTab, ServiceDetail } from '../types';
 import { CLINICAL_INFO, IMAGES, SERVICES_DATA, TESTIMONIALS } from '../data/content';
 import {
@@ -12,12 +12,15 @@ import {
   Activity,
   CheckCircle2,
   PhoneCall,
-  UserCheck
+  UserCheck,
+  ChevronDown,
+  Clock,
+  Compass
 } from 'lucide-react';
 
 interface HomeViewProps {
   onNavigate: (tab: NavigationTab) => void;
-  onOpenBooking: () => void;
+  onOpenBooking: (serviceId?: string) => void;
   onOpenBio: () => void;
   onSelectServiceDetail: (service: ServiceDetail) => void;
   isDark: boolean;
@@ -30,6 +33,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
   onSelectServiceDetail,
   isDark,
 }) => {
+  const [openAccordionId, setOpenAccordionId] = useState<string | null>('ansiedad-estres');
+
+  const toggleAccordion = (id: string) => {
+    setOpenAccordionId((prev) => (prev === id ? null : id));
+  };
   return (
     <div id="home-view" className="space-y-20 sm:space-y-28 pb-20">
       {/* 1. HERO SECTION */}
@@ -68,7 +76,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   className={`w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] ${
                     isDark
                       ? 'bg-[#A7B39A] hover:bg-[#B7BEA3] text-[#171A17]'
-                      : 'bg-[#4A5D4E] hover:bg-[#AA4664] text-[#FDFBF7]'
+                      : 'bg-[#4A5D4E] hover:bg-[#AA4664] text-white'
                   }`}
                 >
                   <Calendar className="w-4 h-4" />
@@ -81,7 +89,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider border transition-all duration-200 hover:shadow-sm ${
                     isDark
                       ? 'border-[#667052] text-[#F3EFE7] hover:bg-[#21251F]'
-                      : 'border-[#E6DFD3] text-[#24211F] hover:bg-[#E6DFD3]'
+                      : 'border-[#E6DFD3] text-[#24211F] hover:bg-[#FDFBF7]'
                   }`}
                 >
                   <span>Conoce mi enfoque</span>
@@ -114,7 +122,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 {/* Decorative background aura */}
                 <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#4A5D4E]/10 to-[#AA4664]/15 blur-xl -z-10" />
 
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E6DFD3] dark:border-[#667052] aspect-[4/5] bg-[#E6DFD3] dark:bg-[#21251F]">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E6DFD3] dark:border-[#667052] aspect-[4/5] bg-gray-100 dark:bg-[#21251F]">
                   <img
                     src={IMAGES.heroAtmosphere}
                     alt="Espacio sereno de consulta de psicología con Begoña Roy"
@@ -125,12 +133,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
                   {/* Floating badge inside photo */}
-                  <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-[#FDFBF7]/90 dark:bg-[#171A17]/90 backdrop-blur-md border border-[#FDFBF7]/40 dark:border-[#667052] shadow-lg">
+                  <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/90 dark:bg-[#171A17]/90 backdrop-blur-md border border-white/40 dark:border-[#667052] shadow-lg">
                     <p className="font-serif italic text-sm text-[#24211F] dark:text-[#F3EFE7]">
                       "Un espacio seguro donde respirar y reencontrarte."
                     </p>
                     <p className="text-[11px] font-medium text-[#AA4664] mt-1">
-                      Consulta en Espacio K alma (Zaragoza) & Videoconsulta
+                      Espacio K alma (C. del Río Huerva, 21, Zaragoza)
                     </p>
                   </div>
                 </div>
@@ -149,19 +157,19 @@ export const HomeView: React.FC<HomeViewProps> = ({
           className={`p-8 sm:p-12 rounded-3xl border transition-all ${
             isDark
               ? 'bg-[#21251F] border-[#667052]'
-              : 'bg-[#E6DFD3] border-[#E6DFD3]'
+              : 'bg-[#FDFBF7] border-[#E6DFD3]'
           }`}
         >
           <span className="text-3xl sm:text-4xl text-[#AA4664] block font-serif mb-2">
             “
           </span>
           <p className="font-script text-2xl sm:text-3xl md:text-4xl leading-relaxed text-[#24211F] dark:text-[#F3EFE7] font-semibold">
-            Conozca todas las teorías. Domine todas las técnicas, pero al tocar un alma humana sea apenas otra alma humana.
+            Mi objetivo fundamental es acompañarte para traducir las soluciones que ya están en ti y descubrir tus fortalezas...
           </p>
           <div className="mt-4 flex items-center justify-center gap-2">
             <span className="h-px w-8 bg-[#AA4664]" />
             <span className="font-serif text-sm italic text-[#667052] dark:text-[#B7BEA3]">
-              Carl Gustav Jung
+              Begoña Roy · Psicología Sanitaria & Liberación del Pericardio
             </span>
             <span className="h-px w-8 bg-[#AA4664]" />
           </div>
@@ -181,7 +189,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#171A17]/60 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 text-[#FDFBF7]">
+              <div className="absolute bottom-4 left-4 right-4 text-white">
                 <span className="text-xs uppercase tracking-widest font-semibold block text-[#B7BEA3]">
                   Colegiada CV-07890
                 </span>
@@ -199,23 +207,19 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 QUIÉN SOY
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
-                Una mirada integradora al ser humano
+                Acompañar desde la escucha, la empatía y la sencillez
               </h2>
             </div>
 
             <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
               <p>
-                Soy psicóloga por vocación y convicción. Me licencié por la{' '}
-                <strong className="text-[#24211F] dark:text-[#F3EFE7]">
-                  Universidad de Valencia en 1995
-                </strong>
-                , y desde entonces he dedicado más de dos décadas al acompañamiento terapéutico en el ámbito sanitario, en organizaciones no gubernamentales y en consulta privada.
+                Hola, me llamo <strong className="text-[#24211F] dark:text-[#F3EFE7]">Begoña Roy</strong>. Mi principal impulso ha sido siempre intentar ayudar y acompañar a personas que estuviesen pasando por momentos vitales difíciles desde la escucha, la empatía y la sencillez.
               </p>
               <p>
-                A lo largo de mi camino clínico comprendí que la mente y el cuerpo no son entidades separadas. Lo que las emociones callan, el cuerpo lo manifiesta en forma de opresión, dolor o síntoma.
+                Me licencié en Psicología por la <strong className="text-[#24211F] dark:text-[#F3EFE7]">Universidad de Valencia en 1995</strong> y continué con el Máster en Psicología Clínica y el Máster en Psicooncología (UCM). A lo largo de más de 25 años en ONGs, ámbito hospitalario y consulta privada, he buscado distintos enfoques para realizar mi trabajo de la forma más honesta, responsable y humana posible.
               </p>
               <p>
-                Por ello, mi abordaje une el rigor de la <strong className="text-[#24211F] dark:text-[#F3EFE7]">Psicología Sanitaria</strong> y la <strong className="text-[#24211F] dark:text-[#F3EFE7]">Psicooncología</strong> con técnicas somáticas avanzadas como la <strong className="text-[#24211F] dark:text-[#F3EFE7]">Liberación del Pericardio</strong> (que facilito desde 2017) y el trabajo con el trauma y el sistema nervioso.
+                Mi enfoque es <strong className="text-[#24211F] dark:text-[#F3EFE7]">integral y humanista</strong>: como seres humanos estamos formados por <strong className="text-[#24211F] dark:text-[#F3EFE7]">cuerpo, emoción, mente y espíritu</strong>. Integra la práctica meditativa (Sangha Respira) y la <strong className="text-[#24211F] dark:text-[#F3EFE7]">Liberación del Pericardio</strong> para conectar con tu propia esencia desde el corazón.
               </p>
             </div>
 
@@ -225,10 +229,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-sm border ${
                   isDark
                     ? 'border-[#A7B39A] text-[#A7B39A] hover:bg-[#A7B39A] hover:text-[#171A17]'
-                    : 'border-[#4A5D4E] text-[#4A5D4E] hover:bg-[#4A5D4E] hover:text-[#FDFBF7]'
+                    : 'border-[#4A5D4E] text-[#4A5D4E] hover:bg-[#4A5D4E] hover:text-white'
                 }`}
               >
-                <span>Leer biografía completa</span>
+                <span>Leer biografía y trayectoria</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -243,82 +247,227 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* 4. ESPECIALIDADES (AREAS DE ACOMPAÑAMIENTO) */}
+      {/* 4. TE PUEDO AYUDAR EN (ACORDEÓN INTERACTIVO) */}
       <section
         id="especialidades-summary"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-14">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
-            ESPECIALIDADES
+            ACOMPAÑAMIENTO Y ATENCIÓN
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
-            Áreas de Acompañamiento
+            Te puedo ayudar en
           </h2>
           <p className="text-sm sm:text-base text-[#667052] dark:text-[#B7BEA3]">
-            Cada persona y cada proceso son únicos. Adaptamos el trabajo a tu momento vital y tus necesidades específicas.
+            Cada persona y cada proceso son únicos. Despliega cada área para conocer cómo abordamos tus necesidades específicas con rigor y calidez.
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICES_DATA.map((service) => (
-            <div
-              key={service.id}
-              className={`rounded-3xl border overflow-hidden transition-all duration-300 hover:shadow-lg flex flex-col group ${
-                service.featured
-                  ? isDark
-                    ? 'bg-[#21251F] border-[#A7B39A]/60 ring-1 ring-[#A7B39A]/40'
-                    : 'bg-[#FDFBF7] border-[#4A5D4E]/40 ring-1 ring-[#4A5D4E]/30'
-                  : isDark
-                  ? 'bg-[#171A17] border-[#667052]'
-                  : 'bg-[#FDFBF7] border-[#E6DFD3]'
-              }`}
-            >
-              {/* Card Image */}
-              <div className="relative h-48 overflow-hidden bg-gray-200 dark:bg-gray-800">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#FDFBF7]/90 text-[#4A5D4E] dark:bg-[#171A17]/90 dark:text-[#A7B39A] backdrop-blur-sm">
-                  {service.tag}
-                </span>
-              </div>
+        {/* Accordion List */}
+        <div className="space-y-4">
+          {SERVICES_DATA.map((service, index) => {
+            const isOpen = openAccordionId === service.id;
+            const indexFormatted = String(index + 1).padStart(2, '0');
 
-              {/* Card Content */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div className="space-y-2">
-                  <h3 className="font-serif text-lg leading-tight font-medium text-[#24211F] dark:text-[#F3EFE7] group-hover:text-[#4A5D4E] dark:group-hover:text-[#A7B39A] transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3] line-clamp-3">
-                    {service.description}
-                  </p>
-                </div>
+            return (
+              <div
+                key={service.id}
+                className={`rounded-2xl sm:rounded-3xl border transition-all duration-300 overflow-hidden ${
+                  isOpen
+                    ? isDark
+                      ? 'bg-[#21251F] border-[#A7B39A]/60 shadow-lg ring-1 ring-[#A7B39A]/30'
+                      : 'bg-white border-[#4A5D4E]/40 shadow-lg ring-1 ring-[#4A5D4E]/20'
+                    : isDark
+                    ? 'bg-[#171A17] border-[#667052] hover:border-[#A7B39A]/40'
+                    : 'bg-[#FDFBF7] border-[#E6DFD3] hover:border-[#AA4664]/50'
+                }`}
+              >
+                {/* Accordion Header Toggle */}
+                <button
+                  type="button"
+                  onClick={() => toggleAccordion(service.id)}
+                  aria-expanded={isOpen}
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 transition-colors"
+                >
+                  <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+                    <span
+                      className={`font-serif text-base sm:text-lg font-bold flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center ${
+                        isOpen
+                          ? 'bg-[#AA4664] text-white'
+                          : isDark
+                          ? 'bg-[#21251F] text-[#B7BEA3]'
+                          : 'bg-[#E6DFD3] text-[#667052]'
+                      }`}
+                    >
+                      {indexFormatted}
+                    </span>
 
-                <div className="pt-2 border-t border-[#E6DFD3] dark:border-[#667052] flex items-center justify-between">
-                  <button
-                    onClick={() => onSelectServiceDetail(service)}
-                    className="text-xs font-semibold text-[#4A5D4E] dark:text-[#A7B39A] hover:text-[#AA4664] dark:hover:text-[#D8659B] flex items-center gap-1"
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="font-serif text-lg sm:text-xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
+                          {service.title}
+                        </h3>
+                        {service.featured && (
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#AA4664] text-white shadow-sm">
+                            Especialidad Destacada
+                          </span>
+                        )}
+                        <span
+                          className={`hidden sm:inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider ${
+                            isDark
+                              ? 'bg-[#21251F] text-[#A7B39A]'
+                              : 'bg-[#E6DFD3] text-[#4A5D4E]'
+                          }`}
+                        >
+                          {service.tag}
+                        </span>
+                      </div>
+                      {!isOpen && (
+                        <p className="text-xs text-[#667052] dark:text-[#B7BEA3] truncate mt-0.5">
+                          {service.description}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Toggle Indicator Button */}
+                  <div
+                    className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
+                      isOpen
+                        ? 'bg-[#AA4664]/15 text-[#AA4664] rotate-180'
+                        : isDark
+                        ? 'bg-[#21251F] text-[#B7BEA3]'
+                        : 'bg-[#E6DFD3] text-[#667052]'
+                    }`}
                   >
-                    <span>Saber más</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                    <ChevronDown className="w-5 h-5" />
+                  </div>
+                </button>
 
-                  <button
-                    onClick={onOpenBooking}
-                    className="text-[11px] uppercase tracking-wider font-semibold text-[#AA4664] hover:underline"
-                  >
-                    Pedir cita
-                  </button>
-                </div>
+                {/* Accordion Expanded Body */}
+                {isOpen && (
+                  <div className="px-5 pb-6 sm:px-8 sm:pb-8 pt-2 border-t border-[#E6DFD3] dark:border-[#667052]/80 animate-fadeIn space-y-6">
+                    {/* Subtitle & Image row */}
+                    <div className="flex flex-col md:flex-row gap-6 items-start">
+                      <div className="flex-1 space-y-3">
+                        <p className="font-serif italic text-base sm:text-lg text-[#AA4664]">
+                          {service.subtitle}
+                        </p>
+
+                        <div className="space-y-3 text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                          {service.fullContent.map((paragraph, pIdx) => (
+                            <p key={pIdx}>{paragraph}</p>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Side Image */}
+                      <div className="w-full md:w-64 h-48 rounded-2xl overflow-hidden shadow-md relative flex-shrink-0">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full object-cover"
+                          referrerPolicy="no-referrer"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                        <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#4A5D4E] dark:bg-[#171A17]/90 dark:text-[#A7B39A] backdrop-blur-sm">
+                          {service.tag}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Benefits & For Whom */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
+                      {/* Objetivos y Beneficios */}
+                      <div
+                        className={`p-5 rounded-2xl border space-y-3 ${
+                          isDark
+                            ? 'bg-[#171A17] border-[#667052]'
+                            : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                        }`}
+                      >
+                        <h4 className="font-serif font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-[#4A5D4E] dark:text-[#A7B39A]" />
+                          <span>¿Qué trabajamos y logramos?</span>
+                        </h4>
+                        <ul className="space-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
+                          {service.benefits.map((b, bIdx) => (
+                            <li key={bIdx} className="flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#AA4664] flex-shrink-0 mt-1.5" />
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Para quién es */}
+                      <div
+                        className={`p-5 rounded-2xl border space-y-3 ${
+                          isDark
+                            ? 'bg-[#171A17] border-[#667052]'
+                            : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                        }`}
+                      >
+                        <h4 className="font-serif font-semibold text-sm text-[#24211F] dark:text-[#F3EFE7] flex items-center gap-2">
+                          <Compass className="w-4 h-4 text-[#AA4664]" />
+                          <span>Indicado especialmente para:</span>
+                        </h4>
+                        <ul className="space-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
+                          {service.forWhom.map((w, wIdx) => (
+                            <li key={wIdx} className="flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#4A5D4E] dark:bg-[#A7B39A] flex-shrink-0 mt-1.5" />
+                              <span>{w}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Action Bar */}
+                    <div className="pt-3 border-t border-[#E6DFD3] dark:border-[#667052] flex flex-col sm:flex-row items-center justify-between gap-3">
+                      <div className="flex items-center gap-3 text-xs text-[#667052] dark:text-[#B7BEA3]">
+                        <span className="inline-flex items-center gap-1">
+                          <Clock className="w-3.5 h-3.5 text-[#AA4664]" />
+                          <span>{service.duration}</span>
+                        </span>
+                        <span>•</span>
+                        <span>{service.modalities.join(' / ')}</span>
+                      </div>
+
+                      <div className="flex items-center gap-3 w-full sm:w-auto">
+                        <button
+                          type="button"
+                          onClick={() => onSelectServiceDetail(service)}
+                          className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold border transition-all ${
+                            isDark
+                              ? 'border-[#667052] text-[#B7BEA3] hover:bg-[#21251F]'
+                              : 'border-[#E6DFD3] text-[#24211F] hover:bg-white'
+                          }`}
+                        >
+                          <span>Ver en ventana modal</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => onOpenBooking(service.id)}
+                          className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
+                            isDark
+                              ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
+                              : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                          }`}
+                        >
+                          <Calendar className="w-3.5 h-3.5" />
+                          <span>Pedir Cita</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* View All Services Link */}
@@ -360,7 +509,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             className={`p-8 rounded-3xl border flex flex-col justify-between transition-all ${
               isDark
                 ? 'bg-[#21251F] border-[#667052]'
-                : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                : 'bg-white border-[#E6DFD3]'
             }`}
           >
             <div className="space-y-4">
@@ -374,7 +523,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 Espacio K alma · Zaragoza (50006)
               </p>
               <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
-                En un entorno cálido, íntimo y silencioso en Espacio K alma, C. del Río Huerva, 21 (50006 Zaragoza). Ideal para el contacto humano cercano y para la terapia manual de Pericardio.
+                En un entorno cálido, íntimo y silencioso en Espacio K alma (C. del Río Huerva, 21, 50006 Zaragoza). Ideal para contacto humano cercano y para la terapia manual de Pericardio.
               </p>
             </div>
             <div className="pt-6 mt-4 border-t border-[#E6DFD3] dark:border-[#667052]">
@@ -389,7 +538,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             className={`p-8 rounded-3xl border flex flex-col justify-between transition-all ${
               isDark
                 ? 'bg-[#21251F] border-[#667052]'
-                : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                : 'bg-white border-[#E6DFD3]'
             }`}
           >
             <div className="space-y-4">
@@ -415,14 +564,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
           {/* Card 3: Featured Action Box "¿Comenzamos el camino?" */}
           <div
-            className={`p-8 rounded-3xl border flex flex-col justify-between text-[#FDFBF7] shadow-xl ${
+            className={`p-8 rounded-3xl border flex flex-col justify-between text-white shadow-xl ${
               isDark
                 ? 'bg-gradient-to-br from-[#21251F] to-[#171A17] border-[#A7B39A]/40'
                 : 'bg-gradient-to-br from-[#4A5D4E] to-[#21251F] border-[#4A5D4E]'
             }`}
           >
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#FDFBF7]/20 text-[#FDFBF7] flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-white/20 text-white flex items-center justify-center">
                 <Calendar className="w-6 h-6" />
               </div>
               <h3 className="font-serif text-xl font-medium">
@@ -439,7 +588,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="pt-6 mt-4">
               <button
                 onClick={onOpenBooking}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#FDFBF7] text-[#4A5D4E] hover:bg-[#FDFBF7] transition-colors shadow"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-[#4A5D4E] hover:bg-[#FDFBF7] transition-colors shadow"
               >
                 <span>Contactar Ahora</span>
                 <ArrowRight className="w-4 h-4" />
@@ -467,7 +616,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               className={`p-6 sm:p-8 rounded-3xl border flex flex-col justify-between space-y-4 ${
                 isDark
                   ? 'bg-[#21251F] border-[#667052]'
-                  : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                  : 'bg-[#FBF9F5] border-[#E6DFD3]'
               }`}
             >
               <p className="font-serif italic text-sm sm:text-base leading-relaxed text-[#24211F] dark:text-[#F3EFE7]">
