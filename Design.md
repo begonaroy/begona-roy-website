@@ -1,144 +1,100 @@
-# Sistema de Diseño y Documentación Arquitectónica: Begoña Roy
-**Psicología Sanitaria, Psicooncología y Liberación del Pericardio**
+# Diseño — Begoña Roy
 
----
+Guía visual y de experiencia para la web de Begoña Roy, psicóloga sanitaria, psicooncóloga y facilitadora de Liberación del Pericardio.
 
-## 1. Concepto Creativo y Arquetipo de Marca
-* **Arquetipo:** *El Sabio Compasivo y el Cuidador Sanador*. Transmite serenidad, rigor científico universitario (Licenciada en Psicología por la Universidad de Valencia, 1995, Col. CV-07890) y calidez humana integradora.
-* **Atmósfera Visual:** Espacio de acogida, luz natural, tonos tierra, hojas de salvia y texturas cerámicas. Se evita deliberadamente la estética fría de clínica médica y la artificialidad de clichés corporativos.
-* **Propósito:** Ofrecer un refugio seguro para personas en procesos de duelo, diagnóstico oncológico, ansiedad desbordante o necesidad de reconexión cuerpo-mente mediante la liberación del pericardio.
+## Intención de marca
 
----
+La experiencia debe sentirse serena, humana y rigurosa. El diseño evita tanto la frialdad clínica como los clichés de bienestar: emplea luz cálida, materiales naturales, espacio en blanco y una voz respetuosa. El arquetipo combina **la cuidadora** con **la sabia**: cercanía emocional, claridad y profesionalidad sanitaria.
 
-## 2. Arquitectura de Información y Sitemap
+## Estructura de la experiencia
 
-```
-├── 1. Inicio (Home)
-│   ├── Hero Principal (H1, Propuesta de Valor, CTAs Duales, Credenciales Sanitarias)
-│   ├── Cita Emocional Destacada ("Acompañarte a recordar y activar las soluciones...")
-│   ├── Quién Soy (Extracto biográfico + Modal Biografía Completa)
-│   ├── Especialidades (4 Tarjetas Interactivas con fotografía ambiental)
-│   ├── Modalidades de Atención (Presencial en Valencia Centro & Online) + "¿Comenzamos el camino?"
-│   └── Testimonios & Espacio de Confianza
-│
-├── 2. Psicología Sanitaria & Psicooncología
-│   ├── Cabecera & Cita ("Encontrar la luz en el acompañamiento...")
-│   ├── 4 Áreas de Intervención Especializada (con filtros y modal de detalle):
-│   │   ├── Gestión de la Ansiedad y Estrés
-│   │   ├── Procesos de Duelo y Trauma
-│   │   ├── Psicooncología (Especialidad Destacada)
-│   │   └── Bloqueo Emocional & Despertar Espiritual
-│   ├── Metodología: "¿Cómo trabajamos en consulta?" (4 Pilares secuenciales)
-│   └── CTA "¿Preparado para dar el primer paso?"
-│
-├── 3. Liberación del Pericardio
-│   ├── Cabecera & Cita ("El corazón se abre cuando se siente seguro")
-│   ├── "¿Qué es la Liberación del Pericardio?" + Diagrama Anatómico Interactivo
-│   │   ├── Ligamentos Frénico-Pericárdicos (Diafragma y Respiración)
-│   │   ├── Inserciones Esterno-Pericárdicas (Esternón y Costillas)
-│   │   ├── Ligamentos Vértebro-Pericárdicos (Columna Dorsal y Cervical)
-│   │   └── Fascia Prevertebral y Nervio Vago (Base del Cráneo y Calma)
-│   ├── Estructura de la Sesión en 3 Pasos (Recepción, Trabajo en Camilla, Integración)
-│   ├── Beneficios Vivenciales en el Cuerpo
-│   └── CTA de Reserva de Pericardio Presencial en Valencia
-│
-├── 4. Contacto & Preguntas Frecuentes
-│   ├── Formulario de Contacto Interactivo con Validación y enlace directo a WhatsApp
-│   ├── Datos Directos (Teléfono, Email, Horarios) + Guía de Acceso a Valencia Centro (Metro/Bus/Parking)
-│   ├── Acordeón Interactivo de Preguntas Frecuentes (FAQs) con buscador en tiempo real
-│   └── Banner "Empieza Hoy"
-│
-└── 5. Módulos y Modales Transversales
-    ├── Modal de Reserva de Cita en 4 Pasos (Servicio -> Modalidad -> Horario -> Datos)
-    ├── Modal de Biografía Completa con Línea Temporal de Formación y Trayectoria
-    ├── Modal de Detalle Extendido de Especialidad
-    └── Modal de Cumplimiento Legal Sanitario, Privacidad RGPD y Cookies
-```
+La aplicación es una SPA React con cuatro vistas principales:
 
----
+| Vista | Objetivo | Contenido principal |
+| --- | --- | --- |
+| Inicio | Generar confianza y orientar | Hero, credenciales, biografía, especialidades, modalidades y testimonios |
+| Psicología | Explicar las áreas terapéuticas | Servicios, metodología y llamada a solicitar cita |
+| Pericardio | Informar de la técnica presencial | Explicación, conexiones corporales, pasos de sesión y beneficios |
+| Contacto | Resolver dudas y convertir | Formulario, datos de contacto, FAQ y acceso directo a WhatsApp |
 
-## 3. User Flows (Flujos de Usuario)
+Los elementos transversales son la navegación, el pie, el selector de tema y los modales de biografía, detalle de servicio, cita y textos legales.
 
-### Flujo A: Persona con diagnóstico oncológico o familiar (Psicooncología)
-1. **Entrada:** Llega a la Home atraída por la especialización en Psicooncología.
-2. **Descubrimiento:** Ve la tarjeta destacada de Psicooncología en la Home o en la pestaña Psicología.
-3. **Validación:** Abre la Biografía de Begoña Roy y comprueba su titulación (UV 1995, Máster en Psicooncología, Col. CV-07890).
-4. **Conversión:** Pulsa "Pedir Cita", selecciona "Psicooncología" y su modalidad preferida (Valencia presencial u Online).
+## Flujos prioritarios
 
-### Flujo B: Persona con opresión en el pecho y estrés (Liberación del Pericardio)
-1. **Entrada:** Accede a la sección "Pericardio".
-2. **Comprensión:** Lee la explicación sobre cómo el pericardio se contrae ante el miedo e interactúa con el diagrama botánico/anatómico de diafragma y esternón.
-3. **Tranquilidad:** Lee la descripción de las sesiones (con ropa cómoda, sin manipulaciones dolorosas).
-4. **Conversión:** Pulsa "Reservar Sesión de Pericardio" o contacta por WhatsApp.
+1. **Solicitar una cita:** desde cualquier CTA se abre un modal de cinco estados: elegir servicio, modalidad, fecha/hora, datos y confirmación.
+2. **Conocer una especialidad:** las tarjetas abren un detalle con explicación, destinatarios, beneficios y CTA contextual.
+3. **Resolver una duda:** el usuario llega a Contacto, filtra o consulta las FAQ y puede continuar a WhatsApp o a la reserva.
 
----
+La Liberación del Pericardio es exclusivamente presencial. Psicología y psicooncología admiten atención presencial en Zaragoza u online.
 
-## 4. Sistema de Diseño Completo (Design System)
+## Fundaciones visuales
 
-### Paleta Diurna (Light Mode)
-* **Verde Salvia Principal (Sage Green):**
-  * Hex: `#4A5D4E` | RGB: `74, 93, 78` | HSL: `133°, 11%, 33%`
-  * Uso: Logotipo, botones principales, insignias de especialidad.
-  * Ratio de Contraste vs `#FBF9F5`: **6.8:1** (Cumple WCAG AAA).
-* **Fondo Arena Cálido (Warm Sand):**
-  * Hex: `#FBF9F5` | RGB: `251, 249, 245` | HSL: `40°, 38%, 97%`
-  * Uso: Fondo principal del lienzo.
-* **Fondo Secundario / Tarjeta Suave:**
-  * Hex: `#F3EFEA` | RGB: `243, 239, 234` | HSL: `33°, 24%, 94%`
-* **Acento Terracota Tierra (Warm Terracotta):**
-  * Hex: `#C28469` | RGB: `194, 132, 105` | HSL: `18°, 43%, 59%`
-  * Uso: Subtítulos en cursiva, comillas de citas, acentos de interacción.
-* **Texto Primario Carbón Natural:**
-  * Hex: `#222823` | RGB: `34, 40, 35` | HSL: `130°, 8%, 15%`
-  * Ratio de Contraste vs `#FBF9F5`: **14.2:1** (Cumple WCAG AAA).
-* **Texto Secundario:**
-  * Hex: `#5A655C` | RGB: `90, 101, 92` | HSL: `131°, 6%, 37%`
+### Color
 
-### Paleta Nocturna (Dark Mode)
-* **Fondo Bosque Oscuro Profundo:**
-  * Hex: `#151B17` | RGB: `21, 27, 23` | HSL: `140°, 13%, 9%`
-* **Superficie de Tarjeta Nocturna:**
-  * Hex: `#1C2420` / `#222C26` | RGB: `28, 36, 32`
-* **Verde Salvia Luminoso (Sage Light):**
-  * Hex: `#7C9682` | RGB: `124, 150, 130` | HSL: `134°, 11%, 54%`
-  * Ratio de Contraste vs `#151B17`: **6.4:1** (Cumple WCAG AA).
-* **Acento Terracota Nocturno:**
-  * Hex: `#D99B82` | RGB: `217, 155, 130`
-* **Texto Principal Blanco Cálido:**
-  * Hex: `#F0F4F1` | RGB: `240, 244, 241`
-  * Ratio de Contraste vs `#151B17`: **15.1:1** (Cumple WCAG AAA).
-* **Texto Secundario Nocturno:**
-  * Hex: `#A9B8AD` | RGB: `169, 184, 173`
+| Token | HEX | RGB | HSL | Uso | Contraste documentado |
+| --- | --- | --- | --- | --- | --- |
+| Lino | `#FDFBF7` | 253, 251, 247 | 40, 60%, 98% | Fondo claro | — |
+| Negro cálido | `#24211F` | 36, 33, 31 | 24, 7%, 13% | Texto claro | 15.48:1 sobre Lino |
+| Verde fuerte | `#4A5D4E` | 74, 93, 78 | 133, 11%, 33% | Marca, enlaces y acciones | 6.85:1 sobre Lino; 5.35:1 sobre Arena |
+| Oliva suave | `#8F9779` | 143, 151, 121 | 74, 13%, 53% | Solo decoración | 2.96:1 sobre Lino: nunca texto pequeño |
+| Oliva funcional | `#667052` | 102, 112, 82 | 80, 15%, 38% | Texto secundario | 5.07:1 sobre Lino |
+| Tierra | `#3D342E` | 61, 52, 46 | 24, 14%, 21% | Cita script | 11.75:1 sobre Lino |
+| Arena | `#E6DFD3` | 230, 223, 211 | 37, 26%, 86% | Superficies claras | — |
+| Fondo oscuro | `#171A17` | 23, 26, 23 | 120, 6%, 10% | Fondo nocturno | — |
+| Superficie oscura | `#21251F` | 33, 37, 31 | 90, 9%, 13% | Superficies nocturnas | — |
+| Lino suave | `#F3EFE7` | 243, 239, 231 | 40, 25%, 93% | Texto oscuro | 15.30:1 sobre Fondo oscuro |
+| Verde claro | `#A7B39A` | 167, 179, 154 | 84, 16%, 65% | Marca nocturna | 7.99:1 sobre Fondo oscuro |
+| Oliva claro | `#B7BEA3` | 183, 190, 163 | 77, 17%, 73% | Detalle nocturno | 9.12:1 sobre Fondo oscuro |
+| Tierra clara | `#C7B3A3` | 199, 179, 163 | 27, 22%, 71% | Citas nocturnas | 8.70:1 sobre Fondo oscuro |
 
----
+El tema se guarda en `localStorage` con la clave `begona_roy_theme`. El modo oscuro usa Fondo oscuro como lienzo y Superficie oscura para tarjetas; Lino suave es el texto principal y Verde claro la marca funcional.
 
-## 5. Tipografía y Escalas
+### Tipografía
 
-* **Tipografía de Títulos y Citas Clásicas:** `Lora` (Serif elegante, serena y equilibrada).
-  * H1: `2.25rem - 3.75rem` (36px - 60px) | `font-weight: 500` | `line-height: 1.15`
-  * H2: `1.875rem - 2.25rem` (30px - 36px) | `font-weight: 500`
-  * H3: `1.25rem - 1.5rem` (20px - 24px) | `font-weight: 500`
-* **Tipografía de Lectura y UI:** `Plus Jakarta Sans` (Sans-serif humanista con excelente legibilidad en pantallas).
-  * Body: `1rem` (16px) | `line-height: 1.65` | `font-weight: 400`
-  * Botones / Etiquetas: `0.75rem - 0.875rem` (12px - 14px) | `font-weight: 600` | `letter-spacing: 0.05em - 0.1em`
-* **Tipografía Emocional y de Firma:** `Dancing Script` (Cursiva natural y cálida para citas y reflexiones).
+- **Titulares:** `Lora`, serif. Peso medio, interlineado compacto (`1.15`).
+- **Cuerpo y controles:** `Plus Jakarta Sans`, sans-serif. Tamaño base `16px`, interlineado aproximado `1.65`.
+- **Citas y firma:** `Dancing Script`, usada con moderación para reforzar el tono humano.
 
----
+Los títulos responden entre `36px` y `60px`; los subtítulos entre `30px` y `36px`; la UI utiliza normalmente `12–14px`, semibold, mayúsculas y espaciado de letras perceptible.
 
-## 6. Espaciado y Reglas de Maquetación
-* **Bordes Redondeados (Border Radius):**
-  * Botones y pastillas (Pills): `rounded-full` (9999px)
-  * Tarjetas contenedoras principales: `rounded-3xl` (24px)
-  * Elementos internos / sub-tarjetas: `rounded-2xl` o `rounded-xl` (12px - 16px) *(Cumpliendo la regla `Radio Interior = Radio Exterior - Padding`)*.
-* **Espaciado rítmico:** Contenedor central `max-w-7xl`, separación entre secciones `space-y-20` a `space-y-28` (80px - 112px).
-* **Padding:** Mínimo de `p-6` a `p-10` en tarjetas para garantizar respiración visual.
+### Espaciado y forma
 
----
+- Contenido centrado con `max-w-7xl`.
+- Separación vertical de secciones: `80–112px`.
+- Tarjetas: `24px` de radio (`rounded-3xl`) y relleno de `24–40px`.
+- Controles y CTAs: forma de píldora (`9999px`).
+- Elementos internos: radios de `12–16px`.
 
-## 7. Recomendaciones para Migración o Implementación en Astro
-1. **Componentes Astro (`.astro`):**
-   * Separar secciones estáticas (`Hero.astro`, `Footer.astro`, `Quote.astro`) para 0-JS de base.
-   * Usar islas interactivas (`client:load` o `client:visible`) para el `BookingModal.tsx`, `ContactoForm.tsx`, y `ThemeToggle.tsx`.
-2. **SEO & Rendimiento:**
-   * Generar `JSON-LD` con esquema `MedicalBusiness` / `Psychologist` incluyendo número de colegiada `CV-07890`, geolocalización en Valencia y horarios.
-   * Optimizar imágenes con `astro:assets` (`<Image />`) con formatos WebP/AVIF.
+El ritmo ha de ser pausado: evitar bloques densos, usar imágenes ambientales grandes y dejar respiración alrededor de títulos y llamadas a la acción.
+
+## Componentes y estados
+
+### Navegación
+
+La barra superior permite cambiar entre Inicio, Psicología, Pericardio y Contacto, abrir la reserva y alternar el tema. Cada cambio de vista devuelve suavemente al inicio de la página.
+
+### Botones
+
+- **Primario:** Verde fuerte en modo claro; Verde claro con texto Fondo oscuro en modo oscuro.
+- **Secundario:** borde discreto y fondo transparente o de superficie.
+- **WhatsApp:** verde `#25D366`, reservado para contacto directo.
+
+Todos los controles interactivos deben conservar foco visible, un objetivo táctil cómodo y estados hover/disabled legibles.
+
+### Tarjetas y modales
+
+Las tarjetas de servicio combinan fotografía ambiental, etiqueta, título y resumen. Los modales se usan para profundizar sin romper el contexto y deben ofrecer cierre visible, superposición opaca y navegación clara entre pasos.
+
+## Accesibilidad y contenido
+
+- Mantener contraste WCAG AA como mínimo. Oliva suave es exclusivamente decorativo y no debe emplearse como texto pequeño.
+- Usar encabezados en orden, etiquetas asociadas a campos y texto alternativo descriptivo en imágenes.
+- No presentar la Liberación del Pericardio como sustituto de atención médica; conservar el aviso de disciplina complementaria.
+- El formulario de reserva solicita consentimiento de privacidad antes de habilitar la confirmación.
+- Usar lenguaje claro, inclusivo y sin promesas terapéuticas absolutas.
+
+## Implementación
+
+Los tokens de color y tipografía se definen en `src/index.css` mediante Tailwind v4. La interfaz está compuesta por vistas en `src/components` y por contenido estructurado en `src/data/content.ts`. Los iconos proceden de `lucide-react` y las imágenes actuales son recursos remotos de Unsplash.
+
+Al modificar el diseño, mantener la paridad entre los temas claro y oscuro, reutilizar tokens en lugar de valores nuevos y validar las interacciones de formularios, filtros y modales en pantalla pequeña y grande.

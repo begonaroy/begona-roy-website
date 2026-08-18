@@ -65,16 +65,16 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       {/* 1. HEADER BANNER */}
       <section className="pt-6 sm:pt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#7C9682]">
-            <Sparkles className="w-3.5 h-3.5 text-[#C28469]" />
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E6DFD3] dark:border-[#667052] bg-[#FDFBF7] dark:bg-[#21251F] text-[#4A5D4E] dark:text-[#A7B39A]">
+            <Sparkles className="w-3.5 h-3.5 text-[#3D342E]" />
             <span>PSICOLOGÍA SANITARIA & PSICOONCOLOGÍA</span>
           </span>
 
-          <h1 className="font-serif text-3xl sm:text-5xl font-medium tracking-tight text-[#222823] dark:text-[#F0F4F1] leading-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7] leading-tight">
             Encontrar la luz en el acompañamiento
           </h1>
 
-          <p className="text-base sm:text-lg text-[#5A655C] dark:text-[#D1DAD2] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#667052] dark:text-[#B7BEA3] leading-relaxed">
             La terapia no consiste en "arreglar" a nadie, sino en crear el espacio seguro y las condiciones necesarias para que puedas comprender lo que te sucede, regular tu biología y reencontrar tu equilibrio.
           </p>
         </div>
@@ -85,14 +85,14 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
         <div
           className={`p-8 sm:p-10 rounded-3xl border text-center transition-all ${
             isDark
-              ? 'bg-[#1C2420] border-[#2D3930]'
-              : 'bg-[#F3EFEA] border-[#E8E2D9]'
+              ? 'bg-[#21251F] border-[#667052]'
+              : 'bg-[#E6DFD3] border-[#E6DFD3]'
           }`}
         >
-          <p className="font-script text-2xl sm:text-3xl leading-relaxed text-[#222823] dark:text-[#F0F4F1] font-semibold">
+          <p className="font-script text-2xl sm:text-3xl leading-relaxed text-[#24211F] dark:text-[#F3EFE7] font-semibold">
             "El equilibrio no es algo que encuentras, es algo que creas en el espacio entre lo que sucede y cómo eliges responder."
           </p>
-          <span className="font-serif text-xs uppercase tracking-widest text-[#C28469] font-medium block mt-3">
+          <span className="font-serif text-xs uppercase tracking-widest text-[#3D342E] font-medium block mt-3">
             Begoña Roy · Consulta Sanitaria Zaragoza
           </span>
         </div>
@@ -100,12 +100,12 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
 
       {/* 3. INTERACTIVE FILTER TABS & SPECIALIZED AREAS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-4 border-b border-[#E8E2D9] dark:border-[#2D3930]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-4 border-b border-[#E6DFD3] dark:border-[#667052]">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#C28469]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#3D342E]">
               ÁREAS DE INTERVENCIÓN
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-medium text-[#222823] dark:text-[#F0F4F1] mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl font-medium text-[#24211F] dark:text-[#F3EFE7] mt-1">
               Acompañamiento Especializado
             </h2>
           </div>
@@ -125,11 +125,11 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 className={`px-4 py-2 rounded-full text-xs font-medium transition-all ${
                   activeFilter === tab.id
                     ? isDark
-                      ? 'bg-[#7C9682] text-[#151B17] font-semibold shadow-sm'
-                      : 'bg-[#4A5D4E] text-white font-semibold shadow-sm'
+                      ? 'bg-[#A7B39A] text-[#171A17] font-semibold shadow-sm'
+                      : 'bg-[#4A5D4E] text-[#FDFBF7] font-semibold shadow-sm'
                     : isDark
-                    ? 'bg-[#1C2420] text-[#A9B8AD] hover:text-[#F0F4F1] border border-[#2D3930]'
-                    : 'bg-white text-[#5A655C] hover:text-[#222823] border border-[#E8E2D9]'
+                    ? 'bg-[#21251F] text-[#B7BEA3] hover:text-[#F3EFE7] border border-[#667052]'
+                    : 'bg-[#FDFBF7] text-[#667052] hover:text-[#24211F] border border-[#E6DFD3]'
                 }`}
               >
                 {tab.label}
@@ -146,11 +146,11 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
               className={`rounded-3xl border overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl ${
                 service.featured
                   ? isDark
-                    ? 'bg-gradient-to-b from-[#222C26] to-[#151B17] border-[#7C9682]/70 ring-1 ring-[#7C9682]/50'
-                    : 'bg-gradient-to-b from-[#FAF7F2] to-white border-[#4A5D4E]/60 ring-1 ring-[#4A5D4E]/40'
+                    ? 'bg-gradient-to-b from-[#21251F] to-[#171A17] border-[#A7B39A]/70 ring-1 ring-[#A7B39A]/50'
+                    : 'bg-gradient-to-b from-[#FDFBF7] to-white border-[#4A5D4E]/60 ring-1 ring-[#4A5D4E]/40'
                   : isDark
-                  ? 'bg-[#151B17] border-[#2D3930]'
-                  : 'bg-white border-[#E8E2D9]'
+                  ? 'bg-[#171A17] border-[#667052]'
+                  : 'bg-[#FDFBF7] border-[#E6DFD3]'
               }`}
             >
               {/* Header Image */}
@@ -163,17 +163,17 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/95 text-[#4A5D4E] dark:bg-[#151B17]/95 dark:text-[#7C9682] backdrop-blur-sm">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#FDFBF7]/95 text-[#4A5D4E] dark:bg-[#171A17]/95 dark:text-[#A7B39A] backdrop-blur-sm">
                     {service.tag}
                   </span>
                   {service.featured && (
-                    <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#C28469] text-white shadow-sm">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#3D342E] text-[#FDFBF7] shadow-sm">
                       Especialidad Principal
                     </span>
                   )}
                 </div>
                 <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="font-serif text-xl sm:text-2xl font-medium text-white drop-shadow-sm">
+                  <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#FDFBF7] drop-shadow-sm">
                     {service.title}
                   </h3>
                 </div>
@@ -182,22 +182,22 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
               {/* Body */}
               <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
-                  <p className="font-serif italic text-sm text-[#C28469]">
+                  <p className="font-serif italic text-sm text-[#3D342E]">
                     {service.subtitle}
                   </p>
-                  <p className="text-sm leading-relaxed text-[#5A655C] dark:text-[#D1DAD2]">
+                  <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
                     {service.description}
                   </p>
 
                   {/* Highlights */}
                   <div className="space-y-2 pt-2">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#222823] dark:text-[#F0F4F1] block">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#24211F] dark:text-[#F3EFE7] block">
                       Puntos clave del abordaje:
                     </span>
-                    <ul className="space-y-1.5 text-xs text-[#5A655C] dark:text-[#A9B8AD]">
+                    <ul className="space-y-1.5 text-xs text-[#667052] dark:text-[#B7BEA3]">
                       {service.benefits.slice(0, 3).map((b, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#7C9682] flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0 mt-0.5" />
                           <span>{b}</span>
                         </li>
                       ))}
@@ -205,10 +205,10 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#E8E2D9] dark:border-[#2D3930] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                <div className="pt-4 border-t border-[#E6DFD3] dark:border-[#667052] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                   <button
                     onClick={() => onSelectServiceDetail(service)}
-                    className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#4A5D4E] dark:text-[#7C9682] hover:text-[#C28469] transition-colors py-2"
+                    className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#4A5D4E] dark:text-[#A7B39A] hover:text-[#3D342E] transition-colors py-2"
                   >
                     <span>Conocer más sobre {service.title.split(' ')[0]}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -218,8 +218,8 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                     onClick={() => onOpenBooking(service.id)}
                     className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                       isDark
-                        ? 'bg-[#7C9682] text-[#151B17] hover:bg-[#8EA694]'
-                        : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
+                        ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
+                        : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#3D342E]'
                     }`}
                   >
                     <Calendar className="w-3.5 h-3.5" />
@@ -235,13 +235,13 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       {/* 4. METODOLOGÍA: ¿CÓMO TRABAJAMOS EN CONSULTA? */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#C28469]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#3D342E]">
             PROCESO TERAPÉUTICO
           </span>
-          <h2 className="font-serif text-3xl font-medium tracking-tight text-[#222823] dark:text-[#F0F4F1]">
+          <h2 className="font-serif text-3xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
             ¿Cómo trabajamos en consulta?
           </h2>
-          <p className="text-sm text-[#5A655C] dark:text-[#A9B8AD]">
+          <p className="text-sm text-[#667052] dark:text-[#B7BEA3]">
             Un camino estructurado pero flexible que respeta siempre tu ritmo personal y tu biología.
           </p>
         </div>
@@ -254,24 +254,24 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 key={idx}
                 className={`p-6 sm:p-8 rounded-3xl border flex flex-col justify-between space-y-4 relative ${
                   isDark
-                    ? 'bg-[#1C2420] border-[#2D3930]'
-                    : 'bg-white border-[#E8E2D9]'
+                    ? 'bg-[#21251F] border-[#667052]'
+                    : 'bg-[#FDFBF7] border-[#E6DFD3]'
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-serif text-2xl font-bold text-[#C28469]/50">
+                  <span className="font-serif text-2xl font-bold text-[#3D342E]/50">
                     {item.step}
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#7C9682] flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex items-center justify-center">
                     <Icon className="w-5 h-5" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="font-serif text-lg font-medium text-[#222823] dark:text-[#F0F4F1]">
+                  <h3 className="font-serif text-lg font-medium text-[#24211F] dark:text-[#F3EFE7]">
                     {item.title}
                   </h3>
-                  <p className="text-xs leading-relaxed text-[#5A655C] dark:text-[#A9B8AD]">
+                  <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
                     {item.desc}
                   </p>
                 </div>
@@ -286,21 +286,21 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
         <div
           className={`p-10 sm:p-14 rounded-3xl border text-center relative overflow-hidden shadow-xl ${
             isDark
-              ? 'bg-gradient-to-br from-[#222C26] to-[#151B17] border-[#7C9682]/40 text-[#F0F4F1]'
-              : 'bg-gradient-to-br from-[#F3EFEA] to-[#FAF7F2] border-[#E8E2D9] text-[#222823]'
+              ? 'bg-gradient-to-br from-[#21251F] to-[#171A17] border-[#A7B39A]/40 text-[#F3EFE7]'
+              : 'bg-gradient-to-br from-[#E6DFD3] to-[#FDFBF7] border-[#E6DFD3] text-[#24211F]'
           }`}
         >
           {/* Subtle background radial aura */}
           <div className="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-[#4A5D4E]/10 blur-3xl pointer-events-none" />
 
           <div className="relative space-y-5 max-w-xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#C28469] block">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#3D342E] block">
               COMIENZA TU PROCESO
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight">
               ¿Preparado para dar el primer paso?
             </h2>
-            <p className="text-sm leading-relaxed text-[#5A655C] dark:text-[#A9B8AD]">
+            <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
               Estoy a tu disposición para atenderte tanto en mi consulta en Plaza Europa (50003 Zaragoza) como por videoconsulta desde donde estés.
             </p>
 
@@ -309,8 +309,8 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 onClick={() => onOpenBooking()}
                 className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-md active:scale-[0.98] ${
                   isDark
-                    ? 'bg-[#7C9682] text-[#151B17] hover:bg-[#8EA694]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
+                    ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
+                    : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#3D342E]'
                 }`}
               >
                 <Calendar className="w-4 h-4" />
@@ -321,11 +321,11 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 onClick={() => onNavigate('contacto')}
                 className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-wider border transition-all ${
                   isDark
-                    ? 'border-[#2D3930] text-[#F0F4F1] hover:bg-[#222C26]'
-                    : 'border-[#D8D0C4] text-[#222823] hover:bg-white'
+                    ? 'border-[#667052] text-[#F3EFE7] hover:bg-[#21251F]'
+                    : 'border-[#E6DFD3] text-[#24211F] hover:bg-[#FDFBF7]'
                 }`}
               >
-                <MessageSquare className="w-4 h-4 text-[#C28469]" />
+                <MessageSquare className="w-4 h-4 text-[#3D342E]" />
                 <span>Ver Preguntas Frecuentes</span>
               </button>
             </div>

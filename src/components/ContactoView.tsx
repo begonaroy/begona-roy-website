@@ -68,16 +68,16 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
       {/* 1. HEADER */}
       <section className="pt-6 sm:pt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#7C9682]">
-            <Sparkles className="w-3.5 h-3.5 text-[#C28469]" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E6DFD3] dark:border-[#667052] bg-[#FDFBF7] dark:bg-[#21251F] text-[#4A5D4E] dark:text-[#A7B39A]">
+            <Sparkles className="w-3.5 h-3.5 text-[#3D342E]" />
             <span>ESTOY A TU LADO</span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl font-medium tracking-tight text-[#222823] dark:text-[#F0F4F1]">
+          <h1 className="font-serif text-3xl sm:text-5xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
             Contacto.
           </h1>
 
-          <p className="text-base text-[#5A655C] dark:text-[#D1DAD2] leading-relaxed">
+          <p className="text-base text-[#667052] dark:text-[#B7BEA3] leading-relaxed">
             Si deseas resolver cualquier duda o solicitar tu primera sesión en Zaragoza (Plaza Europa) o en modalidad online, estaré encantada de atenderte.
           </p>
         </div>
@@ -91,26 +91,26 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
             <div
               className={`p-6 sm:p-10 rounded-3xl border shadow-lg transition-all ${
                 isDark
-                  ? 'bg-[#1C2420] border-[#2D3930]'
-                  : 'bg-white border-[#E8E2D9]'
+                  ? 'bg-[#21251F] border-[#667052]'
+                  : 'bg-[#FDFBF7] border-[#E6DFD3]'
               }`}
             >
-              <h2 className="font-serif text-2xl font-medium mb-1 text-[#222823] dark:text-[#F0F4F1]">
+              <h2 className="font-serif text-2xl font-medium mb-1 text-[#24211F] dark:text-[#F3EFE7]">
                 Escríbeme un mensaje
               </h2>
-              <p className="text-xs text-[#5A655C] dark:text-[#A9B8AD] mb-6">
+              <p className="text-xs text-[#667052] dark:text-[#B7BEA3] mb-6">
                 Responderé con total confidencialidad en un plazo máximo de 24 horas laborables.
               </p>
 
               {isSent ? (
                 <div className="py-10 text-center space-y-4">
-                  <div className="w-14 h-14 rounded-full bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#7C9682] flex items-center justify-center mx-auto">
+                  <div className="w-14 h-14 rounded-full bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="font-serif text-xl font-medium text-[#222823] dark:text-[#F0F4F1]">
+                  <h3 className="font-serif text-xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
                     Mensaje enviado correctamente
                   </h3>
-                  <p className="text-sm text-[#5A655C] dark:text-[#A9B8AD] max-w-md mx-auto">
+                  <p className="text-sm text-[#667052] dark:text-[#B7BEA3] max-w-md mx-auto">
                     Gracias por tu confianza, <strong>{name}</strong>. He recibido tu consulta y me pondré en contacto contigo muy pronto.
                   </p>
                   <button
@@ -125,8 +125,8 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                     }}
                     className={`mt-4 px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider border transition-colors ${
                       isDark
-                        ? 'border-[#2D3930] hover:bg-[#222C26]'
-                        : 'border-[#D8D0C4] hover:bg-[#F3EFEA]'
+                        ? 'border-[#667052] hover:bg-[#21251F]'
+                        : 'border-[#E6DFD3] hover:bg-[#E6DFD3]'
                     }`}
                   >
                     Enviar otro mensaje
@@ -136,7 +136,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                 <form onSubmit={handleFormSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F0F4F1]">
+                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#24211F] dark:text-[#F3EFE7]">
                         Nombre completo *
                       </label>
                       <input
@@ -147,14 +147,14 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                         onChange={(e) => setName(e.target.value)}
                         className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
                           isDark
-                            ? 'bg-[#151B17] border-[#2D3930] focus:ring-[#7C9682] text-white'
-                            : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
+                            ? 'bg-[#171A17] border-[#667052] focus:ring-[#A7B39A] text-[#FDFBF7]'
+                            : 'bg-[#FDFBF7] border-[#E6DFD3] focus:ring-[#4A5D4E] text-[#24211F]'
                         }`}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F0F4F1]">
+                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#24211F] dark:text-[#F3EFE7]">
                         Correo electrónico *
                       </label>
                       <input
@@ -165,8 +165,8 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                         onChange={(e) => setEmail(e.target.value)}
                         className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
                           isDark
-                            ? 'bg-[#151B17] border-[#2D3930] focus:ring-[#7C9682] text-white'
-                            : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
+                            ? 'bg-[#171A17] border-[#667052] focus:ring-[#A7B39A] text-[#FDFBF7]'
+                            : 'bg-[#FDFBF7] border-[#E6DFD3] focus:ring-[#4A5D4E] text-[#24211F]'
                         }`}
                       />
                     </div>
@@ -174,7 +174,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F0F4F1]">
+                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#24211F] dark:text-[#F3EFE7]">
                         Teléfono / WhatsApp (Opcional)
                       </label>
                       <input
@@ -184,14 +184,14 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                         onChange={(e) => setPhone(e.target.value)}
                         className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
                           isDark
-                            ? 'bg-[#151B17] border-[#2D3930] focus:ring-[#7C9682] text-white'
-                            : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
+                            ? 'bg-[#171A17] border-[#667052] focus:ring-[#A7B39A] text-[#FDFBF7]'
+                            : 'bg-[#FDFBF7] border-[#E6DFD3] focus:ring-[#4A5D4E] text-[#24211F]'
                         }`}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F0F4F1]">
+                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#24211F] dark:text-[#F3EFE7]">
                         Motivo principal de consulta
                       </label>
                       <select
@@ -199,8 +199,8 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                         onChange={(e) => setServiceChoice(e.target.value)}
                         className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
                           isDark
-                            ? 'bg-[#151B17] border-[#2D3930] focus:ring-[#7C9682] text-white'
-                            : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
+                            ? 'bg-[#171A17] border-[#667052] focus:ring-[#A7B39A] text-[#FDFBF7]'
+                            : 'bg-[#FDFBF7] border-[#E6DFD3] focus:ring-[#4A5D4E] text-[#24211F]'
                         }`}
                       >
                         <option value="psicologia-general">Ansiedad y Estrés</option>
@@ -213,7 +213,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F0F4F1]">
+                    <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#24211F] dark:text-[#F3EFE7]">
                       Modalidad de preferencia
                     </label>
                     <div className="grid grid-cols-2 gap-3">
@@ -221,11 +221,11 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                         className={`p-3 rounded-xl border flex items-center gap-2 cursor-pointer text-xs transition-colors ${
                           modalityChoice === 'presencial'
                             ? isDark
-                              ? 'bg-[#222C26] border-[#7C9682] text-[#F0F4F1] font-semibold'
-                              : 'bg-[#E8ECE9] border-[#4A5D4E] text-[#222823] font-semibold'
+                              ? 'bg-[#21251F] border-[#A7B39A] text-[#F3EFE7] font-semibold'
+                              : 'bg-[#E6DFD3] border-[#4A5D4E] text-[#24211F] font-semibold'
                             : isDark
-                            ? 'bg-[#151B17] border-[#2D3930] text-[#A9B8AD]'
-                            : 'bg-[#FBF9F5] border-[#E8E2D9] text-[#5A655C]'
+                            ? 'bg-[#171A17] border-[#667052] text-[#B7BEA3]'
+                            : 'bg-[#FDFBF7] border-[#E6DFD3] text-[#667052]'
                         }`}
                       >
                         <input
@@ -243,11 +243,11 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                         className={`p-3 rounded-xl border flex items-center gap-2 cursor-pointer text-xs transition-colors ${
                           modalityChoice === 'online'
                             ? isDark
-                              ? 'bg-[#222C26] border-[#7C9682] text-[#F0F4F1] font-semibold'
-                              : 'bg-[#E8ECE9] border-[#4A5D4E] text-[#222823] font-semibold'
+                              ? 'bg-[#21251F] border-[#A7B39A] text-[#F3EFE7] font-semibold'
+                              : 'bg-[#E6DFD3] border-[#4A5D4E] text-[#24211F] font-semibold'
                             : isDark
-                            ? 'bg-[#151B17] border-[#2D3930] text-[#A9B8AD]'
-                            : 'bg-[#FBF9F5] border-[#E8E2D9] text-[#5A655C]'
+                            ? 'bg-[#171A17] border-[#667052] text-[#B7BEA3]'
+                            : 'bg-[#FDFBF7] border-[#E6DFD3] text-[#667052]'
                         }`}
                       >
                         <input
@@ -264,7 +264,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F0F4F1]">
+                    <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#24211F] dark:text-[#F3EFE7]">
                       Mensaje *
                     </label>
                     <textarea
@@ -275,8 +275,8 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                       onChange={(e) => setMessage(e.target.value)}
                       className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 resize-none ${
                         isDark
-                          ? 'bg-[#151B17] border-[#2D3930] focus:ring-[#7C9682] text-white'
-                          : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
+                          ? 'bg-[#171A17] border-[#667052] focus:ring-[#A7B39A] text-[#FDFBF7]'
+                          : 'bg-[#FDFBF7] border-[#E6DFD3] focus:ring-[#4A5D4E] text-[#24211F]'
                       }`}
                     />
                   </div>
@@ -290,7 +290,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                       onChange={(e) => setPrivacyAccepted(e.target.checked)}
                       className="mt-1 w-4 h-4 rounded text-[#4A5D4E] focus:ring-[#4A5D4E]"
                     />
-                    <label htmlFor="contact-privacy" className="text-xs text-[#5A655C] dark:text-[#A9B8AD]">
+                    <label htmlFor="contact-privacy" className="text-xs text-[#667052] dark:text-[#B7BEA3]">
                       He leído y acepto la política de privacidad y el tratamiento confidencial de datos de salud conforme al RGPD y la Ley de Psicología Sanitaria.
                     </label>
                   </div>
@@ -301,8 +301,8 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                       disabled={isSending || !privacyAccepted || !name || !email}
                       className={`inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all disabled:opacity-50 ${
                         isDark
-                          ? 'bg-[#7C9682] text-[#151B17] hover:bg-[#8EA694]'
-                          : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
+                          ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
+                          : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#3D342E]'
                       }`}
                     >
                       {isSending ? (
@@ -336,26 +336,26 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
             <div
               className={`p-6 sm:p-8 rounded-3xl border space-y-6 ${
                 isDark
-                  ? 'bg-[#1C2420] border-[#2D3930]'
-                  : 'bg-white border-[#E8E2D9]'
+                  ? 'bg-[#21251F] border-[#667052]'
+                  : 'bg-[#FDFBF7] border-[#E6DFD3]'
               }`}
             >
-              <h3 className="font-serif text-xl font-medium text-[#222823] dark:text-[#F0F4F1]">
+              <h3 className="font-serif text-xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
                 Información Directa
               </h3>
 
               <div className="space-y-4 text-sm">
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 rounded-xl bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#7C9682] flex-shrink-0 mt-0.5">
+                  <div className="p-2.5 rounded-xl bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0 mt-0.5">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs uppercase tracking-wider font-semibold text-[#5A655C] dark:text-[#A9B8AD] block">
+                    <span className="text-xs uppercase tracking-wider font-semibold text-[#667052] dark:text-[#B7BEA3] block">
                       Teléfono y WhatsApp
                     </span>
                     <a
                       href={`tel:${CLINICAL_INFO.phone}`}
-                      className="font-medium hover:text-[#C28469] transition-colors"
+                      className="font-medium hover:text-[#3D342E] transition-colors"
                     >
                       {CLINICAL_INFO.phoneDisplay}
                     </a>
@@ -363,16 +363,16 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 rounded-xl bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#7C9682] flex-shrink-0 mt-0.5">
+                  <div className="p-2.5 rounded-xl bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0 mt-0.5">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs uppercase tracking-wider font-semibold text-[#5A655C] dark:text-[#A9B8AD] block">
+                    <span className="text-xs uppercase tracking-wider font-semibold text-[#667052] dark:text-[#B7BEA3] block">
                       Correo Electrónico
                     </span>
                     <a
                       href={`mailto:${CLINICAL_INFO.email}`}
-                      className="font-medium hover:text-[#C28469] transition-colors"
+                      className="font-medium hover:text-[#3D342E] transition-colors"
                     >
                       {CLINICAL_INFO.email}
                     </a>
@@ -380,31 +380,31 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 rounded-xl bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#7C9682] flex-shrink-0 mt-0.5">
+                  <div className="p-2.5 rounded-xl bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs uppercase tracking-wider font-semibold text-[#5A655C] dark:text-[#A9B8AD] block">
+                    <span className="text-xs uppercase tracking-wider font-semibold text-[#667052] dark:text-[#B7BEA3] block">
                       Consulta Presencial en Zaragoza
                     </span>
-                    <p className="font-medium text-[#222823] dark:text-[#F0F4F1]">
+                    <p className="font-medium text-[#24211F] dark:text-[#F3EFE7]">
                       {CLINICAL_INFO.location}
                     </p>
-                    <p className="text-xs text-[#5A655C] dark:text-[#A9B8AD] mt-0.5">
+                    <p className="text-xs text-[#667052] dark:text-[#B7BEA3] mt-0.5">
                       Dirección completa facilitada al agendar la cita.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 rounded-xl bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#7C9682] flex-shrink-0 mt-0.5">
+                  <div className="p-2.5 rounded-xl bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0 mt-0.5">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs uppercase tracking-wider font-semibold text-[#5A655C] dark:text-[#A9B8AD] block">
+                    <span className="text-xs uppercase tracking-wider font-semibold text-[#667052] dark:text-[#B7BEA3] block">
                       Horario de Atención
                     </span>
-                    <p className="font-medium text-[#222823] dark:text-[#F0F4F1]">
+                    <p className="font-medium text-[#24211F] dark:text-[#F3EFE7]">
                       {CLINICAL_INFO.workingHours}
                     </p>
                   </div>
@@ -416,32 +416,32 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
             <div
               className={`p-6 rounded-3xl border space-y-4 ${
                 isDark
-                  ? 'bg-[#151B17] border-[#2D3930]'
-                  : 'bg-[#FAF7F2] border-[#E8E2D9]'
+                  ? 'bg-[#171A17] border-[#667052]'
+                  : 'bg-[#FDFBF7] border-[#E6DFD3]'
               }`}
             >
               <div className="flex items-center justify-between">
-                <h4 className="font-serif text-lg font-medium text-[#222823] dark:text-[#F0F4F1]">
+                <h4 className="font-serif text-lg font-medium text-[#24211F] dark:text-[#F3EFE7]">
                   Cómo llegar a la consulta
                 </h4>
-                <MapPin className="w-4 h-4 text-[#C28469]" />
+                <MapPin className="w-4 h-4 text-[#3D342E]" />
               </div>
 
-              <p className="text-xs leading-relaxed text-[#5A655C] dark:text-[#A9B8AD]">
+              <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
                 Ubicada en Plaza Europa, en una zona estratégica de Zaragoza, junto a la ribera del Ebro y la Aljafería, con excelentes conexiones:
               </p>
 
               <div className="space-y-2 text-xs">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#C28469]" />
+                  <span className="w-2 h-2 rounded-full bg-[#3D342E]" />
                   <span><strong>Autobús Urbano (Avanza):</strong> Líneas 36, 42, Ci1, Ci2, 23 y 34 con parada en Plaza Europa.</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#C28469]" />
+                  <span className="w-2 h-2 rounded-full bg-[#3D342E]" />
                   <span><strong>Tranvía de Zaragoza:</strong> Parada Plaza del Pilar - Murallas o César Augusto a pocos minutos a pie.</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#C28469]" />
+                  <span className="w-2 h-2 rounded-full bg-[#3D342E]" />
                   <span><strong>Aparcamiento:</strong> Plazas en el entorno de Plaza Europa y Paseo Echegaray y Caballero.</span>
                 </div>
               </div>
@@ -453,13 +453,13 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
       {/* 3. PREGUNTAS FRECUENTES (FAQS) ACCORDION */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center space-y-2 mb-10">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#C28469]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#3D342E]">
             RESOLVEMOS TUS DUDAS
           </span>
-          <h2 className="font-serif text-3xl font-medium tracking-tight text-[#222823] dark:text-[#F0F4F1]">
+          <h2 className="font-serif text-3xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
             Preguntas Frecuentes
           </h2>
-          <p className="text-sm text-[#5A655C] dark:text-[#A9B8AD]">
+          <p className="text-sm text-[#667052] dark:text-[#B7BEA3]">
             Todo lo que necesitas saber antes de tu primera consulta.
           </p>
         </div>
@@ -467,7 +467,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
         {/* Search & Category Filter */}
         <div className="space-y-4 mb-8">
           <div className="relative">
-            <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-[#869288]" />
+            <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-[#8F9779]" />
             <input
               type="text"
               placeholder="Buscar en preguntas frecuentes (ej: online, duración, tarifas)..."
@@ -475,8 +475,8 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
               onChange={(e) => setSearchQuery(e.target.value)}
               className={`w-full pl-11 pr-4 py-3 rounded-2xl border text-xs sm:text-sm transition-colors outline-none focus:ring-2 ${
                 isDark
-                  ? 'bg-[#1C2420] border-[#2D3930] focus:ring-[#7C9682] text-white'
-                  : 'bg-white border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
+                  ? 'bg-[#21251F] border-[#667052] focus:ring-[#A7B39A] text-[#FDFBF7]'
+                  : 'bg-[#FDFBF7] border-[#E6DFD3] focus:ring-[#4A5D4E] text-[#24211F]'
               }`}
             />
           </div>
@@ -496,11 +496,11 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                 className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
                   faqCategory === cat.id
                     ? isDark
-                      ? 'bg-[#7C9682] text-[#151B17] font-semibold'
-                      : 'bg-[#4A5D4E] text-white font-semibold'
+                      ? 'bg-[#A7B39A] text-[#171A17] font-semibold'
+                      : 'bg-[#4A5D4E] text-[#FDFBF7] font-semibold'
                     : isDark
-                    ? 'bg-[#1C2420] text-[#A9B8AD] hover:text-[#F0F4F1]'
-                    : 'bg-white text-[#5A655C] hover:text-[#222823] border border-[#E8E2D9]'
+                    ? 'bg-[#21251F] text-[#B7BEA3] hover:text-[#F3EFE7]'
+                    : 'bg-[#FDFBF7] text-[#667052] hover:text-[#24211F] border border-[#E6DFD3]'
                 }`}
               >
                 {cat.label}
@@ -519,29 +519,29 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                 className={`rounded-2xl border transition-all overflow-hidden ${
                   isOpen
                     ? isDark
-                      ? 'bg-[#1C2420] border-[#7C9682]/50'
-                      : 'bg-white border-[#4A5D4E]/40 shadow-sm'
+                      ? 'bg-[#21251F] border-[#A7B39A]/50'
+                      : 'bg-[#FDFBF7] border-[#4A5D4E]/40 shadow-sm'
                     : isDark
-                    ? 'bg-[#151B17] border-[#2D3930] hover:border-[#2D3930]/80'
-                    : 'bg-[#FAF7F2] border-[#E8E2D9] hover:border-[#D8D0C4]'
+                    ? 'bg-[#171A17] border-[#667052] hover:border-[#667052]/80'
+                    : 'bg-[#FDFBF7] border-[#E6DFD3] hover:border-[#E6DFD3]'
                 }`}
               >
                 <button
                   onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4"
                 >
-                  <span className="font-serif text-base sm:text-lg font-medium text-[#222823] dark:text-[#F0F4F1]">
+                  <span className="font-serif text-base sm:text-lg font-medium text-[#24211F] dark:text-[#F3EFE7]">
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#C28469] flex-shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-[#3D342E] flex-shrink-0 transition-transform duration-300 ${
                       isOpen ? 'rotate-180' : 'rotate-0'
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-6 sm:px-6 sm:pb-6 text-xs sm:text-sm leading-relaxed text-[#5A655C] dark:text-[#D1DAD2] border-t border-[#E8E2D9]/60 dark:border-[#2D3930]/60 pt-4">
+                  <div className="px-5 pb-6 sm:px-6 sm:pb-6 text-xs sm:text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3] border-t border-[#E6DFD3]/60 dark:border-[#667052]/60 pt-4">
                     {faq.answer}
                   </div>
                 )}
@@ -550,7 +550,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
           })}
 
           {filteredFaqs.length === 0 && (
-            <div className="p-8 text-center text-xs text-[#5A655C] dark:text-[#A9B8AD]">
+            <div className="p-8 text-center text-xs text-[#667052] dark:text-[#B7BEA3]">
               No se encontraron preguntas para este término de búsqueda.
             </div>
           )}
@@ -562,25 +562,25 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
         <div
           className={`p-10 sm:p-14 rounded-3xl border text-center shadow-xl ${
             isDark
-              ? 'bg-gradient-to-br from-[#2D3D32] to-[#151B17] border-[#7C9682]/40 text-[#F0F4F1]'
-              : 'bg-gradient-to-br from-[#4A5D4E] to-[#333F36] border-[#4A5D4E] text-white'
+              ? 'bg-gradient-to-br from-[#21251F] to-[#171A17] border-[#A7B39A]/40 text-[#F3EFE7]'
+              : 'bg-gradient-to-br from-[#4A5D4E] to-[#21251F] border-[#4A5D4E] text-[#FDFBF7]'
           }`}
         >
           <div className="space-y-4 max-w-lg mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#EDD4CB]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#C7B3A3]">
               EMPIEZA HOY
             </span>
             <h2 className="font-serif text-3xl font-medium tracking-tight">
               Da el primer paso hacia tu bienestar
             </h2>
-            <p className="text-sm leading-relaxed text-[#E8ECE9]">
+            <p className="text-sm leading-relaxed text-[#E6DFD3]">
               Agenda tu primera sesión o consulta lo que necesites sin ningún tipo de compromiso.
             </p>
 
             <div className="pt-4 flex justify-center">
               <button
                 onClick={onOpenBooking}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-[#4A5D4E] hover:bg-[#FAF7F2] transition-colors shadow-lg active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider bg-[#FDFBF7] text-[#4A5D4E] hover:bg-[#FDFBF7] transition-colors shadow-lg active:scale-[0.98]"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Agendar Cita Ahora</span>

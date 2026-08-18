@@ -33,8 +33,8 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
         id="privacy-modal-content"
         className={`relative w-full max-w-3xl rounded-3xl p-6 sm:p-10 shadow-2xl transition-all max-h-[85vh] overflow-y-auto ${
           isDark
-            ? 'bg-[#151B17] border border-[#2D3930] text-[#F0F4F1]'
-            : 'bg-[#FBF9F5] border border-[#E8E2D9] text-[#222823]'
+            ? 'bg-[#171A17] border border-[#667052] text-[#F3EFE7]'
+            : 'bg-[#FDFBF7] border border-[#E6DFD3] text-[#24211F]'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -44,23 +44,23 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
           aria-label="Cerrar modal legal"
           className={`absolute top-5 right-5 p-2 rounded-full transition-colors ${
             isDark
-              ? 'bg-[#222C26] text-[#A9B8AD] hover:text-[#F0F4F1]'
-              : 'bg-[#E8ECE9] text-[#5A655C] hover:text-[#222823]'
+              ? 'bg-[#21251F] text-[#B7BEA3] hover:text-[#F3EFE7]'
+              : 'bg-[#E6DFD3] text-[#667052] hover:text-[#24211F]'
           }`}
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Title */}
-        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#E8E2D9] dark:border-[#2D3930]">
-          <ShieldCheck className="w-6 h-6 text-[#C28469] flex-shrink-0" />
+        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#E6DFD3] dark:border-[#667052]">
+          <ShieldCheck className="w-6 h-6 text-[#3D342E] flex-shrink-0" />
           <h2 className="font-serif text-xl sm:text-2xl font-medium">
             {titles[type]}
           </h2>
         </div>
 
         {/* Body Content */}
-        <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-[#5A655C] dark:text-[#D1DAD2]">
+        <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
           {type === 'privacidad' && (
             <>
               <p>
@@ -104,13 +104,13 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
           )}
         </div>
 
-        <div className="mt-8 pt-4 border-t border-[#E8E2D9] dark:border-[#2D3930] flex justify-end">
+        <div className="mt-8 pt-4 border-t border-[#E6DFD3] dark:border-[#667052] flex justify-end">
           <button
             onClick={onClose}
             className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
               isDark
-                ? 'bg-[#7C9682] text-[#151B17]'
-                : 'bg-[#4A5D4E] text-white'
+                ? 'bg-[#A7B39A] text-[#171A17]'
+                : 'bg-[#4A5D4E] text-[#FDFBF7]'
             }`}
           >
             Entendido y Aceptar
