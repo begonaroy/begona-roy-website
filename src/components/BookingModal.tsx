@@ -510,7 +510,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </span>
                 <span className="opacity-80">
                   {selectedModality === 'presencial'
-                    ? 'Presencial en Zaragoza (Plaza Europa)'
+                    ? 'Presencial en Espacio K alma (C. del Río Huerva, 21, Zaragoza)'
                     : 'Online por Videoconsulta'}{' '}
                   · {selectedDate} a las {selectedTime} h
                 </span>
