@@ -164,7 +164,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         {/* Progress Bar & Header */}
         {step < 5 && (
           <div className="mb-8">
-            <div className="flex items-center justify-between text-xs uppercase tracking-wider font-semibold text-[#AA4664] mb-2">
+            <div className="flex items-center justify-between text-xs uppercase tracking-wider font-semibold text-[#AA4664] dark:text-[#D8659B] mb-2">
               <span>Paso {step} de 4</span>
               <span>
                 {step === 1 && 'Servicio'}
@@ -264,7 +264,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                   isDark
                     ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
                 }`}
               >
                 <span>Continuar</span>
@@ -307,7 +307,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <h4 className="font-serif text-lg font-medium">
                   Terapia Presencial
                 </h4>
-                <p className="text-xs text-[#AA4664] font-medium mt-1">
+                <p className="text-xs text-[#AA4664] dark:text-[#D8659B] font-medium mt-1">
                   {CLINICAL_INFO.location}
                 </p>
                 <p className="text-xs mt-3 leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
@@ -338,7 +338,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <h4 className="font-serif text-lg font-medium">
                   Terapia Online
                 </h4>
-                <p className="text-xs text-[#AA4664] font-medium mt-1">
+                <p className="text-xs text-[#AA4664] dark:text-[#D8659B] font-medium mt-1">
                   Videoconsulta Segura y Confidencial
                 </p>
                 <p className="text-xs mt-3 leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
@@ -368,7 +368,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                   isDark
                     ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
                 }`}
               >
                 <span>Elegir Horario</span>
@@ -474,7 +474,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                   isDark
                     ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
                 }`}
               >
                 <span>Tus Datos de Contacto</span>
@@ -510,7 +510,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </span>
                 <span className="opacity-80">
                   {selectedModality === 'presencial'
-                    ? 'Presencial en Zaragoza (Plaza Europa)'
+                    ? 'Presencial en Espacio K alma (C. del Río Huerva, 21, Zaragoza)'
                     : 'Online por Videoconsulta'}{' '}
                   · {selectedDate} a las {selectedTime} h
                 </span>
@@ -518,7 +518,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <button
                 type="button"
                 onClick={() => setStep(1)}
-                className="text-[#AA4664] font-medium hover:underline text-[11px]"
+                className="text-[#AA4664] dark:text-[#D8659B] font-medium hover:underline text-[11px]"
               >
                 Cambiar
               </button>
@@ -628,7 +628,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 className={`inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all disabled:opacity-50 ${
                   isDark
                     ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664]'
+                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
                 }`}
               >
                 {isSubmitting ? (

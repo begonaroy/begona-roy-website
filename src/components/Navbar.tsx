@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavigationTab } from '../types';
+import { ROUTES } from '../routes';
+import { CLINICAL_INFO } from '../data/content';
 import { Logo } from './Logo';
 import { Sun, Moon, Calendar, Menu, X, Phone, Heart } from 'lucide-react';
 
@@ -73,10 +75,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             {navLinks.map((link) => {
               const isActive = currentTab === link.id;
               return (
-                <button
+                <a
                   key={link.id}
                   id={`nav-link-${link.id}`}
-                  onClick={() => handleNavClick(link.id)}
+                  href={ROUTES[link.id]}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    handleNavClick(link.id);
+                  }}
                   className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? isDark
@@ -95,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       }`}
                     />
                   )}
-                </button>
+                </a>
               );
             })}
           </nav>
@@ -128,7 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98] ${
                 isDark
                   ? 'bg-[#A7B39A] hover:bg-[#B7BEA3] text-[#171A17]'
-                  : 'bg-[#4A5D4E] hover:bg-[#AA4664] text-[#FDFBF7]'
+                  : 'bg-[#4A5D4E] hover:bg-[#AA4664] dark:hover:bg-[#D8659B] text-[#FDFBF7]'
               }`}
             >
               <Calendar className="w-3.5 h-3.5" />
@@ -169,9 +175,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           {navLinks.map((link) => {
             const isActive = currentTab === link.id;
             return (
-              <button
+              <a
                 key={link.id}
-                onClick={() => handleNavClick(link.id)}
+                href={ROUTES[link.id]}
+                onClick={(event) => {
+                  event.preventDefault();
+                  handleNavClick(link.id);
+                }}
                 className={`w-full text-left px-4 py-3 rounded-xl text-base font-medium flex items-center justify-between transition-colors ${
                   isActive
                     ? isDark
@@ -190,7 +200,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     }`}
                   />
                 )}
-              </button>
+              </a>
             );
           })}
 
@@ -211,15 +221,15 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
 
             <a
-              href="tel:+34622458912"
+              href={`tel:${CLINICAL_INFO.phone}`}
               className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium border transition-colors ${
                 isDark
                   ? 'border-[#667052] text-[#B7BEA3] hover:bg-[#21251F]'
                   : 'border-[#E6DFD3] text-[#667052] hover:bg-[#E6DFD3]'
               }`}
             >
-              <Phone className="w-3.5 h-3.5 text-[#AA4664]" />
-              <span>Llamar directamente (+34 622 45 89 12)</span>
+              <Phone className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
+              <span>Llamar directamente ({CLINICAL_INFO.phoneDisplay})</span>
             </a>
           </div>
         </div>

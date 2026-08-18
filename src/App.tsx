@@ -10,9 +10,10 @@ import { BioModal } from './components/BioModal';
 import { BookingModal } from './components/BookingModal';
 import { ServiceDetailModal } from './components/ServiceDetailModal';
 import { PrivacyModal } from './components/PrivacyModal';
+import { ROUTES, tabForPath } from './routes';
 
 export default function App() {
-  const [currentTab, setCurrentTab] = useState<NavigationTab>('inicio');
+  const [currentTab, setCurrentTab] = useState<NavigationTab>(() => tabForPath(window.location.pathname));
   const [isDark, setIsDark] = useState<boolean>(false);
 
   // Modal States
@@ -38,6 +39,12 @@ export default function App() {
     }
   }, []);
 
+  useEffect(() => {
+    const handlePopState = () => setCurrentTab(tabForPath(window.location.pathname));
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const handleToggleTheme = () => {
     const newDark = !isDark;
     setIsDark(newDark);
@@ -60,6 +67,10 @@ export default function App() {
   };
 
   const handleNavigate = (tab: NavigationTab) => {
+    const destination = ROUTES[tab];
+    if (window.location.pathname !== destination) {
+      window.history.pushState({}, '', destination);
+    }
     setCurrentTab(tab);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

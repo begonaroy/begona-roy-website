@@ -58,7 +58,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
-              <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#AA4664] text-[#FDFBF7] mb-2 shadow-sm">
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#AA4664] dark:bg-[#D8659B] text-[#FDFBF7] mb-2 shadow-sm">
                 {service.tag}
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl text-[#FDFBF7] font-medium drop-shadow-sm">
@@ -67,7 +67,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             </div>
           </div>
 
-          <p className="font-serif italic text-base sm:text-lg text-[#AA4664]">
+          <p className="font-serif italic text-base sm:text-lg text-[#AA4664] dark:text-[#D8659B]">
             {service.subtitle}
           </p>
 
@@ -108,7 +108,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             <ul className="space-y-2 text-xs sm:text-sm text-[#667052] dark:text-[#B7BEA3]">
               {service.forWhom.map((item, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#AA4664] flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#AA4664] dark:bg-[#D8659B] flex-shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -132,7 +132,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
               className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                 isDark
                   ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                  : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664]'
+                  : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
               }`}
             >
               <Calendar className="w-4 h-4" />

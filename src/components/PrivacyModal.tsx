@@ -53,7 +53,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
 
         {/* Title */}
         <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#E6DFD3] dark:border-[#667052]">
-          <ShieldCheck className="w-6 h-6 text-[#AA4664] flex-shrink-0" />
+          <ShieldCheck className="w-6 h-6 text-[#AA4664] dark:text-[#D8659B] flex-shrink-0" />
           <h2 className="font-serif text-xl sm:text-2xl font-medium">
             {titles[type]}
           </h2>
