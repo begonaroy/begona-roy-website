@@ -43,7 +43,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E6DFD3] dark:border-[#667052] bg-[#FDFBF7] dark:bg-[#21251F] text-[#4A5D4E] dark:text-[#A7B39A]">
-                <Sparkles className="w-3.5 h-3.5 text-[#3D342E]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#AA4664]" />
                 <span>BEGOÑA ROY · PSICOLOGÍA SANITARIA & PSICOONCOLOGÍA</span>
               </div>
 
@@ -57,7 +57,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
               {/* Description */}
               <p className="text-base sm:text-lg leading-relaxed text-[#667052] dark:text-[#B7BEA3] max-w-2xl mx-auto lg:mx-0">
-                Un espacio de calidez, respeto y escucha profunda para transitar la ansiedad, los procesos de duelo, el impacto oncológico y la liberación corporal del pericardio. En Plaza Europa (Zaragoza) y en consulta online.
+                Un espacio de calidez, respeto y escucha profunda para transitar la ansiedad, los procesos de duelo, el impacto oncológico y la liberación corporal del pericardio. En Espacio K alma (Zaragoza) y en consulta online.
               </p>
 
               {/* CTAs */}
@@ -68,7 +68,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   className={`w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] ${
                     isDark
                       ? 'bg-[#A7B39A] hover:bg-[#B7BEA3] text-[#171A17]'
-                      : 'bg-[#4A5D4E] hover:bg-[#3D342E] text-[#FDFBF7]'
+                      : 'bg-[#4A5D4E] hover:bg-[#AA4664] text-[#FDFBF7]'
                   }`}
                 >
                   <Calendar className="w-4 h-4" />
@@ -85,25 +85,25 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   }`}
                 >
                   <span>Conoce mi enfoque</span>
-                  <ArrowRight className="w-4 h-4 text-[#3D342E]" />
+                  <ArrowRight className="w-4 h-4 text-[#AA4664]" />
                 </button>
               </div>
 
               {/* Trust Indicators */}
               <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-[#667052] dark:text-[#B7BEA3]">
                 <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#3D342E]" />
+                  <ShieldCheck className="w-4 h-4 text-[#AA4664]" />
                   Col. Nº {CLINICAL_INFO.collegiateNumber}
                 </span>
                 <span className="hidden sm:inline opacity-40">•</span>
                 <span className="flex items-center gap-1.5">
-                  <Heart className="w-4 h-4 text-[#3D342E]" />
+                  <Heart className="w-4 h-4 text-[#AA4664]" />
                   {CLINICAL_INFO.yearsExperience}
                 </span>
                 <span className="hidden sm:inline opacity-40">•</span>
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-[#3D342E]" />
-                  Plaza Europa (Zaragoza) & Online
+                  <MapPin className="w-4 h-4 text-[#AA4664]" />
+                  Espacio K alma (Zaragoza) & Online
                 </span>
               </div>
             </div>
@@ -112,7 +112,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 {/* Decorative background aura */}
-                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#4A5D4E]/10 to-[#3D342E]/15 blur-xl -z-10" />
+                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#4A5D4E]/10 to-[#AA4664]/15 blur-xl -z-10" />
 
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E6DFD3] dark:border-[#667052] aspect-[4/5] bg-[#E6DFD3] dark:bg-[#21251F]">
                   <img
@@ -129,8 +129,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     <p className="font-serif italic text-sm text-[#24211F] dark:text-[#F3EFE7]">
                       "Un espacio seguro donde respirar y reencontrarte."
                     </p>
-                    <p className="text-[11px] font-medium text-[#3D342E] mt-1">
-                      Consulta en Plaza Europa (Zaragoza) & Videoconsulta
+                    <p className="text-[11px] font-medium text-[#AA4664] mt-1">
+                      Consulta en Espacio K alma (Zaragoza) & Videoconsulta
                     </p>
                   </div>
                 </div>
@@ -152,18 +152,18 @@ export const HomeView: React.FC<HomeViewProps> = ({
               : 'bg-[#E6DFD3] border-[#E6DFD3]'
           }`}
         >
-          <span className="text-3xl sm:text-4xl text-[#3D342E] block font-serif mb-2">
+          <span className="text-3xl sm:text-4xl text-[#AA4664] block font-serif mb-2">
             “
           </span>
           <p className="font-script text-2xl sm:text-3xl md:text-4xl leading-relaxed text-[#24211F] dark:text-[#F3EFE7] font-semibold">
-            Acompañarte a recordar y activar las soluciones que ya habitan en ti...
+            Conozca todas las teorías. Domine todas las técnicas, pero al tocar un alma humana sea apenas otra alma humana.
           </p>
           <div className="mt-4 flex items-center justify-center gap-2">
-            <span className="h-px w-8 bg-[#3D342E]" />
+            <span className="h-px w-8 bg-[#AA4664]" />
             <span className="font-serif text-sm italic text-[#667052] dark:text-[#B7BEA3]">
-              Begoña Roy · Psicóloga Sanitaria
+              Carl Gustav Jung
             </span>
-            <span className="h-px w-8 bg-[#3D342E]" />
+            <span className="h-px w-8 bg-[#AA4664]" />
           </div>
         </div>
       </section>
@@ -195,7 +195,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           {/* Bio Text */}
           <div className="lg:col-span-7 space-y-6 order-1 lg:order-2 text-left">
             <div className="space-y-2">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#3D342E]">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
                 QUIÉN SOY
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -234,7 +234,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
               <button
                 onClick={onOpenBooking}
-                className="text-xs font-semibold uppercase tracking-wider text-[#3D342E] hover:underline"
+                className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] hover:underline"
               >
                 Pedir cita con Begoña
               </button>
@@ -249,7 +249,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#3D342E]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
             ESPECIALIDADES
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -292,7 +292,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               {/* Card Content */}
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
-                  <h3 className="font-serif text-lg font-medium text-[#24211F] dark:text-[#F3EFE7] group-hover:text-[#4A5D4E] dark:group-hover:text-[#A7B39A] transition-colors">
+                  <h3 className="font-serif text-lg leading-tight font-medium text-[#24211F] dark:text-[#F3EFE7] group-hover:text-[#4A5D4E] dark:group-hover:text-[#A7B39A] transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-xs leading-relaxed text-[#667052] dark:text-[#B7BEA3] line-clamp-3">
@@ -303,7 +303,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 <div className="pt-2 border-t border-[#E6DFD3] dark:border-[#667052] flex items-center justify-between">
                   <button
                     onClick={() => onSelectServiceDetail(service)}
-                    className="text-xs font-semibold text-[#4A5D4E] dark:text-[#A7B39A] hover:text-[#3D342E] dark:hover:text-[#C7B3A3] flex items-center gap-1"
+                    className="text-xs font-semibold text-[#4A5D4E] dark:text-[#A7B39A] hover:text-[#AA4664] dark:hover:text-[#D8659B] flex items-center gap-1"
                   >
                     <span>Saber más</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -311,7 +311,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                   <button
                     onClick={onOpenBooking}
-                    className="text-[11px] uppercase tracking-wider font-semibold text-[#3D342E] hover:underline"
+                    className="text-[11px] uppercase tracking-wider font-semibold text-[#AA4664] hover:underline"
                   >
                     Pedir cita
                   </button>
@@ -343,7 +343,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#3D342E]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
             FLEXIBILIDAD Y CERCANÍA
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -370,11 +370,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <h3 className="font-serif text-xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
                 Terapia Presencial
               </h3>
-              <p className="text-xs text-[#3D342E] font-semibold uppercase tracking-wider">
-                Plaza Europa · Zaragoza (50003)
+              <p className="text-xs text-[#AA4664] font-semibold uppercase tracking-wider">
+                Espacio K alma · Zaragoza (50006)
               </p>
               <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
-                En un entorno cálido, íntimo y silencioso en Plaza Europa (50003 Zaragoza), junto a la ribera del Ebro y la Aljafería. Ideal para contacto humano cercano y para la terapia manual de Pericardio.
+                En un entorno cálido, íntimo y silencioso en Espacio K alma, C. del Río Huerva, 21 (50006 Zaragoza). Ideal para el contacto humano cercano y para la terapia manual de Pericardio.
               </p>
             </div>
             <div className="pt-6 mt-4 border-t border-[#E6DFD3] dark:border-[#667052]">
@@ -399,7 +399,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <h3 className="font-serif text-xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
                 Terapia Online
               </h3>
-              <p className="text-xs text-[#3D342E] font-semibold uppercase tracking-wider">
+              <p className="text-xs text-[#AA4664] font-semibold uppercase tracking-wider">
                 Videoconsulta Segura
               </p>
               <p className="text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
@@ -428,7 +428,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <h3 className="font-serif text-xl font-medium">
                 ¿Comenzamos el camino?
               </h3>
-              <p className="text-xs text-[#C7B3A3] font-semibold uppercase tracking-wider">
+              <p className="text-xs text-[#D8659B] font-semibold uppercase tracking-wider">
                 Primera Sesión de Valoración
               </p>
               <p className="text-sm leading-relaxed text-[#E6DFD3]">
@@ -452,7 +452,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* 6. TESTIMONIOS Y PALABRAS DE CONFIANZA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#3D342E]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664]">
             ESPACIO DE CONFIANZA
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
@@ -479,7 +479,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <span className="font-semibold block text-[#24211F] dark:text-[#F3EFE7]">
                     {item.author}
                   </span>
-                  <span className="text-[#3D342E]">{item.service}</span>
+                  <span className="text-[#AA4664]">{item.service}</span>
                 </div>
                 <span className="text-[11px] text-[#667052] dark:text-[#B7BEA3]">
                   {item.context}

@@ -66,7 +66,7 @@ export const Logo: React.FC<LogoProps> = ({
             cy="50"
             r="4.5"
             fill="currentColor"
-            className={isDark ? 'text-[#C7B3A3]' : 'text-[#3D342E]'}
+            className={isDark ? 'text-[#D8659B]' : 'text-[#AA4664]'}
           />
         </svg>
       </div>

@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="space-y-4">
             <Logo isDark={isDark} />
             <p className="text-sm leading-relaxed mt-2">
-              Acompañamiento psicológico integrador y liberación celular del pericardio. Un espacio cálido, seguro y confidencial en Plaza Europa (Zaragoza) y en modalidad online.
+              Acompañamiento psicológico integrador y liberación celular del pericardio. Un espacio cálido, seguro y confidencial en Espacio K alma (Zaragoza) y en modalidad online.
             </p>
             <div
               className={`p-3.5 rounded-xl border text-xs space-y-1.5 ${
@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({
               }`}
             >
               <div className="flex items-center gap-2 font-semibold">
-                <ShieldCheck className="w-4 h-4 text-[#3D342E] flex-shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-[#AA4664] flex-shrink-0" />
                 <span>Ejercicio Sanitario Colegiado</span>
               </div>
               <p className="text-[11px] leading-tight text-opacity-80">
@@ -74,7 +74,7 @@ export const Footer: React.FC<FooterProps> = ({
                     onNavigate('inicio');
                     scrollToTop();
                   }}
-                  className="hover:underline transition-colors hover:text-[#3D342E]"
+                  className="hover:underline transition-colors hover:text-[#AA4664]"
                 >
                   Inicio
                 </button>
@@ -85,7 +85,7 @@ export const Footer: React.FC<FooterProps> = ({
                     onNavigate('psicologia');
                     scrollToTop();
                   }}
-                  className="hover:underline transition-colors hover:text-[#3D342E]"
+                  className="hover:underline transition-colors hover:text-[#AA4664]"
                 >
                   Psicología Sanitaria & Psicooncología
                 </button>
@@ -96,7 +96,7 @@ export const Footer: React.FC<FooterProps> = ({
                     onNavigate('pericardio');
                     scrollToTop();
                   }}
-                  className="hover:underline transition-colors hover:text-[#3D342E]"
+                  className="hover:underline transition-colors hover:text-[#AA4664]"
                 >
                   Liberación del Pericardio
                 </button>
@@ -107,7 +107,7 @@ export const Footer: React.FC<FooterProps> = ({
                     onNavigate('contacto');
                     scrollToTop();
                   }}
-                  className="hover:underline transition-colors hover:text-[#3D342E]"
+                  className="hover:underline transition-colors hover:text-[#AA4664]"
                 >
                   Contacto & Preguntas Frecuentes
                 </button>
@@ -115,7 +115,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={onOpenBooking}
-                  className="text-[#3D342E] font-medium hover:underline flex items-center gap-1.5"
+                  className="text-[#AA4664] font-medium hover:underline flex items-center gap-1.5"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Reserva de Cita</span>
@@ -135,29 +135,29 @@ export const Footer: React.FC<FooterProps> = ({
             </h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#3D342E] flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#AA4664] flex-shrink-0 mt-0.5" />
                 <span>{CLINICAL_INFO.location}</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#3D342E] flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#AA4664] flex-shrink-0" />
                 <a
                   href={`tel:${CLINICAL_INFO.phone}`}
-                  className="hover:underline hover:text-[#3D342E]"
+                  className="hover:underline hover:text-[#AA4664]"
                 >
                   {CLINICAL_INFO.phoneDisplay}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#3D342E] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[#AA4664] flex-shrink-0" />
                 <a
                   href={`mailto:${CLINICAL_INFO.email}`}
-                  className="hover:underline hover:text-[#3D342E]"
+                  className="hover:underline hover:text-[#AA4664]"
                 >
                   {CLINICAL_INFO.email}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-[#3D342E] flex-shrink-0 mt-0.5" />
+                <Clock className="w-4 h-4 text-[#AA4664] flex-shrink-0 mt-0.5" />
                 <span>{CLINICAL_INFO.workingHours}</span>
               </li>
             </ul>
@@ -182,7 +182,7 @@ export const Footer: React.FC<FooterProps> = ({
                   🌿 Consulta Presencial
                 </span>
                 <p className="text-[11px] mt-0.5">
-                  Plaza Europa (50003 Zaragoza). Espacio accesible junto a la ribera del Ebro.
+                  Espacio K alma · C. del Río Huerva, 21 · 50006 Zaragoza.
                 </p>
               </div>
               <div
@@ -211,19 +211,19 @@ export const Footer: React.FC<FooterProps> = ({
             <span>© {new Date().getFullYear()} John Vicent. Todos los derechos reservados.</span>
             <button
               onClick={() => onOpenPrivacy('privacidad')}
-              className="hover:underline hover:text-[#3D342E]"
+              className="hover:underline hover:text-[#AA4664]"
             >
               Política de Privacidad
             </button>
             <button
               onClick={() => onOpenPrivacy('aviso')}
-              className="hover:underline hover:text-[#3D342E]"
+              className="hover:underline hover:text-[#AA4664]"
             >
               Aviso Legal
             </button>
             <button
               onClick={() => onOpenPrivacy('cookies')}
-              className="hover:underline hover:text-[#3D342E]"
+              className="hover:underline hover:text-[#AA4664]"
             >
               Política de Cookies
             </button>

@@ -8,8 +8,8 @@ export const CLINICAL_INFO = {
   sanitaryRegistration: 'Habilitación Sanitaria Oficial',
   yearsExperience: '+25 años de trayectoria profesional',
   pericardiumSince: 'Facilitadora de Liberación del Pericardio desde 2017',
-  location: 'Plaza Europa, 50003 Zaragoza',
-  fullAddress: 'Plaza Europa, 50003 Zaragoza (Dirección detallada al concertar la cita)',
+  location: 'Espacio K alma, C. del Río Huerva, 21, 50006 Zaragoza',
+  fullAddress: 'Espacio K alma, C. del Río Huerva, 21, 50006 Zaragoza',
   phone: '+34 622 00 00 00',
   phoneDisplay: '+34 622 00 00 00',
   whatsappUrl: 'https://wa.me/34622000000?text=Hola%20Bego%C3%B1a,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20una%20sesi%C3%B3n.',
@@ -18,7 +18,7 @@ export const CLINICAL_INFO = {
 };
 
 export const IMAGES = {
-  heroAtmosphere: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80', // Cozy calm interior with ceramic vase and warm light
+  heroAtmosphere: '/public/people/begona-roy-2.png', // Cozy calm interior with ceramic vase and warm light
   begonaPortrait: '/public/people/begona-roy.png', // Professional warm empathetic woman psychologist in sunlit space
   clinicInterior: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80', // Peaceful consultation room with soft armchair and plant
   ansiedad: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80', // Serene breathing, hands on heart / meditation
@@ -248,7 +248,7 @@ export const FAQS_DATA: FAQItem[] = [
     id: 'faq-7',
     category: 'tarifas',
     question: '¿Cómo se realiza el abono de las sesiones?',
-    answer: 'Para las sesiones presenciales en la consulta de Plaza Europa (Zaragoza), el abono puede realizarse en efectivo, tarjeta o Bizum al finalizar. Para las sesiones online, el pago se realiza previamente mediante transferencia bancaria o Bizum.'
+    answer: 'Para las sesiones presenciales en Espacio K alma (C. del Río Huerva, 21, Zaragoza), el abono puede realizarse en efectivo, tarjeta o Bizum al finalizar. Para las sesiones online, el pago se realiza previamente mediante transferencia bancaria o Bizum.'
   },
   {
     id: 'faq-8',
@@ -278,7 +278,7 @@ export const TESTIMONIALS: Testimonial[] = [
     author: 'Elena R.',
     service: 'Liberación del Pericardio',
     quote: 'La sesión de pericardio fue una de las experiencias más reveladoras y amorosas que he vivido. Sentí que volvía a respirar con los pulmones llenos después de años.',
-    context: 'Sesiones en Plaza Europa, Zaragoza'
+    context: 'Sesiones en Espacio K alma, Zaragoza'
   }
 ];
 
@@ -296,6 +296,6 @@ export const BIO_FULL_STORY = {
     { year: '2000 - 2010', title: 'Acompañamiento en ONGs y Salud', desc: 'Coordinación de programas psicosociales y apoyo en duelo.' },
     { year: '2012', title: 'Máster en Psicooncología', desc: 'Formación avanzada en soporte emocional para pacientes de cáncer.' },
     { year: '2017', title: 'Liberación del Pericardio', desc: 'Certificación internacional en el método de liberación celular y pericárdica.' },
-    { year: 'Actualidad', title: 'Consulta Sanitaria en Zaragoza (Plaza Europa) & Online', desc: 'Práctica clínica integradora con más de 25 años de vocación.' }
+    { year: 'Actualidad', title: 'Consulta Sanitaria en Espacio K alma (Zaragoza) & Online', desc: 'Práctica clínica integradora con más de 25 años de vocación.' }
   ]
 };

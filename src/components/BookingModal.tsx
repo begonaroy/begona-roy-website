@@ -140,7 +140,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         {/* Progress Bar & Header */}
         {step < 5 && (
           <div className="mb-8">
-            <div className="flex items-center justify-between text-xs uppercase tracking-wider font-semibold text-[#3D342E] mb-2">
+            <div className="flex items-center justify-between text-xs uppercase tracking-wider font-semibold text-[#AA4664] mb-2">
               <span>Paso {step} de 4</span>
               <span>
                 {step === 1 && 'Servicio'}
@@ -240,7 +240,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                   isDark
                     ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#3D342E]'
+                    : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664]'
                 }`}
               >
                 <span>Continuar</span>
@@ -283,8 +283,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <h4 className="font-serif text-lg font-medium">
                   Terapia Presencial
                 </h4>
-                <p className="text-xs text-[#3D342E] font-medium mt-1">
-                  Plaza Europa, 50003 Zaragoza
+                <p className="text-xs text-[#AA4664] font-medium mt-1">
+                  Espacio K alma · C. del Río Huerva, 21 · 50006 Zaragoza
                 </p>
                 <p className="text-xs mt-3 leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
                   Espacio acogedor y silencioso para trabajar cara a cara en un ambiente cuidado y sereno.
@@ -314,7 +314,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <h4 className="font-serif text-lg font-medium">
                   Terapia Online
                 </h4>
-                <p className="text-xs text-[#3D342E] font-medium mt-1">
+                <p className="text-xs text-[#AA4664] font-medium mt-1">
                   Videoconsulta Segura y Confidencial
                 </p>
                 <p className="text-xs mt-3 leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
@@ -344,7 +344,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                   isDark
                     ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#3D342E]'
+                    : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664]'
                 }`}
               >
                 <span>Elegir Horario</span>
@@ -450,7 +450,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                   isDark
                     ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#3D342E]'
+                    : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664]'
                 }`}
               >
                 <span>Tus Datos de Contacto</span>
@@ -486,7 +486,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </span>
                 <span className="opacity-80">
                   {selectedModality === 'presencial'
-                    ? 'Presencial en Zaragoza (Plaza Europa)'
+                    ? 'Presencial en Espacio K alma (Zaragoza)'
                     : 'Online por Videoconsulta'}{' '}
                   · {selectedDate} a las {selectedTime} h
                 </span>
@@ -494,7 +494,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <button
                 type="button"
                 onClick={() => setStep(1)}
-                className="text-[#3D342E] font-medium hover:underline text-[11px]"
+                className="text-[#AA4664] font-medium hover:underline text-[11px]"
               >
                 Cambiar
               </button>
@@ -604,7 +604,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 className={`inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all disabled:opacity-50 ${
                   isDark
                     ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#3D342E]'
+                    : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664]'
                 }`}
               >
                 {isSubmitting ? (

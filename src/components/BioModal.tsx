@@ -71,7 +71,7 @@ export const BioModal: React.FC<BioModalProps> = ({
             <h2 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight">
               Begoña Roy
             </h2>
-            <p className="text-sm font-medium text-[#3D342E]">
+            <p className="text-sm font-medium text-[#AA4664]">
               Psicóloga General Sanitaria · Psicooncóloga · Facilitadora de Pericardio
             </p>
             <p className="text-xs text-opacity-80 flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 pt-1 text-[#667052] dark:text-[#B7BEA3]">
@@ -139,7 +139,7 @@ export const BioModal: React.FC<BioModalProps> = ({
               className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                 isDark
                   ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                  : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#3D342E]'
+                  : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664]'
               }`}
             >
               <Calendar className="w-4 h-4" />

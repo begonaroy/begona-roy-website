@@ -38,14 +38,14 @@ La Liberación del Pericardio es exclusivamente presencial. Psicología y psicoo
 | Verde fuerte | `#4A5D4E` | 74, 93, 78 | 133, 11%, 33% | Marca, enlaces y acciones | 6.85:1 sobre Lino; 5.35:1 sobre Arena |
 | Oliva suave | `#8F9779` | 143, 151, 121 | 74, 13%, 53% | Solo decoración | 2.96:1 sobre Lino: nunca texto pequeño |
 | Oliva funcional | `#667052` | 102, 112, 82 | 80, 15%, 38% | Texto secundario | 5.07:1 sobre Lino |
-| Tierra | `#3D342E` | 61, 52, 46 | 24, 14%, 21% | Cita script | 11.75:1 sobre Lino |
+| Cerezo | `#AA4664` | 170, 70, 100 | 342, 42%, 47% | Cita script | 5.57:1 sobre Lino |
 | Arena | `#E6DFD3` | 230, 223, 211 | 37, 26%, 86% | Superficies claras | — |
 | Fondo oscuro | `#171A17` | 23, 26, 23 | 120, 6%, 10% | Fondo nocturno | — |
 | Superficie oscura | `#21251F` | 33, 37, 31 | 90, 9%, 13% | Superficies nocturnas | — |
 | Lino suave | `#F3EFE7` | 243, 239, 231 | 40, 25%, 93% | Texto oscuro | 15.30:1 sobre Fondo oscuro |
 | Verde claro | `#A7B39A` | 167, 179, 154 | 84, 16%, 65% | Marca nocturna | 7.99:1 sobre Fondo oscuro |
 | Oliva claro | `#B7BEA3` | 183, 190, 163 | 77, 17%, 73% | Detalle nocturno | 9.12:1 sobre Fondo oscuro |
-| Tierra clara | `#C7B3A3` | 199, 179, 163 | 27, 22%, 71% | Citas nocturnas | 8.70:1 sobre Fondo oscuro |
+| Cerezo intenso | `#D8659B` | 216, 101, 155 | 332, 60%, 62% | Citas nocturnas | 5.23:1 sobre Fondo oscuro |
 
 El tema se guarda en `localStorage` con la clave `begona_roy_theme`. El modo oscuro usa Fondo oscuro como lienzo y Superficie oscura para tarjetas; Lino suave es el texto principal y Verde claro la marca funcional.
 
