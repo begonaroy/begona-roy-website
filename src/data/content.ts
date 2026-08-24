@@ -28,7 +28,7 @@ export const IMAGES = {
   trauma: 'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80', // Dawn breaking over mountains, gentle release and safety
   psicosomaticos: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80', // Somatic gentle hands therapy / healing hands
   espiritual: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80', // Open horizon, clear light, calm awareness
-  pericardio: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80', // Somatic gentle hands therapy / healing hands
+  pericardio: '/img/escucha-en-camilla.png', // Somatic gentle hands therapy / healing hands
   zaragozaCity: 'https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=1000&q=80', // Architectural calm
 };
 
