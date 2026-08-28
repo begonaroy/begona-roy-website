@@ -14,6 +14,8 @@ import {
   MessageSquare
 } from 'lucide-react';
 
+const WHATSAPP_BASE_URL = CLINICAL_INFO.whatsappUrl.split('?')[0];
+
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -31,7 +33,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   // Form State
   const [selectedService, setSelectedService] = useState<string>(
-    initialServiceId || 'ansiedad-estres'
+    initialServiceId || 'psicologia-general'
   );
   const [selectedModality, setSelectedModality] = useState<'presencial' | 'online'>(
     'presencial'
@@ -143,8 +145,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         id="booking-modal-container"
         className={`relative w-full max-w-2xl rounded-3xl p-6 sm:p-8 shadow-2xl transition-all max-h-[90vh] overflow-y-auto ${
           isDark
-            ? 'bg-[#171A17] border border-[#667052] text-[#F3EFE7]'
-            : 'bg-[#FBF9F5] border border-[#E6DFD3] text-[#24211F]'
+            ? 'bg-[#151B17] border border-[#2D3930] text-[#F3EFE7]'
+            : 'bg-[#FBF9F5] border border-[#E8E2D9] text-[#222823]'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -154,8 +156,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           aria-label="Cerrar modal de reserva"
           className={`absolute top-5 right-5 p-2 rounded-full transition-colors ${
             isDark
-              ? 'bg-[#21251F] text-[#B7BEA3] hover:text-[#F3EFE7]'
-              : 'bg-[#E6DFD3] text-[#667052] hover:text-[#24211F]'
+              ? 'bg-[#222C26] text-[#B7BEA3] hover:text-[#F3EFE7]'
+              : 'bg-[#E8ECE9] text-[#5A655C] hover:text-[#222823]'
           }`}
         >
           <X className="w-5 h-5" />
@@ -182,11 +184,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   className={`h-1.5 rounded-full transition-all duration-300 ${
                     s <= step
                       ? isDark
-                        ? 'bg-[#A7B39A]'
+                        ? 'bg-[#7C9682]'
                         : 'bg-[#4A5D4E]'
                       : isDark
-                      ? 'bg-[#21251F]'
-                      : 'bg-[#E6DFD3]'
+                      ? 'bg-[#222C26]'
+                      : 'bg-[#E8ECE9]'
                   }`}
                 />
               ))}
@@ -201,7 +203,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <h3 className="font-serif text-2xl font-medium tracking-tight">
                 ¿Qué tipo de acompañamiento necesitas?
               </h3>
-              <p className="text-sm mt-1 text-[#667052] dark:text-[#B7BEA3]">
+              <p className="text-sm mt-1 text-[#5A655C] dark:text-[#B7BEA3]">
                 Selecciona la opción que mejor se ajuste a tu momento vital.
               </p>
             </div>
@@ -221,21 +223,21 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between ${
                     selectedService === opt.id
                       ? isDark
-                        ? 'bg-[#21251F] border-[#A7B39A] ring-1 ring-[#A7B39A]'
-                        : 'bg-[#E6DFD3] border-[#4A5D4E] ring-1 ring-[#4A5D4E]'
+                        ? 'bg-[#222C26] border-[#7C9682] ring-1 ring-[#7C9682]'
+                        : 'bg-[#E8ECE9] border-[#4A5D4E] ring-1 ring-[#4A5D4E]'
                       : isDark
-                      ? 'bg-[#21251F] border-[#667052] hover:border-[#A7B39A]/50'
-                      : 'bg-white border-[#E6DFD3] hover:border-[#4A5D4E]/40'
+                      ? 'bg-[#1C2420] border-[#2D3930] hover:border-[#7C9682]/50'
+                      : 'bg-white border-[#E8E2D9] hover:border-[#4A5D4E]/40'
                   }`}
                 >
                   <div className="space-y-1 pr-4">
                     <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] mr-2">
                       {opt.badge}
                     </span>
-                    <h4 className="font-medium text-sm sm:text-base text-[#24211F] dark:text-[#F3EFE7] mt-1">
+                    <h4 className="font-medium text-sm sm:text-base text-[#222823] dark:text-[#F3EFE7] mt-1">
                       {opt.title}
                     </h4>
-                    <span className="text-xs text-[#667052] dark:text-[#B7BEA3]">
+                    <span className="text-xs text-[#5A655C] dark:text-[#B7BEA3]">
                       Duración: {opt.duration}
                     </span>
                   </div>
@@ -244,7 +246,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     className={`w-5 h-5 rounded-full border flex items-center justify-center flex-shrink-0 ${
                       selectedService === opt.id
                         ? isDark
-                          ? 'bg-[#A7B39A] border-[#A7B39A]'
+                          ? 'bg-[#7C9682] border-[#7C9682]'
                           : 'bg-[#4A5D4E] border-[#4A5D4E]'
                         : 'border-gray-400'
                     }`}
@@ -263,8 +265,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 onClick={() => setStep(2)}
                 className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                   isDark
-                    ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
+                    ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
+                    : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
                 }`}
               >
                 <span>Continuar</span>
@@ -281,7 +283,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <h3 className="font-serif text-2xl font-medium tracking-tight">
                 Elige la modalidad de tu sesión
               </h3>
-              <p className="text-sm mt-1 text-[#667052] dark:text-[#B7BEA3]">
+              <p className="text-sm mt-1 text-[#5A655C] dark:text-[#B7BEA3]">
                 Ambas modalidades ofrecen la misma cercanía, profesionalidad y rigor sanitario.
               </p>
             </div>
@@ -294,11 +296,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 className={`p-6 rounded-2xl border text-left transition-all relative ${
                   selectedModality === 'presencial'
                     ? isDark
-                      ? 'bg-[#21251F] border-[#A7B39A] ring-1 ring-[#A7B39A]'
-                      : 'bg-[#E6DFD3] border-[#4A5D4E] ring-1 ring-[#4A5D4E]'
+                      ? 'bg-[#222C26] border-[#7C9682] ring-1 ring-[#7C9682]'
+                      : 'bg-[#E8ECE9] border-[#4A5D4E] ring-1 ring-[#4A5D4E]'
                     : isDark
-                    ? 'bg-[#21251F] border-[#667052] hover:border-[#A7B39A]/50'
-                    : 'bg-white border-[#E6DFD3] hover:border-[#4A5D4E]/40'
+                    ? 'bg-[#1C2420] border-[#2D3930] hover:border-[#7C9682]/50'
+                    : 'bg-white border-[#E8E2D9] hover:border-[#4A5D4E]/40'
                 }`}
               >
                 <div className="p-3 rounded-xl bg-[#4A5D4E]/10 w-fit mb-4 text-[#4A5D4E] dark:text-[#A7B39A]">
@@ -310,7 +312,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <p className="text-xs text-[#AA4664] dark:text-[#D8659B] font-medium mt-1">
                   {CLINICAL_INFO.location}
                 </p>
-                <p className="text-xs mt-3 leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                <p className="text-xs mt-3 leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
                   Espacio acogedor y silencioso para trabajar cara a cara en un ambiente cuidado y sereno.
                 </p>
               </button>
@@ -322,14 +324,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 onClick={() => setSelectedModality('online')}
                 className={`p-6 rounded-2xl border text-left transition-all relative ${
                   selectedService === 'liberacion-pericardio'
-                    ? 'opacity-50 cursor-not-allowed bg-gray-100 dark:bg-[#21251F] border-gray-300'
+                    ? 'opacity-50 cursor-not-allowed bg-gray-100 dark:bg-[#1C2420] border-gray-300'
                     : selectedModality === 'online'
                     ? isDark
-                      ? 'bg-[#21251F] border-[#A7B39A] ring-1 ring-[#A7B39A]'
-                      : 'bg-[#E6DFD3] border-[#4A5D4E] ring-1 ring-[#4A5D4E]'
+                      ? 'bg-[#222C26] border-[#7C9682] ring-1 ring-[#7C9682]'
+                      : 'bg-[#E8ECE9] border-[#4A5D4E] ring-1 ring-[#4A5D4E]'
                     : isDark
-                    ? 'bg-[#21251F] border-[#667052] hover:border-[#A7B39A]/50'
-                    : 'bg-white border-[#E6DFD3] hover:border-[#4A5D4E]/40'
+                    ? 'bg-[#1C2420] border-[#2D3930] hover:border-[#7C9682]/50'
+                    : 'bg-white border-[#E8E2D9] hover:border-[#4A5D4E]/40'
                 }`}
               >
                 <div className="p-3 rounded-xl bg-[#4A5D4E]/10 w-fit mb-4 text-[#4A5D4E] dark:text-[#A7B39A]">
@@ -341,7 +343,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <p className="text-xs text-[#AA4664] dark:text-[#D8659B] font-medium mt-1">
                   Videoconsulta Segura y Confidencial
                 </p>
-                <p className="text-xs mt-3 leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                <p className="text-xs mt-3 leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
                   Realiza la sesión desde la comodidad de tu hogar, sin desplazamientos ni tiempos de espera.
                 </p>
                 {selectedService === 'liberacion-pericardio' && (
@@ -356,7 +358,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <button
                 type="button"
                 onClick={() => setStep(1)}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#667052] dark:text-[#B7BEA3] hover:underline"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5A655C] dark:text-[#B7BEA3] hover:underline"
               >
                 <ChevronLeft className="w-4 h-4" />
                 <span>Volver</span>
@@ -367,8 +369,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 onClick={() => setStep(3)}
                 className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                   isDark
-                    ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
+                    ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
+                    : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
                 }`}
               >
                 <span>Elegir Horario</span>
@@ -385,14 +387,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <h3 className="font-serif text-2xl font-medium tracking-tight">
                 Selecciona fecha y hora preferida
               </h3>
-              <p className="text-sm mt-1 text-[#667052] dark:text-[#B7BEA3]">
+              <p className="text-sm mt-1 text-[#5A655C] dark:text-[#B7BEA3]">
                 Te confirmaremos la disponibilidad exacta por WhatsApp o correo electrónico.
               </p>
             </div>
 
             {/* Date Picker row */}
             <div className="space-y-2">
-              <label className="text-xs font-semibold uppercase tracking-wider text-[#667052] dark:text-[#B7BEA3]">
+              <label className="text-xs font-semibold uppercase tracking-wider text-[#5A655C] dark:text-[#B7BEA3]">
                 Día de la semana
               </label>
               <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
@@ -406,11 +408,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       className={`p-3 rounded-2xl border text-center transition-all ${
                         isSelected
                           ? isDark
-                            ? 'bg-[#A7B39A] text-[#171A17] border-[#A7B39A]'
+                            ? 'bg-[#7C9682] text-[#171A17] border-[#7C9682]'
                             : 'bg-[#4A5D4E] text-white border-[#4A5D4E]'
                           : isDark
-                          ? 'bg-[#21251F] border-[#667052] hover:bg-[#21251F]'
-                          : 'bg-white border-[#E6DFD3] hover:bg-[#FDFBF7]'
+                          ? 'bg-[#1C2420] border-[#2D3930] hover:bg-[#222C26]'
+                          : 'bg-white border-[#E8E2D9] hover:bg-[#F3EFEA]'
                       }`}
                     >
                       <span className="text-[11px] block font-medium opacity-80">
@@ -430,7 +432,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
             {/* Time Slot Picker */}
             <div className="space-y-2">
-              <label className="text-xs font-semibold uppercase tracking-wider text-[#667052] dark:text-[#B7BEA3]">
+              <label className="text-xs font-semibold uppercase tracking-wider text-[#5A655C] dark:text-[#B7BEA3]">
                 Franja Horaria Disponible
               </label>
               <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
@@ -444,11 +446,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       className={`py-2.5 px-3 rounded-xl border text-center text-xs font-semibold transition-all ${
                         isSelected
                           ? isDark
-                            ? 'bg-[#A7B39A] text-[#171A17] border-[#A7B39A]'
+                            ? 'bg-[#7C9682] text-[#171A17] border-[#7C9682]'
                             : 'bg-[#4A5D4E] text-white border-[#4A5D4E]'
                           : isDark
-                          ? 'bg-[#21251F] border-[#667052] hover:bg-[#21251F]'
-                          : 'bg-white border-[#E6DFD3] hover:bg-[#FDFBF7]'
+                          ? 'bg-[#1C2420] border-[#2D3930] hover:bg-[#222C26]'
+                          : 'bg-white border-[#E8E2D9] hover:bg-[#F3EFEA]'
                       }`}
                     >
                       {slot} h
@@ -462,7 +464,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#667052] dark:text-[#B7BEA3] hover:underline"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5A655C] dark:text-[#B7BEA3] hover:underline"
               >
                 <ChevronLeft className="w-4 h-4" />
                 <span>Volver</span>
@@ -473,8 +475,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 onClick={() => setStep(4)}
                 className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                   isDark
-                    ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
+                    ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
+                    : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
                 }`}
               >
                 <span>Tus Datos de Contacto</span>
@@ -491,7 +493,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <h3 className="font-serif text-2xl font-medium tracking-tight">
                 Completa tus datos
               </h3>
-              <p className="text-sm mt-1 text-[#667052] dark:text-[#B7BEA3]">
+              <p className="text-sm mt-1 text-[#5A655C] dark:text-[#B7BEA3]">
                 Trataremos tus datos con absoluta confidencialidad sanitaria.
               </p>
             </div>
@@ -500,8 +502,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <div
               className={`p-3.5 rounded-xl border text-xs flex flex-wrap items-center justify-between gap-2 ${
                 isDark
-                  ? 'bg-[#21251F] border-[#667052]'
-                  : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                  ? 'bg-[#1C2420] border-[#2D3930]'
+                  : 'bg-[#F3EFEA] border-[#E8E2D9]'
               }`}
             >
               <div>
@@ -510,7 +512,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </span>
                 <span className="opacity-80">
                   {selectedModality === 'presencial'
-                    ? 'Presencial en Espacio K alma (C. del Río Huerva, 21, Zaragoza)'
+                    ? 'Presencial en Zaragoza (Plaza Europa)'
                     : 'Online por Videoconsulta'}{' '}
                   · {selectedDate} a las {selectedTime} h
                 </span>
@@ -537,8 +539,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   onChange={(e) => setFullName(e.target.value)}
                   className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
                     isDark
-                      ? 'bg-[#21251F] border-[#667052] focus:ring-[#A7B39A] text-white'
-                      : 'bg-white border-[#E6DFD3] focus:ring-[#4A5D4E] text-[#24211F]'
+                      ? 'bg-[#1C2420] border-[#2D3930] focus:ring-[#7C9682] text-white'
+                      : 'bg-white border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
                   }`}
                 />
               </div>
@@ -555,8 +557,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   onChange={(e) => setPhone(e.target.value)}
                   className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
                     isDark
-                      ? 'bg-[#21251F] border-[#667052] focus:ring-[#A7B39A] text-white'
-                      : 'bg-white border-[#E6DFD3] focus:ring-[#4A5D4E] text-[#24211F]'
+                      ? 'bg-[#1C2420] border-[#2D3930] focus:ring-[#7C9682] text-white'
+                      : 'bg-white border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
                   }`}
                 />
               </div>
@@ -574,8 +576,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 onChange={(e) => setEmail(e.target.value)}
                 className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
                   isDark
-                    ? 'bg-[#21251F] border-[#667052] focus:ring-[#A7B39A] text-white'
-                    : 'bg-white border-[#E6DFD3] focus:ring-[#4A5D4E] text-[#24211F]'
+                    ? 'bg-[#1C2420] border-[#2D3930] focus:ring-[#7C9682] text-white'
+                    : 'bg-white border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
                 }`}
               />
             </div>
@@ -591,8 +593,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 onChange={(e) => setNotes(e.target.value)}
                 className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 resize-none ${
                   isDark
-                    ? 'bg-[#21251F] border-[#667052] focus:ring-[#A7B39A] text-white'
-                    : 'bg-white border-[#E6DFD3] focus:ring-[#4A5D4E] text-[#24211F]'
+                    ? 'bg-[#1C2420] border-[#2D3930] focus:ring-[#7C9682] text-white'
+                    : 'bg-white border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
                 }`}
               />
             </div>
@@ -607,7 +609,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 onChange={(e) => setPrivacyAccepted(e.target.checked)}
                 className="mt-1 w-4 h-4 rounded text-[#4A5D4E] focus:ring-[#4A5D4E]"
               />
-              <label htmlFor="booking-privacy" className="text-xs text-[#667052] dark:text-[#B7BEA3]">
+              <label htmlFor="booking-privacy" className="text-xs text-[#5A655C] dark:text-[#B7BEA3]">
                 He leído y acepto la política de privacidad y el tratamiento confidencial de datos de salud conforme al RGPD y la Ley de Psicología Sanitaria.
               </label>
             </div>
@@ -616,7 +618,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <button
                 type="button"
                 onClick={() => setStep(3)}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#667052] dark:text-[#B7BEA3] hover:underline"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5A655C] dark:text-[#B7BEA3] hover:underline"
               >
                 <ChevronLeft className="w-4 h-4" />
                 <span>Volver</span>
@@ -627,8 +629,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 disabled={isSubmitting || !privacyAccepted || !fullName || !email || !phone}
                 className={`inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all disabled:opacity-50 ${
                   isDark
-                    ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
+                    ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
+                    : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
                 }`}
               >
                 {isSubmitting ? (
@@ -655,17 +657,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight">
                 ¡Solicitud Recibida con Éxito!
               </h3>
-              <p className="text-sm max-w-md mx-auto text-[#667052] dark:text-[#B7BEA3] leading-relaxed">
-                Gracias, <strong className="text-[#24211F] dark:text-[#F3EFE7]">{fullName}</strong>. Begoña revisará tu solicitud para el{' '}
-                <strong className="text-[#24211F] dark:text-[#F3EFE7]">{selectedDate}</strong> a las{' '}
-                <strong className="text-[#24211F] dark:text-[#F3EFE7]">{selectedTime} h</strong> y te contactará en breve vía WhatsApp o correo electrónico para confirmar la cita y enviarte las indicaciones.
+              <p className="text-sm max-w-md mx-auto text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
+                Gracias, <strong className="text-[#222823] dark:text-[#F3EFE7]">{fullName}</strong>. Begoña revisará tu solicitud para el{' '}
+                <strong className="text-[#222823] dark:text-[#F3EFE7]">{selectedDate}</strong> a las{' '}
+                <strong className="text-[#222823] dark:text-[#F3EFE7]">{selectedTime} h</strong> y te contactará en breve vía WhatsApp o correo electrónico para confirmar la cita y enviarte las indicaciones.
               </p>
             </div>
 
             {/* Direct WhatsApp shortcut button */}
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href={`https://wa.me/34622458912?text=Hola%20Bego%C3%B1a,%20acabo%20de%20solicitar%20cita%20a%20nombre%20de%20${encodeURIComponent(
+                href={`${WHATSAPP_BASE_URL}?text=Hola%20Bego%C3%B1a,%20acabo%20de%20solicitar%20cita%20a%20nombre%20de%20${encodeURIComponent(
                   fullName
                 )}%20para%20el%20d%C3%ADa%20${selectedDate}%20a%20las%20${selectedTime}h.`}
                 target="_blank"
@@ -681,8 +683,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 onClick={onClose}
                 className={`w-full sm:w-auto px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider border transition-colors ${
                   isDark
-                    ? 'border-[#667052] hover:bg-[#21251F]'
-                    : 'border-[#E6DFD3] hover:bg-[#FDFBF7]'
+                    ? 'border-[#2D3930] hover:bg-[#222C26]'
+                    : 'border-[#D8D0C4] hover:bg-[#F3EFEA]'
                 }`}
               >
                 Finalizar

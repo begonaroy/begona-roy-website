@@ -33,21 +33,24 @@ La Liberación del Pericardio es exclusivamente presencial. Psicología y psicoo
 
 | Token | HEX | RGB | HSL | Uso | Contraste documentado |
 | --- | --- | --- | --- | --- | --- |
-| Lino | `#FDFBF7` | 253, 251, 247 | 40, 60%, 98% | Fondo claro | — |
-| Negro cálido | `#24211F` | 36, 33, 31 | 24, 7%, 13% | Texto claro | 15.48:1 sobre Lino |
-| Verde fuerte | `#4A5D4E` | 74, 93, 78 | 133, 11%, 33% | Marca, enlaces y acciones | 6.85:1 sobre Lino; 5.35:1 sobre Arena |
-| Oliva suave | `#8F9779` | 143, 151, 121 | 74, 13%, 53% | Solo decoración | 2.96:1 sobre Lino: nunca texto pequeño |
-| Oliva funcional | `#667052` | 102, 112, 82 | 80, 15%, 38% | Texto secundario | 5.07:1 sobre Lino |
-| Cerezo | `#AA4664` | 170, 70, 100 | 342, 42%, 47% | Cita script | 5.57:1 sobre Lino |
-| Arena | `#E6DFD3` | 230, 223, 211 | 37, 26%, 86% | Superficies claras | — |
-| Fondo oscuro | `#171A17` | 23, 26, 23 | 120, 6%, 10% | Fondo nocturno | — |
-| Superficie oscura | `#21251F` | 33, 37, 31 | 90, 9%, 13% | Superficies nocturnas | — |
-| Lino suave | `#F3EFE7` | 243, 239, 231 | 40, 25%, 93% | Texto oscuro | 15.30:1 sobre Fondo oscuro |
-| Verde claro | `#A7B39A` | 167, 179, 154 | 84, 16%, 65% | Marca nocturna | 7.99:1 sobre Fondo oscuro |
-| Oliva claro | `#B7BEA3` | 183, 190, 163 | 77, 17%, 73% | Detalle nocturno | 9.12:1 sobre Fondo oscuro |
-| Cerezo intenso | `#D8659B` | 216, 101, 155 | 332, 60%, 62% | Citas nocturnas | 5.23:1 sobre Fondo oscuro |
+| Blanco suave | `#FCFCFA` | 252, 252, 250 | 60, 25%, 98% | Lienzo global claro | — |
+| Negro vegetal | `#222823` | 34, 40, 35 | 130, 8%, 15% | Texto principal claro | 14.65:1 sobre Blanco suave |
+| Gris salvia | `#5A655C` | 90, 101, 92 | 131, 6%, 37% | Texto secundario claro | 5.92:1 sobre Blanco suave |
+| Verde fuerte | `#4A5D4E` | 74, 93, 78 | 133, 11%, 33% | Marca, enlaces y acciones | 6.89:1 sobre Blanco suave |
+| Cerezo | `#AA4664` | 170, 70, 100 | 342, 42%, 47% | Acentos y llamadas | 5.42:1 sobre Blanco suave |
+| Salvia clara | `#E8ECE9` | 232, 236, 233 | 135, 10%, 92% | Superficie y selección clara | — |
+| Arena clara | `#FAF7F2` | 250, 247, 242 | 38, 44%, 96% | Superficie cálida clara | — |
+| Borde arena | `#E8E2D9` | 232, 226, 217 | 36, 25%, 88% | Bordes claros | — |
+| Fondo oscuro | `#151B17` | 21, 27, 23 | 140, 13%, 9% | Lienzo nocturno | — |
+| Superficie oscura | `#1C2420` | 28, 36, 32 | 150, 13%, 13% | Tarjetas nocturnas | — |
+| Superficie oscura alta | `#222C26` | 34, 44, 38 | 144, 13%, 15% | Selección y controles nocturnos | — |
+| Borde oscuro | `#2D3930` | 45, 57, 48 | 135, 12%, 20% | Bordes nocturnos | — |
+| Lino suave | `#F3EFE7` | 243, 239, 231 | 40, 25%, 93% | Texto principal oscuro | 15.25:1 sobre Fondo oscuro |
+| Oliva claro | `#B7BEA3` | 183, 190, 163 | 77, 17%, 73% | Texto secundario oscuro | 9.08:1 sobre Fondo oscuro |
+| Verde claro | `#A7B39A` | 167, 179, 154 | 84, 16%, 65% | Marca e iconos oscuros | 7.96:1 sobre Fondo oscuro |
+| Cerezo intenso | `#D8659B` | 216, 101, 155 | 332, 60%, 62% | Acentos oscuros | 5.21:1 sobre Fondo oscuro |
 
-El tema se guarda en `localStorage` con la clave `begona_roy_theme`. El modo oscuro usa Fondo oscuro como lienzo y Superficie oscura para tarjetas; Lino suave es el texto principal y Verde claro la marca funcional.
+El tema se guarda en `localStorage` con la clave `begona_roy_theme`. El modo oscuro adopta los nuevos fondos y bordes vegetales, pero conserva Lino suave, Oliva claro, Verde claro y Cerezo intenso como colores de primer plano.
 
 ### Tipografía
 
@@ -95,6 +98,6 @@ Las tarjetas de servicio combinan fotografía ambiental, etiqueta, título y res
 
 ## Implementación
 
-Los tokens de color y tipografía se definen en `src/index.css` mediante Tailwind v4. La interfaz está compuesta por vistas en `src/components` y por contenido estructurado en `src/data/content.ts`. Los iconos proceden de `lucide-react` y las imágenes actuales son recursos remotos de Unsplash.
+Los tokens de color y tipografía se definen en `src/index.css` mediante Tailwind v4. La interfaz está compuesta por vistas en `src/components` y por contenido estructurado en `src/data/content.ts`. Los iconos proceden de `lucide-react`. Las tres imágenes principales de Inicio y consulta se sirven desde `public/`; las trece ilustraciones editoriales aprobadas se importan desde `src/assets/images` y Vite las incorpora al bundle.
 
 Al modificar el diseño, mantener la paridad entre los temas claro y oscuro, reutilizar tokens en lugar de valores nuevos y validar las interacciones de formularios, filtros y modales en pantalla pequeña y grande.

@@ -17,7 +17,8 @@ import {
   ExternalLink,
   Quote,
   Feather,
-  UserCheck
+  UserCheck,
+  MapPin
 } from 'lucide-react';
 
 interface PericardioViewProps {
@@ -35,81 +36,112 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
 
   return (
     <div id="pericardio-view" className="space-y-20 sm:space-y-28 pb-20">
-      {/* 1. HEADER BANNER */}
+      {/* 1. HERO SECTION WITH SVG EMBLEM & OFFICIAL WEBSITE LINK */}
       <section className="pt-6 sm:pt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex flex-wrap items-center justify-center gap-2">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E6DFD3] dark:border-[#667052] bg-[#FDFBF7] dark:bg-[#21251F] text-[#4A5D4E] dark:text-[#A7B39A]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Left Column: Text, Badges, pericardium.org card and CTA */}
+          <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A]">
               <Heart className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B] fill-current" />
-              <span>LIBERACIÓN DE PERICARDIO</span>
-            </span>
+              <span>LIBERACIÓN DEL PERICARDIO · MÉTODO MONTSERRAT GASCÓN</span>
+            </div>
 
-            <a
-              href={PERICARDIUM_INFO.websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium border border-[#AA4664]/30 dark:border-[#D8659B]/30 bg-[#AA4664]/10 dark:bg-[#D8659B]/10 text-[#AA4664] dark:text-[#D8659B] hover:bg-[#AA4664]/20 dark:hover:bg-[#D8659B]/20 transition-colors"
-              title="Visitar sitio oficial internacional"
-            >
-              <span>{PERICARDIUM_INFO.websiteDisplay}</span>
-              <ExternalLink className="w-3 h-3" />
-            </a>
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7] leading-[1.18]">
+              Liberación del Pericardio
+            </h1>
+
+            <p className="text-base sm:text-lg text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
+              {PERICARDIUM_INFO.subtitle}
+            </p>
+
+            {/* Badges / Pill features */}
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#E8ECE9] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A] border border-[#D8E0DA] dark:border-[#2D3930]">
+                <MapPin className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
+                <span>Espacio K alma · Zaragoza</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#E8ECE9] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A] border border-[#D8E0DA] dark:border-[#2D3930]">
+                <Feather className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A]" />
+                <span>Sesiones en Camilla</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#E8ECE9] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A] border border-[#D8E0DA] dark:border-[#2D3930]">
+                <Sparkles className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
+                <span>Facilitadora desde 2017</span>
+              </span>
+            </div>
+
+            {/* pericardium.org Link Card (Primary Action) */}
+            <div className="pt-2">
+              <a
+                href={PERICARDIUM_INFO.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block p-4 sm:p-5 rounded-2xl border transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 text-left relative overflow-hidden bg-gradient-to-r from-[#FAF7F2] to-[#F3EFEA] dark:from-[#1C2420] dark:to-[#151B17] border-[#D8D0C4] dark:border-[#2D3930] hover:border-[#AA4664]/60 dark:hover:border-[#7C9682]"
+              >
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="flex items-start sm:items-center gap-3.5 flex-1">
+                    <div className="w-10 h-10 rounded-xl bg-[#AA4664]/15 text-[#AA4664] dark:text-[#D8659B] flex items-center justify-center flex-shrink-0 mt-0.5 sm:mt-0">
+                      <Heart className="w-5 h-5 fill-current" />
+                    </div>
+                    <p className="text-xs sm:text-sm font-medium leading-relaxed text-[#222823] dark:text-[#F3EFE7]">
+                      {PERICARDIUM_INFO.facilitatorNote}
+                    </p>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-[#AA4664] text-white group-hover:bg-[#B37459] transition-colors flex-shrink-0 shadow-sm self-stretch sm:self-auto justify-center">
+                    <span>pericardium.org</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+              </a>
+            </div>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7] leading-tight">
-            Liberación del Pericardio
-          </h1>
-
-          <p className="text-base sm:text-lg text-[#667052] dark:text-[#B7BEA3] leading-relaxed">
-            {PERICARDIUM_INFO.subtitle}
-          </p>
-
-          <div className="pt-2 max-w-2xl mx-auto">
-            <a
-              href={PERICARDIUM_INFO.websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block p-4 sm:p-5 rounded-2xl border transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 text-left relative overflow-hidden bg-gradient-to-r from-[#FDFBF7] to-[#FDFBF7] dark:from-[#21251F] dark:to-[#171A17] border-[#E6DFD3] dark:border-[#667052] hover:border-[#AA4664]/60 dark:hover:border-[#D8659B]/60 dark:hover:border-[#A7B39A]"
+          {/* Right Column: Pericardio Gold Logo Card */}
+          <div className="lg:col-span-5">
+            <div
+              className={`p-8 sm:p-10 rounded-3xl border shadow-xl relative overflow-hidden flex flex-col items-center justify-center text-center transition-all ${
+                isDark
+                  ? 'bg-[#1C2420] border-[#2D3930]'
+                  : 'bg-white border-[#E8E2D9]'
+              }`}
             >
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-start sm:items-center gap-3.5 flex-1">
-                  <div className="w-10 h-10 rounded-xl bg-[#AA4664]/15 dark:bg-[#D8659B]/15 text-[#AA4664] dark:text-[#D8659B] flex items-center justify-center flex-shrink-0 mt-0.5 sm:mt-0">
-                    <Heart className="w-5 h-5 fill-current" />
-                  </div>
-                  <p className="text-xs sm:text-sm font-medium leading-relaxed text-[#24211F] dark:text-[#F3EFE7]">
-                    {PERICARDIUM_INFO.facilitatorNote}
-                  </p>
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-[#AA4664] dark:bg-[#D8659B] text-white group-hover:bg-[#AA4664] dark:group-hover:bg-[#D8659B] transition-colors flex-shrink-0 shadow-sm self-stretch sm:self-auto justify-center">
-                  <span>pericardium.org</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+              {/* Subtle background glow */}
+              <div
+                className={`absolute inset-0 opacity-40 pointer-events-none ${
+                  isDark
+                    ? 'bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#D8CEBC]/10 via-transparent to-transparent'
+                    : 'bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#AA4664]/10 via-transparent to-transparent'
+                }`}
+              />
+
+              {/* Pericardio Gold Image with Hover Animation */}
+              <div className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-square flex items-center justify-center p-2 group">
+                <div className="w-full h-full transition-transform duration-700 group-hover:scale-105 group-hover:rotate-6 flex items-center justify-center">
+                  <img
+                    src="/branding/logo-pericardio.png"
+                    alt="Emblema Oficial de la Liberación del Pericardio"
+                    className="w-full h-full object-contain drop-shadow-lg rounded-full"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
               </div>
-            </a>
+
+              {/* Caption */}
+              <div className="mt-6 pt-5 border-t border-[#E8E2D9] dark:border-[#2D3930] w-full">
+                <p className="font-serif text-sm font-medium text-[#222823] dark:text-[#F3EFE7]">
+                  Emblema Oficial de la Liberación del Pericardio
+                </p>
+                <p className="text-xs text-[#5A655C] dark:text-[#B7BEA3] mt-1">
+                  Método Montserrat Gascón · <em>«Viva el Pericardio Libre»</em>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 2. REFINED QUOTE BLOCK (Dancing Script) */}
-      <section className="max-w-4xl mx-auto px-4">
-        <div
-          className={`p-8 sm:p-10 rounded-3xl border text-center transition-all ${
-            isDark
-              ? 'bg-[#21251F] border-[#667052]'
-              : 'bg-[#FDFBF7] border-[#E6DFD3]'
-          }`}
-        >
-          <p className="font-script text-2xl sm:text-3xl leading-relaxed text-[#24211F] dark:text-[#F3EFE7] font-semibold">
-            "{PERICARDIUM_INFO.quote}"
-          </p>
-          <span className="font-serif text-xs uppercase tracking-widest text-[#AA4664] dark:text-[#D8659B] font-medium block mt-3">
-            Begoña Roy · Facilitadora de Pericardio
-          </span>
-        </div>
-      </section>
-
-      {/* 3. ENTENDIENDO LA TERAPIA + BOTANICAL ANATOMICAL DIAGRAM */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 2. ENTENDIENDO LA TERAPIA + BOTANICAL ANATOMICAL DIAGRAM */}
+      <section id="que-es-el-pericardio" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: What is it Text & Popular Expressions */}
           <div className="lg:col-span-6 space-y-6 text-left">
@@ -117,12 +149,12 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
               <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
                 MEMBRANA PROTECTORA Y CENTRO VITAL
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
+              <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
                 ¿Qué es el Pericardio y por qué es tan importante?
               </h2>
             </div>
 
-            <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+            <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
               {PERICARDIUM_INFO.whatIsParagraphs.slice(0, 4).map((p, idx) => (
                 <p key={idx}>{p}</p>
               ))}
@@ -132,15 +164,15 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
             <div
               className={`p-5 sm:p-6 rounded-2xl border space-y-3 ${
                 isDark
-                  ? 'bg-[#171A17] border-[#667052]'
-                  : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                  ? 'bg-[#151B17] border-[#2D3930]'
+                  : 'bg-[#FAF7F2] border-[#E8E2D9]'
               }`}
             >
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
                 <Quote className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
                 <span>La sabiduría del lenguaje popular:</span>
               </div>
-              <p className="text-xs text-[#667052] dark:text-[#B7BEA3] italic">
+              <p className="text-xs text-[#5A655C] dark:text-[#B7BEA3] italic">
                 ¿Cuántas veces hemos escuchado y sentido expresiones como estas en nuestro cuerpo?
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
@@ -149,8 +181,8 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
                     key={i}
                     className={`px-3.5 py-2 rounded-xl text-xs font-serif font-medium border text-center ${
                       isDark
-                        ? 'bg-[#21251F] border-[#667052] text-[#F3EFE7]'
-                        : 'bg-white border-[#E6DFD3] text-[#24211F]'
+                        ? 'bg-[#1C2420] border-[#2D3930] text-[#F3EFE7]'
+                        : 'bg-white border-[#E8E2D9] text-[#222823]'
                     }`}
                   >
                     {exp}
@@ -159,7 +191,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
               </div>
             </div>
 
-            <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+            <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
               {PERICARDIUM_INFO.whatIsParagraphs.slice(4).map((p, idx) => (
                 <p key={idx}>{p}</p>
               ))}
@@ -170,8 +202,8 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
                 onClick={() => onOpenBooking('liberacion-pericardio')}
                 className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                   isDark
-                    ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
+                    ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
+                    : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
                 }`}
               >
                 <Calendar className="w-4 h-4" />
@@ -183,59 +215,62 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
           {/* Right Column: Botanical Heart Illustration / Interactive diagram */}
           <div className="lg:col-span-6 sticky top-24">
             <div
-              className={`p-6 sm:p-8 rounded-3xl border shadow-xl relative overflow-hidden transition-all ${
+              className={`p-6 sm:p-7 rounded-3xl border shadow-xl relative overflow-hidden transition-all ${
                 isDark
-                  ? 'bg-[#21251F] border-[#667052]'
-                  : 'bg-white border-[#E6DFD3]'
+                  ? 'bg-[#1C2420] border-[#2D3930]'
+                  : 'bg-white border-[#E8E2D9]'
               }`}
             >
-              {/* Visual Heart Artwork */}
-              <div className="relative w-full aspect-square max-w-sm mx-auto flex items-center justify-center p-4">
+              {/* Visual Heart Artwork (Reduced size for compact elegance) */}
+              <div className="relative w-full aspect-square max-w-[200px] sm:max-w-[220px] mx-auto flex items-center justify-center p-2 mb-2">
                 <img
                   src="/branding/favicon.png"
-                  alt="Ilustración de Liberación del Pericardio"
+                  alt=""
+                  aria-hidden="true"
                   className="w-full h-full object-contain drop-shadow-md"
                 />
               </div>
 
               {/* Interactive Connection Tabs */}
-              <div className="mt-4 space-y-3">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B] block">
-                  Conexiones Anatómicas Principales (Haz clic para ver):
+              <div className="space-y-4">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B] block">
+                  Conexiones Anatómicas Principales (Haz clic para explorar):
                 </span>
 
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-2.5">
                   {PERICARDIUM_INFO.anatomicalConnections.map((conn, i) => (
                     <button
                       key={i}
                       onClick={() => setActiveConnectionIndex(i)}
-                      className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
+                      className={`p-3 rounded-xl border text-left text-sm transition-all ${
                         activeConnectionIndex === i
                           ? isDark
-                            ? 'bg-[#21251F] border-[#A7B39A] text-[#F3EFE7] font-semibold'
-                            : 'bg-[#E6DFD3] border-[#4A5D4E] text-[#24211F] font-semibold'
+                            ? 'bg-[#222C26] border-[#7C9682] text-[#F3EFE7] font-semibold shadow-sm ring-1 ring-[#7C9682]/40'
+                            : 'bg-[#E8ECE9] border-[#4A5D4E] text-[#222823] font-semibold shadow-sm ring-1 ring-[#4A5D4E]/30'
                           : isDark
-                          ? 'bg-[#171A17] border-[#667052] text-[#B7BEA3]'
-                          : 'bg-white border-[#E6DFD3] text-[#667052]'
+                          ? 'bg-[#151B17] border-[#2D3930] text-[#B7BEA3] hover:border-[#7C9682]/50 hover:text-[#F3EFE7]'
+                          : 'bg-[#FAF7F2] border-[#E8E2D9] text-[#5A655C] hover:border-[#4A5D4E]/40 hover:text-[#222823]'
                       }`}
                     >
-                      <span className="block truncate">{conn.title.split(' y ')[0]}</span>
+                      <span className="block font-medium truncate">{conn.title.split(' y ')[0]}</span>
                     </button>
                   ))}
                 </div>
 
-                {/* Connection detail text */}
+                {/* Connection detail text with increased font size */}
                 <div
-                  className={`p-4 rounded-2xl border text-xs leading-relaxed transition-all ${
+                  className={`p-4 sm:p-5 rounded-2xl border leading-relaxed transition-all ${
                     isDark
-                      ? 'bg-[#171A17] border-[#667052] text-[#B7BEA3]'
-                      : 'bg-[#FDFBF7] border-[#E6DFD3] text-[#667052]'
+                      ? 'bg-[#151B17] border-[#2D3930] text-[#B7BEA3]'
+                      : 'bg-[#FAF7F2] border-[#E8E2D9] text-[#424D44]'
                   }`}
                 >
-                  <strong className="block text-[#24211F] dark:text-[#F3EFE7] mb-1 font-serif text-sm">
+                  <strong className="block text-[#222823] dark:text-[#F3EFE7] mb-2 font-serif text-base sm:text-lg">
                     {PERICARDIUM_INFO.anatomicalConnections[activeConnectionIndex].title}
                   </strong>
-                  <p>{PERICARDIUM_INFO.anatomicalConnections[activeConnectionIndex].description}</p>
+                  <p className="text-sm sm:text-base leading-relaxed">
+                    {PERICARDIUM_INFO.anatomicalConnections[activeConnectionIndex].description}
+                  </p>
                 </div>
               </div>
             </div>
@@ -248,16 +283,16 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
         <div
           className={`p-8 sm:p-12 lg:p-14 rounded-3xl border shadow-sm ${
             isDark
-              ? 'bg-[#21251F] border-[#667052]'
-              : 'bg-white border-[#E6DFD3]'
+              ? 'bg-[#1C2420] border-[#2D3930]'
+              : 'bg-white border-[#E8E2D9]'
           }`}
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Image Column */}
             <div className="lg:col-span-5 space-y-4">
-              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-[#E6DFD3] dark:border-[#667052] aspect-[4/3] group">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-[#E8E2D9] dark:border-[#2D3930] aspect-[4/3] group">
                 <img
-                  src={IMAGES.pericardio}
+                  src={IMAGES.pericardioSession}
                   alt="Acompañamiento manual en camilla para la liberación del pericardio"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
@@ -277,8 +312,8 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
               <div
                 className={`p-4 sm:p-5 rounded-2xl border text-xs sm:text-sm space-y-2 ${
                   isDark
-                    ? 'bg-[#171A17] border-[#667052] text-[#B7BEA3]'
-                    : 'bg-[#FDFBF7] border-[#E6DFD3] text-[#667052]'
+                    ? 'bg-[#151B17] border-[#2D3930] text-[#B7BEA3]'
+                    : 'bg-[#FAF7F2] border-[#E8E2D9] text-[#5A655C]'
                 }`}
               >
                 <div className="flex items-center gap-2 text-[#4A5D4E] dark:text-[#A7B39A] font-semibold">
@@ -297,12 +332,12 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
                 <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
                   LA VIVENCIA TERAPÉUTICA
                 </span>
-                <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
+                <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
                   El proceso de liberación del pericardio
                 </h2>
               </div>
 
-              <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+              <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
                 {PERICARDIUM_INFO.processDescription.map((parr, idx) => (
                   <p key={idx}>{parr}</p>
                 ))}
@@ -318,10 +353,10 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             EL ENCUENTRO EN CAMILLA
           </span>
-          <h2 className="font-serif text-3xl font-medium tracking-tight text-[#24211F] dark:text-[#F3EFE7]">
+          <h2 className="font-serif text-3xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
             ¿Cómo son las sesiones de Pericardio?
           </h2>
-          <p className="text-sm text-[#667052] dark:text-[#B7BEA3]">
+          <p className="text-sm text-[#5A655C] dark:text-[#B7BEA3]">
             Un espacio de seguridad y escucha profunda donde tu cuerpo marca el ritmo. Se realiza con ropa cómoda y sin dolor.
           </p>
         </div>
@@ -332,8 +367,8 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
               key={i}
               className={`p-8 rounded-3xl border flex flex-col justify-between space-y-6 transition-all hover:shadow-lg ${
                 isDark
-                  ? 'bg-[#21251F] border-[#667052]'
-                  : 'bg-white border-[#E6DFD3]'
+                  ? 'bg-[#1C2420] border-[#2D3930]'
+                  : 'bg-white border-[#E8E2D9]'
               }`}
             >
               <div className="space-y-3">
@@ -346,18 +381,18 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
                   </span>
                 </div>
 
-                <h3 className="font-serif text-xl font-medium text-[#24211F] dark:text-[#F3EFE7]">
+                <h3 className="font-serif text-xl font-medium text-[#222823] dark:text-[#F3EFE7]">
                   {stepItem.title}
                 </h3>
                 <p className="text-xs font-semibold text-[#AA4664] dark:text-[#D8659B]">
                   {stepItem.subtitle}
                 </p>
-                <p className="text-xs sm:text-sm leading-relaxed text-[#667052] dark:text-[#B7BEA3]">
+                <p className="text-xs sm:text-sm leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
                   {stepItem.description}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#E6DFD3] dark:border-[#667052] text-[11px] text-[#667052] dark:text-[#B7BEA3]">
+              <div className="pt-4 border-t border-[#E8E2D9] dark:border-[#2D3930] text-[11px] text-[#5A655C] dark:text-[#B7BEA3]">
                 {i === 0 && 'Tiempo para sintonizar y verbalizar.'}
                 {i === 1 && 'Trabajo tisular sutil y respetuoso.'}
                 {i === 2 && 'Regeneración y coherencia cardíaca.'}
@@ -372,8 +407,8 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
         <div
           className={`p-8 sm:p-12 rounded-3xl border space-y-6 ${
             isDark
-              ? 'bg-[#171A17] border-[#667052]'
-              : 'bg-[#FBF9F5] border-[#E6DFD3]'
+              ? 'bg-[#151B17] border-[#2D3930]'
+              : 'bg-[#FBF9F5] border-[#E8E2D9]'
           }`}
         >
           <div className="text-center space-y-2">
@@ -391,8 +426,8 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
                 key={idx}
                 className={`p-4 rounded-2xl border flex items-start gap-3 text-xs sm:text-sm ${
                   isDark
-                    ? 'bg-[#21251F] border-[#667052] text-[#B7BEA3]'
-                    : 'bg-white border-[#E6DFD3] text-[#24211F]'
+                    ? 'bg-[#1C2420] border-[#2D3930] text-[#B7BEA3]'
+                    : 'bg-white border-[#E8E2D9] text-[#222823]'
                 }`}
               >
                 <CheckCircle2 className="w-5 h-5 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0 mt-0.5" />
@@ -408,8 +443,8 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
         <div
           className={`p-10 sm:p-14 rounded-3xl border text-center shadow-xl ${
             isDark
-              ? 'bg-gradient-to-br from-[#21251F] to-[#171A17] border-[#A7B39A]/40 text-[#F3EFE7]'
-              : 'bg-gradient-to-br from-[#4A5D4E] to-[#3e4e42] border-[#4A5D4E] text-white'
+              ? 'bg-gradient-to-br from-[#2D3D32] to-[#151B17] border-[#7C9682]/40 text-[#F3EFE7]'
+              : 'bg-gradient-to-br from-[#4A5D4E] to-[#333F36] border-[#4A5D4E] text-white'
           }`}
         >
           <div className="space-y-4 max-w-lg mx-auto">
@@ -426,7 +461,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
             <div className="pt-4 flex justify-center">
               <button
                 onClick={() => onOpenBooking('liberacion-pericardio')}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-[#4A5D4E] hover:bg-[#FDFBF7] transition-colors shadow-lg active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-[#4A5D4E] hover:bg-[#FAF7F2] transition-colors shadow-lg active:scale-[0.98]"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Reservar Sesión de Pericardio</span>
