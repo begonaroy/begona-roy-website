@@ -1,4 +1,12 @@
 import { ServiceDetail, FAQItem, Testimonial } from '../types';
+import despertarEspiritualImg from '../assets/images/despertar_espiritual_meditacion_1787930836551.jpg';
+import ansiedadEstresImg from '../assets/images/ansiedad_estres_dialogo_1787931280502.jpg';
+import dueloImg from '../assets/images/duelo_abrazo_espejo_1787931967055.jpg';
+import tristezaDepresionImg from '../assets/images/tristeza_depresion_apoyo_1787932165448.jpg';
+import traumaImg from '../assets/images/trauma_sanacion_corazon_1787932373434.jpg';
+import psicosomaticosImg from '../assets/images/psicosomaticos_escucha_cuerpo_1787932714411.jpg';
+import psicooncologiaImg from '../assets/images/psicooncologia_manos_apoyo_1787933101360.jpg';
+import pericardioImg from '../assets/images/pericardio_florecer_corazon_1787933418955.jpg';
 
 export const CLINICAL_INFO = {
   name: 'Begoña Roy',
@@ -18,17 +26,20 @@ export const CLINICAL_INFO = {
 };
 
 export const IMAGES = {
-  heroAtmosphere: '/people/begona-roy-2.png', // Cozy calm interior with ceramic vase and warm light
-  begonaPortrait: '/people/begona-roy.png', // Professional warm empathetic woman psychologist in sunlit space
-  clinicInterior: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80', // Peaceful consultation room with soft armchair and plant
-  ansiedad: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80', // Serene breathing, hands on heart / meditation
-  depresion: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=800&q=80', // Gentle light filtering through morning trees, hope
-  duelo: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80', // Soft morning mist, gentle sunlight in nature
-  psicooncologia: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80', // Gentle warm hands holding each other in trust
-  trauma: 'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80', // Dawn breaking over mountains, gentle release and safety
-  psicosomaticos: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80', // Somatic gentle hands therapy / healing hands
-  espiritual: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80', // Open horizon, clear light, calm awareness
-  pericardio: '/img/escucha-en-camilla.png', // Somatic gentle hands therapy / healing hands
+  heroAtmosphere: '/people/ok.png', // Cozy calm interior with ceramic vase and warm light
+  begonaPortrait: '/people/begona-roy.jpg', // Professional warm empathetic woman psychologist in sunlit space
+  clinicInterior: '/img/psicologia-integral.jpg', // Peaceful consultation room with soft armchair and plant
+  ansiedad: ansiedadEstresImg, // Editorial therapy room conversation illustration with site colors
+  depresion: tristezaDepresionImg, // Editorial compassionate support illustration with site colors
+  duelo: dueloImg, // Editorial grief & self-compassion mirror hug illustration with site colors
+  psicooncologia: psicooncologiaImg, // Editorial psycho-oncology hands holding & purple cancer ribbon illustration with site colors
+  trauma: traumaImg, // Editorial somatic trauma healing & heart connection illustration with site colors
+  psicosomaticos: psicosomaticosImg, // Editorial mind-body somatic awareness illustration with site colors
+  espiritual: despertarEspiritualImg, // Minimalist meditation in nature illustration with site colors
+  pericardio: pericardioImg, // Editorial blooming heart & osteopathic pericardium release illustration with site colors
+  pericardioSession: '/img/escucha-en-camilla.png', // Session in treatment table image
+  emdrApproach: '/img/corazon-mar.jpeg', // EMDR approach image
+  psicooncologiaApproach: '/img/psicooncologia-begona-roy.jpg', // Psico-oncology approach image
   zaragozaCity: 'https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=1000&q=80', // Architectural calm
 };
 
@@ -229,6 +240,34 @@ export const SERVICES_DATA: ServiceDetail[] = [
     modalities: ['Presencial en Zaragoza', 'Online'],
     tag: 'Consciencia y Sentido',
     image: IMAGES.espiritual
+  },
+  {
+    id: 'liberacion-pericardio',
+    slug: 'pericardio',
+    title: 'Liberación del Pericardio',
+    subtitle: 'Método de desbloqueo físico, emocional y celular creado por Montserrat Gascón',
+    description: 'Tratamiento manual suave en camilla para liberar las retracciones del pericardio y devolver la expansión y vitalidad al corazón y a todo el organismo.',
+    fullContent: [
+      'El pericardio es la membrana que protege y sostiene el corazón físico y emocional. Ante cualquier impacto doloroso (miedo, tristeza, estrés, trauma), el pericardio se retrae y se endurece de forma automática.',
+      'A través de una escucha tisular y un toque sutil y respetuoso en camilla, facilitamos la liberación de estas retracciones retenidas en las fascias e inserciones anatómicas.',
+      'Sin manipulaciones bruscas ni dolor, permitimos que el cuerpo reconozca su propia energía de salud, recuperando la ligereza, la paz profunda y la conexión con el corazón.'
+    ],
+    benefits: [
+      'Profunda relajación y alivio de la sensación de opresión en el pecho',
+      'Desbloqueo de tensiones en diafragma, cuello, dorsales y zona torácica',
+      'Regulación del sistema neurovegetativo (reducción del estrés y la hiperalerta)',
+      'Reconexión con la propia esencia vital, alegría y ligereza interior'
+    ],
+    forWhom: [
+      'Personas con opresión en el pecho, nudo en la garganta o respiración entrecortada',
+      'Sobrecarga de estrés, contracturas de origen tensional o bloqueos emocionales',
+      'Quienes desean un abordaje corporal y energético para sanar heridas del corazón',
+      'Apto para todas las edades (adultos, jóvenes, mayores, embarazadas y niños)'
+    ],
+    duration: '50 - 60 minutos por sesión',
+    modalities: ['Presencial en Zaragoza'],
+    tag: 'Método Montserrat Gascón',
+    image: IMAGES.pericardio
   }
 ];
 

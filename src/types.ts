@@ -1,14 +1,27 @@
 export type NavigationTab = 'inicio' | 'psicologia' | 'pericardio' | 'contacto';
 
-export type PsicologiaSpecialty = 'ansiedad' | 'duelo' | 'psicooncologia' | 'bloqueo';
+export type PsicologiaSpecialty =
+  | 'ansiedad'
+  | 'depresion'
+  | 'duelo'
+  | 'psicooncologia'
+  | 'trauma'
+  | 'psicosomaticos'
+  | 'espiritual'
+  | 'todos';
 
 export type Modality = 'presencial' | 'online' | 'ambas';
 
 export type ServiceType = 
   | 'psicologia-general' 
-  | 'ansiedad-estres' 
+  | 'ansiedad-estres'
+  | 'tristeza-depresion'
+  | 'duelo'
   | 'duelo-trauma' 
-  | 'psicooncologia' 
+  | 'psicooncologia'
+  | 'bloqueo-emocional-trauma'
+  | 'trastornos-psicosomaticos'
+  | 'despertar-espiritual'
   | 'liberacion-pericardio'
   | 'valoracion-inicial';
 

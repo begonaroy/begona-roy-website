@@ -29,8 +29,8 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
         id="service-detail-modal-content"
         className={`relative w-full max-w-3xl rounded-3xl p-6 sm:p-10 shadow-2xl transition-all max-h-[90vh] overflow-y-auto ${
           isDark
-            ? 'bg-[#171A17] border border-[#667052] text-[#F3EFE7]'
-            : 'bg-[#FDFBF7] border border-[#E6DFD3] text-[#24211F]'
+            ? 'bg-[#151B17] border border-[#2D3930] text-[#F3EFE7]'
+            : 'bg-[#FBF9F5] border border-[#E8E2D9] text-[#222823]'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -40,8 +40,8 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           aria-label="Cerrar detalle"
           className={`absolute top-5 right-5 p-2 rounded-full transition-colors ${
             isDark
-              ? 'bg-[#21251F] text-[#B7BEA3] hover:text-[#F3EFE7]'
-              : 'bg-[#E6DFD3] text-[#667052] hover:text-[#24211F]'
+              ? 'bg-[#222C26] text-[#B7BEA3] hover:text-[#F3EFE7]'
+              : 'bg-[#E8ECE9] text-[#5A655C] hover:text-[#222823]'
           }`}
         >
           <X className="w-5 h-5" />
@@ -58,10 +58,10 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
-              <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#AA4664] dark:bg-[#D8659B] text-[#FDFBF7] mb-2 shadow-sm">
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#AA4664] text-white mb-2 shadow-sm">
                 {service.tag}
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-[#FDFBF7] font-medium drop-shadow-sm">
+              <h2 className="font-serif text-2xl sm:text-3xl text-white font-medium drop-shadow-sm">
                 {service.title}
               </h2>
             </div>
@@ -72,15 +72,15 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           </p>
 
           {/* Full content description paragraphs */}
-          <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#667052] dark:text-[#B7BEA3] pt-2">
+          <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] pt-2">
             {service.fullContent.map((paragraph, idx) => (
               <p key={idx}>{paragraph}</p>
             ))}
           </div>
 
           {/* Key Benefits */}
-          <div className="pt-6 border-t border-[#E6DFD3] dark:border-[#667052]">
-            <h3 className="font-serif text-lg font-medium mb-3 text-[#24211F] dark:text-[#F3EFE7]">
+          <div className="pt-6 border-t border-[#E8E2D9] dark:border-[#2D3930]">
+            <h3 className="font-serif text-lg font-medium mb-3 text-[#222823] dark:text-[#F3EFE7]">
               ¿Qué logramos en este acompañamiento?
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -89,8 +89,8 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                   key={i}
                   className={`p-3 rounded-xl border flex items-start gap-2.5 text-xs sm:text-sm ${
                     isDark
-                      ? 'bg-[#21251F] border-[#667052]'
-                      : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                      ? 'bg-[#1C2420] border-[#2D3930]'
+                      : 'bg-white border-[#E8E2D9]'
                   }`}
                 >
                   <CheckCircle2 className="w-4 h-4 text-[#4A5D4E] dark:text-[#A7B39A] flex-shrink-0 mt-0.5" />
@@ -102,13 +102,13 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
 
           {/* For Whom */}
           <div className="pt-4">
-            <h3 className="font-serif text-lg font-medium mb-3 text-[#24211F] dark:text-[#F3EFE7]">
+            <h3 className="font-serif text-lg font-medium mb-3 text-[#222823] dark:text-[#F3EFE7]">
               ¿Para quién está especialmente indicado?
             </h3>
-            <ul className="space-y-2 text-xs sm:text-sm text-[#667052] dark:text-[#B7BEA3]">
+            <ul className="space-y-2 text-xs sm:text-sm text-[#5A655C] dark:text-[#B7BEA3]">
               {service.forWhom.map((item, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#AA4664] dark:bg-[#D8659B] flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#AA4664] flex-shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -116,9 +116,9 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           </div>
 
           {/* Modalities & CTA */}
-          <div className="pt-6 border-t border-[#E6DFD3] dark:border-[#667052] flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-xs text-[#667052] dark:text-[#B7BEA3]">
-              <span className="font-semibold block text-[#24211F] dark:text-[#F3EFE7]">
+          <div className="pt-6 border-t border-[#E8E2D9] dark:border-[#2D3930] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-xs text-[#5A655C] dark:text-[#B7BEA3]">
+              <span className="font-semibold block text-[#222823] dark:text-[#F3EFE7]">
                 Duración: {service.duration}
               </span>
               <span>Modalidades: {service.modalities.join(' o ')}</span>
@@ -131,8 +131,8 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
               }}
               className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                 isDark
-                  ? 'bg-[#A7B39A] text-[#171A17] hover:bg-[#B7BEA3]'
-                  : 'bg-[#4A5D4E] text-[#FDFBF7] hover:bg-[#AA4664] dark:hover:bg-[#D8659B]'
+                  ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
+                  : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
               }`}
             >
               <Calendar className="w-4 h-4" />

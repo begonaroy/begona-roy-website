@@ -26,8 +26,8 @@ export const Footer: React.FC<FooterProps> = ({
       id="main-footer"
       className={`border-t transition-colors duration-300 ${
         isDark
-          ? 'bg-[#171A17] border-[#21251F] text-[#B7BEA3]'
-          : 'bg-[#E6DFD3] border-[#E6DFD3] text-[#667052]'
+          ? 'bg-[#0E1310] border-[#222C26] text-[#B7BEA3]'
+          : 'bg-[#F3EFEA] border-[#E8E2D9] text-[#5A655C]'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
@@ -41,8 +41,8 @@ export const Footer: React.FC<FooterProps> = ({
             <div
               className={`p-3.5 rounded-xl border text-xs space-y-1.5 ${
                 isDark
-                  ? 'bg-[#171A17] border-[#667052] text-[#B7BEA3]'
-                  : 'bg-[#FDFBF7] border-[#E6DFD3] text-[#4A5D4E]'
+                  ? 'bg-[#151B17] border-[#2D3930] text-[#B7BEA3]'
+                  : 'bg-[#FAF7F2] border-[#E8E2D9] text-[#4A5D4E]'
               }`}
             >
               <div className="flex items-center gap-2 font-semibold">
@@ -62,7 +62,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="space-y-4">
             <h3
               className={`text-sm font-semibold uppercase tracking-wider ${
-                isDark ? 'text-[#F3EFE7]' : 'text-[#24211F]'
+                isDark ? 'text-[#F3EFE7]' : 'text-[#222823]'
               }`}
             >
               Navegación
@@ -128,7 +128,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="space-y-4">
             <h3
               className={`text-sm font-semibold uppercase tracking-wider ${
-                isDark ? 'text-[#F3EFE7]' : 'text-[#24211F]'
+                isDark ? 'text-[#F3EFE7]' : 'text-[#222823]'
               }`}
             >
               Contacto Directo
@@ -167,7 +167,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="space-y-4">
             <h3
               className={`text-sm font-semibold uppercase tracking-wider ${
-                isDark ? 'text-[#F3EFE7]' : 'text-[#24211F]'
+                isDark ? 'text-[#F3EFE7]' : 'text-[#222823]'
               }`}
             >
               Modalidades de Atención
@@ -175,7 +175,7 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="space-y-2 text-xs">
               <div
                 className={`p-3 rounded-lg border ${
-                  isDark ? 'bg-[#171A17] border-[#667052]' : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                  isDark ? 'bg-[#151B17] border-[#2D3930]' : 'bg-white border-[#E8E2D9]'
                 }`}
               >
                 <span className="font-semibold block text-[#4A5D4E] dark:text-[#A7B39A]">
@@ -187,7 +187,7 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
               <div
                 className={`p-3 rounded-lg border ${
-                  isDark ? 'bg-[#171A17] border-[#667052]' : 'bg-[#FDFBF7] border-[#E6DFD3]'
+                  isDark ? 'bg-[#151B17] border-[#2D3930]' : 'bg-white border-[#E8E2D9]'
                 }`}
               >
                 <span className="font-semibold block text-[#4A5D4E] dark:text-[#A7B39A]">
@@ -204,7 +204,7 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Bar with Legal Links and Back-to-Top */}
         <div
           className={`mt-12 pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4 text-xs ${
-            isDark ? 'border-[#21251F]' : 'border-[#E6DFD3]'
+            isDark ? 'border-[#222C26]' : 'border-[#E8E2D9]'
           }`}
         >
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2">
@@ -234,8 +234,8 @@ export const Footer: React.FC<FooterProps> = ({
             aria-label="Volver arriba"
             className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border transition-colors ${
               isDark
-                ? 'border-[#667052] hover:bg-[#171A17] text-[#B7BEA3]'
-                : 'border-[#E6DFD3] hover:bg-[#FDFBF7] text-[#667052]'
+                ? 'border-[#2D3930] hover:bg-[#151B17] text-[#B7BEA3]'
+                : 'border-[#D8D0C4] hover:bg-white text-[#5A655C]'
             }`}
           >
             <span>Arriba</span>
