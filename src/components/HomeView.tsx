@@ -163,7 +163,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <span className="text-3xl sm:text-4xl text-[#AA4664] dark:text-[#D8659B] block font-serif mb-2">
             “
           </span>
-          <p className="font-script text-2xl sm:text-3xl md:text-4xl leading-relaxed text-[#24211F] dark:text-[#F3EFE7] font-semibold">
+          <p className="font-script text-2xl sm:text-3xl md:text-4xl leading-[1.225] text-[#24211F] dark:text-[#F3EFE7] font-semibold">
             Mi objetivo fundamental es acompañarte para traducir las soluciones que ya están en ti y descubrir tus fortalezas...
           </p>
           <div className="mt-4 flex items-center justify-center gap-2">

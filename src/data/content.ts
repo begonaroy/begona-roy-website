@@ -18,13 +18,13 @@ export const CLINICAL_INFO = {
 };
 
 export const IMAGES = {
-  heroAtmosphere: '/people/begona-roy-2.png', // Cozy calm interior with ceramic vase and warm light
-  begonaPortrait: '/people/begona-roy.png', // Professional warm empathetic woman psychologist in sunlit space
-  clinicInterior: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80', // Peaceful consultation room with soft armchair and plant
-  ansiedad: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80', // Serene breathing, hands on heart / meditation
-  depresion: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=800&q=80', // Gentle light filtering through morning trees, hope
-  duelo: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80', // Soft morning mist, gentle sunlight in nature
-  psicooncologia: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80', // Gentle warm hands holding each other in trust
+  heroAtmosphere: '/people/ok.png', // Cozy calm interior with ceramic vase and warm light
+  begonaPortrait: '/people/begona-roy.jpg', // Professional warm empathetic woman psychologist in sunlit space
+  clinicInterior: '/img/psicologia-integral.jpg', // Peaceful consultation room with soft armchair and plant
+  ansiedad: '/img/emdr.webp', // Serene breathing, hands on heart / meditation
+  depresion: '/img/corazon-mar.jpeg', // Gentle light filtering through morning trees, hope
+  duelo: '/img/emdr.webp', // Soft morning mist, gentle sunlight in nature
+  psicooncologia: '/img/psicooncologia-begona-roy.jpg', // Gentle warm hands holding each other in trust
   trauma: 'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80', // Dawn breaking over mountains, gentle release and safety
   psicosomaticos: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80', // Somatic gentle hands therapy / healing hands
   espiritual: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80', // Open horizon, clear light, calm awareness
