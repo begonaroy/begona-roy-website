@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { NavigationTab, ServiceDetail } from '../types';
 import { CLINICAL_INFO, IMAGES, SERVICES_DATA, TESTIMONIALS } from '../data/content';
 import couchImg from '../assets/images/couch.png';
 import onlineAImg from '../assets/images/online-a.png';
+import { useGsapPageEntrance } from '../hooks/useGsapAnimations';
 import {
   Calendar,
   ArrowRight,
@@ -12,17 +13,12 @@ import {
   Video,
   ShieldCheck,
   Heart,
-  Activity,
   CheckCircle2,
   PhoneCall,
   UserCheck,
   ChevronDown,
   Clock,
-  Compass,
   Layers,
-  Feather,
-  Wind,
-  Sun
 } from 'lucide-react';
 
 interface HomeViewProps {
@@ -40,8 +36,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
   onSelectServiceDetail,
   isDark,
 }) => {
+  const viewRef = useRef<HTMLDivElement>(null);
+  useGsapPageEntrance(viewRef);
+
   return (
-    <div id="home-view" className="space-y-20 sm:space-y-28 pb-20">
+    <div ref={viewRef} id="home-view" className="space-y-20 sm:space-y-28 pb-20">
       {/* 1. HERO SECTION */}
       <section
         id="hero-section"
@@ -52,13 +51,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
             {/* Left Column: Copy & CTAs */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A]">
+              <div data-motion-hero className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A]">
                 <Sparkles className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
                 <span>BEGOÑA ROY · PSICOLOGÍA SANITARIA & PSICOONCOLOGÍA</span>
               </div>
 
               {/* H1 */}
-              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.15] text-[#222823] dark:text-[#F3EFE7]">
+              <h1 data-motion-hero className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.15] text-[#222823] dark:text-[#F3EFE7]">
                 Acompañamiento <br className="hidden sm:block" />
                 <span className="italic font-normal text-[#4A5D4E] dark:text-[#A7B39A]">
                   Psicológico Integral
@@ -66,12 +65,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
               </h1>
 
               {/* Description */}
-              <p className="text-base sm:text-lg leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] max-w-2xl mx-auto lg:mx-0">
+              <p data-motion-hero className="text-base sm:text-lg leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] max-w-2xl mx-auto lg:mx-0">
                 Un espacio de calidez, respeto y escucha profunda para transitar la ansiedad, los procesos de duelo, el impacto oncológico y la liberación corporal del pericardio. En Espacio K alma (Zaragoza) y en consulta online.
               </p>
 
               {/* CTAs */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <div data-motion-hero className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <button
                   id="hero-cta-booking"
                   onClick={onOpenBooking}
@@ -100,7 +99,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               </div>
 
               {/* Trust Indicators */}
-              <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-[#5A655C] dark:text-[#B7BEA3]">
+              <div data-motion-hero className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-[#5A655C] dark:text-[#B7BEA3]">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
                   Col. Nº {CLINICAL_INFO.collegiateNumber}
@@ -119,7 +118,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </div>
 
             {/* Right Column: Hero Visual Atmosphere */}
-            <div className="lg:col-span-5 relative">
+            <div data-motion-hero className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 {/* Decorative background aura */}
                 <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#4A5D4E]/10 to-[#AA4664]/15 blur-xl -z-10" />
@@ -153,6 +152,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* 2. SIGNATURE QUOTE SECTION (Dancing Script font) */}
       <section
         id="quote-section"
+        data-motion-reveal
         className="py-12 px-4 text-center max-w-4xl mx-auto"
       >
         <div
@@ -179,7 +179,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       </section>
 
       {/* 2.5. VISIÓN RÁPIDA: SERVICIOS Y ÁREAS DE ACOMPAÑAMIENTO ("TE PUEDO AYUDAR EN") */}
-      <section id="servicios-resumen-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="servicios-resumen-section" data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`p-6 sm:p-10 lg:p-12 rounded-3xl border shadow-sm transition-all ${
             isDark
@@ -212,7 +212,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
 
           {/* 8 Highlighted Visual Service Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          <div data-motion-group className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {/* 1. Ansiedad y Estrés */}
             <button
               type="button"
@@ -220,17 +220,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 const s = SERVICES_DATA.find((item) => item.id === 'ansiedad-estres');
                 if (s) onSelectServiceDetail(s);
               }}
-              className={`group p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+              className={`group relative overflow-hidden p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
                 isDark
                   ? 'bg-[#151B17] border-[#2D3930] hover:border-[#7C9682]'
                   : 'bg-white border-[#E8E2D9] hover:border-[#AA4664]/50'
               }`}
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#AA4664]/10 dark:bg-[#AA4664]/20 text-[#AA4664] dark:text-[#D8659B] flex items-center justify-center transition-transform group-hover:scale-110">
-                    <Wind className="w-6 h-6" />
-                  </div>
+              <img
+                src={isDark ? '/icons/1-calma-light.png' : '/icons/1-calma.png'}
+                alt=""
+                aria-hidden="true"
+                className="absolute -left-4 -top-4 w-28 h-28 object-contain pointer-events-none select-none opacity-[0.16] dark:opacity-[0.22] transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.22] dark:group-hover:opacity-[0.28]"
+              />
+              <div className="relative z-10">
+                <div className="flex items-start justify-end min-h-[48px] mb-6">
                   <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
@@ -254,17 +257,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 const s = SERVICES_DATA.find((item) => item.id === 'tristeza-depresion');
                 if (s) onSelectServiceDetail(s);
               }}
-              className={`group p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+              className={`group relative overflow-hidden p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
                 isDark
                   ? 'bg-[#151B17] border-[#2D3930] hover:border-[#7C9682]'
                   : 'bg-white border-[#E8E2D9] hover:border-[#AA4664]/50'
               }`}
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#4A5D4E]/10 dark:bg-[#7C9682]/20 text-[#4A5D4E] dark:text-[#A7B39A] flex items-center justify-center transition-transform group-hover:scale-110">
-                    <Sun className="w-6 h-6" />
-                  </div>
+              <img
+                src={isDark ? '/icons/2-vitalidad-light.png' : '/icons/2-vitalidad.png'}
+                alt=""
+                aria-hidden="true"
+                className="absolute -left-4 -top-4 w-28 h-28 object-contain pointer-events-none select-none opacity-[0.16] dark:opacity-[0.22] transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.22] dark:group-hover:opacity-[0.28]"
+              />
+              <div className="relative z-10">
+                <div className="flex items-start justify-end min-h-[48px] mb-6">
                   <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#4A5D4E] dark:group-hover:text-[#A7B39A] transition-colors">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
@@ -288,17 +294,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 const s = SERVICES_DATA.find((item) => item.id === 'duelo');
                 if (s) onSelectServiceDetail(s);
               }}
-              className={`group p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+              className={`group relative overflow-hidden p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
                 isDark
                   ? 'bg-[#151B17] border-[#2D3930] hover:border-[#7C9682]'
                   : 'bg-white border-[#E8E2D9] hover:border-[#AA4664]/50'
               }`}
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#AA4664]/10 dark:bg-[#AA4664]/20 text-[#AA4664] dark:text-[#D8659B] flex items-center justify-center transition-transform group-hover:scale-110">
-                    <Feather className="w-6 h-6" />
-                  </div>
+              <img
+                src={isDark ? '/icons/3-duelo-light.png' : '/icons/3-duelo.png'}
+                alt=""
+                aria-hidden="true"
+                className="absolute -left-4 -top-4 w-28 h-28 object-contain pointer-events-none select-none opacity-[0.16] dark:opacity-[0.22] transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.22] dark:group-hover:opacity-[0.28]"
+              />
+              <div className="relative z-10">
+                <div className="flex items-start justify-end min-h-[48px] mb-6">
                   <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
@@ -322,17 +331,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 const s = SERVICES_DATA.find((item) => item.id === 'psicooncologia');
                 if (s) onSelectServiceDetail(s);
               }}
-              className={`group p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+              className={`group relative overflow-hidden p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
                 isDark
                   ? 'bg-[#151B17] border-[#2D3930] hover:border-[#7C9682]'
                   : 'bg-white border-[#E8E2D9] hover:border-[#AA4664]/50'
               }`}
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#4A5D4E]/10 dark:bg-[#7C9682]/20 text-[#4A5D4E] dark:text-[#A7B39A] flex items-center justify-center transition-transform group-hover:scale-110">
-                    <ShieldCheck className="w-6 h-6" />
-                  </div>
+              <img
+                src={isDark ? '/icons/4-psicooncologia-light.png' : '/icons/4-psicooncologia.png'}
+                alt=""
+                aria-hidden="true"
+                className="absolute -left-4 -top-4 w-28 h-28 object-contain pointer-events-none select-none opacity-[0.16] dark:opacity-[0.22] transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.22] dark:group-hover:opacity-[0.28]"
+              />
+              <div className="relative z-10">
+                <div className="flex items-start justify-end min-h-[48px] mb-6">
                   <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#4A5D4E] dark:group-hover:text-[#A7B39A] transition-colors">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
@@ -356,17 +368,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 const s = SERVICES_DATA.find((item) => item.id === 'bloqueo-emocional-trauma');
                 if (s) onSelectServiceDetail(s);
               }}
-              className={`group p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+              className={`group relative overflow-hidden p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
                 isDark
                   ? 'bg-[#151B17] border-[#2D3930] hover:border-[#7C9682]'
                   : 'bg-white border-[#E8E2D9] hover:border-[#AA4664]/50'
               }`}
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#AA4664]/10 dark:bg-[#AA4664]/20 text-[#AA4664] dark:text-[#D8659B] flex items-center justify-center transition-transform group-hover:scale-110">
-                    <Sparkles className="w-6 h-6" />
-                  </div>
+              <img
+                src={isDark ? '/icons/5-emdr-light.png' : '/icons/5-emdr.png'}
+                alt=""
+                aria-hidden="true"
+                className="absolute -left-4 -top-4 w-28 h-28 object-contain pointer-events-none select-none opacity-[0.16] dark:opacity-[0.22] transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.22] dark:group-hover:opacity-[0.28]"
+              />
+              <div className="relative z-10">
+                <div className="flex items-start justify-end min-h-[48px] mb-6">
                   <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
@@ -390,17 +405,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 const s = SERVICES_DATA.find((item) => item.id === 'trastornos-psicosomaticos');
                 if (s) onSelectServiceDetail(s);
               }}
-              className={`group p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+              className={`group relative overflow-hidden p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
                 isDark
                   ? 'bg-[#151B17] border-[#2D3930] hover:border-[#7C9682]'
                   : 'bg-white border-[#E8E2D9] hover:border-[#AA4664]/50'
               }`}
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#4A5D4E]/10 dark:bg-[#7C9682]/20 text-[#4A5D4E] dark:text-[#A7B39A] flex items-center justify-center transition-transform group-hover:scale-110">
-                    <Activity className="w-6 h-6" />
-                  </div>
+              <img
+                src={isDark ? '/icons/6-psicosomatico-light.png' : '/icons/6-psicosomatico.png'}
+                alt=""
+                aria-hidden="true"
+                className="absolute -left-4 -top-4 w-28 h-28 object-contain pointer-events-none select-none opacity-[0.16] dark:opacity-[0.22] transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.22] dark:group-hover:opacity-[0.28]"
+              />
+              <div className="relative z-10">
+                <div className="flex items-start justify-end min-h-[48px] mb-6">
                   <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#4A5D4E] dark:group-hover:text-[#A7B39A] transition-colors">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
@@ -424,17 +442,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 const s = SERVICES_DATA.find((item) => item.id === 'despertar-espiritual');
                 if (s) onSelectServiceDetail(s);
               }}
-              className={`group p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+              className={`group relative overflow-hidden p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
                 isDark
                   ? 'bg-[#151B17] border-[#2D3930] hover:border-[#7C9682]'
                   : 'bg-white border-[#E8E2D9] hover:border-[#AA4664]/50'
               }`}
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#AA4664]/10 dark:bg-[#AA4664]/20 text-[#AA4664] dark:text-[#D8659B] flex items-center justify-center transition-transform group-hover:scale-110">
-                    <Compass className="w-6 h-6" />
-                  </div>
+              <img
+                src={isDark ? '/icons/7-espiritual-light.png' : '/icons/7-espiritual.png'}
+                alt=""
+                aria-hidden="true"
+                className="absolute -left-4 -top-4 w-28 h-28 object-contain pointer-events-none select-none opacity-[0.16] dark:opacity-[0.22] transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.22] dark:group-hover:opacity-[0.28]"
+              />
+              <div className="relative z-10">
+                <div className="flex items-start justify-end min-h-[48px] mb-6">
                   <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
@@ -458,17 +479,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 const s = SERVICES_DATA.find((item) => item.id === 'liberacion-pericardio');
                 if (s) onSelectServiceDetail(s);
               }}
-              className={`group p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+              className={`group relative overflow-hidden p-5 sm:p-6 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
                 isDark
                   ? 'bg-[#151B17] border-[#7C9682]/40 hover:border-[#7C9682]'
                   : 'bg-gradient-to-b from-white to-[#FAF7F2] border-[#AA4664]/30 hover:border-[#AA4664]'
               }`}
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#AA4664]/15 text-[#AA4664] dark:text-[#D8659B] flex items-center justify-center transition-transform group-hover:scale-110">
-                    <Heart className="w-6 h-6 fill-current" />
-                  </div>
+              <img
+                src={isDark ? '/icons/8-pericardio-light.png' : '/icons/8-pericardio.png'}
+                alt=""
+                aria-hidden="true"
+                className="absolute -left-4 -top-4 w-28 h-28 object-contain pointer-events-none select-none opacity-[0.18] dark:opacity-[0.24] transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.24] dark:group-hover:opacity-[0.3]"
+              />
+              <div className="relative z-10">
+                <div className="flex items-start justify-end min-h-[48px] mb-6">
                   <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#AA4664] dark:text-[#D8659B] group-hover:scale-110 transition-transform">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
@@ -491,6 +515,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* 3. MODALIDADES DE ATENCIÓN + CTA CARD */}
       <section
         id="modalidades-section"
+        data-motion-reveal
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
@@ -505,7 +530,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div data-motion-group className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1: Presencial */}
           <div
             className={`p-8 rounded-3xl border flex flex-col justify-between transition-all relative overflow-hidden group min-h-[340px] ${
@@ -623,7 +648,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       </section>
 
       {/* 4. QUIÉN SOY (ABOUT BEGOÑA) */}
-      <section id="about-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="about-section" data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Portrait Photo */}
           <div className="lg:col-span-5 relative order-2 lg:order-1">
@@ -694,7 +719,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       </section>
 
       {/* 5. TESTIMONIOS Y PALABRAS DE CONFIANZA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             ESPACIO DE CONFIANZA
@@ -704,7 +729,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div data-motion-group className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {TESTIMONIALS.map((item) => (
             <div
               key={item.id}

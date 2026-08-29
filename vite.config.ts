@@ -14,6 +14,11 @@ export default defineConfig(() => {
           pericardio: path.resolve(__dirname, 'liberacion-del-pericardio-zaragoza/index.html'),
           contacto: path.resolve(__dirname, 'contacto-psicologa-zaragoza/index.html'),
         },
+        output: {
+          manualChunks: {
+            gsap: ['gsap', 'gsap/ScrollTrigger'],
+          },
+        },
       },
     },
     resolve: {

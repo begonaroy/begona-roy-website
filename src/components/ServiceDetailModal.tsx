@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { ServiceDetail } from '../types';
 import { X, CheckCircle2, Calendar, MapPin, Video, Sparkles, ArrowRight } from 'lucide-react';
+import { useGsapDialogEntrance } from '../hooks/useGsapAnimations';
 
 interface ServiceDetailModalProps {
   service: ServiceDetail | null;
@@ -17,16 +18,21 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
   isDark,
   onOpenBookingForService,
 }) => {
+  const overlayRef = useRef<HTMLDivElement>(null);
+  useGsapDialogEntrance(overlayRef, isOpen);
+
   if (!isOpen || !service) return null;
 
   return (
     <div
+      ref={overlayRef}
       id="service-detail-modal-overlay"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/60 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/60 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
         id="service-detail-modal-content"
+        data-motion-dialog-panel
         className={`relative w-full max-w-3xl rounded-3xl p-6 sm:p-10 shadow-2xl transition-all max-h-[90vh] overflow-y-auto ${
           isDark
             ? 'bg-[#151B17] border border-[#2D3930] text-[#F3EFE7]'

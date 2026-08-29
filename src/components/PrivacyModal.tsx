@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { CLINICAL_INFO } from '../data/content';
 import { X, ShieldCheck, FileText, Lock } from 'lucide-react';
+import { useGsapDialogEntrance } from '../hooks/useGsapAnimations';
 
 interface PrivacyModalProps {
   isOpen: boolean;
@@ -15,6 +16,9 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
   onClose,
   isDark,
 }) => {
+  const overlayRef = useRef<HTMLDivElement>(null);
+  useGsapDialogEntrance(overlayRef, isOpen);
+
   if (!isOpen) return null;
 
   const titles = {
@@ -25,12 +29,14 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
 
   return (
     <div
+      ref={overlayRef}
       id="privacy-modal-overlay"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/60 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/60 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
         id="privacy-modal-content"
+        data-motion-dialog-panel
         className={`relative w-full max-w-3xl rounded-3xl p-6 sm:p-10 shadow-2xl transition-all max-h-[85vh] overflow-y-auto ${
           isDark
             ? 'bg-[#151B17] border border-[#2D3930] text-[#F3EFE7]'

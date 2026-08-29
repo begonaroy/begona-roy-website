@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { CLINICAL_INFO, SERVICES_DATA } from '../data/content';
 import {
   X,
@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   MessageSquare
 } from 'lucide-react';
+import { useGsapDialogEntrance, useGsapDynamicEntrance } from '../hooks/useGsapAnimations';
 
 const WHATSAPP_BASE_URL = CLINICAL_INFO.whatsappUrl.split('?')[0];
 
@@ -46,6 +47,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [notes, setNotes] = useState<string>('');
   const [privacyAccepted, setPrivacyAccepted] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const overlayRef = useRef<HTMLDivElement>(null);
+
+  useGsapDialogEntrance(overlayRef, isOpen);
+  useGsapDynamicEntrance(overlayRef, '[data-motion-booking-step]', `${isOpen}-${step}`);
 
   if (!isOpen) return null;
 
@@ -137,12 +142,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   return (
     <div
+      ref={overlayRef}
       id="booking-modal-overlay"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/60 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/60 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
         id="booking-modal-container"
+        data-motion-dialog-panel
         className={`relative w-full max-w-2xl rounded-3xl p-6 sm:p-8 shadow-2xl transition-all max-h-[90vh] overflow-y-auto ${
           isDark
             ? 'bg-[#151B17] border border-[#2D3930] text-[#F3EFE7]'
@@ -198,7 +205,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
         {/* Step 1: Select Service */}
         {step === 1 && (
-          <div className="space-y-6">
+          <div data-motion-booking-step className="space-y-6">
             <div>
               <h3 className="font-serif text-2xl font-medium tracking-tight">
                 ¿Qué tipo de acompañamiento necesitas?
@@ -278,7 +285,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
         {/* Step 2: Select Modality */}
         {step === 2 && (
-          <div className="space-y-6">
+          <div data-motion-booking-step className="space-y-6">
             <div>
               <h3 className="font-serif text-2xl font-medium tracking-tight">
                 Elige la modalidad de tu sesión
@@ -382,7 +389,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
         {/* Step 3: Date and Time */}
         {step === 3 && (
-          <div className="space-y-6">
+          <div data-motion-booking-step className="space-y-6">
             <div>
               <h3 className="font-serif text-2xl font-medium tracking-tight">
                 Selecciona fecha y hora preferida
@@ -488,7 +495,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
         {/* Step 4: Contact info & confirm */}
         {step === 4 && (
-          <form onSubmit={handleSubmitBooking} className="space-y-5">
+          <form data-motion-booking-step onSubmit={handleSubmitBooking} className="space-y-5">
             <div>
               <h3 className="font-serif text-2xl font-medium tracking-tight">
                 Completa tus datos
@@ -648,7 +655,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
         {/* Step 5: Success Screen */}
         {step === 5 && (
-          <div className="text-center py-8 space-y-6">
+          <div data-motion-booking-step className="text-center py-8 space-y-6">
             <div className="w-16 h-16 rounded-full bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-10 h-10" />
             </div>
