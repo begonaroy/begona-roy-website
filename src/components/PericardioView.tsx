@@ -38,9 +38,8 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
     <div id="pericardio-view" className="space-y-20 sm:space-y-28 pb-20">
       {/* 1. HERO SECTION WITH SVG EMBLEM & OFFICIAL WEBSITE LINK */}
       <section className="pt-6 sm:pt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left Column: Text, Badges, pericardium.org card and CTA */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+        <div className="max-w-4xl mx-auto space-y-6 text-center">
+          {/* Hero content, badges, pericardium.org card and CTA */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A]">
               <Heart className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B] fill-current" />
               <span>LIBERACIÓN DEL PERICARDIO · MÉTODO MONTSERRAT GASCÓN</span>
@@ -55,7 +54,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
             </p>
 
             {/* Badges / Pill features */}
-            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
+            <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 pt-1">
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#E8ECE9] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A] border border-[#D8E0DA] dark:border-[#2D3930]">
                 <MapPin className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
                 <span>Espacio K alma · Zaragoza</span>
@@ -71,7 +70,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
             </div>
 
             {/* pericardium.org Link Card (Primary Action) */}
-            <div className="pt-2">
+            <div className="max-w-4xl mx-auto pt-2">
               <a
                 href={PERICARDIUM_INFO.websiteUrl}
                 target="_blank"
@@ -80,63 +79,31 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
               >
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-start sm:items-center gap-3.5 flex-1">
-                    <div className="w-10 h-10 rounded-xl bg-[#AA4664]/15 text-[#AA4664] dark:text-[#D8659B] flex items-center justify-center flex-shrink-0 mt-0.5 sm:mt-0">
-                      <Heart className="w-5 h-5 fill-current" />
+                    <div className="w-10 h-10 flex items-center justify-center flex-shrink-0 mt-0.5 sm:mt-0">
+                      <img
+                        src="/branding/logo-pericardio-oliva.svg"
+                        alt=""
+                        aria-hidden="true"
+                        className="w-10 h-10 object-contain dark:hidden"
+                      />
+                      <img
+                        src="/branding/logo-pericardio-darkmode.svg"
+                        alt=""
+                        aria-hidden="true"
+                        className="hidden w-10 h-10 object-contain dark:block"
+                      />
                     </div>
                     <p className="text-xs sm:text-sm font-medium leading-relaxed text-[#222823] dark:text-[#F3EFE7]">
                       {PERICARDIUM_INFO.facilitatorNote}
                     </p>
                   </div>
-                  <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-[#AA4664] text-white group-hover:bg-[#B37459] transition-colors flex-shrink-0 shadow-sm self-stretch sm:self-auto justify-center">
+                  <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-[#4A5D4E] text-white group-hover:bg-[#38483B] dark:bg-[#7C9682] dark:group-hover:bg-[#94AA92] transition-colors flex-shrink-0 shadow-sm self-stretch sm:self-auto justify-center">
                     <span>pericardium.org</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </div>
                 </div>
               </a>
             </div>
-          </div>
-
-          {/* Right Column: Pericardio Gold Logo Card */}
-          <div className="lg:col-span-5">
-            <div
-              className={`p-8 sm:p-10 rounded-3xl border shadow-xl relative overflow-hidden flex flex-col items-center justify-center text-center transition-all ${
-                isDark
-                  ? 'bg-[#1C2420] border-[#2D3930]'
-                  : 'bg-white border-[#E8E2D9]'
-              }`}
-            >
-              {/* Subtle background glow */}
-              <div
-                className={`absolute inset-0 opacity-40 pointer-events-none ${
-                  isDark
-                    ? 'bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#D8CEBC]/10 via-transparent to-transparent'
-                    : 'bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#AA4664]/10 via-transparent to-transparent'
-                }`}
-              />
-
-              {/* Pericardio Gold Image with Hover Animation */}
-              <div className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-square flex items-center justify-center p-2 group">
-                <div className="w-full h-full transition-transform duration-700 group-hover:scale-105 group-hover:rotate-6 flex items-center justify-center">
-                  <img
-                    src="/branding/logo-pericardio.png"
-                    alt="Emblema Oficial de la Liberación del Pericardio"
-                    className="w-full h-full object-contain drop-shadow-lg rounded-full"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-              </div>
-
-              {/* Caption */}
-              <div className="mt-6 pt-5 border-t border-[#E8E2D9] dark:border-[#2D3930] w-full">
-                <p className="font-serif text-sm font-medium text-[#222823] dark:text-[#F3EFE7]">
-                  Emblema Oficial de la Liberación del Pericardio
-                </p>
-                <p className="text-xs text-[#5A655C] dark:text-[#B7BEA3] mt-1">
-                  Método Montserrat Gascón · <em>«Viva el Pericardio Libre»</em>
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

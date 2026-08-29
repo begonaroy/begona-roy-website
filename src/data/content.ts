@@ -33,9 +33,9 @@ export const IMAGES = {
   depresion: '/illustrations/tristeza-depresion.png', // Editorial compassionate support illustration with site colors
   duelo: '/illustrations/duelo.png', // Editorial grief & self-compassion mirror hug illustration with site colors
   psicooncologia: '/illustrations/psicooncologia.png', // Editorial psycho-oncology hands holding & purple cancer ribbon illustration with site colors
-  trauma: '/illustrations/trauma.jpg', // Editorial somatic trauma healing & heart connection illustration with site colors
+  trauma: '/illustrations/trauma.png', // Editorial somatic trauma healing & heart connection illustration with site colors
   psicosomaticos: '/illustrations/psicosomaticos.png', // Editorial mind-body somatic awareness illustration with site colors
-  espiritual: '/illustrations/despertarEspiritual.jpg', // Minimalist meditation in nature illustration with site colors
+  espiritual: '/illustrations/despertarEspiritual.png', // Minimalist meditation in nature illustration with site colors
   pericardio: '/illustrations/pericardio.jpg', // Editorial blooming heart & osteopathic pericardium release illustration with site colors
   pericardioSession: '/img/escucha-en-camilla.png', // Session in treatment table image
   emdrApproach: '/img/corazon-mar.jpeg', // EMDR approach image
