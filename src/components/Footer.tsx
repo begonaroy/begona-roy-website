@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="space-y-4">
             <Logo isDark={isDark} />
             <p className="text-sm leading-relaxed mt-2">
-              Acompañamiento psicológico integrador y liberación celular del pericardio. Un espacio cálido, seguro y confidencial en Espacio K alma (Zaragoza) y en modalidad online.
+              Acompañamiento psicológico integrador y liberación celular del pericardio. Un espacio cálido, seguro y confidencial.
             </p>
             <div
               className={`p-3.5 rounded-xl border text-xs space-y-1.5 ${

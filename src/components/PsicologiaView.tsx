@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ServiceDetail, NavigationTab } from '../types';
 import { IMAGES, SERVICES_DATA, PERICARDIUM_INFO } from '../data/content';
 import psicologiaHeroImg from '../assets/images/psicologia_hero_armchair_1787912154813.jpg';
-import procesoTerapeuticoImg from '../assets/images/proceso_terapeutico_paleta_1787929390414.jpg';
 import {
   Sparkles,
   ShieldCheck,
@@ -979,7 +978,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-sm sm:max-w-md aspect-square rounded-3xl overflow-hidden shadow-lg border border-[#E8E2D9] dark:border-[#2D3930] bg-[#151B17]/5 dark:bg-[#151B17]/40 group">
                 <img
-                  src={procesoTerapeuticoImg}
+                  src="/illustrations/proceso-terapeutico.png"
                   alt="Ilustración del proceso terapéutico y escucha en consulta"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
