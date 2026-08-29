@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { NavigationTab } from '../types';
 import { CLINICAL_INFO } from '../data/content';
 import { Logo } from './Logo';
 import { MapPin, Phone, Mail, Clock, ArrowUp, Heart, ShieldCheck, Sparkles } from 'lucide-react';
+import { scrollToPageTop, useGsapPageEntrance } from '../hooks/useGsapAnimations';
 
 interface FooterProps {
   onNavigate: (tab: NavigationTab) => void;
@@ -17,12 +18,12 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenPrivacy,
   onOpenBooking,
 }) => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const footerRef = useRef<HTMLElement>(null);
+  useGsapPageEntrance(footerRef);
 
   return (
     <footer
+      ref={footerRef}
       id="main-footer"
       className={`border-t transition-colors duration-300 ${
         isDark
@@ -30,8 +31,8 @@ export const Footer: React.FC<FooterProps> = ({
           : 'bg-[#F3EFEA] border-[#E8E2D9] text-[#5A655C]'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+      <div data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+        <div data-motion-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Column 1: Brand & Professional Credibility */}
           <div className="space-y-4">
             <Logo isDark={isDark} />
@@ -72,7 +73,6 @@ export const Footer: React.FC<FooterProps> = ({
                 <button
                   onClick={() => {
                     onNavigate('inicio');
-                    scrollToTop();
                   }}
                   className="hover:underline transition-colors hover:text-[#AA4664] dark:hover:text-[#D8659B]"
                 >
@@ -83,7 +83,6 @@ export const Footer: React.FC<FooterProps> = ({
                 <button
                   onClick={() => {
                     onNavigate('psicologia');
-                    scrollToTop();
                   }}
                   className="hover:underline transition-colors hover:text-[#AA4664] dark:hover:text-[#D8659B]"
                 >
@@ -94,7 +93,6 @@ export const Footer: React.FC<FooterProps> = ({
                 <button
                   onClick={() => {
                     onNavigate('pericardio');
-                    scrollToTop();
                   }}
                   className="hover:underline transition-colors hover:text-[#AA4664] dark:hover:text-[#D8659B]"
                 >
@@ -105,7 +103,6 @@ export const Footer: React.FC<FooterProps> = ({
                 <button
                   onClick={() => {
                     onNavigate('contacto');
-                    scrollToTop();
                   }}
                   className="hover:underline transition-colors hover:text-[#AA4664] dark:hover:text-[#D8659B]"
                 >
@@ -230,7 +227,7 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           <button
-            onClick={scrollToTop}
+            onClick={scrollToPageTop}
             aria-label="Volver arriba"
             className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border transition-colors ${
               isDark

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { CLINICAL_INFO, FAQS_DATA } from '../data/content';
 import { FAQItem, NavigationTab } from '../types';
+import { useGsapDynamicEntrance, useGsapPageEntrance } from '../hooks/useGsapAnimations';
 import {
   MapPin,
   Phone,
@@ -43,6 +44,11 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
   const [openFaqId, setOpenFaqId] = useState<string | null>('faq-1');
   const [faqCategory, setFaqCategory] = useState<string>('todos');
   const [searchQuery, setSearchQuery] = useState('');
+  const viewRef = useRef<HTMLDivElement>(null);
+
+  useGsapPageEntrance(viewRef);
+  useGsapDynamicEntrance(viewRef, '[data-motion-contact-state]', isSent);
+  useGsapDynamicEntrance(viewRef, '[data-motion-faq-panel]', openFaqId);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,28 +70,28 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
   });
 
   return (
-    <div id="contacto-view" className="space-y-20 sm:space-y-28 pb-20">
+    <div ref={viewRef} id="contacto-view" className="space-y-20 sm:space-y-28 pb-20">
       {/* 1. HEADER */}
       <section className="pt-6 sm:pt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A]">
+          <div data-motion-hero className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A]">
             <Sparkles className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
             <span>ESTOY A TU LADO</span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
+          <h1 data-motion-hero className="font-serif text-3xl sm:text-5xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
             Contacto.
           </h1>
 
-          <p className="text-base text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
+          <p data-motion-hero className="text-base text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
             Si deseas resolver cualquier duda o solicitar tu primera sesión en Zaragoza (Espacio K alma, C. del Río Huerva, 21) o en modalidad online, estaré encantada de atenderte.
           </p>
         </div>
       </section>
 
       {/* 2. 2-COLUMN MAIN CONTACT SECTION (Form + Direct Info) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+      <section data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div data-motion-group className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* Left Column: Interactive Form */}
           <div className="lg:col-span-7">
             <div
@@ -103,7 +109,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
               </p>
 
               {isSent ? (
-                <div className="py-10 text-center space-y-4">
+                <div data-motion-contact-state className="py-10 text-center space-y-4">
                   <div className="w-14 h-14 rounded-full bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
@@ -133,7 +139,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleFormSubmit} className="space-y-4">
+                <form data-motion-contact-state onSubmit={handleFormSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
@@ -451,7 +457,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
       </section>
 
       {/* 3. PREGUNTAS FRECUENTES (FAQS) ACCORDION */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6">
+      <section data-motion-reveal className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center space-y-2 mb-10">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             RESOLVEMOS TUS DUDAS
@@ -541,7 +547,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-6 sm:px-6 sm:pb-6 text-xs sm:text-sm leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] border-t border-[#E8E2D9]/60 dark:border-[#2D3930]/60 pt-4">
+                  <div data-motion-faq-panel className="px-5 pb-6 sm:px-6 sm:pb-6 text-xs sm:text-sm leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] border-t border-[#E8E2D9]/60 dark:border-[#2D3930]/60 pt-4">
                     {faq.answer}
                   </div>
                 )}
@@ -558,7 +564,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
       </section>
 
       {/* 4. EMPIEZA HOY BOTTOM BANNER */}
-      <section className="max-w-4xl mx-auto px-4">
+      <section data-motion-reveal className="max-w-4xl mx-auto px-4">
         <div
           className={`p-10 sm:p-14 rounded-3xl border text-center shadow-xl ${
             isDark

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { NavigationTab, ServiceDetail } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -11,6 +11,7 @@ import { BookingModal } from './components/BookingModal';
 import { ServiceDetailModal } from './components/ServiceDetailModal';
 import { PrivacyModal } from './components/PrivacyModal';
 import { ROUTES, tabForPath } from './routes';
+import { resetPageScroll, scrollToPageTop } from './hooks/useGsapAnimations';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<NavigationTab>(() => tabForPath(window.location.pathname));
@@ -22,6 +23,7 @@ export default function App() {
   const [isBioOpen, setIsBioOpen] = useState(false);
   const [selectedDetailService, setSelectedDetailService] = useState<ServiceDetail | null>(null);
   const [privacyModalType, setPrivacyModalType] = useState<'privacidad' | 'aviso' | 'cookies' | null>(null);
+  const shouldScrollAfterNavigationRef = useRef(false);
 
   // Initialize Theme from localStorage or prefers-color-scheme
   useEffect(() => {
@@ -45,6 +47,16 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  useLayoutEffect(() => {
+    if (!shouldScrollAfterNavigationRef.current) return;
+
+    shouldScrollAfterNavigationRef.current = false;
+    resetPageScroll();
+
+    const confirmationFrame = window.requestAnimationFrame(resetPageScroll);
+    return () => window.cancelAnimationFrame(confirmationFrame);
+  }, [currentTab]);
+
   const handleToggleTheme = () => {
     const newDark = !isDark;
     setIsDark(newDark);
@@ -67,12 +79,18 @@ export default function App() {
   };
 
   const handleNavigate = (tab: NavigationTab) => {
+    if (currentTab === tab) {
+      scrollToPageTop();
+      return;
+    }
+
     const destination = ROUTES[tab];
     if (window.location.pathname !== destination) {
       window.history.pushState({}, '', destination);
     }
+
+    shouldScrollAfterNavigationRef.current = true;
     setCurrentTab(tab);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

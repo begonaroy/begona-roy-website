@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { PERICARDIUM_INFO, IMAGES, CLINICAL_INFO } from '../data/content';
 import { NavigationTab } from '../types';
+import { useGsapDynamicEntrance, useGsapPageEntrance } from '../hooks/useGsapAnimations';
 import {
   Heart,
   Wind,
@@ -33,28 +34,36 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
   isDark,
 }) => {
   const [activeConnectionIndex, setActiveConnectionIndex] = useState<number>(0);
+  const viewRef = useRef<HTMLDivElement>(null);
+
+  useGsapPageEntrance(viewRef);
+  useGsapDynamicEntrance(
+    viewRef,
+    '[data-motion-connection-detail]',
+    activeConnectionIndex,
+  );
 
   return (
-    <div id="pericardio-view" className="space-y-20 sm:space-y-28 pb-20">
+    <div ref={viewRef} id="pericardio-view" className="space-y-20 sm:space-y-28 pb-20">
       {/* 1. HERO SECTION WITH SVG EMBLEM & OFFICIAL WEBSITE LINK */}
       <section className="pt-6 sm:pt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto space-y-6 text-center">
           {/* Hero content, badges, pericardium.org card and CTA */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A]">
+            <div data-motion-hero className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A]">
               <Heart className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B] fill-current" />
               <span>LIBERACIÓN DEL PERICARDIO · MÉTODO MONTSERRAT GASCÓN</span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7] leading-[1.18]">
+            <h1 data-motion-hero className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7] leading-[1.18]">
               Liberación del Pericardio
             </h1>
 
-            <p className="text-base sm:text-lg text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
+            <p data-motion-hero className="text-base sm:text-lg text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
               {PERICARDIUM_INFO.subtitle}
             </p>
 
             {/* Badges / Pill features */}
-            <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 pt-1">
+            <div data-motion-hero className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 pt-1">
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#E8ECE9] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A] border border-[#D8E0DA] dark:border-[#2D3930]">
                 <MapPin className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
                 <span>Espacio K alma · Zaragoza</span>
@@ -70,7 +79,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
             </div>
 
             {/* pericardium.org Link Card (Primary Action) */}
-            <div className="max-w-4xl mx-auto pt-2">
+            <div data-motion-hero className="max-w-4xl mx-auto pt-2">
               <a
                 href={PERICARDIUM_INFO.websiteUrl}
                 target="_blank"
@@ -108,7 +117,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
       </section>
 
       {/* 2. ENTENDIENDO LA TERAPIA + BOTANICAL ANATOMICAL DIAGRAM */}
-      <section id="que-es-el-pericardio" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="que-es-el-pericardio" data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: What is it Text & Popular Expressions */}
           <div className="lg:col-span-6 space-y-6 text-left">
@@ -226,6 +235,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
 
                 {/* Connection detail text with increased font size */}
                 <div
+                  data-motion-connection-detail
                   className={`p-4 sm:p-5 rounded-2xl border leading-relaxed transition-all ${
                     isDark
                       ? 'bg-[#151B17] border-[#2D3930] text-[#B7BEA3]'
@@ -246,7 +256,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
       </section>
 
       {/* EL PROCESO DE LIBERACIÓN DEL PERICARDIO (FOTO EN CAMILLA & DESCRIPCIÓN EXTENDIDA) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`p-8 sm:p-12 lg:p-14 rounded-3xl border shadow-sm ${
             isDark
@@ -315,7 +325,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
       </section>
 
       {/* 4. ¿CÓMO SON LAS SESIONES? (3 STEPS) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             EL ENCUENTRO EN CAMILLA
@@ -328,7 +338,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div data-motion-group className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {PERICARDIUM_INFO.sessionSteps.map((stepItem, i) => (
             <div
               key={i}
@@ -370,7 +380,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
       </section>
 
       {/* 5. BENEFICIOS CLAVE */}
-      <section className="max-w-4xl mx-auto px-4">
+      <section data-motion-reveal className="max-w-4xl mx-auto px-4">
         <div
           className={`p-8 sm:p-12 rounded-3xl border space-y-6 ${
             isDark
@@ -387,7 +397,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+          <div data-motion-group className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
             {PERICARDIUM_INFO.benefitsList.map((benefit, idx) => (
               <div
                 key={idx}
@@ -406,7 +416,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
       </section>
 
       {/* 6. BOTTOM CTA */}
-      <section className="max-w-4xl mx-auto px-4">
+      <section data-motion-reveal className="max-w-4xl mx-auto px-4">
         <div
           className={`p-10 sm:p-14 rounded-3xl border text-center shadow-xl ${
             isDark

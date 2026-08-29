@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NavigationTab } from '../types';
 import { ROUTES } from '../routes';
 import { CLINICAL_INFO } from '../data/content';
 import { Logo } from './Logo';
 import { Sun, Moon, Calendar, Menu, X, Phone, Heart } from 'lucide-react';
+import { useGsapDynamicEntrance, useGsapPageEntrance } from '../hooks/useGsapAnimations';
 
 interface NavbarProps {
   currentTab: NavigationTab;
@@ -22,6 +23,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useGsapPageEntrance(headerRef);
+  useGsapDynamicEntrance(headerRef, '[data-motion-mobile-menu]', mobileMenuOpen);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,11 +46,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   const handleNavClick = (tab: NavigationTab) => {
     onNavigate(tab);
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <header
+      ref={headerRef}
       id="main-header"
       className={`sticky top-0 z-40 w-full transition-all duration-300 ${
         isScrolled
@@ -57,7 +62,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           : 'bg-[#FBF9F5] border-b border-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div data-motion-hero className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Logo
@@ -165,6 +170,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div
           id="mobile-nav-drawer"
+          data-motion-mobile-menu
           className={`md:hidden border-b px-4 pt-3 pb-6 space-y-2 transition-all duration-200 ${
             isDark
               ? 'bg-[#151B17] border-[#2D3930]'

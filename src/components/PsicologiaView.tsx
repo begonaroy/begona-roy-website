@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { ServiceDetail, NavigationTab } from '../types';
 import { IMAGES, SERVICES_DATA, PERICARDIUM_INFO } from '../data/content';
 import psicologiaHeroImg from '../assets/images/psicologia_hero_armchair_1787912154813.jpg';
+import {
+  scrollElementIntoView,
+  useGsapDynamicEntrance,
+  useGsapPageEntrance,
+} from '../hooks/useGsapAnimations';
 import {
   Sparkles,
   ShieldCheck,
@@ -42,6 +47,11 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
 }) => {
   const [activeApproach, setActiveApproach] = useState<'integral' | 'emdr' | 'psicooncologia'>('integral');
   const [openAccordionId, setOpenAccordionId] = useState<string | null>('ansiedad-estres');
+  const viewRef = useRef<HTMLDivElement>(null);
+
+  useGsapPageEntrance(viewRef);
+  useGsapDynamicEntrance(viewRef, '[data-motion-approach-panel]', activeApproach);
+  useGsapDynamicEntrance(viewRef, '[data-motion-accordion-panel]', openAccordionId);
 
   const toggleAccordion = (id: string) => {
     setOpenAccordionId((prev) => (prev === id ? null : id));
@@ -75,27 +85,27 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
   ];
 
   return (
-    <div id="psicologia-view" className="space-y-20 sm:space-y-28 pb-20">
+    <div ref={viewRef} id="psicologia-view" className="space-y-20 sm:space-y-28 pb-20">
       {/* 1. HERO SECTION WITH IMAGE */}
       <section className="pt-6 sm:pt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Text Content */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A]">
+            <div data-motion-hero className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A]">
               <Sparkles className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
               <span>PSICOLOGÍA SANITARIA & ACOMPAÑAMIENTO INTEGRAL</span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7] leading-[1.18]">
+            <h1 data-motion-hero className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7] leading-[1.18]">
               Un espacio de encuentro, respeto y evolución personal
             </h1>
 
-            <p className="text-base sm:text-lg text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
+            <p data-motion-hero className="text-base sm:text-lg text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
               Acompañamiento terapéutico personalizado desde la escucha atenta, la empatía y la integración de cuerpo, emoción y mente. Un entorno seguro para escucharte sin prisas y desplegar tus propios recursos internos.
             </p>
 
             {/* Badges / Pill features */}
-            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
+            <div data-motion-hero className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#E8ECE9] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A] border border-[#D8E0DA] dark:border-[#2D3930]">
                 <MapPin className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
                 <span>Espacio K alma · Zaragoza</span>
@@ -111,7 +121,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div data-motion-hero className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 type="button"
                 onClick={() => onOpenBooking()}
@@ -130,7 +140,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 onClick={() => {
                   const el = document.getElementById('especialidades-psicologia');
                   if (el) {
-                    el.scrollIntoView({ behavior: 'smooth' });
+                    scrollElementIntoView(el);
                   }
                 }}
                 className={`inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs font-semibold border transition-all ${
@@ -146,7 +156,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
           </div>
 
           {/* Right Column: Hero Image with Armchair & Eucalyptus Vase */}
-          <div className="lg:col-span-5">
+          <div data-motion-hero className="lg:col-span-5">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E8E2D9] dark:border-[#2D3930] aspect-[4/3] sm:aspect-[4/3] lg:aspect-[5/4] group">
               <img
                 src={psicologiaHeroImg}
@@ -178,7 +188,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       </section>
 
       {/* 2. LOS 3 ABORDAJES TERAPÉUTICOS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             DISCIPLINAS Y ENFOQUES
@@ -221,6 +231,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
         {/* APPROACH 1: PSICOLOGÍA INTEGRAL */}
         {activeApproach === 'integral' && (
           <div
+            data-motion-approach-panel
             className={`rounded-3xl border p-6 sm:p-10 transition-all ${
               isDark
                 ? 'bg-[#151B17] border-[#2D3930]'
@@ -347,6 +358,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
         {/* APPROACH 2: EMDR */}
         {activeApproach === 'emdr' && (
           <div
+            data-motion-approach-panel
             className={`rounded-3xl border p-6 sm:p-10 transition-all ${
               isDark
                 ? 'bg-[#151B17] border-[#2D3930]'
@@ -459,6 +471,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
         {/* APPROACH 3: PSICOONCOLOGÍA */}
         {activeApproach === 'psicooncologia' && (
           <div
+            data-motion-approach-panel
             className={`rounded-3xl border p-6 sm:p-10 transition-all ${
               isDark
                 ? 'bg-[#151B17] border-[#2D3930]'
@@ -582,7 +595,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       </section>
 
       {/* 2.5. REFINED QUOTE BLOCK (Dancing Script) */}
-      <section className="max-w-4xl mx-auto px-4">
+      <section data-motion-reveal className="max-w-4xl mx-auto px-4">
         <div
           className={`p-8 sm:p-10 rounded-3xl border text-center transition-all ${
             isDark
@@ -600,7 +613,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       </section>
 
       {/* 3. ¿QUÉ ENCONTRARÁS EN NUESTRAS SESIONES? */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section data-motion-reveal className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             EN CONSULTA
@@ -610,7 +623,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div data-motion-group className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* Card 1: Espacio seguro y escucha */}
           <div
             className={`p-6 sm:p-8 rounded-3xl border space-y-3 ${
@@ -710,7 +723,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       </section>
 
       {/* 4. TE PUEDO AYUDAR EN (ACORDEÓN INTERACTIVO) */}
-      <section id="especialidades-psicologia" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="especialidades-psicologia" data-motion-reveal className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             MOTIVOS DE CONSULTA Y ACOMPAÑAMIENTO
@@ -806,7 +819,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
 
                 {/* Accordion Expanded Body */}
                 {isOpen && (
-                  <div className="px-5 pb-6 sm:px-8 sm:pb-8 pt-2 border-t border-[#E8E2D9] dark:border-[#2D3930]/80 animate-fadeIn space-y-6">
+                  <div data-motion-accordion-panel className="px-5 pb-6 sm:px-8 sm:pb-8 pt-2 border-t border-[#E8E2D9] dark:border-[#2D3930]/80 space-y-6">
                     {/* Subtitle & Image row */}
                     <div className="flex flex-col md:flex-row gap-6 items-start">
                       <div className="flex-1 space-y-3">
@@ -931,7 +944,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       </section>
 
       {/* 4.5. ¿CÓMO FUNCIONA EL PROCESO TERAPÉUTICO? */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section data-motion-reveal className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`p-8 sm:p-12 rounded-3xl border shadow-sm relative overflow-hidden transition-all ${
             isDark
@@ -1000,7 +1013,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       </section>
 
       {/* 5. METODOLOGÍA: ¿CÓMO TRABAJAMOS EN CONSULTA? (INTACTA) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
             PROCESO TERAPÉUTICO
@@ -1013,7 +1026,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div data-motion-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((item, idx) => {
             const Icon = item.icon;
             return (
@@ -1049,7 +1062,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       </section>
 
       {/* 6. BOTTOM CTA BLOCK "¿Preparado para dar el primer paso?" (INTACTA) */}
-      <section className="max-w-4xl mx-auto px-4">
+      <section data-motion-reveal className="max-w-4xl mx-auto px-4">
         <div
           className={`p-10 sm:p-14 rounded-3xl border text-center relative overflow-hidden shadow-xl ${
             isDark
