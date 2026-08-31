@@ -66,6 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Logo
+            isDark={isDark}
             onClick={() => handleNavClick('inicio')}
             className="cursor-pointer"
           />
