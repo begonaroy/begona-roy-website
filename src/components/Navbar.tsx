@@ -233,7 +233,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : 'border-[#D8D0C4] text-[#5A655C] hover:bg-[#F3EFEA]'
               }`}
             >
-              <Phone className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
+              <Phone className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#DDB5C1]" />
               <span>Llamar directamente ({CLINICAL_INFO.phoneDisplay})</span>
             </a>
           </div>

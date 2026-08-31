@@ -52,7 +52,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               {/* Badge */}
               <div data-motion-hero className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A]">
-                <Sparkles className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#DDB5C1]" />
                 <span>BEGOÑA ROY · PSICOLOGÍA SANITARIA & PSICOONCOLOGÍA</span>
               </div>
 
@@ -94,24 +94,24 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   }`}
                 >
                   <span>Conoce mi enfoque</span>
-                  <ArrowRight className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
+                  <ArrowRight className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
                 </button>
               </div>
 
               {/* Trust Indicators */}
               <div data-motion-hero className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-[#5A655C] dark:text-[#B7BEA3]">
                 <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
+                  <ShieldCheck className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
                   Col. Nº {CLINICAL_INFO.collegiateNumber}
                 </span>
                 <span className="hidden sm:inline opacity-40">•</span>
                 <span className="flex items-center gap-1.5">
-                  <Heart className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
+                  <Heart className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
                   {CLINICAL_INFO.yearsExperience}
                 </span>
                 <span className="hidden sm:inline opacity-40">•</span>
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
+                  <MapPin className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
                   Espacio K alma (Zaragoza) & Online
                 </span>
               </div>
@@ -138,7 +138,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     <p className="font-serif italic text-sm text-[#222823] dark:text-[#F3EFE7]">
                       "Un espacio seguro donde respirar y reencontrarte."
                     </p>
-                    <p className="text-[11px] font-medium text-[#AA4664] dark:text-[#D8659B] mt-1">
+                    <p className="text-[11px] font-medium text-[#AA4664] dark:text-[#DDB5C1] mt-1">
                       Espacio K alma (C. del Río Huerva, 21, Zaragoza)
                     </p>
                   </div>
@@ -162,7 +162,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               : 'bg-[#F3EFEA] border-[#E8E2D9]'
           }`}
         >
-          <span className="text-3xl sm:text-4xl text-[#AA4664] dark:text-[#D8659B] block font-serif mb-2">
+          <span className="text-3xl sm:text-4xl text-[#AA4664] dark:text-[#DDB5C1] block font-serif mb-2">
             “
           </span>
           <p className="font-script text-2xl sm:text-3xl md:text-4xl leading-[1.225] text-[#222823] dark:text-[#F3EFE7] font-semibold">
@@ -191,7 +191,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10 pb-6 border-b border-[#E8E2D9] dark:border-[#2D3930]">
             <div className="space-y-2 max-w-2xl text-left">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#E8ECE9] dark:bg-[#151B17] text-[#4A5D4E] dark:text-[#A7B39A] border border-[#D8E0DA] dark:border-[#2D3930]">
-                <Layers className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
+                <Layers className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#DDB5C1]" />
                 <span>ÁREAS DE ACOMPAÑAMIENTO</span>
               </div>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
@@ -204,7 +204,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
             <button
               onClick={() => onNavigate('psicologia')}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all border self-start md:self-auto bg-white dark:bg-[#151B17] border-[#D8D0C4] dark:border-[#2D3930] text-[#222823] dark:text-[#F3EFE7] hover:border-[#AA4664] hover:text-[#AA4664] dark:hover:text-[#D8659B] shadow-sm hover:shadow"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all border self-start md:self-auto bg-white dark:bg-[#151B17] border-[#D8D0C4] dark:border-[#2D3930] text-[#222823] dark:text-[#F3EFE7] hover:border-[#AA4664] hover:text-[#AA4664] dark:hover:text-[#DDB5C1] shadow-sm hover:shadow"
             >
               <span>Ver todos los detalles</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -212,7 +212,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
 
           {/* 8 Highlighted Visual Service Cards Grid */}
-          <div data-motion-group className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          <div data-motion-group="fast" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {/* 1. Ansiedad y Estrés */}
             <button
               type="button"
@@ -234,14 +234,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
               />
               <div className="relative z-10">
                 <div className="flex items-start justify-end min-h-[48px] mb-6">
-                  <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors">
+                  <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#AA4664] dark:group-hover:text-[#DDB5C1] transition-colors">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B] block mb-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1] block mb-1">
                   Calma & Regulación
                 </span>
-                <h3 className="font-serif text-lg sm:text-xl font-medium text-[#222823] dark:text-[#F3EFE7] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors leading-snug">
+                <h3 className="font-serif text-lg sm:text-xl font-medium text-[#222823] dark:text-[#F3EFE7] group-hover:text-[#AA4664] dark:group-hover:text-[#DDB5C1] transition-colors leading-snug">
                   Ansiedad y Estrés
                 </h3>
                 <p className="text-xs text-[#5A655C] dark:text-[#B7BEA3] mt-2 leading-relaxed">
@@ -308,14 +308,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
               />
               <div className="relative z-10">
                 <div className="flex items-start justify-end min-h-[48px] mb-6">
-                  <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors">
+                  <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#AA4664] dark:group-hover:text-[#DDB5C1] transition-colors">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B] block mb-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1] block mb-1">
                   Pérdida & Proceso
                 </span>
-                <h3 className="font-serif text-lg sm:text-xl font-medium text-[#222823] dark:text-[#F3EFE7] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors leading-snug">
+                <h3 className="font-serif text-lg sm:text-xl font-medium text-[#222823] dark:text-[#F3EFE7] group-hover:text-[#AA4664] dark:group-hover:text-[#DDB5C1] transition-colors leading-snug">
                   Duelo
                 </h3>
                 <p className="text-xs text-[#5A655C] dark:text-[#B7BEA3] mt-2 leading-relaxed">
@@ -382,14 +382,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
               />
               <div className="relative z-10">
                 <div className="flex items-start justify-end min-h-[48px] mb-6">
-                  <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors">
+                  <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#AA4664] dark:group-hover:text-[#DDB5C1] transition-colors">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B] block mb-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1] block mb-1">
                   EMDR & PNL
                 </span>
-                <h3 className="font-serif text-lg sm:text-xl font-medium text-[#222823] dark:text-[#F3EFE7] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors leading-snug">
+                <h3 className="font-serif text-lg sm:text-xl font-medium text-[#222823] dark:text-[#F3EFE7] group-hover:text-[#AA4664] dark:group-hover:text-[#DDB5C1] transition-colors leading-snug">
                   Bloqueo y Trauma
                 </h3>
                 <p className="text-xs text-[#5A655C] dark:text-[#B7BEA3] mt-2 leading-relaxed">
@@ -456,14 +456,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
               />
               <div className="relative z-10">
                 <div className="flex items-start justify-end min-h-[48px] mb-6">
-                  <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors">
+                  <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#5A655C] dark:text-[#B7BEA3] group-hover:text-[#AA4664] dark:group-hover:text-[#DDB5C1] transition-colors">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B] block mb-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1] block mb-1">
                   Sentido & Conexión
                 </span>
-                <h3 className="font-serif text-lg sm:text-xl font-medium text-[#222823] dark:text-[#F3EFE7] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors leading-snug">
+                <h3 className="font-serif text-lg sm:text-xl font-medium text-[#222823] dark:text-[#F3EFE7] group-hover:text-[#AA4664] dark:group-hover:text-[#DDB5C1] transition-colors leading-snug">
                   Despertar Espiritual
                 </h3>
                 <p className="text-xs text-[#5A655C] dark:text-[#B7BEA3] mt-2 leading-relaxed">
@@ -493,14 +493,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
               />
               <div className="relative z-10">
                 <div className="flex items-start justify-end min-h-[48px] mb-6">
-                  <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#AA4664] dark:text-[#D8659B] group-hover:scale-110 transition-transform">
+                  <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold bg-[#FAF7F2] dark:bg-[#1C2420] text-[#AA4664] dark:text-[#DDB5C1] group-hover:scale-110 transition-transform">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B] block mb-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1] block mb-1">
                   Método Montserrat Gascón
                 </span>
-                <h3 className="font-serif text-lg sm:text-xl font-medium text-[#222823] dark:text-[#F3EFE7] group-hover:text-[#AA4664] dark:group-hover:text-[#D8659B] transition-colors leading-snug">
+                <h3 className="font-serif text-lg sm:text-xl font-medium text-[#222823] dark:text-[#F3EFE7] group-hover:text-[#AA4664] dark:group-hover:text-[#DDB5C1] transition-colors leading-snug">
                   Liberación del Pericardio
                 </h3>
                 <p className="text-xs text-[#5A655C] dark:text-[#B7BEA3] mt-2 leading-relaxed">
@@ -519,7 +519,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1]">
             FLEXIBILIDAD Y CERCANÍA
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
@@ -556,7 +556,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <h3 className="font-serif text-xl font-medium text-[#222823] dark:text-[#F3EFE7]">
                 Terapia Presencial
               </h3>
-              <p className="text-xs text-[#AA4664] dark:text-[#D8659B] font-semibold uppercase tracking-wider">
+              <p className="text-xs text-[#AA4664] dark:text-[#DDB5C1] font-semibold uppercase tracking-wider">
                 Espacio K alma · Zaragoza (50006)
               </p>
               <p className="text-sm leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] max-w-[82%] sm:max-w-[78%]">
@@ -595,7 +595,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <h3 className="font-serif text-xl font-medium text-[#222823] dark:text-[#F3EFE7]">
                 Terapia Online
               </h3>
-              <p className="text-xs text-[#AA4664] dark:text-[#D8659B] font-semibold uppercase tracking-wider">
+              <p className="text-xs text-[#AA4664] dark:text-[#DDB5C1] font-semibold uppercase tracking-wider">
                 Videoconsulta Segura
               </p>
               <p className="text-sm leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] max-w-[82%] sm:max-w-[78%]">
@@ -626,7 +626,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <h3 className="font-serif text-xl font-medium">
                 ¿Comenzamos el camino?
               </h3>
-              <p className="text-xs text-[#D8659B] font-semibold uppercase tracking-wider">
+              <p className="text-xs text-[#DDB5C1] font-semibold uppercase tracking-wider">
                 Primera Sesión de Valoración
               </p>
               <p className="text-sm leading-relaxed text-[#E6DFD3]">
@@ -674,7 +674,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           {/* Bio Text */}
           <div className="lg:col-span-7 space-y-6 order-1 lg:order-2 text-left">
             <div className="space-y-2">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1]">
                 QUIÉN SOY
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
@@ -709,7 +709,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
               <button
                 onClick={onOpenBooking}
-                className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B] hover:underline"
+                className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1] hover:underline"
               >
                 Pedir cita con Begoña
               </button>
@@ -721,7 +721,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* 5. TESTIMONIOS Y PALABRAS DE CONFIANZA */}
       <section data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1]">
             ESPACIO DE CONFIANZA
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
@@ -748,7 +748,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <span className="font-semibold block text-[#222823] dark:text-[#F3EFE7]">
                     {item.author}
                   </span>
-                  <span className="text-[#AA4664] dark:text-[#D8659B]">{item.service}</span>
+                  <span className="text-[#AA4664] dark:text-[#DDB5C1]">{item.service}</span>
                 </div>
                 <span className="text-[11px] text-[#5A655C] dark:text-[#B7BEA3]">
                   {item.context}
