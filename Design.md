@@ -48,9 +48,9 @@ La Liberación del Pericardio es exclusivamente presencial. Psicología y psicoo
 | Lino suave | `#F3EFE7` | 243, 239, 231 | 40, 25%, 93% | Texto principal oscuro | 15.25:1 sobre Fondo oscuro |
 | Oliva claro | `#B7BEA3` | 183, 190, 163 | 77, 17%, 73% | Texto secundario oscuro | 9.08:1 sobre Fondo oscuro |
 | Verde claro | `#A7B39A` | 167, 179, 154 | 84, 16%, 65% | Marca e iconos oscuros | 7.96:1 sobre Fondo oscuro |
-| Cerezo intenso | `#D8659B` | 216, 101, 155 | 332, 60%, 62% | Acentos oscuros | 5.21:1 sobre Fondo oscuro |
+| Cerezo suave | `#DDB5C1` | 221, 181, 193 | 342, 37%, 79% | Acentos oscuros | 9.54:1 sobre Fondo oscuro |
 
-El tema se guarda en `localStorage` con la clave `begona_roy_theme`. El modo oscuro adopta los nuevos fondos y bordes vegetales, pero conserva Lino suave, Oliva claro, Verde claro y Cerezo intenso como colores de primer plano.
+El tema se guarda en `localStorage` con la clave `begona_roy_theme`. El modo oscuro adopta los nuevos fondos y bordes vegetales, pero conserva Lino suave, Oliva claro, Verde claro y Cerezo suave como colores de primer plano.
 
 ### Tipografía
 

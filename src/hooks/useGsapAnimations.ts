@@ -99,6 +99,7 @@ export function useGsapPageEntrance(scope: MotionScope) {
           const items = Array.from(group.children).filter(
             (child): child is HTMLElement => child instanceof HTMLElement,
           );
+          const isFastGroup = group.dataset.motionGroup === 'fast';
 
           if (items.length === 0) return;
 
@@ -108,9 +109,9 @@ export function useGsapPageEntrance(scope: MotionScope) {
             {
               opacity: 1,
               y: 0,
-              duration: 0.62,
-              delay: 0.08,
-              stagger: { each: 0.07, from: 'start' },
+              duration: isFastGroup ? 0.54 : 0.62,
+              delay: isFastGroup ? 0.06 : 0.08,
+              stagger: { each: isFastGroup ? 0.06 : 0.07, from: 'start' },
               ease: 'power2.out',
               clearProps: CLEAR_MOTION_PROPS,
               scrollTrigger: {

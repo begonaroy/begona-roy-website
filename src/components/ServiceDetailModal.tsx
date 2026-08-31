@@ -73,7 +73,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             </div>
           </div>
 
-          <p className="font-serif italic text-base sm:text-lg text-[#AA4664] dark:text-[#D8659B]">
+          <p className="font-serif italic text-base sm:text-lg text-[#AA4664] dark:text-[#DDB5C1]">
             {service.subtitle}
           </p>
 

@@ -77,7 +77,7 @@ export const BioModal: React.FC<BioModalProps> = ({
             <h2 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight">
               Begoña Roy
             </h2>
-            <p className="text-sm font-medium text-[#AA4664] dark:text-[#D8659B]">
+            <p className="text-sm font-medium text-[#AA4664] dark:text-[#DDB5C1]">
               Psicóloga General Sanitaria · Psicooncóloga · Facilitadora de Pericardio
             </p>
             <p className="text-xs text-opacity-80 flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 pt-1 text-[#5A655C] dark:text-[#B7BEA3]">
@@ -118,7 +118,7 @@ export const BioModal: React.FC<BioModalProps> = ({
                     : 'bg-white border-[#E8E2D9] text-[#222823]'
                 }`}
               >
-                <CheckCircle2 className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B] flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1] flex-shrink-0 mt-0.5" />
                 <span className="leading-snug">{item}</span>
               </div>
             ))}

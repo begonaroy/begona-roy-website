@@ -47,7 +47,7 @@ export const Footer: React.FC<FooterProps> = ({
               }`}
             >
               <div className="flex items-center gap-2 font-semibold">
-                <ShieldCheck className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B] flex-shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1] flex-shrink-0" />
                 <span>Ejercicio Sanitario Colegiado</span>
               </div>
               <p className="text-[11px] leading-tight text-opacity-80">
@@ -74,7 +74,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => {
                     onNavigate('inicio');
                   }}
-                  className="hover:underline transition-colors hover:text-[#AA4664] dark:hover:text-[#D8659B]"
+                  className="hover:underline transition-colors hover:text-[#AA4664] dark:hover:text-[#DDB5C1]"
                 >
                   Inicio
                 </button>
@@ -84,7 +84,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => {
                     onNavigate('psicologia');
                   }}
-                  className="hover:underline transition-colors hover:text-[#AA4664] dark:hover:text-[#D8659B]"
+                  className="hover:underline transition-colors hover:text-[#AA4664] dark:hover:text-[#DDB5C1]"
                 >
                   Psicología Sanitaria & Psicooncología
                 </button>
@@ -94,7 +94,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => {
                     onNavigate('pericardio');
                   }}
-                  className="hover:underline transition-colors hover:text-[#AA4664] dark:hover:text-[#D8659B]"
+                  className="hover:underline transition-colors hover:text-[#AA4664] dark:hover:text-[#DDB5C1]"
                 >
                   Liberación del Pericardio
                 </button>
@@ -104,7 +104,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => {
                     onNavigate('contacto');
                   }}
-                  className="hover:underline transition-colors hover:text-[#AA4664] dark:hover:text-[#D8659B]"
+                  className="hover:underline transition-colors hover:text-[#AA4664] dark:hover:text-[#DDB5C1]"
                 >
                   Contacto & Preguntas Frecuentes
                 </button>
@@ -112,7 +112,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={onOpenBooking}
-                  className="text-[#AA4664] dark:text-[#D8659B] font-medium hover:underline flex items-center gap-1.5"
+                  className="text-[#AA4664] dark:text-[#DDB5C1] font-medium hover:underline flex items-center gap-1.5"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Reserva de Cita</span>
@@ -132,29 +132,29 @@ export const Footer: React.FC<FooterProps> = ({
             </h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B] flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1] flex-shrink-0 mt-0.5" />
                 <span>{CLINICAL_INFO.location}</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B] flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1] flex-shrink-0" />
                 <a
                   href={`tel:${CLINICAL_INFO.phone}`}
-                  className="hover:underline hover:text-[#AA4664] dark:hover:text-[#D8659B]"
+                  className="hover:underline hover:text-[#AA4664] dark:hover:text-[#DDB5C1]"
                 >
                   {CLINICAL_INFO.phoneDisplay}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1] flex-shrink-0" />
                 <a
                   href={`mailto:${CLINICAL_INFO.email}`}
-                  className="hover:underline hover:text-[#AA4664] dark:hover:text-[#D8659B]"
+                  className="hover:underline hover:text-[#AA4664] dark:hover:text-[#DDB5C1]"
                 >
                   {CLINICAL_INFO.email}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B] flex-shrink-0 mt-0.5" />
+                <Clock className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1] flex-shrink-0 mt-0.5" />
                 <span>{CLINICAL_INFO.workingHours}</span>
               </li>
             </ul>
@@ -208,19 +208,19 @@ export const Footer: React.FC<FooterProps> = ({
             <span>© {new Date().getFullYear()} John Vicent. Todos los derechos reservados.</span>
             <button
               onClick={() => onOpenPrivacy('privacidad')}
-              className="hover:underline hover:text-[#AA4664] dark:hover:text-[#D8659B]"
+              className="hover:underline hover:text-[#AA4664] dark:hover:text-[#DDB5C1]"
             >
               Política de Privacidad
             </button>
             <button
               onClick={() => onOpenPrivacy('aviso')}
-              className="hover:underline hover:text-[#AA4664] dark:hover:text-[#D8659B]"
+              className="hover:underline hover:text-[#AA4664] dark:hover:text-[#DDB5C1]"
             >
               Aviso Legal
             </button>
             <button
               onClick={() => onOpenPrivacy('cookies')}
-              className="hover:underline hover:text-[#AA4664] dark:hover:text-[#D8659B]"
+              className="hover:underline hover:text-[#AA4664] dark:hover:text-[#DDB5C1]"
             >
               Política de Cookies
             </button>

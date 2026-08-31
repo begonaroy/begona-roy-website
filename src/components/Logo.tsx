@@ -9,6 +9,7 @@ interface LogoProps {
 
 export const Logo: React.FC<LogoProps> = ({
   variant = 'full',
+  isDark = false,
   className = '',
   onClick,
 }) => {
@@ -22,7 +23,7 @@ export const Logo: React.FC<LogoProps> = ({
       className={`flex ${slotSizeClass} items-center select-none transition-transform duration-200 hover:scale-[1.01] ${onClick ? 'cursor-pointer' : ''} ${className}`}
     >
       <img
-        src="/branding/logo-begona-roy-h.png"
+        src={isDark ? '/branding/logo-begona-roy-light.png' : '/branding/logo-begona-roy-h.png'}
         alt="Begoña Roy · Psicología Sanitaria"
         className={`${imageSizeClass} w-auto max-w-[20rem] object-contain object-left`}
         draggable={false}

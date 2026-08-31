@@ -173,7 +173,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         {/* Progress Bar & Header */}
         {step < 5 && (
           <div className="mb-8">
-            <div className="flex items-center justify-between text-xs uppercase tracking-wider font-semibold text-[#AA4664] dark:text-[#D8659B] mb-2">
+            <div className="flex items-center justify-between text-xs uppercase tracking-wider font-semibold text-[#AA4664] dark:text-[#DDB5C1] mb-2">
               <span>Paso {step} de 4</span>
               <span>
                 {step === 1 && 'Servicio'}
@@ -316,7 +316,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <h4 className="font-serif text-lg font-medium">
                   Terapia Presencial
                 </h4>
-                <p className="text-xs text-[#AA4664] dark:text-[#D8659B] font-medium mt-1">
+                <p className="text-xs text-[#AA4664] dark:text-[#DDB5C1] font-medium mt-1">
                   {CLINICAL_INFO.location}
                 </p>
                 <p className="text-xs mt-3 leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
@@ -347,7 +347,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <h4 className="font-serif text-lg font-medium">
                   Terapia Online
                 </h4>
-                <p className="text-xs text-[#AA4664] dark:text-[#D8659B] font-medium mt-1">
+                <p className="text-xs text-[#AA4664] dark:text-[#DDB5C1] font-medium mt-1">
                   Videoconsulta Segura y Confidencial
                 </p>
                 <p className="text-xs mt-3 leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
@@ -527,7 +527,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <button
                 type="button"
                 onClick={() => setStep(1)}
-                className="text-[#AA4664] dark:text-[#D8659B] font-medium hover:underline text-[11px]"
+                className="text-[#AA4664] dark:text-[#DDB5C1] font-medium hover:underline text-[11px]"
               >
                 Cambiar
               </button>

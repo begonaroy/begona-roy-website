@@ -75,7 +75,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
       <section className="pt-6 sm:pt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div data-motion-hero className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A]">
-            <Sparkles className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#D8659B]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#DDB5C1]" />
             <span>ESTOY A TU LADO</span>
           </div>
 
@@ -361,7 +361,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                     </span>
                     <a
                       href={`tel:${CLINICAL_INFO.phone}`}
-                      className="font-medium hover:text-[#AA4664] dark:hover:text-[#D8659B] transition-colors"
+                      className="font-medium hover:text-[#AA4664] dark:hover:text-[#DDB5C1] transition-colors"
                     >
                       {CLINICAL_INFO.phoneDisplay}
                     </a>
@@ -378,7 +378,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                     </span>
                     <a
                       href={`mailto:${CLINICAL_INFO.email}`}
-                      className="font-medium hover:text-[#AA4664] dark:hover:text-[#D8659B] transition-colors"
+                      className="font-medium hover:text-[#AA4664] dark:hover:text-[#DDB5C1] transition-colors"
                     >
                       {CLINICAL_INFO.email}
                     </a>
@@ -430,7 +430,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                 <h4 className="font-serif text-lg font-medium text-[#222823] dark:text-[#F3EFE7]">
                   Cómo llegar a la consulta
                 </h4>
-                <MapPin className="w-4 h-4 text-[#AA4664] dark:text-[#D8659B]" />
+                <MapPin className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
               </div>
 
               <p className="text-xs leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
@@ -459,7 +459,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
       {/* 3. PREGUNTAS FRECUENTES (FAQS) ACCORDION */}
       <section data-motion-reveal className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center space-y-2 mb-10">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#D8659B]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1]">
             RESOLVEMOS TUS DUDAS
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
@@ -540,7 +540,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#AA4664] dark:text-[#D8659B] flex-shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-[#AA4664] dark:text-[#DDB5C1] flex-shrink-0 transition-transform duration-300 ${
                       isOpen ? 'rotate-180' : 'rotate-0'
                     }`}
                   />
@@ -573,7 +573,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
           }`}
         >
           <div className="space-y-4 max-w-lg mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#D8659B]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#DDB5C1]">
               EMPIEZA HOY
             </span>
             <h2 className="font-serif text-3xl font-medium tracking-tight">
