@@ -97,7 +97,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
             </div>
 
             <h1 data-motion-hero className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7] leading-[1.18]">
-              Un espacio de encuentro, respeto y evolución personal
+              Un espacio de encuentro, <br></br>respeto y evolución personal
             </h1>
 
             <p data-motion-hero className="text-base sm:text-lg text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
