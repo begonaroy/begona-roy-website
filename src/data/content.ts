@@ -26,8 +26,8 @@ export const CLINICAL_INFO = {
 };
 
 export const IMAGES = {
-  heroAtmosphere: '/people/ok.png', // Cozy calm interior with ceramic vase and warm light
-  begonaPortrait: '/people/begona-roy.jpg', // Professional warm empathetic woman psychologist in sunlit space
+  heroAtmosphere: '/people/begona-roy.jpg', // Cozy calm interior with ceramic vase and warm light
+  begonaPortrait: '/people/ok.png', // Professional warm empathetic woman psychologist in sunlit space
   clinicInterior: '/img/psicologia-integral.jpg', // Peaceful consultation room with soft armchair and plant
   ansiedad: '/illustrations/escucha-integral.png', // Editorial therapy room conversation illustration with site colors
   depresion: '/illustrations/tristeza-depresion.png', // Editorial compassionate support illustration with site colors
