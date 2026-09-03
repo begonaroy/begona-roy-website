@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { ServiceDetail, NavigationTab } from '../types';
 import { IMAGES, SERVICES_DATA, PERICARDIUM_INFO } from '../data/content';
-import psicologiaHeroImg from '../assets/images/psicologia_hero_armchair_1787912154813.jpg';
+import psicologiaHeroImg from '/people/begona-roy-psicologa.jpg';
 import {
   scrollElementIntoView,
   useGsapDynamicEntrance,

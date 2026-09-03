@@ -28,7 +28,7 @@ export const CLINICAL_INFO = {
 export const IMAGES = {
   heroAtmosphere: '/people/begona-roy.jpg', // Cozy calm interior with ceramic vase and warm light
   begonaPortrait: '/people/ok.png', // Professional warm empathetic woman psychologist in sunlit space
-  clinicInterior: '/img/psicologia-integral.jpg', // Peaceful consultation room with soft armchair and plant
+  clinicInterior: '/people/begona-psicologaintegral.jpg', // Peaceful consultation room with soft armchair and plant
   ansiedad: '/illustrations/escucha-integral.png', // Editorial therapy room conversation illustration with site colors
   depresion: '/illustrations/tristeza-depresion.png', // Editorial compassionate support illustration with site colors
   duelo: '/illustrations/duelo.png', // Editorial grief & self-compassion mirror hug illustration with site colors
@@ -37,8 +37,8 @@ export const IMAGES = {
   psicosomaticos: '/illustrations/psicosomaticos.png', // Editorial mind-body somatic awareness illustration with site colors
   espiritual: '/illustrations/despertarEspiritual.png', // Minimalist meditation in nature illustration with site colors
   pericardio: '/illustrations/pericardio.jpg', // Editorial blooming heart & osteopathic pericardium release illustration with site colors
-  pericardioSession: '/img/escucha-en-camilla.png', // Session in treatment table image
-  emdrApproach: '/img/corazon-mar.jpeg', // EMDR approach image
+  pericardioSession: '/people/begona-roy-pericardio.jpg', // Session in treatment table image
+  emdrApproach: '/people/begonaroy-emdr.jpeg', // EMDR approach image
   psicooncologiaApproach: '/img/psicooncologia-begona-roy.jpg', // Psico-oncology approach image
   zaragozaCity: 'https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=1000&q=80', // Architectural calm
 };
