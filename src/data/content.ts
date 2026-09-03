@@ -37,7 +37,7 @@ export const IMAGES = {
   psicosomaticos: '/illustrations/psicosomaticos.png', // Editorial mind-body somatic awareness illustration with site colors
   espiritual: '/illustrations/despertarEspiritual.png', // Minimalist meditation in nature illustration with site colors
   pericardio: '/illustrations/pericardio.jpg', // Editorial blooming heart & osteopathic pericardium release illustration with site colors
-  pericardioSession: '/img/escucha-en-camilla.png', // Session in treatment table image
+  pericardioSession: '/people/begona-roy-pericardio.jpg', // Session in treatment table image
   emdrApproach: '/people/begonaroy-emdr.jpeg', // EMDR approach image
   psicooncologiaApproach: '/img/psicooncologia-begona-roy.jpg', // Psico-oncology approach image
   zaragozaCity: 'https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=1000&q=80', // Architectural calm
