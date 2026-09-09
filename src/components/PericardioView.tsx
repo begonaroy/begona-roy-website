@@ -267,7 +267,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Image Column */}
             <div className="lg:col-span-5 space-y-4">
-              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-[#E8E2D9] dark:border-[#2D3930] aspect-[4/3] group">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-[#E8E2D9] dark:border-[#2D3930] aspect-[3/4] group">
                 <img
                   src={IMAGES.pericardioSession}
                   alt="Acompañamiento manual en camilla para la liberación del pericardio"

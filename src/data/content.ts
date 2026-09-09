@@ -26,8 +26,8 @@ export const CLINICAL_INFO = {
 };
 
 export const IMAGES = {
-  heroAtmosphere: '/people/begona-roy.jpg', // Cozy calm interior with ceramic vase and warm light
-  begonaPortrait: '/people/ok.png', // Professional warm empathetic woman psychologist in sunlit space
+  heroAtmosphere: '/people/begonaroy-psicologa.jpeg', // Cozy calm interior with ceramic vase and warm light
+  begonaPortrait: '/people/begona-roy-escucha-integral.png', // Professional warm empathetic woman psychologist in sunlit space
   clinicInterior: '/people/begona-psicologaintegral.jpg', // Peaceful consultation room with soft armchair and plant
   ansiedad: '/illustrations/escucha-integral.png', // Editorial therapy room conversation illustration with site colors
   depresion: '/illustrations/tristeza-depresion.png', // Editorial compassionate support illustration with site colors
@@ -433,8 +433,8 @@ export const TESTIMONIALS: Testimonial[] = [
 export const BIO_FULL_STORY = {
   headline: 'Acompañamiento desde la escucha, la empatía y la sencillez',
   paragraphs: [
-    'Hola, me llamo Begoña Roy. Y aunque a veces es difícil hablar de uno mismo, sí que sé con claridad que mi principal impulso ha sido siempre intentar ayudar y acompañar a personas que estuviesen pasando por momentos vitales difíciles desde la escucha, la empatía y la sencillez.',
-    'Por ello decidí estudiar psicología en la Universidad de Valencia, finalizando mi formación en 1995. Mientras terminaba inicié un máster en Psicología Clínica para ampliar mi preparación, y he continuado formándome buscando distintos enfoques para realizar mi trabajo de la forma más honesta, responsable y humana de la que soy capaz, y ofrecer así el servicio que todo ser humano merece.',
+    'Hola, me llamo Begoña Roy. Y aunque a veces es difícil hablar de uno mismo, sí que sé con claridad que mi principal impulso ha sido siempre ayudar y acompañar a personas que estuviesen pasando por momentos vitales difíciles desde la escucha, la empatía y la sencillez.',
+    'Por ello decidí estudiar psicología en la Universidad de Valencia, finalizando mi formación en 1995. Mientras terminaba inicié una formación privada de posgrado en Psicología Clínica, en un centro especializado en terapia cognitivo-conductual, para ampliar mi preparación, y he continuado formándome buscando distintos enfoques para realizar mi trabajo de la forma más honesta, responsable y humana de la que soy capaz, y ofrecer así el servicio que todo ser humano merece.',
     'Mi enfoque es integral y humanista. Como seres humanos que somos estamos formados por cuerpo, emoción, mente y espíritu, y es desde esa visión más amplia que puedo ir acompañando a cada persona en su proceso individual según sus ritmos, necesidades y prioridades, de una manera más específica y concreta, encontrando soluciones juntos para seguir desarrollándote y creciendo.',
     'El enfoque humanista es particularmente eficaz para afrontar una amplia variedad de problemas psicológicos, ya que está basado en la comprensión de cómo la persona percibe e interpreta sus sentimientos, pensamientos y experiencias y cómo esto, a su vez, influye en su comportamiento y bienestar emocional.',
     'Además, empecé a practicar meditación de la tradición de Thich Nhat Hanh a través de la Sangha Respira en Zaragoza, y esto me ayudó a conectar con esa parte interior espiritual que poco a poco he ido desarrollando y conociendo más.',
@@ -443,7 +443,7 @@ export const BIO_FULL_STORY = {
   ],
   trainings: [
     'Licenciatura en Psicología (Universidad de Valencia, 1995)',
-    'Máster en Psicología Clínica (Valencia)',
+    'Formación privada de posgrado en Psicología Clínica, en un centro especializado en terapia cognitivo-conductual (Valencia)',
     'Máster en Psicooncología (Universidad Complutense de Madrid)',
     'Formación Básica de Terapia Familiar Fásica',
     'Diploma en Gerontología Social (Fundación Universidad-Empresa de Valencia)',
