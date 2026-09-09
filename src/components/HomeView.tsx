@@ -207,36 +207,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-
-      {/* 2. SIGNATURE QUOTE SECTION (Dancing Script font) */}
-      <section
-        id="quote-section"
-        data-motion-reveal
-        className="py-12 px-4 text-center max-w-4xl mx-auto"
-      >
-        <div
-          className={`p-8 sm:p-12 rounded-3xl border transition-all ${
-            isDark
-              ? 'bg-[#1C2420] border-[#2D3930]'
-              : 'bg-[#F3EFEA] border-[#E8E2D9]'
-          }`}
-        >
-          <span className="text-3xl sm:text-4xl text-[#AA4664] dark:text-[#DDB5C1] block font-serif mb-2">
-            “
-          </span>
-          <p className="font-script text-2xl sm:text-3xl md:text-4xl leading-[1.225] text-[#222823] dark:text-[#F3EFE7] font-semibold">
-            Mi objetivo fundamental es acompañarte para traducir las soluciones que ya están en ti y descubrir tus fortalezas...
-          </p>
-          <div className="mt-4 flex items-center justify-center gap-2">
-            <span className="h-px w-8 bg-[#AA4664]" />
-            <span className="font-serif text-sm italic text-[#5A655C] dark:text-[#B7BEA3]">
-              Begoña Roy · Psicóloga
-            </span>
-            <span className="h-px w-8 bg-[#AA4664]" />
-          </div>
-        </div>
-      </section>
-
       {/* 2.5. VISIÓN RÁPIDA: SERVICIOS Y ÁREAS DE ACOMPAÑAMIENTO ("TE PUEDO AYUDAR EN") */}
       <section id="servicios-resumen-section" data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
@@ -567,6 +537,35 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 </p>
               </div>
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. SIGNATURE QUOTE SECTION (Dancing Script font) */}
+      <section
+        id="quote-section"
+        data-motion-reveal
+        className="py-12 px-4 text-center max-w-4xl mx-auto"
+      >
+        <div
+          className={`p-8 sm:p-12 rounded-3xl border transition-all ${
+            isDark
+              ? 'bg-[#1C2420] border-[#2D3930]'
+              : 'bg-[#F3EFEA] border-[#E8E2D9]'
+          }`}
+        >
+          <span className="text-3xl sm:text-4xl text-[#AA4664] dark:text-[#DDB5C1] block font-serif mb-2">
+            “
+          </span>
+          <p className="font-script text-2xl sm:text-3xl md:text-4xl leading-[1.225] text-[#222823] dark:text-[#F3EFE7] font-semibold">
+            Mi objetivo fundamental es acompañarte para traducir las soluciones que ya están en ti y descubrir tus fortalezas...
+          </p>
+          <div className="mt-4 flex items-center justify-center gap-2">
+            <span className="h-px w-8 bg-[#AA4664]" />
+            <span className="font-serif text-sm italic text-[#5A655C] dark:text-[#B7BEA3]">
+              Begoña Roy · Psicóloga
+            </span>
+            <span className="h-px w-8 bg-[#AA4664]" />
           </div>
         </div>
       </section>
