@@ -18,7 +18,9 @@ import {
   UserCheck,
   ChevronDown,
   Clock,
+  Feather,
   Layers,
+  Star,
 } from 'lucide-react';
 
 interface HomeViewProps {
@@ -66,7 +68,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
               {/* Description */}
               <p data-motion-hero className="text-base sm:text-lg leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] max-w-2xl mx-auto lg:mx-0">
-                Un espacio de calidez, respeto y escucha profunda para transitar la ansiedad, los procesos de duelo, el impacto oncológico y la liberación corporal del pericardio. En Espacio K alma (Zaragoza) y en consulta online.
+                Acompañamiento terapéutico integrador para comprender tu momento vital, cuidar de tu bienestar emocional y reconectar con tus propios recursos internos. En Espacio K alma (Zaragoza) y en consulta online.
               </p>
 
               {/* CTAs */}
@@ -149,31 +151,58 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* 2. SIGNATURE QUOTE SECTION (Dancing Script font) */}
+      {/* 1.5. ESPACIO DE ENCUENTRO Y SEGURIDAD */}
       <section
-        id="quote-section"
+        id="espacio-seguridad-section"
         data-motion-reveal
-        className="py-12 px-4 text-center max-w-4xl mx-auto"
+        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div
-          className={`p-8 sm:p-12 rounded-3xl border transition-all ${
+          className={`relative p-8 sm:p-12 lg:p-14 rounded-3xl border shadow-xs overflow-hidden text-center ${
             isDark
               ? 'bg-[#1C2420] border-[#2D3930]'
-              : 'bg-[#F3EFEA] border-[#E8E2D9]'
+              : 'bg-[#FAF7F2] border-[#E8E2D9]'
           }`}
         >
-          <span className="text-3xl sm:text-4xl text-[#AA4664] dark:text-[#DDB5C1] block font-serif mb-2">
-            “
-          </span>
-          <p className="font-script text-2xl sm:text-3xl md:text-4xl leading-[1.225] text-[#222823] dark:text-[#F3EFE7] font-semibold">
-            Mi objetivo fundamental es acompañarte para traducir las soluciones que ya están en ti y descubrir tus fortalezas...
-          </p>
-          <div className="mt-4 flex items-center justify-center gap-2">
-            <span className="h-px w-8 bg-[#AA4664]" />
-            <span className="font-serif text-sm italic text-[#5A655C] dark:text-[#B7BEA3]">
-              Begoña Roy · Psicología Sanitaria & Liberación del Pericardio
-            </span>
-            <span className="h-px w-8 bg-[#AA4664]" />
+          {/* Subtle Ambient Radial Glows */}
+          <div
+            className={`absolute -top-20 -left-20 w-64 h-64 rounded-full blur-3xl pointer-events-none opacity-20 ${
+              isDark ? 'bg-[#A7B39A]' : 'bg-[#AA4664]'
+            }`}
+          />
+          <div
+            className={`absolute -bottom-20 -right-20 w-64 h-64 rounded-full blur-3xl pointer-events-none opacity-20 ${
+              isDark ? 'bg-[#DDB5C1]' : 'bg-[#4A5D4E]'
+            }`}
+          />
+
+          <div data-motion-group="fast" className="relative z-10 max-w-3xl mx-auto space-y-6">
+            {/* Pill badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#FCFCFA]/80 dark:bg-[#151B17]/80 backdrop-blur-sm border border-[#E8E2D9] dark:border-[#2D3930] text-[#AA4664] dark:text-[#DDB5C1] shadow-xs">
+              <Feather aria-hidden="true" className="w-3.5 h-3.5" />
+              <span>EL VALOR DEL VÍNCULO</span>
+            </div>
+
+            {/* Core statement */}
+            <p className="font-serif text-2xl sm:text-3xl lg:text-[2.1rem] leading-[1.38] text-[#222823] dark:text-[#F3EFE7] font-normal tracking-tight">
+              “Un espacio de calidez, respeto y escucha profunda para transitar tu proceso individual, a tu ritmo, en un espacio de seguridad y confidencialidad”
+            </p>
+
+            {/* Subtle decorative pillars */}
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs sm:text-sm font-medium text-[#5A655C] dark:text-[#B7BEA3]">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFCFA]/70 dark:bg-[#151B17]/70 border border-[#E8E2D9]/80 dark:border-[#2D3930]">
+                <Heart aria-hidden="true" className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#DDB5C1]" />
+                <span>Calidez y respeto</span>
+              </span>
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFCFA]/70 dark:bg-[#151B17]/70 border border-[#E8E2D9]/80 dark:border-[#2D3930]">
+                <Clock aria-hidden="true" className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A]" />
+                <span>A tu ritmo</span>
+              </span>
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFCFA]/70 dark:bg-[#151B17]/70 border border-[#E8E2D9]/80 dark:border-[#2D3930]">
+                <ShieldCheck aria-hidden="true" className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A]" />
+                <span>Seguridad y confidencialidad</span>
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -512,6 +541,35 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
+      {/* 2. SIGNATURE QUOTE SECTION (Dancing Script font) */}
+      <section
+        id="quote-section"
+        data-motion-reveal
+        className="py-12 px-4 text-center max-w-4xl mx-auto"
+      >
+        <div
+          className={`p-8 sm:p-12 rounded-3xl border transition-all ${
+            isDark
+              ? 'bg-[#1C2420] border-[#2D3930]'
+              : 'bg-[#F3EFEA] border-[#E8E2D9]'
+          }`}
+        >
+          <span className="text-3xl sm:text-4xl text-[#AA4664] dark:text-[#DDB5C1] block font-serif mb-2">
+            “
+          </span>
+          <p className="font-script text-2xl sm:text-3xl md:text-4xl leading-[1.225] text-[#222823] dark:text-[#F3EFE7] font-semibold">
+            Mi objetivo fundamental es acompañarte para traducir las soluciones que ya están en ti y descubrir tus fortalezas...
+          </p>
+          <div className="mt-4 flex items-center justify-center gap-2">
+            <span className="h-px w-8 bg-[#AA4664]" />
+            <span className="font-serif text-sm italic text-[#5A655C] dark:text-[#B7BEA3]">
+              Begoña Roy · Psicóloga
+            </span>
+            <span className="h-px w-8 bg-[#AA4664]" />
+          </div>
+        </div>
+      </section>
+
       {/* 3. MODALIDADES DE ATENCIÓN + CTA CARD */}
       <section
         id="modalidades-section"
@@ -684,10 +742,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
             <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
               <p>
-                Hola, me llamo <strong className="text-[#222823] dark:text-[#F3EFE7]">Begoña Roy</strong>. Mi principal impulso ha sido siempre intentar ayudar y acompañar a personas que estuviesen pasando por momentos vitales difíciles desde la escucha, la empatía y la sencillez.
+                Hola, me llamo <strong className="text-[#222823] dark:text-[#F3EFE7]">Begoña Roy</strong>. Mi principal impulso ha sido siempre ayudar y acompañar a personas que estuviesen pasando por momentos vitales difíciles desde la escucha, la empatía y la sencillez.
               </p>
               <p>
-                Me licencié en Psicología por la <strong className="text-[#222823] dark:text-[#F3EFE7]">Universidad de Valencia en 1995</strong> y continué con el Máster en Psicología Clínica y el Máster en Psicooncología (UCM). A lo largo de más de 25 años en ONGs, ámbito hospitalario y consulta privada, he buscado distintos enfoques para realizar mi trabajo de la forma más honesta, responsable y humana posible.
+                Me licencié en Psicología por la <strong className="text-[#222823] dark:text-[#F3EFE7]">Universidad de Valencia en 1995</strong> y continué con una formación privada de posgrado en Psicología Clínica, en un centro especializado en terapia cognitivo-conductual, y con el Máster en Psicooncología (UCM). A lo largo de más de 25 años en ONGs, ámbito hospitalario y consulta privada, he buscado distintos enfoques para realizar mi trabajo de la forma más honesta, responsable y humana posible.
               </p>
               <p>
                 Mi enfoque es <strong className="text-[#222823] dark:text-[#F3EFE7]">integral y humanista</strong>: como seres humanos estamos formados por <strong className="text-[#222823] dark:text-[#F3EFE7]">cuerpo, emoción, mente y espíritu</strong>. Integra la práctica meditativa (Sangha Respira) y la <strong className="text-[#222823] dark:text-[#F3EFE7]">Liberación del Pericardio</strong> para conectar con tu propia esencia desde el corazón.
@@ -739,6 +797,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   : 'bg-[#FBF9F5] border-[#E8E2D9]'
               }`}
             >
+              <div
+                className="flex items-center gap-1 text-[#4A5D4E] dark:text-[#B7BEA3]"
+                role="img"
+                aria-label="Valoración de 5 sobre 5 estrellas"
+              >
+                {Array.from({ length: 5 }, (_, index) => (
+                  <Star
+                    key={index}
+                    aria-hidden="true"
+                    className="w-4 h-4 fill-current"
+                  />
+                ))}
+              </div>
+
               <p className="font-serif italic text-sm sm:text-base leading-relaxed text-[#222823] dark:text-[#F3EFE7]">
                 "{item.quote}"
               </p>
