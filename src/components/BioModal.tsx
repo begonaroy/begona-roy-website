@@ -80,10 +80,8 @@ export const BioModal: React.FC<BioModalProps> = ({
             <p className="text-sm font-medium text-[#AA4664] dark:text-[#DDB5C1]">
               Psicóloga General Sanitaria · Psicooncóloga · Facilitadora de Pericardio
             </p>
-            <p className="text-xs text-opacity-80 flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 pt-1 text-[#5A655C] dark:text-[#B7BEA3]">
-              <span>Col. Nº {CLINICAL_INFO.collegiateNumber}</span>
-              <span>•</span>
-              <span>{CLINICAL_INFO.sanitaryRegistration}</span>
+            <p className="text-xs text-opacity-80 pt-1 text-[#5A655C] dark:text-[#B7BEA3]">
+              {CLINICAL_INFO.sanitaryRegistration}
             </p>
           </div>
         </div>

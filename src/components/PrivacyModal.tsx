@@ -23,7 +23,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
 
   const titles = {
     privacidad: 'Política de Privacidad y Protección de Datos Sanitarios',
-    aviso: 'Aviso Legal e Información Sanitaria Colegiada',
+    aviso: 'Aviso Legal e Información Sanitaria',
     cookies: 'Política de Cookies'
   };
 
@@ -70,7 +70,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
           {type === 'privacidad' && (
             <>
               <p>
-                <strong>1. Responsable del Tratamiento:</strong> Begoña Roy, Psicóloga Sanitaria Colegiada nº CV-07890 por el Colegio Oficial de Psicología de la Comunitat Valenciana. Contacto: info@begonaroy.com.
+                <strong>1. Responsable del Tratamiento:</strong> Begoña Roy, Psicóloga Sanitaria. Contacto: psicologiaroy@gmail.com.
               </p>
               <p>
                 <strong>2. Finalidad del Tratamiento:</strong> Los datos de carácter personal y de salud facilitados a través de formularios, correos electrónicos o durante el proceso psicoterapéutico serán tratados con la exclusiva finalidad de prestar los servicios de asesoramiento psicológico, psicoterapia sanitaria, psicooncología o liberación del pericardio, así como para la gestión administrativa de citas.
@@ -79,7 +79,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
                 <strong>3. Confidencialidad y Secreto Profesional:</strong> Toda la información compartida está amparada por el secreto profesional recogido en el Código Deontológico del Psicólogo y por el Reglamento General de Protección de Datos (RGPD UE 2016/679) y la Ley Orgánica 3/2018 (LOPDGDD).
               </p>
               <p>
-                <strong>4. Derechos:</strong> En cualquier momento puedes ejercer tus derechos de acceso, rectificación, supresión, limitación y portabilidad enviando un correo a info@begonaroy.com acompañado de fotocopia de tu DNI.
+                <strong>4. Derechos:</strong> En cualquier momento puedes ejercer tus derechos de acceso, rectificación, supresión, limitación y portabilidad enviando un correo a psicologiaroy@gmail.com acompañado de fotocopia de tu DNI.
               </p>
             </>
           )}
@@ -90,7 +90,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
                 <strong>Titularidad de la Web:</strong> En cumplimiento del artículo 10 de la Ley 34/2002 de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI), se informa de que este sitio web es propiedad de Begoña Roy.
               </p>
               <p>
-                <strong>Cualificación Profesional:</strong> Licenciada en Psicología por la Universidad de Valencia (1995). Habilitación como Psicóloga General Sanitaria y Colegiada nº CV-07890.
+                <strong>Cualificación Profesional:</strong> Licenciada en Psicología por la Universidad de Valencia (1995). Habilitación como Psicóloga General Sanitaria.
               </p>
               <p>
                 <strong>Naturaleza de la Información:</strong> Los contenidos expuestos en esta web tienen carácter puramente divulgativo y de presentación de servicios. En ningún caso sustituyen el diagnóstico, prescripción médica o tratamiento personalizado por un facultativo especialista.

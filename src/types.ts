@@ -12,19 +12,6 @@ export type PsicologiaSpecialty =
 
 export type Modality = 'presencial' | 'online' | 'ambas';
 
-export type ServiceType = 
-  | 'psicologia-general' 
-  | 'ansiedad-estres'
-  | 'tristeza-depresion'
-  | 'duelo'
-  | 'duelo-trauma' 
-  | 'psicooncologia'
-  | 'bloqueo-emocional-trauma'
-  | 'trastornos-psicosomaticos'
-  | 'despertar-espiritual'
-  | 'liberacion-pericardio'
-  | 'valoracion-inicial';
-
 export interface ServiceDetail {
   id: string;
   slug: string;
@@ -56,16 +43,14 @@ export interface Testimonial {
   context: string;
 }
 
-export interface BookingFormData {
-  service: ServiceType;
+export interface BookingDraft {
   modality: 'presencial' | 'online';
-  date: string;
-  time: string;
+  preferredDate: string;
+  preferredTime: string;
   fullName: string;
   email: string;
   phone: string;
-  notes: string;
-  privacyAccepted: boolean;
+  message: string;
 }
 
 export interface ContactFormData {
@@ -74,6 +59,8 @@ export interface ContactFormData {
   phone?: string;
   service: string;
   modality: 'presencial' | 'online';
+  preferredDate: string;
+  preferredTime: string;
   message: string;
   privacyAccepted: boolean;
 }

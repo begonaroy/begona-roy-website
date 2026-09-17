@@ -21,7 +21,7 @@ Los elementos transversales son la navegación, el pie, el selector de tema y lo
 
 ## Flujos prioritarios
 
-1. **Solicitar una cita:** desde cualquier CTA se abre un modal de cinco estados: elegir servicio, modalidad, fecha/hora, datos y confirmación.
+1. **Solicitar una cita:** desde cualquier CTA se abre un modal de tres pasos: modalidad, fecha/hora preferidas y datos. Al completarlo, el usuario revisa el borrador en Contacto y abre su aplicación de correo para enviarlo.
 2. **Conocer una especialidad:** las tarjetas abren un detalle con explicación, destinatarios, beneficios y CTA contextual.
 3. **Resolver una duda:** el usuario llega a Contacto, filtra o consulta las FAQ y puede continuar a WhatsApp o a la reserva.
 
@@ -93,7 +93,7 @@ Las tarjetas de servicio combinan fotografía ambiental, etiqueta, título y res
 - Mantener contraste WCAG AA como mínimo. Oliva suave es exclusivamente decorativo y no debe emplearse como texto pequeño.
 - Usar encabezados en orden, etiquetas asociadas a campos y texto alternativo descriptivo en imágenes.
 - No presentar la Liberación del Pericardio como sustituto de atención médica; conservar el aviso de disciplina complementaria.
-- El formulario de reserva solicita consentimiento de privacidad antes de habilitar la confirmación.
+- El consentimiento de privacidad se solicita en el formulario final de Contacto, justo antes de abrir el correo para el envío.
 - Usar lenguaje claro, inclusivo y sin promesas terapéuticas absolutas.
 
 ## Implementación

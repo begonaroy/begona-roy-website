@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CLINICAL_INFO, FAQS_DATA } from '../data/content';
-import { FAQItem, NavigationTab } from '../types';
+import { BookingDraft, FAQItem, NavigationTab } from '../types';
 import { useGsapDynamicEntrance, useGsapPageEntrance } from '../hooks/useGsapAnimations';
 import {
   MapPin,
@@ -10,35 +10,35 @@ import {
   Send,
   MessageSquare,
   ChevronDown,
-  CheckCircle2,
   Calendar,
   Sparkles,
   Search,
-  ExternalLink,
-  ShieldCheck
+  ExternalLink
 } from 'lucide-react';
 
 interface ContactoViewProps {
   onOpenBooking: () => void;
   onNavigate: (tab: NavigationTab) => void;
+  bookingDraft: BookingDraft | null;
   isDark: boolean;
 }
 
 export const ContactoView: React.FC<ContactoViewProps> = ({
   onOpenBooking,
   onNavigate,
+  bookingDraft,
   isDark,
 }) => {
   // Form State
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [serviceChoice, setServiceChoice] = useState('psicologia-general');
+  const [serviceChoice, setServiceChoice] = useState('consulta-general');
   const [modalityChoice, setModalityChoice] = useState('presencial');
+  const [preferredDate, setPreferredDate] = useState('');
+  const [preferredTime, setPreferredTime] = useState('');
   const [message, setMessage] = useState('');
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
-  const [isSending, setIsSending] = useState(false);
-  const [isSent, setIsSent] = useState(false);
 
   // FAQ State
   const [openFaqId, setOpenFaqId] = useState<string | null>('faq-1');
@@ -47,18 +47,41 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
   const viewRef = useRef<HTMLDivElement>(null);
 
   useGsapPageEntrance(viewRef);
-  useGsapDynamicEntrance(viewRef, '[data-motion-contact-state]', isSent);
   useGsapDynamicEntrance(viewRef, '[data-motion-faq-panel]', openFaqId);
+
+  useEffect(() => {
+    if (!bookingDraft) return;
+    setName(bookingDraft.fullName);
+    setEmail(bookingDraft.email);
+    setPhone(bookingDraft.phone);
+    setModalityChoice(bookingDraft.modality);
+    setPreferredDate(bookingDraft.preferredDate);
+    setPreferredTime(bookingDraft.preferredTime);
+    setMessage(bookingDraft.message);
+    setServiceChoice('consulta-general');
+    setPrivacyAccepted(false);
+  }, [bookingDraft]);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !privacyAccepted) return;
-
-    setIsSending(true);
-    setTimeout(() => {
-      setIsSending(false);
-      setIsSent(true);
-    }, 900);
+    const modality = modalityChoice === 'presencial' ? 'Presencial en Zaragoza' : 'Online por videoconsulta';
+    const body = [
+      'Solicitud de cita desde begonaroy.com',
+      '',
+      `Nombre: ${name}`,
+      `Teléfono / WhatsApp: ${phone || 'No facilitado'}`,
+      `Correo de respuesta: ${email}`,
+      `Motivo principal: ${serviceChoice}`,
+      `Modalidad: ${modality}`,
+      `Fecha preferida: ${preferredDate || 'Sin preferencia indicada'}`,
+      `Hora preferida: ${preferredTime || 'Sin preferencia indicada'}`,
+      '',
+      'Mensaje:',
+      message || 'Sin mensaje adicional.',
+    ].join('\n');
+    const subject = `Solicitud de cita — ${name}`;
+    window.location.href = `mailto:${CLINICAL_INFO.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const filteredFaqs = FAQS_DATA.filter((faq) => {
@@ -84,7 +107,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
           </h1>
 
           <p data-motion-hero className="text-base text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
-            Si deseas resolver cualquier duda o solicitar tu primera sesión en Zaragoza (Espacio K alma, C. del Río Huerva, 21) o en modalidad online, estaré encantada de atenderte.
+            Si deseas resolver cualquier duda o solicitar tu primera sesión en Zaragoza o en modalidad online, estaré encantada de atenderte.
           </p>
         </div>
       </section>
@@ -105,48 +128,20 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                 Escríbeme un mensaje
               </h2>
               <p className="text-xs text-[#5A655C] dark:text-[#B7BEA3] mb-6">
-                Responderé con total confidencialidad en un plazo máximo de 24 horas laborables.
+                Revisa los datos y abre tu aplicación de correo para enviar el mensaje. La web no lo envía por sí sola.
               </p>
 
-              {isSent ? (
-                <div data-motion-contact-state className="py-10 text-center space-y-4">
-                  <div className="w-14 h-14 rounded-full bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h3 className="font-serif text-xl font-medium text-[#222823] dark:text-[#F3EFE7]">
-                    Mensaje enviado correctamente
-                  </h3>
-                  <p className="text-sm text-[#5A655C] dark:text-[#B7BEA3] max-w-md mx-auto">
-                    Gracias por tu confianza, <strong>{name}</strong>. He recibido tu consulta y me pondré en contacto contigo muy pronto.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIsSent(false);
-                      setName('');
-                      setEmail('');
-                      setPhone('');
-                      setMessage('');
-                      setPrivacyAccepted(false);
-                    }}
-                    className={`mt-4 px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider border transition-colors ${
-                      isDark
-                        ? 'border-[#2D3930] hover:bg-[#222C26]'
-                        : 'border-[#D8D0C4] hover:bg-[#F3EFEA]'
-                    }`}
-                  >
-                    Enviar otro mensaje
-                  </button>
-                </div>
-              ) : (
-                <form data-motion-contact-state onSubmit={handleFormSubmit} className="space-y-4">
+              <form onSubmit={handleFormSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
+                      <label htmlFor="contact-name" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
                         Nombre completo *
                       </label>
                       <input
+                        id="contact-name"
+                        name="name"
                         type="text"
+                        autoComplete="name"
                         required
                         placeholder="Tu nombre"
                         value={name}
@@ -160,11 +155,14 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
+                      <label htmlFor="contact-email" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
                         Correo electrónico *
                       </label>
                       <input
+                        id="contact-email"
+                        name="email"
                         type="email"
+                        autoComplete="email"
                         required
                         placeholder="tuemail@ejemplo.com"
                         value={email}
@@ -180,11 +178,14 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
+                      <label htmlFor="contact-phone" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
                         Teléfono / WhatsApp (Opcional)
                       </label>
                       <input
+                        id="contact-phone"
+                        name="tel"
                         type="tel"
+                        autoComplete="tel"
                         placeholder="+34 600 000 000"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
@@ -197,10 +198,12 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
+                      <label htmlFor="contact-service" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
                         Motivo principal de consulta
                       </label>
                       <select
+                        id="contact-service"
+                        name="service"
                         value={serviceChoice}
                         onChange={(e) => setServiceChoice(e.target.value)}
                         className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
@@ -209,7 +212,8 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                             : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
                         }`}
                       >
-                        <option value="psicologia-general">Ansiedad y Estrés</option>
+                        <option value="consulta-general">Consulta general</option>
+                        <option value="ansiedad-estres">Ansiedad y Estrés</option>
                         <option value="psicooncologia">Psicooncología (Cáncer)</option>
                         <option value="duelo-trauma">Proceso de Duelo y Pérdida</option>
                         <option value="liberacion-pericardio">Liberación del Pericardio</option>
@@ -269,11 +273,46 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                     </div>
                   </div>
 
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="contact-preferred-date" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
+                        Fecha preferida
+                      </label>
+                      <input
+                        id="contact-preferred-date"
+                        name="preferredDate"
+                        type="date"
+                        value={preferredDate}
+                        onChange={(e) => setPreferredDate(e.target.value)}
+                        className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
+                          isDark ? 'bg-[#151B17] border-[#2D3930] focus:ring-[#7C9682] text-white' : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
+                        }`}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="contact-preferred-time" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
+                        Hora preferida
+                      </label>
+                      <input
+                        id="contact-preferred-time"
+                        name="preferredTime"
+                        type="time"
+                        value={preferredTime}
+                        onChange={(e) => setPreferredTime(e.target.value)}
+                        className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
+                          isDark ? 'bg-[#151B17] border-[#2D3930] focus:ring-[#7C9682] text-white' : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
+                        }`}
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
+                    <label htmlFor="contact-message" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
                       Mensaje *
                     </label>
                     <textarea
+                      id="contact-message"
+                      name="message"
                       rows={4}
                       required
                       placeholder="Cuéntame en qué puedo ayudarte..."
@@ -304,21 +343,15 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                   <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                     <button
                       type="submit"
-                      disabled={isSending || !privacyAccepted || !name || !email}
+                      disabled={!privacyAccepted || !name || !email}
                       className={`inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all disabled:opacity-50 ${
                         isDark
                           ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
                           : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
                       }`}
                     >
-                      {isSending ? (
-                        <span>Enviando mensaje...</span>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4" />
-                          <span>Enviar Mensaje</span>
-                        </>
-                      )}
+                      <Send className="w-4 h-4" aria-hidden="true" />
+                      <span>Abrir correo para enviar</span>
                     </button>
 
                     <a
@@ -331,8 +364,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                       <span>Escribir por WhatsApp</span>
                     </a>
                   </div>
-                </form>
-              )}
+              </form>
             </div>
           </div>
 
@@ -434,23 +466,17 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
               </div>
 
               <p className="text-xs leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
-                Ubicada en <strong>Espacio K alma</strong> (C. del Río Huerva, 21, 50006 Zaragoza), en un entorno tranquilo y acogedor junto al río Huerva y la zona centro / Universidad:
+                La consulta presencial está en <strong>{CLINICAL_INFO.fullAddress}</strong>.
               </p>
-
-              <div className="space-y-2 text-xs">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#AA4664]" />
-                  <span><strong>Tranvía de Zaragoza:</strong> Parada Goya o Plaza San Francisco a pocos minutos a pie.</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#AA4664]" />
-                  <span><strong>Autobús Urbano:</strong> Líneas 24, 31, 33, 34, 38, 41 y Circulares Ci1 / Ci2 con paradas muy próximas en Goya y Gran Vía.</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#AA4664]" />
-                  <span><strong>Cercanías Renfe:</strong> Estación Zaragoza-Goya a menos de 5 minutos caminando.</span>
-                </div>
-              </div>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CLINICAL_INFO.fullAddress)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-[#4A5D4E] dark:text-[#A7B39A] hover:underline focus-visible:ring-2"
+              >
+                <ExternalLink className="w-4 h-4" aria-hidden="true" />
+                Ver la ubicación en Google Maps
+              </a>
             </div>
           </div>
         </div>

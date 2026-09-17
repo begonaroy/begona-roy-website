@@ -1,704 +1,140 @@
-import React, { useRef, useState } from 'react';
-import { CLINICAL_INFO, SERVICES_DATA } from '../data/content';
-import {
-  X,
-  Calendar as CalendarIcon,
-  Clock,
-  MapPin,
-  Video,
-  CheckCircle2,
-  ChevronRight,
-  ChevronLeft,
-  Sparkles,
-  ShieldCheck,
-  MessageSquare
-} from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { BookingDraft } from '../types';
+import { CLINICAL_INFO } from '../data/content';
+import { X, Calendar as CalendarIcon, Clock, MapPin, Video, ChevronRight, ChevronLeft } from 'lucide-react';
 import { useGsapDialogEntrance, useGsapDynamicEntrance } from '../hooks/useGsapAnimations';
-
-const WHATSAPP_BASE_URL = CLINICAL_INFO.whatsappUrl.split('?')[0];
 
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onComplete: (draft: BookingDraft) => void;
   isDark: boolean;
   initialServiceId?: string;
 }
 
-export const BookingModal: React.FC<BookingModalProps> = ({
-  isOpen,
-  onClose,
-  isDark,
-  initialServiceId,
-}) => {
-  const [step, setStep] = useState<1 | 2 | 3 | 4 | 5>(1);
+const todayIso = () => new Date().toISOString().slice(0, 10);
 
-  // Form State
-  const [selectedService, setSelectedService] = useState<string>(
-    initialServiceId || 'psicologia-general'
-  );
-  const [selectedModality, setSelectedModality] = useState<'presencial' | 'online'>(
-    'presencial'
-  );
-  const [selectedDate, setSelectedDate] = useState<string>('2025-05-12');
-  const [selectedTime, setSelectedTime] = useState<string>('11:00');
-  const [fullName, setFullName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [phone, setPhone] = useState<string>('');
-  const [notes, setNotes] = useState<string>('');
-  const [privacyAccepted, setPrivacyAccepted] = useState<boolean>(false);
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, onComplete, isDark, initialServiceId }) => {
+  const [step, setStep] = useState<1 | 2 | 3>(1);
+  const [selectedModality, setSelectedModality] = useState<'presencial' | 'online'>('presencial');
+  const [preferredDate, setPreferredDate] = useState('');
+  const [preferredTime, setPreferredTime] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
   const overlayRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousActiveElementRef = useRef<HTMLElement | null>(null);
+  const isPericardiumBooking = initialServiceId === 'liberacion-pericardio';
 
   useGsapDialogEntrance(overlayRef, isOpen);
   useGsapDynamicEntrance(overlayRef, '[data-motion-booking-step]', `${isOpen}-${step}`);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    setStep(1);
+    setSelectedModality('presencial');
+    setPreferredDate('');
+    setPreferredTime('');
+    setFullName('');
+    setEmail('');
+    setPhone('');
+    setMessage('');
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    previousActiveElementRef.current = document.activeElement as HTMLElement | null;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const focusCloseButton = window.setTimeout(() => closeButtonRef.current?.focus(), 0);
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onClose();
+        return;
+      }
+      if (event.key !== 'Tab' || !overlayRef.current) return;
+      const focusableElements = Array.from(overlayRef.current.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])')) as HTMLElement[];
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      if (!firstElement || !lastElement) return;
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.clearTimeout(focusCloseButton);
+      document.body.style.overflow = originalOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+      previousActiveElementRef.current?.focus();
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
-  const servicesOptions = [
-    {
-      id: 'ansiedad-estres',
-      title: 'Ansiedad / Estrés',
-      duration: '50-60 min',
-      badge: 'Presencial / Online'
-    },
-    {
-      id: 'tristeza-depresion',
-      title: 'Tristeza / Depresión',
-      duration: '50-60 min',
-      badge: 'Presencial / Online'
-    },
-    {
-      id: 'duelo',
-      title: 'Duelo (Pérdidas y Rupturas)',
-      duration: '50-60 min',
-      badge: 'Presencial / Online'
-    },
-    {
-      id: 'psicooncologia',
-      title: 'Psicooncología (Cáncer y Familiares)',
-      duration: '50-60 min',
-      badge: 'Especialidad Destacada'
-    },
-    {
-      id: 'bloqueo-emocional-trauma',
-      title: 'Bloqueo Emocional y Trauma (EMDR)',
-      duration: '50-60 min',
-      badge: 'Presencial / Online'
-    },
-    {
-      id: 'trastornos-psicosomaticos',
-      title: 'Trastornos Psicosomáticos',
-      duration: '50-60 min',
-      badge: 'Mente y Cuerpo'
-    },
-    {
-      id: 'despertar-espiritual',
-      title: 'Síntomas del Despertar Espiritual',
-      duration: '50-60 min',
-      badge: 'Consciencia / PAS'
-    },
-    {
-      id: 'liberacion-pericardio',
-      title: 'Liberación del Pericardio (Terapia Somática)',
-      duration: '60-75 min',
-      badge: 'Solo Presencial en Zaragoza'
-    },
-    {
-      id: 'valoracion-inicial',
-      title: 'Primera Sesión de Valoración y Escucha',
-      duration: '50-60 min',
-      badge: 'Recomendada'
-    }
-  ];
-
-  const timeSlots = [
-    '09:30', '11:00', '12:30', '16:00', '17:30', '19:00'
-  ];
-
-  const upcomingDates = [
-    { dayName: 'Lun', dayNumber: '12', fullDate: '2025-05-12', month: 'Mayo' },
-    { dayName: 'Mar', dayNumber: '13', fullDate: '2025-05-13', month: 'Mayo' },
-    { dayName: 'Mié', dayNumber: '14', fullDate: '2025-05-14', month: 'Mayo' },
-    { dayName: 'Jue', dayNumber: '15', fullDate: '2025-05-15', month: 'Mayo' },
-    { dayName: 'Vie', dayNumber: '16', fullDate: '2025-05-16', month: 'Mayo' },
-    { dayName: 'Lun', dayNumber: '19', fullDate: '2025-05-19', month: 'Mayo' },
-  ];
-
-  const handleSubmitBooking = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!fullName || !email || !phone || !privacyAccepted) return;
-
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setStep(5); // Success step
-    }, 800);
+  const handleComplete = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!fullName || !email || !phone || !preferredDate || !preferredTime) return;
+    onComplete({ modality: selectedModality, preferredDate, preferredTime, fullName, email, phone, message });
   };
 
-  const getServiceTitle = (id: string) => {
-    const found = servicesOptions.find((s) => s.id === id);
-    return found ? found.title : 'Consulta de Psicología';
-  };
+  const inputClassName = `w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus-visible:ring-2 ${isDark ? 'bg-[#1C2420] border-[#2D3930] focus-visible:ring-[#7C9682] text-white' : 'bg-white border-[#E8E2D9] focus-visible:ring-[#4A5D4E] text-[#222823]'}`;
+  const primaryButtonClassName = `inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors focus-visible:ring-2 ${isDark ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694] focus-visible:ring-[#F3EFE7]' : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40] focus-visible:ring-[#4A5D4E]'}`;
 
   return (
-    <div
-      ref={overlayRef}
-      id="booking-modal-overlay"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/60 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <div
-        id="booking-modal-container"
-        data-motion-dialog-panel
-        className={`relative w-full max-w-2xl rounded-3xl p-6 sm:p-8 shadow-2xl transition-all max-h-[90vh] overflow-y-auto ${
-          isDark
-            ? 'bg-[#151B17] border border-[#2D3930] text-[#F3EFE7]'
-            : 'bg-[#FBF9F5] border border-[#E8E2D9] text-[#222823]'
-        }`}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Close button */}
-        <button
-          onClick={onClose}
-          aria-label="Cerrar modal de reserva"
-          className={`absolute top-5 right-5 p-2 rounded-full transition-colors ${
-            isDark
-              ? 'bg-[#222C26] text-[#B7BEA3] hover:text-[#F3EFE7]'
-              : 'bg-[#E8ECE9] text-[#5A655C] hover:text-[#222823]'
-          }`}
-        >
-          <X className="w-5 h-5" />
+    <div ref={overlayRef} id="booking-modal-overlay" className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/60 backdrop-blur-sm" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
+      <div id="booking-modal-container" data-motion-dialog-panel role="dialog" aria-modal="true" aria-labelledby="booking-modal-title" className={`relative w-full max-w-2xl rounded-3xl p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto ${isDark ? 'bg-[#151B17] border border-[#2D3930] text-[#F3EFE7]' : 'bg-[#FBF9F5] border border-[#E8E2D9] text-[#222823]'}`}>
+        <button ref={closeButtonRef} type="button" onClick={onClose} aria-label="Cerrar solicitud de cita" className={`absolute top-5 right-5 p-2 rounded-full transition-colors focus-visible:ring-2 ${isDark ? 'bg-[#222C26] text-[#B7BEA3] hover:text-[#F3EFE7] focus-visible:ring-[#7C9682]' : 'bg-[#E8ECE9] text-[#5A655C] hover:text-[#222823] focus-visible:ring-[#4A5D4E]'}`}>
+          <X className="w-5 h-5" aria-hidden="true" />
         </button>
 
-        {/* Progress Bar & Header */}
-        {step < 5 && (
-          <div className="mb-8">
-            <div className="flex items-center justify-between text-xs uppercase tracking-wider font-semibold text-[#AA4664] dark:text-[#DDB5C1] mb-2">
-              <span>Paso {step} de 4</span>
-              <span>
-                {step === 1 && 'Servicio'}
-                {step === 2 && 'Modalidad'}
-                {step === 3 && 'Fecha y Hora'}
-                {step === 4 && 'Tus Datos'}
-              </span>
-            </div>
+        <div className="mb-8 pr-10">
+          <div className="flex items-center justify-between text-xs uppercase tracking-wider font-semibold text-[#AA4664] dark:text-[#DDB5C1] mb-2"><span>Paso {step} de 3</span><span>{step === 1 ? 'Modalidad' : step === 2 ? 'Preferencia' : 'Tus datos'}</span></div>
+          <div className="grid grid-cols-3 gap-2" aria-hidden="true">{[1, 2, 3].map((currentStep) => <div key={currentStep} className={`h-1.5 rounded-full ${currentStep <= step ? isDark ? 'bg-[#7C9682]' : 'bg-[#4A5D4E]' : isDark ? 'bg-[#222C26]' : 'bg-[#E8ECE9]'}`} />)}</div>
+        </div>
 
-            {/* Step indicators */}
-            <div className="grid grid-cols-4 gap-2">
-              {[1, 2, 3, 4].map((s) => (
-                <div
-                  key={s}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    s <= step
-                      ? isDark
-                        ? 'bg-[#7C9682]'
-                        : 'bg-[#4A5D4E]'
-                      : isDark
-                      ? 'bg-[#222C26]'
-                      : 'bg-[#E8ECE9]'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Step 1: Select Service */}
-        {step === 1 && (
-          <div data-motion-booking-step className="space-y-6">
-            <div>
-              <h3 className="font-serif text-2xl font-medium tracking-tight">
-                ¿Qué tipo de acompañamiento necesitas?
-              </h3>
-              <p className="text-sm mt-1 text-[#5A655C] dark:text-[#B7BEA3]">
-                Selecciona la opción que mejor se ajuste a tu momento vital.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              {servicesOptions.map((opt) => (
-                <button
-                  key={opt.id}
-                  type="button"
-                  onClick={() => {
-                    setSelectedService(opt.id);
-                    // If pericardium, default to presencial
-                    if (opt.id === 'liberacion-pericardio') {
-                      setSelectedModality('presencial');
-                    }
-                  }}
-                  className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between ${
-                    selectedService === opt.id
-                      ? isDark
-                        ? 'bg-[#222C26] border-[#7C9682] ring-1 ring-[#7C9682]'
-                        : 'bg-[#E8ECE9] border-[#4A5D4E] ring-1 ring-[#4A5D4E]'
-                      : isDark
-                      ? 'bg-[#1C2420] border-[#2D3930] hover:border-[#7C9682]/50'
-                      : 'bg-white border-[#E8E2D9] hover:border-[#4A5D4E]/40'
-                  }`}
-                >
-                  <div className="space-y-1 pr-4">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] mr-2">
-                      {opt.badge}
-                    </span>
-                    <h4 className="font-medium text-sm sm:text-base text-[#222823] dark:text-[#F3EFE7] mt-1">
-                      {opt.title}
-                    </h4>
-                    <span className="text-xs text-[#5A655C] dark:text-[#B7BEA3]">
-                      Duración: {opt.duration}
-                    </span>
-                  </div>
-
-                  <div
-                    className={`w-5 h-5 rounded-full border flex items-center justify-center flex-shrink-0 ${
-                      selectedService === opt.id
-                        ? isDark
-                          ? 'bg-[#7C9682] border-[#7C9682]'
-                          : 'bg-[#4A5D4E] border-[#4A5D4E]'
-                        : 'border-gray-400'
-                    }`}
-                  >
-                    {selectedService === opt.id && (
-                      <div className="w-2 h-2 rounded-full bg-white" />
-                    )}
-                  </div>
-                </button>
-              ))}
-            </div>
-
-            <div className="flex justify-end pt-4">
-              <button
-                type="button"
-                onClick={() => setStep(2)}
-                className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
-                  isDark
-                    ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
-                }`}
-              >
-                <span>Continuar</span>
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Step 2: Select Modality */}
-        {step === 2 && (
-          <div data-motion-booking-step className="space-y-6">
-            <div>
-              <h3 className="font-serif text-2xl font-medium tracking-tight">
-                Elige la modalidad de tu sesión
-              </h3>
-              <p className="text-sm mt-1 text-[#5A655C] dark:text-[#B7BEA3]">
-                Ambas modalidades ofrecen la misma cercanía, profesionalidad y rigor sanitario.
-              </p>
-            </div>
-
+        {step === 1 ? (
+          <section data-motion-booking-step className="space-y-6" aria-labelledby="booking-modal-title">
+            <div><h2 id="booking-modal-title" className="font-serif text-2xl font-medium tracking-tight">Elige la modalidad de tu sesión</h2><p className="text-sm mt-1 text-[#5A655C] dark:text-[#B7BEA3]">Indícanos cómo prefieres realizarla. La disponibilidad se confirmará personalmente.</p></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Presencial */}
-              <button
-                type="button"
-                onClick={() => setSelectedModality('presencial')}
-                className={`p-6 rounded-2xl border text-left transition-all relative ${
-                  selectedModality === 'presencial'
-                    ? isDark
-                      ? 'bg-[#222C26] border-[#7C9682] ring-1 ring-[#7C9682]'
-                      : 'bg-[#E8ECE9] border-[#4A5D4E] ring-1 ring-[#4A5D4E]'
-                    : isDark
-                    ? 'bg-[#1C2420] border-[#2D3930] hover:border-[#7C9682]/50'
-                    : 'bg-white border-[#E8E2D9] hover:border-[#4A5D4E]/40'
-                }`}
-              >
-                <div className="p-3 rounded-xl bg-[#4A5D4E]/10 w-fit mb-4 text-[#4A5D4E] dark:text-[#A7B39A]">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <h4 className="font-serif text-lg font-medium">
-                  Terapia Presencial
-                </h4>
-                <p className="text-xs text-[#AA4664] dark:text-[#DDB5C1] font-medium mt-1">
-                  {CLINICAL_INFO.location}
-                </p>
-                <p className="text-xs mt-3 leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
-                  Espacio acogedor y silencioso para trabajar cara a cara en un ambiente cuidado y sereno.
-                </p>
+              <button type="button" onClick={() => setSelectedModality('presencial')} aria-pressed={selectedModality === 'presencial'} className={`p-6 rounded-2xl border text-left transition-colors relative focus-visible:ring-2 ${selectedModality === 'presencial' ? isDark ? 'bg-[#222C26] border-[#7C9682] ring-1 ring-[#7C9682] focus-visible:ring-[#7C9682]' : 'bg-[#E8ECE9] border-[#4A5D4E] ring-1 ring-[#4A5D4E] focus-visible:ring-[#4A5D4E]' : isDark ? 'bg-[#1C2420] border-[#2D3930] hover:border-[#7C9682]/50 focus-visible:ring-[#7C9682]' : 'bg-white border-[#E8E2D9] hover:border-[#4A5D4E]/40 focus-visible:ring-[#4A5D4E]'}`}>
+                <div className="p-3 rounded-xl bg-[#4A5D4E]/10 w-fit mb-4 text-[#4A5D4E] dark:text-[#A7B39A]"><MapPin className="w-6 h-6" aria-hidden="true" /></div><h3 className="font-serif text-lg font-medium">Terapia presencial</h3><p className="text-xs text-[#AA4664] dark:text-[#DDB5C1] font-medium mt-1">{CLINICAL_INFO.location}</p>
               </button>
-
-              {/* Online */}
-              <button
-                type="button"
-                disabled={selectedService === 'liberacion-pericardio'}
-                onClick={() => setSelectedModality('online')}
-                className={`p-6 rounded-2xl border text-left transition-all relative ${
-                  selectedService === 'liberacion-pericardio'
-                    ? 'opacity-50 cursor-not-allowed bg-gray-100 dark:bg-[#1C2420] border-gray-300'
-                    : selectedModality === 'online'
-                    ? isDark
-                      ? 'bg-[#222C26] border-[#7C9682] ring-1 ring-[#7C9682]'
-                      : 'bg-[#E8ECE9] border-[#4A5D4E] ring-1 ring-[#4A5D4E]'
-                    : isDark
-                    ? 'bg-[#1C2420] border-[#2D3930] hover:border-[#7C9682]/50'
-                    : 'bg-white border-[#E8E2D9] hover:border-[#4A5D4E]/40'
-                }`}
-              >
-                <div className="p-3 rounded-xl bg-[#4A5D4E]/10 w-fit mb-4 text-[#4A5D4E] dark:text-[#A7B39A]">
-                  <Video className="w-6 h-6" />
-                </div>
-                <h4 className="font-serif text-lg font-medium">
-                  Terapia Online
-                </h4>
-                <p className="text-xs text-[#AA4664] dark:text-[#DDB5C1] font-medium mt-1">
-                  Videoconsulta Segura y Confidencial
-                </p>
-                <p className="text-xs mt-3 leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
-                  Realiza la sesión desde la comodidad de tu hogar, sin desplazamientos ni tiempos de espera.
-                </p>
-                {selectedService === 'liberacion-pericardio' && (
-                  <p className="text-[11px] text-amber-600 dark:text-amber-400 mt-2 font-medium">
-                    * La terapia de pericardio es exclusivamente presencial.
-                  </p>
-                )}
+              <button type="button" disabled={isPericardiumBooking} onClick={() => setSelectedModality('online')} aria-pressed={selectedModality === 'online'} className={`p-6 rounded-2xl border text-left transition-colors relative focus-visible:ring-2 ${isPericardiumBooking ? 'opacity-50 cursor-not-allowed bg-gray-100 dark:bg-[#1C2420] border-gray-300' : selectedModality === 'online' ? isDark ? 'bg-[#222C26] border-[#7C9682] ring-1 ring-[#7C9682] focus-visible:ring-[#7C9682]' : 'bg-[#E8ECE9] border-[#4A5D4E] ring-1 ring-[#4A5D4E] focus-visible:ring-[#4A5D4E]' : isDark ? 'bg-[#1C2420] border-[#2D3930] hover:border-[#7C9682]/50 focus-visible:ring-[#7C9682]' : 'bg-white border-[#E8E2D9] hover:border-[#4A5D4E]/40 focus-visible:ring-[#4A5D4E]'}`}>
+                <div className="p-3 rounded-xl bg-[#4A5D4E]/10 w-fit mb-4 text-[#4A5D4E] dark:text-[#A7B39A]"><Video className="w-6 h-6" aria-hidden="true" /></div><h3 className="font-serif text-lg font-medium">Terapia online</h3><p className="text-xs text-[#AA4664] dark:text-[#DDB5C1] font-medium mt-1">Videoconsulta segura y confidencial</p>{isPericardiumBooking ? <p className="text-[11px] text-amber-700 dark:text-amber-400 mt-2 font-medium">La Liberación del Pericardio es exclusivamente presencial.</p> : null}
               </button>
             </div>
+            <div className="flex justify-end pt-4"><button type="button" onClick={() => setStep(2)} className={primaryButtonClassName}><span>Elegir preferencia</span><ChevronRight className="w-4 h-4" aria-hidden="true" /></button></div>
+          </section>
+        ) : null}
 
-            <div className="flex justify-between items-center pt-4">
-              <button
-                type="button"
-                onClick={() => setStep(1)}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5A655C] dark:text-[#B7BEA3] hover:underline"
-              >
-                <ChevronLeft className="w-4 h-4" />
-                <span>Volver</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setStep(3)}
-                className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
-                  isDark
-                    ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
-                }`}
-              >
-                <span>Elegir Horario</span>
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Step 3: Date and Time */}
-        {step === 3 && (
-          <div data-motion-booking-step className="space-y-6">
-            <div>
-              <h3 className="font-serif text-2xl font-medium tracking-tight">
-                Selecciona fecha y hora preferida
-              </h3>
-              <p className="text-sm mt-1 text-[#5A655C] dark:text-[#B7BEA3]">
-                Te confirmaremos la disponibilidad exacta por WhatsApp o correo electrónico.
-              </p>
-            </div>
-
-            {/* Date Picker row */}
-            <div className="space-y-2">
-              <label className="text-xs font-semibold uppercase tracking-wider text-[#5A655C] dark:text-[#B7BEA3]">
-                Día de la semana
-              </label>
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-                {upcomingDates.map((item) => {
-                  const isSelected = selectedDate === item.fullDate;
-                  return (
-                    <button
-                      key={item.fullDate}
-                      type="button"
-                      onClick={() => setSelectedDate(item.fullDate)}
-                      className={`p-3 rounded-2xl border text-center transition-all ${
-                        isSelected
-                          ? isDark
-                            ? 'bg-[#7C9682] text-[#171A17] border-[#7C9682]'
-                            : 'bg-[#4A5D4E] text-white border-[#4A5D4E]'
-                          : isDark
-                          ? 'bg-[#1C2420] border-[#2D3930] hover:bg-[#222C26]'
-                          : 'bg-white border-[#E8E2D9] hover:bg-[#F3EFEA]'
-                      }`}
-                    >
-                      <span className="text-[11px] block font-medium opacity-80">
-                        {item.dayName}
-                      </span>
-                      <span className="text-lg font-bold block my-0.5">
-                        {item.dayNumber}
-                      </span>
-                      <span className="text-[10px] block opacity-70">
-                        {item.month}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Time Slot Picker */}
-            <div className="space-y-2">
-              <label className="text-xs font-semibold uppercase tracking-wider text-[#5A655C] dark:text-[#B7BEA3]">
-                Franja Horaria Disponible
-              </label>
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-                {timeSlots.map((slot) => {
-                  const isSelected = selectedTime === slot;
-                  return (
-                    <button
-                      key={slot}
-                      type="button"
-                      onClick={() => setSelectedTime(slot)}
-                      className={`py-2.5 px-3 rounded-xl border text-center text-xs font-semibold transition-all ${
-                        isSelected
-                          ? isDark
-                            ? 'bg-[#7C9682] text-[#171A17] border-[#7C9682]'
-                            : 'bg-[#4A5D4E] text-white border-[#4A5D4E]'
-                          : isDark
-                          ? 'bg-[#1C2420] border-[#2D3930] hover:bg-[#222C26]'
-                          : 'bg-white border-[#E8E2D9] hover:bg-[#F3EFEA]'
-                      }`}
-                    >
-                      {slot} h
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="flex justify-between items-center pt-4">
-              <button
-                type="button"
-                onClick={() => setStep(2)}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5A655C] dark:text-[#B7BEA3] hover:underline"
-              >
-                <ChevronLeft className="w-4 h-4" />
-                <span>Volver</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setStep(4)}
-                className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
-                  isDark
-                    ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
-                }`}
-              >
-                <span>Tus Datos de Contacto</span>
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Step 4: Contact info & confirm */}
-        {step === 4 && (
-          <form data-motion-booking-step onSubmit={handleSubmitBooking} className="space-y-5">
-            <div>
-              <h3 className="font-serif text-2xl font-medium tracking-tight">
-                Completa tus datos
-              </h3>
-              <p className="text-sm mt-1 text-[#5A655C] dark:text-[#B7BEA3]">
-                Trataremos tus datos con absoluta confidencialidad sanitaria.
-              </p>
-            </div>
-
-            {/* Summary pill */}
-            <div
-              className={`p-3.5 rounded-xl border text-xs flex flex-wrap items-center justify-between gap-2 ${
-                isDark
-                  ? 'bg-[#1C2420] border-[#2D3930]'
-                  : 'bg-[#F3EFEA] border-[#E8E2D9]'
-              }`}
-            >
-              <div>
-                <span className="font-semibold block text-[#4A5D4E] dark:text-[#A7B39A]">
-                  {getServiceTitle(selectedService)}
-                </span>
-                <span className="opacity-80">
-                  {selectedModality === 'presencial'
-                    ? 'Presencial en Zaragoza (Plaza Europa)'
-                    : 'Online por Videoconsulta'}{' '}
-                  · {selectedDate} a las {selectedTime} h
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={() => setStep(1)}
-                className="text-[#AA4664] dark:text-[#DDB5C1] font-medium hover:underline text-[11px]"
-              >
-                Cambiar
-              </button>
-            </div>
-
+        {step === 2 ? (
+          <section data-motion-booking-step className="space-y-6" aria-labelledby="booking-modal-title">
+            <div><h2 id="booking-modal-title" className="font-serif text-2xl font-medium tracking-tight">Indica fecha y hora preferidas</h2><p className="text-sm mt-1 text-[#5A655C] dark:text-[#B7BEA3]">No representa disponibilidad confirmada; Begoña la confirmará contigo.</p></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5">
-                  Nombre Completo *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Tu nombre y apellidos"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
-                    isDark
-                      ? 'bg-[#1C2420] border-[#2D3930] focus:ring-[#7C9682] text-white'
-                      : 'bg-white border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
-                  }`}
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5">
-                  Teléfono / WhatsApp *
-                </label>
-                <input
-                  type="tel"
-                  required
-                  placeholder="+34 600 000 000"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
-                    isDark
-                      ? 'bg-[#1C2420] border-[#2D3930] focus:ring-[#7C9682] text-white'
-                      : 'bg-white border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
-                  }`}
-                />
-              </div>
+              <div><label htmlFor="booking-preferred-date" className="block text-xs font-semibold uppercase tracking-wider mb-1.5">Fecha preferida *</label><div className="relative"><CalendarIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#5A655C] dark:text-[#B7BEA3] pointer-events-none" aria-hidden="true" /><input id="booking-preferred-date" name="preferredDate" type="date" required min={todayIso()} value={preferredDate} onChange={(event) => setPreferredDate(event.target.value)} className={`${inputClassName} pl-11`} /></div></div>
+              <div><label htmlFor="booking-preferred-time" className="block text-xs font-semibold uppercase tracking-wider mb-1.5">Hora preferida *</label><div className="relative"><Clock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#5A655C] dark:text-[#B7BEA3] pointer-events-none" aria-hidden="true" /><input id="booking-preferred-time" name="preferredTime" type="time" required value={preferredTime} onChange={(event) => setPreferredTime(event.target.value)} className={`${inputClassName} pl-11`} /></div></div>
             </div>
+            <div className="flex justify-between items-center pt-4"><button type="button" onClick={() => setStep(1)} className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5A655C] dark:text-[#B7BEA3] hover:underline focus-visible:ring-2"><ChevronLeft className="w-4 h-4" aria-hidden="true" /><span>Volver</span></button><button type="button" disabled={!preferredDate || !preferredTime} onClick={() => setStep(3)} className={`${primaryButtonClassName} disabled:opacity-50`}><span>Completar datos</span><ChevronRight className="w-4 h-4" aria-hidden="true" /></button></div>
+          </section>
+        ) : null}
 
-            <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5">
-                Correo Electrónico *
-              </label>
-              <input
-                type="email"
-                required
-                placeholder="tuemail@ejemplo.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
-                  isDark
-                    ? 'bg-[#1C2420] border-[#2D3930] focus:ring-[#7C9682] text-white'
-                    : 'bg-white border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
-                }`}
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5">
-                Breve motivo de consulta (Opcional)
-              </label>
-              <textarea
-                rows={3}
-                placeholder="Cuéntame brevemente qué te gustaría abordar..."
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
-                className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 resize-none ${
-                  isDark
-                    ? 'bg-[#1C2420] border-[#2D3930] focus:ring-[#7C9682] text-white'
-                    : 'bg-white border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
-                }`}
-              />
-            </div>
-
-            {/* Privacy Checkbox */}
-            <div className="flex items-start gap-3 pt-1">
-              <input
-                id="booking-privacy"
-                type="checkbox"
-                required
-                checked={privacyAccepted}
-                onChange={(e) => setPrivacyAccepted(e.target.checked)}
-                className="mt-1 w-4 h-4 rounded text-[#4A5D4E] focus:ring-[#4A5D4E]"
-              />
-              <label htmlFor="booking-privacy" className="text-xs text-[#5A655C] dark:text-[#B7BEA3]">
-                He leído y acepto la política de privacidad y el tratamiento confidencial de datos de salud conforme al RGPD y la Ley de Psicología Sanitaria.
-              </label>
-            </div>
-
-            <div className="flex justify-between items-center pt-4">
-              <button
-                type="button"
-                onClick={() => setStep(3)}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5A655C] dark:text-[#B7BEA3] hover:underline"
-              >
-                <ChevronLeft className="w-4 h-4" />
-                <span>Volver</span>
-              </button>
-
-              <button
-                type="submit"
-                disabled={isSubmitting || !privacyAccepted || !fullName || !email || !phone}
-                className={`inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all disabled:opacity-50 ${
-                  isDark
-                    ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
-                    : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
-                }`}
-              >
-                {isSubmitting ? (
-                  <span>Procesando...</span>
-                ) : (
-                  <>
-                    <CheckCircle2 className="w-4 h-4" />
-                    <span>Confirmar Solicitud de Cita</span>
-                  </>
-                )}
-              </button>
-            </div>
+        {step === 3 ? (
+          <form data-motion-booking-step onSubmit={handleComplete} className="space-y-5" aria-labelledby="booking-modal-title">
+            <div><h2 id="booking-modal-title" className="font-serif text-2xl font-medium tracking-tight">Completa tus datos</h2><p className="text-sm mt-1 text-[#5A655C] dark:text-[#B7BEA3]">Podrás revisar y corregir toda la información antes de abrir tu correo.</p></div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"><div><label htmlFor="booking-name" className="block text-xs font-semibold uppercase tracking-wider mb-1.5">Nombre completo *</label><input id="booking-name" name="name" type="text" autoComplete="name" required value={fullName} onChange={(event) => setFullName(event.target.value)} className={inputClassName} /></div><div><label htmlFor="booking-phone" className="block text-xs font-semibold uppercase tracking-wider mb-1.5">Teléfono / WhatsApp *</label><input id="booking-phone" name="tel" type="tel" autoComplete="tel" required value={phone} onChange={(event) => setPhone(event.target.value)} className={inputClassName} /></div></div>
+            <div><label htmlFor="booking-email" className="block text-xs font-semibold uppercase tracking-wider mb-1.5">Correo electrónico *</label><input id="booking-email" name="email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} className={inputClassName} /></div>
+            <div><label htmlFor="booking-message" className="block text-xs font-semibold uppercase tracking-wider mb-1.5">Breve motivo de consulta</label><textarea id="booking-message" name="message" rows={3} value={message} onChange={(event) => setMessage(event.target.value)} className={`${inputClassName} resize-none`} /></div>
+            <div className="flex justify-between items-center pt-4"><button type="button" onClick={() => setStep(2)} className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5A655C] dark:text-[#B7BEA3] hover:underline focus-visible:ring-2"><ChevronLeft className="w-4 h-4" aria-hidden="true" /><span>Volver</span></button><button type="submit" className={primaryButtonClassName}><span>Revisar en contacto</span><ChevronRight className="w-4 h-4" aria-hidden="true" /></button></div>
           </form>
-        )}
-
-        {/* Step 5: Success Screen */}
-        {step === 5 && (
-          <div data-motion-booking-step className="text-center py-8 space-y-6">
-            <div className="w-16 h-16 rounded-full bg-[#4A5D4E]/10 text-[#4A5D4E] dark:text-[#A7B39A] flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-10 h-10" />
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight">
-                ¡Solicitud Recibida con Éxito!
-              </h3>
-              <p className="text-sm max-w-md mx-auto text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
-                Gracias, <strong className="text-[#222823] dark:text-[#F3EFE7]">{fullName}</strong>. Begoña revisará tu solicitud para el{' '}
-                <strong className="text-[#222823] dark:text-[#F3EFE7]">{selectedDate}</strong> a las{' '}
-                <strong className="text-[#222823] dark:text-[#F3EFE7]">{selectedTime} h</strong> y te contactará en breve vía WhatsApp o correo electrónico para confirmar la cita y enviarte las indicaciones.
-              </p>
-            </div>
-
-            {/* Direct WhatsApp shortcut button */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href={`${WHATSAPP_BASE_URL}?text=Hola%20Bego%C3%B1a,%20acabo%20de%20solicitar%20cita%20a%20nombre%20de%20${encodeURIComponent(
-                  fullName
-                )}%20para%20el%20d%C3%ADa%20${selectedDate}%20a%20las%20${selectedTime}h.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#25D366] text-white hover:bg-[#20bd5a] transition-colors"
-              >
-                <MessageSquare className="w-4 h-4" />
-                <span>Enviar aviso rápido por WhatsApp</span>
-              </a>
-
-              <button
-                type="button"
-                onClick={onClose}
-                className={`w-full sm:w-auto px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider border transition-colors ${
-                  isDark
-                    ? 'border-[#2D3930] hover:bg-[#222C26]'
-                    : 'border-[#D8D0C4] hover:bg-[#F3EFEA]'
-                }`}
-              >
-                Finalizar
-              </button>
-            </div>
-          </div>
-        )}
+        ) : null}
       </div>
     </div>
   );
