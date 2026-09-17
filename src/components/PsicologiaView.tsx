@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ServiceDetail, NavigationTab } from '../types';
+import { NavigationTab } from '../types';
 import { IMAGES, SERVICES_DATA, PERICARDIUM_INFO } from '../data/content';
 import psicologiaHeroImg from '/people/begona-roy-psicologa.jpg';
 import {
@@ -7,6 +7,7 @@ import {
   useGsapDynamicEntrance,
   useGsapPageEntrance,
 } from '../hooks/useGsapAnimations';
+import { ROUTES } from '../routes';
 import {
   Sparkles,
   ShieldCheck,
@@ -34,15 +35,11 @@ import {
 
 interface PsicologiaViewProps {
   onNavigate: (tab: NavigationTab) => void;
-  onOpenBooking: (serviceId?: string) => void;
-  onSelectServiceDetail: (service: ServiceDetail) => void;
   isDark: boolean;
 }
 
 export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
   onNavigate,
-  onOpenBooking,
-  onSelectServiceDetail,
   isDark,
 }) => {
   const [activeApproach, setActiveApproach] = useState<'integral' | 'emdr' | 'psicooncologia'>('integral');
@@ -122,9 +119,8 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
 
             {/* CTAs */}
             <div data-motion-hero className="flex flex-wrap items-center gap-4 pt-2">
-              <button
-                type="button"
-                onClick={() => onOpenBooking()}
+              <a
+                href={`${ROUTES.contacto}#contact-form`}
                 className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg ${
                   isDark
                     ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
@@ -133,7 +129,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
               >
                 <Calendar className="w-4 h-4" />
                 <span>Pedir Cita</span>
-              </button>
+              </a>
 
               <button
                 type="button"
@@ -184,6 +180,24 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 2.5. REFINED QUOTE BLOCK (Dancing Script) */}
+      <section data-motion-reveal className="max-w-4xl mx-auto px-4">
+        <div
+          className={`p-8 sm:p-10 rounded-3xl border text-center transition-all ${
+            isDark
+              ? 'bg-[#1C2420] border-[#2D3930]'
+              : 'bg-[#F3EFEA] border-[#E8E2D9]'
+          }`}
+        >
+          <p className="font-script text-2xl sm:text-3xl leading-relaxed text-[#222823] dark:text-[#F3EFE7] font-semibold">
+            "{PERICARDIUM_INFO.quote}"
+          </p>
+          <span className="font-serif text-xs uppercase tracking-widest text-[#AA4664] dark:text-[#DDB5C1] font-medium block mt-3">
+            Begoña Roy · Psicóloga Sanitaria y Terapeuta
+          </span>
         </div>
       </section>
 
@@ -323,8 +337,8 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 </div>
 
                 <div className="pt-4 flex items-center gap-3">
-                  <button
-                    onClick={() => onOpenBooking('integral')}
+                  <a
+                    href={`${ROUTES.contacto}#contact-form`}
                     className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                       isDark
                         ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
@@ -333,7 +347,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                   >
                     <Calendar className="w-4 h-4" />
                     <span>Pedir Cita para Psicología Integral</span>
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -436,8 +450,8 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 </div>
 
                 <div className="pt-4 flex items-center gap-3">
-                  <button
-                    onClick={() => onOpenBooking('emdr')}
+                  <a
+                    href={`${ROUTES.contacto}#contact-form`}
                     className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                       isDark
                         ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
@@ -446,7 +460,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                   >
                     <Calendar className="w-4 h-4" />
                     <span>Pedir Cita para Terapia EMDR</span>
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -481,9 +495,6 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
             <div className="flex flex-col lg:flex-row gap-8 items-start">
               <div className="flex-1 space-y-5">
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#AA4664] text-white shadow-sm">
-                    Especialidad Destacada
-                  </span>
                   <span className="text-xs font-medium text-[#4A5D4E] dark:text-[#A7B39A]">
                     Pacientes y Familias
                   </span>
@@ -561,8 +572,8 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 </div>
 
                 <div className="pt-4 flex items-center gap-3">
-                  <button
-                    onClick={() => onOpenBooking('psicooncologia')}
+                  <a
+                    href={`${ROUTES.contacto}#contact-form`}
                     className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                       isDark
                         ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
@@ -571,7 +582,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                   >
                     <Calendar className="w-4 h-4" />
                     <span>Pedir Cita para Psicooncología</span>
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -592,24 +603,6 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
             </div>
           </div>
         )}
-      </section>
-
-      {/* 2.5. REFINED QUOTE BLOCK (Dancing Script) */}
-      <section data-motion-reveal className="max-w-4xl mx-auto px-4">
-        <div
-          className={`p-8 sm:p-10 rounded-3xl border text-center transition-all ${
-            isDark
-              ? 'bg-[#1C2420] border-[#2D3930]'
-              : 'bg-[#F3EFEA] border-[#E8E2D9]'
-          }`}
-        >
-          <p className="font-script text-2xl sm:text-3xl leading-relaxed text-[#222823] dark:text-[#F3EFE7] font-semibold">
-            "{PERICARDIUM_INFO.quote}"
-          </p>
-          <span className="font-serif text-xs uppercase tracking-widest text-[#AA4664] dark:text-[#DDB5C1] font-medium block mt-3">
-            Begoña Roy · Psicóloga Sanitaria y Terapeuta
-          </span>
-        </div>
       </section>
 
       {/* 3. ¿QUÉ ENCONTRARÁS EN NUESTRAS SESIONES? */}
@@ -780,20 +773,17 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                         <h3 className="font-serif text-lg sm:text-xl font-medium text-[#222823] dark:text-[#F3EFE7]">
                           {service.title}
                         </h3>
-                        {service.featured && (
-                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#AA4664] text-white shadow-sm">
-                            Especialidad Destacada
+                        {service.tag && (
+                          <span
+                            className={`hidden sm:inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider ${
+                              isDark
+                                ? 'bg-[#222C26] text-[#A7B39A]'
+                                : 'bg-[#E8ECE9] text-[#4A5D4E]'
+                            }`}
+                          >
+                            {service.tag}
                           </span>
                         )}
-                        <span
-                          className={`hidden sm:inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider ${
-                            isDark
-                              ? 'bg-[#222C26] text-[#A7B39A]'
-                              : 'bg-[#E8ECE9] text-[#4A5D4E]'
-                          }`}
-                        >
-                          {service.tag}
-                        </span>
                       </div>
                       {!isOpen && (
                         <p className="text-xs text-[#5A655C] dark:text-[#B7BEA3] truncate mt-0.5">
@@ -843,9 +833,11 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                           referrerPolicy="no-referrer"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                        <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#4A5D4E] dark:bg-[#151B17]/90 dark:text-[#A7B39A] backdrop-blur-sm">
-                          {service.tag}
-                        </span>
+                        {service.tag && (
+                          <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#4A5D4E] dark:bg-[#151B17]/90 dark:text-[#A7B39A] backdrop-blur-sm">
+                            {service.tag}
+                          </span>
+                        )}
                       </div>
                     </div>
 
@@ -908,22 +900,8 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                       </div>
 
                       <div className="flex items-center gap-3 w-full sm:w-auto">
-                        <button
-                          type="button"
-                          onClick={() => onSelectServiceDetail(service)}
-                          className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold border transition-all ${
-                            isDark
-                              ? 'border-[#2D3930] text-[#B7BEA3] hover:bg-[#222C26]'
-                              : 'border-[#D8D0C4] text-[#222823] hover:bg-white'
-                          }`}
-                        >
-                          <span>Ver en ventana modal</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
-                        </button>
-
-                        <button
-                          type="button"
-                          onClick={() => onOpenBooking(service.id)}
+                        <a
+                          href={`${ROUTES.contacto}#contact-form`}
                           className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                             isDark
                               ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
@@ -932,7 +910,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                         >
                           <Calendar className="w-3.5 h-3.5" />
                           <span>Pedir Cita</span>
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -1085,8 +1063,8 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
             </p>
 
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
-                onClick={() => onOpenBooking()}
+              <a
+                href={`${ROUTES.contacto}#contact-form`}
                 className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-md active:scale-[0.98] ${
                   isDark
                     ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
@@ -1095,7 +1073,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
               >
                 <Calendar className="w-4 h-4" />
                 <span>Contactar Ahora</span>
-              </button>
+              </a>
 
               <button
                 onClick={() => onNavigate('contacto')}

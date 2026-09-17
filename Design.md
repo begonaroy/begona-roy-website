@@ -17,11 +17,11 @@ La aplicación es una SPA React con cuatro vistas principales:
 | Pericardio | Informar de la técnica presencial | Explicación, conexiones corporales, pasos de sesión y beneficios |
 | Contacto | Resolver dudas y convertir | Formulario, datos de contacto, FAQ y acceso directo a WhatsApp |
 
-Los elementos transversales son la navegación, el pie, el selector de tema y los modales de biografía, detalle de servicio, cita y textos legales.
+Los elementos transversales son la navegación, el pie, el selector de tema y los modales de biografía, detalle de servicio y textos legales.
 
 ## Flujos prioritarios
 
-1. **Solicitar una cita:** desde cualquier CTA se abre un modal de tres pasos: modalidad, fecha/hora preferidas y datos. Al completarlo, el usuario revisa el borrador en Contacto y abre su aplicación de correo para enviarlo.
+1. **Solicitar una cita:** desde cualquier CTA se enlaza al formulario de Contacto. La persona revisa los datos y abre su aplicación de correo para enviar el mensaje.
 2. **Conocer una especialidad:** las tarjetas abren un detalle con explicación, destinatarios, beneficios y CTA contextual.
 3. **Resolver una duda:** el usuario llega a Contacto, filtra o consulta las FAQ y puede continuar a WhatsApp o a la reserva.
 

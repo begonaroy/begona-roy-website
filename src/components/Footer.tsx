@@ -2,21 +2,20 @@ import React, { useRef } from 'react';
 import { NavigationTab } from '../types';
 import { CLINICAL_INFO } from '../data/content';
 import { Logo } from './Logo';
-import { MapPin, Phone, Mail, Clock, ArrowUp, Heart, Sparkles } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ArrowUp, Heart, ShieldCheck, Sparkles } from 'lucide-react';
 import { scrollToPageTop, useGsapPageEntrance } from '../hooks/useGsapAnimations';
+import { ROUTES } from '../routes';
 
 interface FooterProps {
   onNavigate: (tab: NavigationTab) => void;
   isDark: boolean;
   onOpenPrivacy: (type: 'privacidad' | 'aviso' | 'cookies') => void;
-  onOpenBooking: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   onNavigate,
   isDark,
   onOpenPrivacy,
-  onOpenBooking,
 }) => {
   const footerRef = useRef<HTMLElement>(null);
   useGsapPageEntrance(footerRef);
@@ -46,7 +45,13 @@ export const Footer: React.FC<FooterProps> = ({
                   : 'bg-[#FAF7F2] border-[#E8E2D9] text-[#4A5D4E]'
               }`}
             >
-              <div className="font-semibold">Atención sanitaria</div>
+              <div className="flex items-center gap-2 font-semibold">
+                <ShieldCheck className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1] flex-shrink-0" />
+                <span>Ejercicio Sanitario Colegiado</span>
+              </div>
+              <p className="text-[11px] leading-tight text-opacity-80">
+                Col. Nº {CLINICAL_INFO.collegiateNumber}
+              </p>
               <p className="text-[11px] leading-tight text-opacity-80">
                 {CLINICAL_INFO.degree}
               </p>
@@ -104,13 +109,13 @@ export const Footer: React.FC<FooterProps> = ({
                 </button>
               </li>
               <li>
-                <button
-                  onClick={onOpenBooking}
+                <a
+                  href={`${ROUTES.contacto}#contact-form`}
                   className="text-[#AA4664] dark:text-[#DDB5C1] font-medium hover:underline flex items-center gap-1.5"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Reserva de Cita</span>
-                </button>
+                </a>
               </li>
             </ul>
           </div>

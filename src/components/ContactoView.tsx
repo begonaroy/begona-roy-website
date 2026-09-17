@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { CLINICAL_INFO, FAQS_DATA } from '../data/content';
-import { BookingDraft, FAQItem, NavigationTab } from '../types';
+import { FAQItem, NavigationTab } from '../types';
 import { useGsapDynamicEntrance, useGsapPageEntrance } from '../hooks/useGsapAnimations';
 import {
   MapPin,
@@ -17,28 +17,21 @@ import {
 } from 'lucide-react';
 
 interface ContactoViewProps {
-  onOpenBooking: () => void;
   onNavigate: (tab: NavigationTab) => void;
-  bookingDraft: BookingDraft | null;
   isDark: boolean;
 }
 
 export const ContactoView: React.FC<ContactoViewProps> = ({
-  onOpenBooking,
   onNavigate,
-  bookingDraft,
   isDark,
 }) => {
   // Form State
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [serviceChoice, setServiceChoice] = useState('consulta-general');
   const [modalityChoice, setModalityChoice] = useState('presencial');
-  const [preferredDate, setPreferredDate] = useState('');
-  const [preferredTime, setPreferredTime] = useState('');
   const [message, setMessage] = useState('');
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [formError, setFormError] = useState('');
 
   // FAQ State
   const [openFaqId, setOpenFaqId] = useState<string | null>('faq-1');
@@ -49,39 +42,34 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
   useGsapPageEntrance(viewRef);
   useGsapDynamicEntrance(viewRef, '[data-motion-faq-panel]', openFaqId);
 
-  useEffect(() => {
-    if (!bookingDraft) return;
-    setName(bookingDraft.fullName);
-    setEmail(bookingDraft.email);
-    setPhone(bookingDraft.phone);
-    setModalityChoice(bookingDraft.modality);
-    setPreferredDate(bookingDraft.preferredDate);
-    setPreferredTime(bookingDraft.preferredTime);
-    setMessage(bookingDraft.message);
-    setServiceChoice('consulta-general');
-    setPrivacyAccepted(false);
-  }, [bookingDraft]);
-
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!name || !email || !privacyAccepted) return;
+    if (!e.currentTarget.checkValidity()) {
+      setFormError('Completa los campos obligatorios y acepta la política de privacidad para abrir el correo.');
+      e.currentTarget.reportValidity();
+      return;
+    }
+
+    setFormError('');
     const modality = modalityChoice === 'presencial' ? 'Presencial en Zaragoza' : 'Online por videoconsulta';
     const body = [
       'Solicitud de cita desde begonaroy.com',
       '',
       `Nombre: ${name}`,
-      `Teléfono / WhatsApp: ${phone || 'No facilitado'}`,
       `Correo de respuesta: ${email}`,
-      `Motivo principal: ${serviceChoice}`,
       `Modalidad: ${modality}`,
-      `Fecha preferida: ${preferredDate || 'Sin preferencia indicada'}`,
-      `Hora preferida: ${preferredTime || 'Sin preferencia indicada'}`,
       '',
       'Mensaje:',
       message || 'Sin mensaje adicional.',
     ].join('\n');
     const subject = `Solicitud de cita — ${name}`;
-    window.location.href = `mailto:${CLINICAL_INFO.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailComposeUrl = new URL('https://mail.google.com/mail/');
+    gmailComposeUrl.searchParams.set('view', 'cm');
+    gmailComposeUrl.searchParams.set('fs', '1');
+    gmailComposeUrl.searchParams.set('to', CLINICAL_INFO.email);
+    gmailComposeUrl.searchParams.set('su', subject);
+    gmailComposeUrl.searchParams.set('body', body);
+    window.location.assign(gmailComposeUrl.toString());
   };
 
   const filteredFaqs = FAQS_DATA.filter((faq) => {
@@ -128,10 +116,10 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                 Escríbeme un mensaje
               </h2>
               <p className="text-xs text-[#5A655C] dark:text-[#B7BEA3] mb-6">
-                Revisa los datos y abre tu aplicación de correo para enviar el mensaje. La web no lo envía por sí sola.
+                Estoy aquí para escucharte, pide cita y nos conocemos.
               </p>
 
-              <form onSubmit={handleFormSubmit} className="space-y-4">
+              <form id="contact-form" noValidate onSubmit={handleFormSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="contact-name" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
@@ -173,52 +161,6 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                             : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
                         }`}
                       />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="contact-phone" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
-                        Teléfono / WhatsApp (Opcional)
-                      </label>
-                      <input
-                        id="contact-phone"
-                        name="tel"
-                        type="tel"
-                        autoComplete="tel"
-                        placeholder="+34 600 000 000"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
-                          isDark
-                            ? 'bg-[#151B17] border-[#2D3930] focus:ring-[#7C9682] text-white'
-                            : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
-                        }`}
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="contact-service" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
-                        Motivo principal de consulta
-                      </label>
-                      <select
-                        id="contact-service"
-                        name="service"
-                        value={serviceChoice}
-                        onChange={(e) => setServiceChoice(e.target.value)}
-                        className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
-                          isDark
-                            ? 'bg-[#151B17] border-[#2D3930] focus:ring-[#7C9682] text-white'
-                            : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
-                        }`}
-                      >
-                        <option value="consulta-general">Consulta general</option>
-                        <option value="ansiedad-estres">Ansiedad y Estrés</option>
-                        <option value="psicooncologia">Psicooncología (Cáncer)</option>
-                        <option value="duelo-trauma">Proceso de Duelo y Pérdida</option>
-                        <option value="liberacion-pericardio">Liberación del Pericardio</option>
-                        <option value="otro">Otro motivo / Información general</option>
-                      </select>
                     </div>
                   </div>
 
@@ -273,39 +215,6 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="contact-preferred-date" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
-                        Fecha preferida
-                      </label>
-                      <input
-                        id="contact-preferred-date"
-                        name="preferredDate"
-                        type="date"
-                        value={preferredDate}
-                        onChange={(e) => setPreferredDate(e.target.value)}
-                        className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
-                          isDark ? 'bg-[#151B17] border-[#2D3930] focus:ring-[#7C9682] text-white' : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
-                        }`}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="contact-preferred-time" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
-                        Hora preferida
-                      </label>
-                      <input
-                        id="contact-preferred-time"
-                        name="preferredTime"
-                        type="time"
-                        value={preferredTime}
-                        onChange={(e) => setPreferredTime(e.target.value)}
-                        className={`w-full px-4 py-3 rounded-xl border text-sm transition-colors outline-none focus:ring-2 ${
-                          isDark ? 'bg-[#151B17] border-[#2D3930] focus:ring-[#7C9682] text-white' : 'bg-[#FBF9F5] border-[#E8E2D9] focus:ring-[#4A5D4E] text-[#222823]'
-                        }`}
-                      />
-                    </div>
-                  </div>
-
                   <div>
                     <label htmlFor="contact-message" className="block text-xs font-semibold uppercase tracking-wider mb-1 text-[#222823] dark:text-[#F3EFE7]">
                       Mensaje *
@@ -343,15 +252,14 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                   <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                     <button
                       type="submit"
-                      disabled={!privacyAccepted || !name || !email}
-                      className={`inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all disabled:opacity-50 ${
+                      className={`inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
                         isDark
                           ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
                           : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
                       }`}
                     >
                       <Send className="w-4 h-4" aria-hidden="true" />
-                      <span>Abrir correo para enviar</span>
+                      <span>Enviar</span>
                     </button>
 
                     <a
@@ -364,6 +272,11 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
                       <span>Escribir por WhatsApp</span>
                     </a>
                   </div>
+                  {formError && (
+                    <p role="alert" className="text-xs font-medium text-[#AA4664] dark:text-[#DDB5C1]">
+                      {formError}
+                    </p>
+                  )}
               </form>
             </div>
           </div>
@@ -610,13 +523,13 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
             </p>
 
             <div className="pt-4 flex justify-center">
-              <button
-                onClick={onOpenBooking}
+              <a
+                href="#contact-form"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-[#4A5D4E] hover:bg-[#FAF7F2] transition-colors shadow-lg active:scale-[0.98]"
               >
                 <Calendar className="w-4 h-4" />
-                <span>Agendar Cita Ahora</span>
-              </button>
+                <span>Pedir Cita Ahora</span>
+              </a>
             </div>
           </div>
         </div>

@@ -23,7 +23,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
 
   const titles = {
     privacidad: 'Política de Privacidad y Protección de Datos Sanitarios',
-    aviso: 'Aviso Legal e Información Sanitaria',
+    aviso: 'Aviso Legal e Información Sanitaria Colegiada',
     cookies: 'Política de Cookies'
   };
 
@@ -70,7 +70,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
           {type === 'privacidad' && (
             <>
               <p>
-                <strong>1. Responsable del Tratamiento:</strong> Begoña Roy, Psicóloga Sanitaria. Contacto: psicologiaroy@gmail.com.
+                <strong>1. Responsable del Tratamiento:</strong> Begoña Roy, Psicóloga Sanitaria Colegiada nº A-1008. Contacto: psicologiaroy@gmail.com.
               </p>
               <p>
                 <strong>2. Finalidad del Tratamiento:</strong> Los datos de carácter personal y de salud facilitados a través de formularios, correos electrónicos o durante el proceso psicoterapéutico serán tratados con la exclusiva finalidad de prestar los servicios de asesoramiento psicológico, psicoterapia sanitaria, psicooncología o liberación del pericardio, así como para la gestión administrativa de citas.
@@ -90,7 +90,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({
                 <strong>Titularidad de la Web:</strong> En cumplimiento del artículo 10 de la Ley 34/2002 de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI), se informa de que este sitio web es propiedad de Begoña Roy.
               </p>
               <p>
-                <strong>Cualificación Profesional:</strong> Licenciada en Psicología por la Universidad de Valencia (1995). Habilitación como Psicóloga General Sanitaria.
+                <strong>Cualificación Profesional:</strong> Licenciada en Psicología por la Universidad de Valencia (1995). Habilitación como Psicóloga General Sanitaria y Colegiada nº A-1008.
               </p>
               <p>
                 <strong>Naturaleza de la Información:</strong> Los contenidos expuestos en esta web tienen carácter puramente divulgativo y de presentación de servicios. En ningún caso sustituyen el diagnóstico, prescripción médica o tratamiento personalizado por un facultativo especialista.

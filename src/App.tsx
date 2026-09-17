@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { BookingDraft, NavigationTab, ServiceDetail } from './types';
+import { NavigationTab, ServiceDetail } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomeView } from './components/HomeView';
@@ -7,7 +7,6 @@ import { PsicologiaView } from './components/PsicologiaView';
 import { PericardioView } from './components/PericardioView';
 import { ContactoView } from './components/ContactoView';
 import { BioModal } from './components/BioModal';
-import { BookingModal } from './components/BookingModal';
 import { ServiceDetailModal } from './components/ServiceDetailModal';
 import { PrivacyModal } from './components/PrivacyModal';
 import { ROUTES, tabForPath } from './routes';
@@ -18,9 +17,6 @@ export default function App() {
   const [isDark, setIsDark] = useState<boolean>(false);
 
   // Modal States
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [bookingInitialService, setBookingInitialService] = useState<string | undefined>(undefined);
-  const [bookingDraft, setBookingDraft] = useState<BookingDraft | null>(null);
   const [isBioOpen, setIsBioOpen] = useState(false);
   const [selectedDetailService, setSelectedDetailService] = useState<ServiceDetail | null>(null);
   const [privacyModalType, setPrivacyModalType] = useState<'privacidad' | 'aviso' | 'cookies' | null>(null);
@@ -74,17 +70,6 @@ export default function App() {
     }
   };
 
-  const handleOpenBooking = (serviceId?: string) => {
-    setBookingInitialService(serviceId);
-    setIsBookingOpen(true);
-  };
-
-  const handleCompleteBooking = (draft: BookingDraft) => {
-    setBookingDraft(draft);
-    setIsBookingOpen(false);
-    handleNavigate('contacto');
-  };
-
   const handleNavigate = (tab: NavigationTab) => {
     if (currentTab === tab) {
       scrollToPageTop();
@@ -113,7 +98,6 @@ export default function App() {
         onNavigate={handleNavigate}
         isDark={isDark}
         onToggleTheme={handleToggleTheme}
-        onOpenBooking={() => handleOpenBooking()}
       />
 
       {/* Main Content Area */}
@@ -121,7 +105,6 @@ export default function App() {
         {currentTab === 'inicio' && (
           <HomeView
             onNavigate={handleNavigate}
-            onOpenBooking={() => handleOpenBooking()}
             onOpenBio={() => setIsBioOpen(true)}
             onSelectServiceDetail={(svc) => setSelectedDetailService(svc)}
             isDark={isDark}
@@ -131,8 +114,6 @@ export default function App() {
         {currentTab === 'psicologia' && (
           <PsicologiaView
             onNavigate={handleNavigate}
-            onOpenBooking={(svcId) => handleOpenBooking(svcId)}
-            onSelectServiceDetail={(svc) => setSelectedDetailService(svc)}
             isDark={isDark}
           />
         )}
@@ -140,16 +121,13 @@ export default function App() {
         {currentTab === 'pericardio' && (
           <PericardioView
             onNavigate={handleNavigate}
-            onOpenBooking={(svcId) => handleOpenBooking(svcId)}
             isDark={isDark}
           />
         )}
 
         {currentTab === 'contacto' && (
           <ContactoView
-            onOpenBooking={() => handleOpenBooking()}
             onNavigate={handleNavigate}
-            bookingDraft={bookingDraft}
             isDark={isDark}
           />
         )}
@@ -160,23 +138,13 @@ export default function App() {
         onNavigate={handleNavigate}
         isDark={isDark}
         onOpenPrivacy={(type) => setPrivacyModalType(type)}
-        onOpenBooking={() => handleOpenBooking()}
       />
 
       {/* Modals */}
-      <BookingModal
-        isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
-        onComplete={handleCompleteBooking}
-        isDark={isDark}
-        initialServiceId={bookingInitialService}
-      />
-
       <BioModal
         isOpen={isBioOpen}
         onClose={() => setIsBioOpen(false)}
         isDark={isDark}
-        onOpenBooking={() => handleOpenBooking()}
       />
 
       <ServiceDetailModal
@@ -184,7 +152,6 @@ export default function App() {
         isOpen={!!selectedDetailService}
         onClose={() => setSelectedDetailService(null)}
         isDark={isDark}
-        onOpenBookingForService={(svcId) => handleOpenBooking(svcId)}
       />
 
       <PrivacyModal
