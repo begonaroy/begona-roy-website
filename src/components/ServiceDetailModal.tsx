@@ -2,13 +2,13 @@ import React, { useRef } from 'react';
 import { ServiceDetail } from '../types';
 import { X, CheckCircle2, Calendar, MapPin, Video, Sparkles, ArrowRight } from 'lucide-react';
 import { useGsapDialogEntrance } from '../hooks/useGsapAnimations';
+import { ROUTES } from '../routes';
 
 interface ServiceDetailModalProps {
   service: ServiceDetail | null;
   isOpen: boolean;
   onClose: () => void;
   isDark: boolean;
-  onOpenBookingForService: (serviceId: string) => void;
 }
 
 export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
@@ -16,7 +16,6 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
   isOpen,
   onClose,
   isDark,
-  onOpenBookingForService,
 }) => {
   const overlayRef = useRef<HTMLDivElement>(null);
   useGsapDialogEntrance(overlayRef, isOpen);
@@ -64,9 +63,11 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
-              <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#AA4664] text-white mb-2 shadow-sm">
-                {service.tag}
-              </span>
+              {service.tag && (
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#AA4664] text-white mb-2 shadow-sm">
+                  {service.tag}
+                </span>
+              )}
               <h2 className="font-serif text-2xl sm:text-3xl text-white font-medium drop-shadow-sm">
                 {service.title}
               </h2>
@@ -130,11 +131,8 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
               <span>Modalidades: {service.modalities.join(' o ')}</span>
             </div>
 
-            <button
-              onClick={() => {
-                onClose();
-                onOpenBookingForService(service.id);
-              }}
+            <a
+              href={`${ROUTES.contacto}#contact-form`}
               className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                 isDark
                   ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
@@ -142,8 +140,8 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
               }`}
             >
               <Calendar className="w-4 h-4" />
-              <span>Solicitar Cita para este Servicio</span>
-            </button>
+              <span>Solicitar Cita</span>
+            </a>
           </div>
         </div>
       </div>

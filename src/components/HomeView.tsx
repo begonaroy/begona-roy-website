@@ -4,6 +4,7 @@ import { CLINICAL_INFO, IMAGES, SERVICES_DATA, TESTIMONIALS } from '../data/cont
 import couchImg from '../assets/images/couch.png';
 import onlineAImg from '../assets/images/online-a.png';
 import { useGsapPageEntrance } from '../hooks/useGsapAnimations';
+import { ROUTES } from '../routes';
 import {
   Calendar,
   ArrowRight,
@@ -17,7 +18,6 @@ import {
   PhoneCall,
   UserCheck,
   ChevronDown,
-  Clock,
   Feather,
   Layers,
   Star,
@@ -25,7 +25,6 @@ import {
 
 interface HomeViewProps {
   onNavigate: (tab: NavigationTab) => void;
-  onOpenBooking: (serviceId?: string) => void;
   onOpenBio: () => void;
   onSelectServiceDetail: (service: ServiceDetail) => void;
   isDark: boolean;
@@ -33,7 +32,6 @@ interface HomeViewProps {
 
 export const HomeView: React.FC<HomeViewProps> = ({
   onNavigate,
-  onOpenBooking,
   onOpenBio,
   onSelectServiceDetail,
   isDark,
@@ -73,9 +71,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
               {/* CTAs */}
               <div data-motion-hero className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <button
+                <a
                   id="hero-cta-booking"
-                  onClick={onOpenBooking}
+                  href={`${ROUTES.contacto}#contact-form`}
                   className={`w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] ${
                     isDark
                       ? 'bg-[#7C9682] hover:bg-[#8EA694] text-[#171A17]'
@@ -84,7 +82,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Reserva tu primera sesión</span>
-                </button>
+                </a>
 
                 <button
                   id="hero-cta-approach"
@@ -103,13 +101,18 @@ export const HomeView: React.FC<HomeViewProps> = ({
               {/* Trust Indicators */}
               <div data-motion-hero className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-[#5A655C] dark:text-[#B7BEA3]">
                 <span className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
+                  Col. Nº {CLINICAL_INFO.collegiateNumber}
+                </span>
+                <span className="hidden sm:inline opacity-40">•</span>
+                <span className="flex items-center gap-1.5">
                   <Heart className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
                   {CLINICAL_INFO.yearsExperience}
                 </span>
                 <span className="hidden sm:inline opacity-40">•</span>
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
-                  Zaragoza & Online
+                  Zaragoza · Consulta presencial y online
                 </span>
               </div>
             </div>
@@ -179,25 +182,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </div>
 
             {/* Core statement */}
-            <p className="font-serif text-2xl sm:text-3xl lg:text-[2.1rem] leading-[1.38] text-[#222823] dark:text-[#F3EFE7] font-normal tracking-tight">
+            <p className="font-script text-2xl sm:text-3xl md:text-4xl leading-[1.225] text-[#222823] dark:text-[#F3EFE7] font-semibold">
               “Un espacio de calidez, respeto y escucha profunda para transitar tu proceso individual, a tu ritmo, en un espacio de seguridad y confidencialidad”
             </p>
-
-            {/* Subtle decorative pillars */}
-            <div className="pt-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs sm:text-sm font-medium text-[#5A655C] dark:text-[#B7BEA3]">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFCFA]/70 dark:bg-[#151B17]/70 border border-[#E8E2D9]/80 dark:border-[#2D3930]">
-                <Heart aria-hidden="true" className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#DDB5C1]" />
-                <span>Calidez y respeto</span>
-              </span>
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFCFA]/70 dark:bg-[#151B17]/70 border border-[#E8E2D9]/80 dark:border-[#2D3930]">
-                <Clock aria-hidden="true" className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A]" />
-                <span>A tu ritmo</span>
-              </span>
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FCFCFA]/70 dark:bg-[#151B17]/70 border border-[#E8E2D9]/80 dark:border-[#2D3930]">
-                <ShieldCheck aria-hidden="true" className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A]" />
-                <span>Seguridad y confidencialidad</span>
-              </span>
-            </div>
           </div>
         </div>
       </section>
@@ -385,7 +372,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               </div>
             </button>
 
-            {/* 5. Bloqueo Emocional y Trauma */}
+            {/* 5. Bloqueo Emocional */}
             <button
               type="button"
               onClick={() => {
@@ -411,10 +398,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </span>
                 </div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1] block mb-1">
-                  EMDR & PNL
+                  EMDR
                 </span>
                 <h3 className="font-serif text-lg sm:text-xl font-medium text-[#222823] dark:text-[#F3EFE7] group-hover:text-[#AA4664] dark:group-hover:text-[#DDB5C1] transition-colors leading-snug">
-                  Bloqueo y Trauma
+                  Bloqueo Emocional
                 </h3>
                 <p className="text-xs text-[#5A655C] dark:text-[#B7BEA3] mt-2 leading-relaxed">
                   Integración de vivencias pasadas no resueltas y desbloqueo emocional seguro.
@@ -613,7 +600,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 Zaragoza (50006)
               </p>
               <p className="text-sm leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] max-w-[82%] sm:max-w-[78%]">
-                En un entorno cálido, íntimo y silencioso en {CLINICAL_INFO.location}. Ideal para contacto humano cercano y para la terapia manual de Pericardio.
+                En un entorno cálido, íntimo y silencioso. Ideal para contacto humano cercano y para la terapia manual de Pericardio.
               </p>
             </div>
             <div className="pt-6 mt-4 border-t border-[#E8E2D9] dark:border-[#2D3930] relative z-10 max-w-[70%] sm:max-w-[65%]">
@@ -652,7 +639,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 Videoconsulta Segura
               </p>
               <p className="text-sm leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] max-w-[82%] sm:max-w-[78%]">
-                Conéctate desde tu hogar o lugar de trabajo con total privacidad a través de plataforma cifrada de telemedicina.
+                Conéctate desde tu hogar o lugar de trabajo con total privacidad a través de videollamadas.
                 <br />
                 Misma calidez y eficacia clínica.
               </p>
@@ -680,7 +667,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 ¿Comenzamos el camino?
               </h3>
               <p className="text-xs text-[#DDB5C1] font-semibold uppercase tracking-wider">
-                Primera Sesión de Valoración
+                Pide cita y nos conocemos
               </p>
               <p className="text-sm leading-relaxed text-[#E6DFD3]">
                 Dar el primer paso suele ser lo que más cuesta. Estoy aquí para escucharte y encontrar juntos la mejor manera de acompañarte.
@@ -688,13 +675,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </div>
 
             <div className="pt-6 mt-4">
-              <button
-                onClick={onOpenBooking}
+              <a
+                href={`${ROUTES.contacto}#contact-form`}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-[#4A5D4E] hover:bg-[#FAF7F2] transition-colors shadow"
               >
                 <span>Contactar Ahora</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -714,6 +701,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#151B17]/60 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="text-xs uppercase tracking-widest font-semibold block text-[#B7BEA3]">
+                  Colegiada {CLINICAL_INFO.collegiateNumber}
+                </span>
                 <span className="font-serif text-lg font-medium">
                   Begoña Roy
                 </span>
@@ -757,12 +747,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              <button
-                onClick={onOpenBooking}
+              <a
+                href={`${ROUTES.contacto}#contact-form`}
                 className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1] hover:underline"
               >
                 Pedir cita con Begoña
-              </button>
+              </a>
             </div>
           </div>
         </div>

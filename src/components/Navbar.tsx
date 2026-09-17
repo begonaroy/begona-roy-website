@@ -11,7 +11,6 @@ interface NavbarProps {
   onNavigate: (tab: NavigationTab) => void;
   isDark: boolean;
   onToggleTheme: () => void;
-  onOpenBooking: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -19,7 +18,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   onNavigate,
   isDark,
   onToggleTheme,
-  onOpenBooking,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -133,9 +131,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
 
             {/* CTA Button: Pedir Cita */}
-            <button
+            <a
               id="header-booking-cta"
-              onClick={onOpenBooking}
+              href={`${ROUTES.contacto}#contact-form`}
               className={`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98] ${
                 isDark
                   ? 'bg-[#7C9682] hover:bg-[#8EA694] text-[#171A17]'
@@ -144,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Calendar className="w-3.5 h-3.5" />
               <span>Pedir Cita</span>
-            </button>
+            </a>
 
             {/* Mobile Menu Toggle Button */}
             <button
@@ -211,11 +209,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
 
           <div className="pt-3 flex flex-col gap-2.5">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBooking();
-              }}
+            <a
+              href={`${ROUTES.contacto}#contact-form`}
               className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-full text-sm font-semibold uppercase tracking-wider shadow-sm ${
                 isDark
                   ? 'bg-[#7C9682] text-[#171A17]'
@@ -224,7 +219,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Calendar className="w-4 h-4" />
               <span>Reserva tu primera sesión</span>
-            </button>
+            </a>
 
             <a
               href={`tel:${CLINICAL_INFO.phone}`}

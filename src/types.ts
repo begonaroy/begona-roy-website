@@ -23,8 +23,7 @@ export interface ServiceDetail {
   forWhom: string[];
   duration: string;
   modalities: ('Presencial en Zaragoza' | 'Online')[];
-  featured?: boolean;
-  tag: string;
+  tag?: string;
   image: string;
 }
 
@@ -43,24 +42,10 @@ export interface Testimonial {
   context: string;
 }
 
-export interface BookingDraft {
-  modality: 'presencial' | 'online';
-  preferredDate: string;
-  preferredTime: string;
-  fullName: string;
-  email: string;
-  phone: string;
-  message: string;
-}
-
 export interface ContactFormData {
   fullName: string;
   email: string;
-  phone?: string;
-  service: string;
   modality: 'presencial' | 'online';
-  preferredDate: string;
-  preferredTime: string;
   message: string;
   privacyAccepted: boolean;
 }

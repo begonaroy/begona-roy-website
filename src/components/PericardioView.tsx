@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { PERICARDIUM_INFO, IMAGES, CLINICAL_INFO } from '../data/content';
 import { NavigationTab } from '../types';
 import { useGsapDynamicEntrance, useGsapPageEntrance } from '../hooks/useGsapAnimations';
+import { ROUTES } from '../routes';
 import {
   Heart,
   Wind,
@@ -24,13 +25,11 @@ import {
 
 interface PericardioViewProps {
   onNavigate: (tab: NavigationTab) => void;
-  onOpenBooking: (serviceId?: string) => void;
   isDark: boolean;
 }
 
 export const PericardioView: React.FC<PericardioViewProps> = ({
   onNavigate,
-  onOpenBooking,
   isDark,
 }) => {
   const [activeConnectionIndex, setActiveConnectionIndex] = useState<number>(0);
@@ -116,6 +115,75 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
         </div>
       </section>
 
+      {/* EL PROCESO DE LIBERACIÓN DEL PERICARDIO (FOTO DE BEGOÑA & DESCRIPCIÓN EXTENDIDA) */}
+      <section data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          className={`p-8 sm:p-12 lg:p-14 rounded-3xl border shadow-sm ${
+            isDark
+              ? 'bg-[#1C2420] border-[#2D3930]'
+              : 'bg-white border-[#E8E2D9]'
+          }`}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Image Column */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-[#E8E2D9] dark:border-[#2D3930] aspect-[3/4] group">
+                <img
+                  src={IMAGES.pericardioSession}
+                  alt="Acompañamiento manual en camilla para la liberación del pericardio"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent flex items-end p-5">
+                  <div className="text-white space-y-1">
+                    <p className="font-serif text-base font-medium">
+                      Atención plena y escucha tisular en camilla
+                    </p>
+                    <p className="text-xs text-[#E6DFD3]">
+                      Sin maniobras bruscas · Con tu propia ropa · Todas las edades
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className={`p-4 sm:p-5 rounded-2xl border text-xs sm:text-sm space-y-2 ${
+                  isDark
+                    ? 'bg-[#151B17] border-[#2D3930] text-[#B7BEA3]'
+                    : 'bg-[#FAF7F2] border-[#E8E2D9] text-[#5A655C]'
+                }`}
+              >
+                <div className="flex items-center gap-2 text-[#4A5D4E] dark:text-[#A7B39A] font-semibold">
+                  <UserCheck className="w-4 h-4" />
+                  <span>Acompañamiento Adaptable e Inclusivo</span>
+                </div>
+                <p className="leading-relaxed">
+                  No tiene ninguna contraindicación. Es maravilloso para todas las edades: desde bebés hasta embarazadas o ancianos, adaptándose a cualquier necesidad (en camilla, de lado o en silla).
+                </p>
+              </div>
+            </div>
+
+            {/* Text Description Column */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="space-y-2">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1]">
+                  LA VIVENCIA TERAPÉUTICA
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
+                  El proceso de liberación del pericardio
+                </h2>
+              </div>
+
+              <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
+                {PERICARDIUM_INFO.processDescription.map((parr, idx) => (
+                  <p key={idx}>{parr}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2. ENTENDIENDO LA TERAPIA + BOTANICAL ANATOMICAL DIAGRAM */}
       <section id="que-es-el-pericardio" data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -174,8 +242,8 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
             </div>
 
             <div className="pt-2">
-              <button
-                onClick={() => onOpenBooking('liberacion-pericardio')}
+              <a
+                href={`${ROUTES.contacto}#contact-form`}
                 className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
                   isDark
                     ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
@@ -184,7 +252,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
               >
                 <Calendar className="w-4 h-4" />
                 <span>Solicitar Información / Cita</span>
-              </button>
+              </a>
             </div>
           </div>
 
@@ -249,75 +317,6 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
                     {PERICARDIUM_INFO.anatomicalConnections[activeConnectionIndex].description}
                   </p>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* EL PROCESO DE LIBERACIÓN DEL PERICARDIO (FOTO EN CAMILLA & DESCRIPCIÓN EXTENDIDA) */}
-      <section data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className={`p-8 sm:p-12 lg:p-14 rounded-3xl border shadow-sm ${
-            isDark
-              ? 'bg-[#1C2420] border-[#2D3930]'
-              : 'bg-white border-[#E8E2D9]'
-          }`}
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Image Column */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-[#E8E2D9] dark:border-[#2D3930] aspect-[3/4] group">
-                <img
-                  src={IMAGES.pericardioSession}
-                  alt="Acompañamiento manual en camilla para la liberación del pericardio"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent flex items-end p-5">
-                  <div className="text-white space-y-1">
-                    <p className="font-serif text-base font-medium">
-                      Atención plena y escucha tisular en camilla
-                    </p>
-                    <p className="text-xs text-[#E6DFD3]">
-                      Sin maniobras bruscas · Con tu propia ropa · Todas las edades
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className={`p-4 sm:p-5 rounded-2xl border text-xs sm:text-sm space-y-2 ${
-                  isDark
-                    ? 'bg-[#151B17] border-[#2D3930] text-[#B7BEA3]'
-                    : 'bg-[#FAF7F2] border-[#E8E2D9] text-[#5A655C]'
-                }`}
-              >
-                <div className="flex items-center gap-2 text-[#4A5D4E] dark:text-[#A7B39A] font-semibold">
-                  <UserCheck className="w-4 h-4" />
-                  <span>Acompañamiento Adaptable e Inclusivo</span>
-                </div>
-                <p className="leading-relaxed">
-                  No tiene ninguna contraindicación. Es maravilloso para todas las edades: desde bebés hasta embarazadas o ancianos, adaptándose a cualquier necesidad (en camilla, de lado o en silla).
-                </p>
-              </div>
-            </div>
-
-            {/* Text Description Column */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="space-y-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1]">
-                  LA VIVENCIA TERAPÉUTICA
-                </span>
-                <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
-                  El proceso de liberación del pericardio
-                </h2>
-              </div>
-
-              <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
-                {PERICARDIUM_INFO.processDescription.map((parr, idx) => (
-                  <p key={idx}>{parr}</p>
-                ))}
               </div>
             </div>
           </div>
@@ -436,13 +435,13 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
             </p>
 
             <div className="pt-4 flex justify-center">
-              <button
-                onClick={() => onOpenBooking('liberacion-pericardio')}
+              <a
+                href={`${ROUTES.contacto}#contact-form`}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-[#4A5D4E] hover:bg-[#FAF7F2] transition-colors shadow-lg active:scale-[0.98]"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Reservar Sesión de Pericardio</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>

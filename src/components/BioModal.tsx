@@ -2,19 +2,18 @@ import React, { useRef } from 'react';
 import { BIO_FULL_STORY, CLINICAL_INFO, IMAGES } from '../data/content';
 import { X, Award, GraduationCap, Heart, CheckCircle2, Calendar, Briefcase } from 'lucide-react';
 import { useGsapDialogEntrance } from '../hooks/useGsapAnimations';
+import { ROUTES } from '../routes';
 
 interface BioModalProps {
   isOpen: boolean;
   onClose: () => void;
   isDark: boolean;
-  onOpenBooking: () => void;
 }
 
 export const BioModal: React.FC<BioModalProps> = ({
   isOpen,
   onClose,
   isDark,
-  onOpenBooking,
 }) => {
   const overlayRef = useRef<HTMLDivElement>(null);
   useGsapDialogEntrance(overlayRef, isOpen);
@@ -80,8 +79,10 @@ export const BioModal: React.FC<BioModalProps> = ({
             <p className="text-sm font-medium text-[#AA4664] dark:text-[#DDB5C1]">
               Psicóloga General Sanitaria · Psicooncóloga · Facilitadora de Pericardio
             </p>
-            <p className="text-xs text-opacity-80 pt-1 text-[#5A655C] dark:text-[#B7BEA3]">
-              {CLINICAL_INFO.sanitaryRegistration}
+            <p className="text-xs text-opacity-80 flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 pt-1 text-[#5A655C] dark:text-[#B7BEA3]">
+              <span>Col. Nº {CLINICAL_INFO.collegiateNumber}</span>
+              <span>•</span>
+              <span>{CLINICAL_INFO.sanitaryRegistration}</span>
             </p>
           </div>
         </div>
@@ -167,11 +168,8 @@ export const BioModal: React.FC<BioModalProps> = ({
             ¿Deseas iniciar un acompañamiento o resolver cualquier duda?
           </p>
           <div className="flex items-center gap-3 w-full sm:w-auto">
-            <button
-              onClick={() => {
-                onClose();
-                onOpenBooking();
-              }}
+            <a
+              href={`${ROUTES.contacto}#contact-form`}
               className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                 isDark
                   ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
@@ -180,7 +178,7 @@ export const BioModal: React.FC<BioModalProps> = ({
             >
               <Calendar className="w-4 h-4" />
               <span>Pedir Cita con Begoña</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

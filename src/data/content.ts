@@ -12,6 +12,7 @@ export const CLINICAL_INFO = {
   name: 'Begoña Roy',
   title: 'Psicóloga Sanitaria & Psicooncóloga',
   degree: 'Licenciada en Psicología por la Universidad de Valencia (1995)',
+  collegiateNumber: 'A-1008',
   sanitaryRegistration: 'Habilitación Sanitaria Oficial',
   yearsExperience: '+25 años de trayectoria profesional',
   pericardiumSince: 'Facilitadora de Liberación del Pericardio desde 2017',
@@ -152,14 +153,12 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     duration: '60 minutos por sesión',
     modalities: ['Presencial en Zaragoza', 'Online'],
-    featured: true,
-    tag: 'Especialidad Destacada',
     image: IMAGES.psicooncologia
   },
   {
     id: 'bloqueo-emocional-trauma',
     slug: 'trauma',
-    title: 'Bloqueo Emocional y Trauma',
+    title: 'Bloqueo Emocional',
     subtitle: 'Desbloquear recuerdos dolorosos, heridas del pasado e integrar tu historia',
     description: 'Terapia integrativa con EMDR y enfoque somático para procesar experiencias traumáticas (físicas, emocionales o relacionales) que impiden avanzar en el presente.',
     fullContent: [
@@ -358,7 +357,7 @@ export const FAQS_DATA: FAQItem[] = [
   {
     id: 'faq-1',
     category: 'general',
-    question: '¿Cómo es la primera sesión de valoración?',
+    question: '¿Cómo serán nuestras sesiones?',
     answer: 'La primera sesión es un espacio cálido y sin presiones para conocernos. Dedicaremos el tiempo a escuchar lo que te trae a consulta, comprender tu historia y acordar juntos los objetivos y el enfoque terapéutico que mejor se adapte a tus necesidades.'
   },
   {
@@ -395,13 +394,13 @@ export const FAQS_DATA: FAQItem[] = [
     id: 'faq-7',
     category: 'tarifas',
     question: '¿Cómo se realiza el abono de las sesiones?',
-    answer: 'Para las sesiones presenciales en la consulta de C/ Arzobispo Morcillo 40 - Pral. E2, Zaragoza, el abono puede realizarse en efectivo, tarjeta o Bizum al finalizar. Para las sesiones online, el pago se realiza previamente mediante transferencia bancaria o Bizum.'
+    answer: 'Para las sesiones presenciales en la consulta de C/ Arzobispo Morcillo 40 - Pral. E2, Zaragoza, el abono puede realizarse en efectivo o Bizum al finalizar. Para las sesiones online, el pago se realiza previamente mediante transferencia bancaria o Bizum.'
   },
   {
     id: 'faq-8',
     category: 'general',
     question: '¿Es confidencial todo lo que hablemos en sesión?',
-    answer: 'Absolutamente. Todo el contenido de las sesiones está rigurosamente protegido por el secreto profesional y el Código Deontológico de la Psicología, así como por la normativa europea de protección de datos sanitarios (RGPD).'
+    answer: 'Absolutamente. Como psicóloga colegiada (Col. nº A-1008), todo el contenido de las sesiones está rigurosamente protegido por el secreto profesional y el Código Deontológico de la Psicología, así como por la normativa europea de protección de datos sanitarios (RGPD).'
   }
 ];
 
