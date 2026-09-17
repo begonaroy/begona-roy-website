@@ -66,7 +66,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
             <div data-motion-hero className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 pt-1">
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#E8ECE9] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A] border border-[#D8E0DA] dark:border-[#2D3930]">
                 <MapPin className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#DDB5C1]" />
-                <span>Espacio K alma · Zaragoza</span>
+                <span>Zaragoza · Consulta presencial</span>
               </span>
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#E8ECE9] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A] border border-[#D8E0DA] dark:border-[#2D3930]">
                 <Feather className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A]" />
@@ -432,7 +432,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
               ¿Sientes que tu corazón necesita respirar?
             </h2>
             <p className="text-sm leading-relaxed text-[#E6DFD3]">
-              Reserva tu sesión presencial de Liberación del Pericardio en Zaragoza (Espacio K alma, C. del Río Huerva, 21, 50006). Una experiencia transformadora para tu salud física y emocional.
+              Reserva tu sesión presencial de Liberación del Pericardio en Zaragoza. Una experiencia transformadora para tu salud física y emocional.
             </p>
 
             <div className="pt-4 flex justify-center">

@@ -68,7 +68,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
               {/* Description */}
               <p data-motion-hero className="text-base sm:text-lg leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] max-w-2xl mx-auto lg:mx-0">
-                Acompañamiento terapéutico integrador para comprender tu momento vital, cuidar de tu bienestar emocional y reconectar con tus propios recursos internos. En Espacio K alma (Zaragoza) y en consulta online.
+                Acompañamiento terapéutico integrador para comprender tu momento vital, cuidar de tu bienestar emocional y reconectar con tus propios recursos internos. En Zaragoza y en consulta online.
               </p>
 
               {/* CTAs */}
@@ -103,18 +103,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
               {/* Trust Indicators */}
               <div data-motion-hero className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-[#5A655C] dark:text-[#B7BEA3]">
                 <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
-                  Col. Nº {CLINICAL_INFO.collegiateNumber}
-                </span>
-                <span className="hidden sm:inline opacity-40">•</span>
-                <span className="flex items-center gap-1.5">
                   <Heart className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
                   {CLINICAL_INFO.yearsExperience}
                 </span>
                 <span className="hidden sm:inline opacity-40">•</span>
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
-                  Espacio K alma (Zaragoza) & Online
+                  Zaragoza & Online
                 </span>
               </div>
             </div>
@@ -141,7 +136,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       "Un espacio seguro donde respirar y reencontrarte."
                     </p>
                     <p className="text-[11px] font-medium text-[#AA4664] dark:text-[#DDB5C1] mt-1">
-                      Espacio K alma (C. del Río Huerva, 21, Zaragoza)
+                      {CLINICAL_INFO.location}
                     </p>
                   </div>
                 </div>
@@ -227,7 +222,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 Te puedo ayudar en
               </h2>
               <p className="text-sm sm:text-base text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
-                Acompañamiento individualizado en consulta presencial (Espacio K alma, Zaragoza) y online, integrando cuerpo, emoción y mente.
+                Acompañamiento individualizado en consulta presencial en Zaragoza y online, integrando cuerpo, emoción y mente.
               </p>
             </div>
 
@@ -615,15 +610,15 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 Terapia Presencial
               </h3>
               <p className="text-xs text-[#AA4664] dark:text-[#DDB5C1] font-semibold uppercase tracking-wider">
-                Espacio K alma · Zaragoza (50006)
+                Zaragoza (50006)
               </p>
               <p className="text-sm leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] max-w-[82%] sm:max-w-[78%]">
-                En un entorno cálido, íntimo y silencioso en Espacio K alma (C. del Río Huerva, 21, 50006 Zaragoza). Ideal para contacto humano cercano y para la terapia manual de Pericardio.
+                En un entorno cálido, íntimo y silencioso en {CLINICAL_INFO.location}. Ideal para contacto humano cercano y para la terapia manual de Pericardio.
               </p>
             </div>
             <div className="pt-6 mt-4 border-t border-[#E8E2D9] dark:border-[#2D3930] relative z-10 max-w-[70%] sm:max-w-[65%]">
               <span className="text-xs font-medium text-[#4A5D4E] dark:text-[#A7B39A]">
-                ✓ Sesiones de 50-60 min
+                ✓ Sesiones de 60 min
               </span>
             </div>
           </div>
@@ -719,9 +714,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#151B17]/60 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="text-xs uppercase tracking-widest font-semibold block text-[#B7BEA3]">
-                  Colegiada CV-07890
-                </span>
                 <span className="font-serif text-lg font-medium">
                   Begoña Roy
                 </span>

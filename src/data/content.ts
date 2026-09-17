@@ -12,16 +12,15 @@ export const CLINICAL_INFO = {
   name: 'Begoña Roy',
   title: 'Psicóloga Sanitaria & Psicooncóloga',
   degree: 'Licenciada en Psicología por la Universidad de Valencia (1995)',
-  collegiateNumber: 'CV-07890 (Colegio Oficial de Psicología)',
   sanitaryRegistration: 'Habilitación Sanitaria Oficial',
   yearsExperience: '+25 años de trayectoria profesional',
   pericardiumSince: 'Facilitadora de Liberación del Pericardio desde 2017',
-  location: 'Espacio K alma, C. del Río Huerva, 21, 50006 Zaragoza',
-  fullAddress: 'Espacio K alma, C. del Río Huerva, 21, 50006 Zaragoza',
-  phone: '+34 622 00 00 00',
-  phoneDisplay: '+34 622 00 00 00',
-  whatsappUrl: 'https://wa.me/34622000000?text=Hola%20Bego%C3%B1a,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20una%20sesi%C3%B3n.',
-  email: 'info@begonaroy.com',
+  location: 'C/ Arzobispo Morcillo 40 - Pral. E2, 50006 Zaragoza',
+  fullAddress: 'C/ Arzobispo Morcillo 40 - Pral. E2, 50006 Zaragoza',
+  phone: '+34655514830',
+  phoneDisplay: '+34 655 514 830',
+  whatsappUrl: 'https://wa.me/34655514830?text=Hola%20Bego%C3%B1a,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20una%20sesi%C3%B3n.',
+  email: 'psicologiaroy@gmail.com',
   workingHours: 'Lunes a Viernes: 09:00 - 20:00 (Cita previa)',
 };
 
@@ -67,7 +66,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Profesionales con sobrecarga laboral y síndrome de burnout',
       'Personas con somatizaciones como palpitaciones, bruxismo o molestias digestivas'
     ],
-    duration: '50 - 60 minutos por sesión',
+    duration: '60 minutos por sesión',
     modalities: ['Presencial en Zaragoza', 'Online'],
     tag: 'Salud Emocional',
     image: IMAGES.ansiedad
@@ -95,7 +94,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Personas que sienten que han perdido el rumbo o la conexión consigo mismas',
       'Estados de tristeza recurrente tras cambios de etapa vital'
     ],
-    duration: '50 - 60 minutos por sesión',
+    duration: '60 minutos por sesión',
     modalities: ['Presencial en Zaragoza', 'Online'],
     tag: 'Reconexión Vital',
     image: IMAGES.depresion
@@ -123,7 +122,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Rupturas afectivas y cambios vitales drásticos',
       'Duelos desautorizados o congelados en el tiempo'
     ],
-    duration: '50 - 60 minutos por sesión',
+    duration: '60 minutos por sesión',
     modalities: ['Presencial en Zaragoza', 'Online'],
     tag: 'Elaboración y Sanación',
     image: IMAGES.duelo
@@ -151,7 +150,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Familiares y parejas que desean aprender a acompañar sin sobrecargarse',
       'Pacientes en fases avanzadas que buscan serenidad, alivio y cierre emocional'
     ],
-    duration: '50 - 60 minutos por sesión',
+    duration: '60 minutos por sesión',
     modalities: ['Presencial en Zaragoza', 'Online'],
     featured: true,
     tag: 'Especialidad Destacada',
@@ -180,7 +179,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Bloqueos repentinos ante retos personales, laborales o de pareja',
       'Sensación de vivir atrapado/a en vivencias del pasado'
     ],
-    duration: '50 - 60 minutos por sesión',
+    duration: '60 minutos por sesión',
     modalities: ['Presencial en Zaragoza', 'Online'],
     tag: 'Terapia EMDR & Somática',
     image: IMAGES.trauma
@@ -208,7 +207,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Sensación de desconexión corporal o cuerpo en tensión continua',
       'Dificultad para poner límites o expresar emociones que terminan somatizándose'
     ],
-    duration: '50 - 60 minutos por sesión',
+    duration: '60 minutos por sesión',
     modalities: ['Presencial en Zaragoza', 'Online'],
     tag: 'Mente y Cuerpo',
     image: IMAGES.psicosomaticos
@@ -236,7 +235,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Quienes buscan un terapeuta que comprenda la dimensión espiritual sin perder el rigor clínico',
       'Procesos de búsqueda interior, meditación profunda o necesidad de reconectar con la esencia'
     ],
-    duration: '50 - 60 minutos por sesión',
+    duration: '60 minutos por sesión',
     modalities: ['Presencial en Zaragoza', 'Online'],
     tag: 'Consciencia y Sentido',
     image: IMAGES.espiritual
@@ -264,7 +263,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Quienes desean un abordaje corporal y energético para sanar heridas del corazón',
       'Apto para todas las edades (adultos, jóvenes, mayores, embarazadas y niños)'
     ],
-    duration: '50 - 60 minutos por sesión',
+    duration: '60 minutos por sesión',
     modalities: ['Presencial en Zaragoza'],
     tag: 'Método Montserrat Gascón',
     image: IMAGES.pericardio
@@ -366,7 +365,7 @@ export const FAQS_DATA: FAQItem[] = [
     id: 'faq-2',
     category: 'general',
     question: '¿Cuánto dura una sesión y con qué frecuencia se realizan?',
-    answer: 'Las sesiones de psicología tienen una duración de entre 50 y 60 minutos. Las de Liberación del Pericardio suelen durar entre 60 y 75 minutos. La frecuencia habitual suele ser semanal o quincenal al inicio, espaciándose conforme vas consolidando tus recursos internos y sintiendo mayor bienestar.'
+    answer: 'Todas las sesiones tienen una duración aproximada de 60 minutos. La frecuencia habitual suele ser semanal o quincenal al inicio, espaciándose conforme vas consolidando tus recursos internos y sintiendo mayor bienestar.'
   },
   {
     id: 'faq-3',
@@ -396,13 +395,13 @@ export const FAQS_DATA: FAQItem[] = [
     id: 'faq-7',
     category: 'tarifas',
     question: '¿Cómo se realiza el abono de las sesiones?',
-    answer: 'Para las sesiones presenciales en la consulta de Espacio K alma (C. del Río Huerva, 21, Zaragoza), el abono puede realizarse en efectivo, tarjeta o Bizum al finalizar. Para las sesiones online, el pago se realiza previamente mediante transferencia bancaria o Bizum.'
+    answer: 'Para las sesiones presenciales en la consulta de C/ Arzobispo Morcillo 40 - Pral. E2, Zaragoza, el abono puede realizarse en efectivo, tarjeta o Bizum al finalizar. Para las sesiones online, el pago se realiza previamente mediante transferencia bancaria o Bizum.'
   },
   {
     id: 'faq-8',
     category: 'general',
     question: '¿Es confidencial todo lo que hablemos en sesión?',
-    answer: 'Absolutamente. Como psicóloga sanitaria colegiada (Col. nº CV-07890), todo el contenido de las sesiones está rigurosamente protegido por el secreto profesional y el Código Deontológico de la Psicología, así como por la normativa europea de protección de datos sanitarios (RGPD).'
+    answer: 'Absolutamente. Todo el contenido de las sesiones está rigurosamente protegido por el secreto profesional y el Código Deontológico de la Psicología, así como por la normativa europea de protección de datos sanitarios (RGPD).'
   }
 ];
 
@@ -426,7 +425,7 @@ export const TESTIMONIALS: Testimonial[] = [
     author: 'Elena R.',
     service: 'Liberación del Pericardio',
     quote: 'La sesión de pericardio fue una de las experiencias más reveladoras y amorosas que he vivido. Sentí que volvía a respirar con los pulmones llenos después de años.',
-    context: 'Sesiones en Espacio K alma, Zaragoza'
+    context: 'Sesiones presenciales en Zaragoza'
   }
 ];
 

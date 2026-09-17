@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { NavigationTab } from '../types';
 import { CLINICAL_INFO } from '../data/content';
 import { Logo } from './Logo';
-import { MapPin, Phone, Mail, Clock, ArrowUp, Heart, ShieldCheck, Sparkles } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ArrowUp, Heart, Sparkles } from 'lucide-react';
 import { scrollToPageTop, useGsapPageEntrance } from '../hooks/useGsapAnimations';
 
 interface FooterProps {
@@ -46,13 +46,7 @@ export const Footer: React.FC<FooterProps> = ({
                   : 'bg-[#FAF7F2] border-[#E8E2D9] text-[#4A5D4E]'
               }`}
             >
-              <div className="flex items-center gap-2 font-semibold">
-                <ShieldCheck className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1] flex-shrink-0" />
-                <span>Ejercicio Sanitario Colegiado</span>
-              </div>
-              <p className="text-[11px] leading-tight text-opacity-80">
-                Col. Nº {CLINICAL_INFO.collegiateNumber}
-              </p>
+              <div className="font-semibold">Atención sanitaria</div>
               <p className="text-[11px] leading-tight text-opacity-80">
                 {CLINICAL_INFO.degree}
               </p>
@@ -179,7 +173,7 @@ export const Footer: React.FC<FooterProps> = ({
                   🌿 Consulta Presencial
                 </span>
                 <p className="text-[11px] mt-0.5">
-                  Espacio K alma, C. del Río Huerva, 21, 50006 Zaragoza.
+                  {CLINICAL_INFO.fullAddress}.
                 </p>
               </div>
               <div

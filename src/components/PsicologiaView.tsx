@@ -108,7 +108,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
             <div data-motion-hero className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#E8ECE9] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A] border border-[#D8E0DA] dark:border-[#2D3930]">
                 <MapPin className="w-3.5 h-3.5 text-[#AA4664] dark:text-[#DDB5C1]" />
-                <span>Espacio K alma · Zaragoza</span>
+                <span>Zaragoza · Consulta presencial y online</span>
               </span>
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#E8ECE9] dark:bg-[#1C2420] text-[#4A5D4E] dark:text-[#A7B39A] border border-[#D8E0DA] dark:border-[#2D3930]">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#4A5D4E] dark:text-[#A7B39A]" />
@@ -174,7 +174,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                   </div>
                   <div className="min-w-0">
                     <p className="font-serif text-xs sm:text-sm font-medium text-[#222823] dark:text-[#F3EFE7] truncate">
-                      Consulta en Espacio K alma
+                      Consulta presencial en Zaragoza
                     </p>
                     <p className="text-[11px] text-[#5A655C] dark:text-[#B7BEA3] truncate">
                       Un ambiente de paz, luz natural y presencia
@@ -1081,7 +1081,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
               ¿Preparado para dar el primer paso?
             </h2>
             <p className="text-sm leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
-              Estoy a tu disposición para atenderte tanto en mi consulta en Espacio K alma (C. del Río Huerva, 21, 50006 Zaragoza) como por videoconsulta desde donde estés.
+              Estoy a tu disposición para atenderte tanto en mi consulta de Zaragoza como por videoconsulta desde donde estés.
             </p>
 
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">

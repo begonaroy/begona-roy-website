@@ -1,6 +1,6 @@
 {
   "name": "Begoña Roy · Psicología Sanitaria & Psicooncología",
-  "description": "Sitio web profesional y aplicación para Begoña Roy: Psicología Sanitaria, Psicooncología, Acompañamiento Integral y Liberación del Pericardio en Espacio K alma, C. del Río Huerva, 21, Zaragoza (50006) y Online.",
+  "description": "Sitio web profesional y aplicación para Begoña Roy: Psicología Sanitaria, Psicooncología, Acompañamiento Integral y Liberación del Pericardio en Zaragoza y online.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

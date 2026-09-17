@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { NavigationTab, ServiceDetail } from './types';
+import { BookingDraft, NavigationTab, ServiceDetail } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomeView } from './components/HomeView';
@@ -20,6 +20,7 @@ export default function App() {
   // Modal States
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [bookingInitialService, setBookingInitialService] = useState<string | undefined>(undefined);
+  const [bookingDraft, setBookingDraft] = useState<BookingDraft | null>(null);
   const [isBioOpen, setIsBioOpen] = useState(false);
   const [selectedDetailService, setSelectedDetailService] = useState<ServiceDetail | null>(null);
   const [privacyModalType, setPrivacyModalType] = useState<'privacidad' | 'aviso' | 'cookies' | null>(null);
@@ -76,6 +77,12 @@ export default function App() {
   const handleOpenBooking = (serviceId?: string) => {
     setBookingInitialService(serviceId);
     setIsBookingOpen(true);
+  };
+
+  const handleCompleteBooking = (draft: BookingDraft) => {
+    setBookingDraft(draft);
+    setIsBookingOpen(false);
+    handleNavigate('contacto');
   };
 
   const handleNavigate = (tab: NavigationTab) => {
@@ -142,6 +149,7 @@ export default function App() {
           <ContactoView
             onOpenBooking={() => handleOpenBooking()}
             onNavigate={handleNavigate}
+            bookingDraft={bookingDraft}
             isDark={isDark}
           />
         )}
@@ -159,6 +167,7 @@ export default function App() {
       <BookingModal
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}
+        onComplete={handleCompleteBooking}
         isDark={isDark}
         initialServiceId={bookingInitialService}
       />
