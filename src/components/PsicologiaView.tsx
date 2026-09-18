@@ -922,7 +922,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       </section>
 
       {/* 4.5. ¿CÓMO FUNCIONA EL PROCESO TERAPÉUTICO? */}
-      <section data-motion-reveal className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section data-motion-reveal data-motion-start="early" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`p-8 sm:p-12 rounded-3xl border shadow-sm relative overflow-hidden transition-all ${
             isDark
@@ -991,7 +991,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       </section>
 
       {/* 5. METODOLOGÍA: ¿CÓMO TRABAJAMOS EN CONSULTA? (INTACTA) */}
-      <section data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section data-motion-reveal data-motion-start="early" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1]">
             PROCESO TERAPÉUTICO
@@ -1004,7 +1004,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
           </p>
         </div>
 
-        <div data-motion-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div data-motion-group data-motion-start="early" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((item, idx) => {
             const Icon = item.icon;
             return (
@@ -1040,7 +1040,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
       </section>
 
       {/* 6. BOTTOM CTA BLOCK "¿Preparado para dar el primer paso?" (INTACTA) */}
-      <section data-motion-reveal className="max-w-4xl mx-auto px-4">
+      <section data-motion-reveal data-motion-start="early" className="max-w-4xl mx-auto px-4">
         <div
           className={`p-10 sm:p-14 rounded-3xl border text-center relative overflow-hidden shadow-xl ${
             isDark
