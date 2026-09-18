@@ -13,7 +13,7 @@ export const CLINICAL_INFO = {
   title: 'Psicóloga Sanitaria & Psicooncóloga',
   degree: 'Licenciada en Psicología por la Universidad de Valencia (1995)',
   collegiateNumber: 'A-1008',
-  sanitaryRegistration: 'Habilitación Sanitaria Oficial',
+  sanitaryRegistration: 'Acompañamiento personalizado',
   yearsExperience: '+25 años de trayectoria profesional',
   pericardiumSince: 'Facilitadora de Liberación del Pericardio desde 2017',
   location: 'C/ Arzobispo Morcillo 40 - Pral. E2, 50006 Zaragoza',
@@ -370,7 +370,7 @@ export const FAQS_DATA: FAQItem[] = [
     id: 'faq-3',
     category: 'online',
     question: '¿Cómo funciona la modalidad de terapia online?',
-    answer: 'La terapia online se realiza a través de una plataforma de videoconsulta cifrada y segura. Solo necesitas un dispositivo con cámara y micrófono, buena conexión a internet y un espacio tranquilo y privado donde puedas expresarte con total libertad. Tiene exactamente la misma eficacia clínica que la modalidad presencial.'
+    answer: 'La terapia online se realiza a través de una videollamada cifrada y segura. Solo necesitas un dispositivo con cámara y micrófono, buena conexión a internet y un espacio tranquilo y privado donde puedas expresarte con total libertad. Tiene exactamente la misma eficacia clínica que la modalidad presencial.'
   },
   {
     id: 'faq-4',
@@ -431,8 +431,8 @@ export const TESTIMONIALS: Testimonial[] = [
 export const BIO_FULL_STORY = {
   headline: 'Acompañamiento desde la escucha, la empatía y la sencillez',
   paragraphs: [
-    'Hola, me llamo Begoña Roy. Y aunque a veces es difícil hablar de uno mismo, sí que sé con claridad que mi principal impulso ha sido siempre ayudar y acompañar a personas que estuviesen pasando por momentos vitales difíciles desde la escucha, la empatía y la sencillez.',
-    'Por ello decidí estudiar psicología en la Universidad de Valencia, finalizando mi formación en 1995. Mientras terminaba inicié una formación privada de posgrado en Psicología Clínica, en un centro especializado en terapia cognitivo-conductual, para ampliar mi preparación, y he continuado formándome buscando distintos enfoques para realizar mi trabajo de la forma más honesta, responsable y humana de la que soy capaz, y ofrecer así el servicio que todo ser humano merece.',
+    'Hola, me llamo Begoña Roy. Mi principal impulso ha sido siempre ayudar y acompañar a personas que estuviesen pasando por momentos vitales difíciles desde la escucha, la empatía y la sencillez.',
+    'Por ello decidí estudiar psicología en la Universidad de Valencia, finalizando mi formación en 1995. Mientras terminaba inicié formación de posgrado en Psicología Clínica, con especialidad en terapia cognitivo-conductual, para ampliar mi preparación, y he continuado formándome buscando distintos enfoques para realizar mi trabajo de la forma más honesta, responsable y humana de la que soy capaz, y ofrecer así el servicio que todo ser humano merece.',
     'Mi enfoque es integral y humanista. Como seres humanos que somos estamos formados por cuerpo, emoción, mente y espíritu, y es desde esa visión más amplia que puedo ir acompañando a cada persona en su proceso individual según sus ritmos, necesidades y prioridades, de una manera más específica y concreta, encontrando soluciones juntos para seguir desarrollándote y creciendo.',
     'El enfoque humanista es particularmente eficaz para afrontar una amplia variedad de problemas psicológicos, ya que está basado en la comprensión de cómo la persona percibe e interpreta sus sentimientos, pensamientos y experiencias y cómo esto, a su vez, influye en su comportamiento y bienestar emocional.',
     'Además, empecé a practicar meditación de la tradición de Thich Nhat Hanh a través de la Sangha Respira en Zaragoza, y esto me ayudó a conectar con esa parte interior espiritual que poco a poco he ido desarrollando y conociendo más.',
@@ -441,7 +441,7 @@ export const BIO_FULL_STORY = {
   ],
   trainings: [
     'Licenciatura en Psicología (Universidad de Valencia, 1995)',
-    'Formación privada de posgrado en Psicología Clínica, en un centro especializado en terapia cognitivo-conductual (Valencia)',
+    'Formación de posgrado en Psicología Clínica, con especialidad en terapia cognitivo-conductual (Valencia)',
     'Máster en Psicooncología (Universidad Complutense de Madrid)',
     'Formación Básica de Terapia Familiar Fásica',
     'Diploma en Gerontología Social (Fundación Universidad-Empresa de Valencia)',

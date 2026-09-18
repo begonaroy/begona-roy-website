@@ -76,6 +76,8 @@ export function useGsapPageEntrance(scope: MotionScope) {
 
         const revealItems = gsap.utils.toArray<HTMLElement>('[data-motion-reveal]', root);
         revealItems.forEach((element) => {
+          const startsEarly = element.dataset.motionStart === 'early';
+
           gsap.fromTo(
             element,
             { opacity: 0, y: 22 },
@@ -87,7 +89,7 @@ export function useGsapPageEntrance(scope: MotionScope) {
               clearProps: CLEAR_MOTION_PROPS,
               scrollTrigger: {
                 trigger: element,
-                start: 'top 86%',
+                start: startsEarly ? 'top 96%' : 'top 86%',
                 once: true,
               },
             },
@@ -100,6 +102,7 @@ export function useGsapPageEntrance(scope: MotionScope) {
             (child): child is HTMLElement => child instanceof HTMLElement,
           );
           const isFastGroup = group.dataset.motionGroup === 'fast';
+          const startsEarly = group.dataset.motionStart === 'early';
 
           if (items.length === 0) return;
 
@@ -116,7 +119,7 @@ export function useGsapPageEntrance(scope: MotionScope) {
               clearProps: CLEAR_MOTION_PROPS,
               scrollTrigger: {
                 trigger: group,
-                start: 'top 88%',
+                start: startsEarly ? 'top 96%' : 'top 88%',
                 once: true,
               },
             },
