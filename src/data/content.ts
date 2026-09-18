@@ -16,7 +16,7 @@ export const CLINICAL_INFO = {
   sanitaryRegistration: 'Acompañamiento personalizado',
   yearsExperience: '+25 años de trayectoria profesional',
   pericardiumSince: 'Facilitadora de Liberación del Pericardio desde 2017',
-  location: 'C/ Arzobispo Morcillo 40 - Pral. E2, 50006 Zaragoza',
+  location: 'C/ Arzobispo Morcillo 40 - Pral. E2 | 50006 Zaragoza',
   fullAddress: 'C/ Arzobispo Morcillo 40 - Pral. E2, 50006 Zaragoza',
   phone: '+34655514830',
   phoneDisplay: '+34 655 514 830',

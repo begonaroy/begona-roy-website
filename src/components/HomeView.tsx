@@ -100,20 +100,32 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
               {/* Trust Indicators */}
               <div data-motion-hero className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-[#5A655C] dark:text-[#B7BEA3]">
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
-                  Col. Nº {CLINICAL_INFO.collegiateNumber}
-                </span>
-                <span className="hidden sm:inline opacity-40">•</span>
-                <span className="flex items-center gap-1.5">
-                  <Heart className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
-                  {CLINICAL_INFO.yearsExperience}
-                </span>
-                <span className="hidden sm:inline opacity-40">•</span>
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
-                  Zaragoza · Consulta presencial y online
-                </span>
+                <a
+                  href="#about-section"
+                  className="group relative inline-flex min-h-6 items-center gap-1.5 rounded-sm py-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#AA4664] dark:focus-visible:outline-[#DDB5C1]"
+                >
+                  <ShieldCheck aria-hidden="true" className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
+                  <span>Col. Nº {CLINICAL_INFO.collegiateNumber}</span>
+                  <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-[#AA4664] transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none dark:bg-[#DDB5C1]" />
+                </a>
+                <span aria-hidden="true" className="hidden sm:inline opacity-40">•</span>
+                <a
+                  href="#servicios-resumen-section"
+                  className="group relative inline-flex min-h-6 items-center gap-1.5 rounded-sm py-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#AA4664] dark:focus-visible:outline-[#DDB5C1]"
+                >
+                  <Heart aria-hidden="true" className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
+                  <span>{CLINICAL_INFO.yearsExperience}</span>
+                  <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-[#AA4664] transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none dark:bg-[#DDB5C1]" />
+                </a>
+                <span aria-hidden="true" className="hidden sm:inline opacity-40">•</span>
+                <a
+                  href="#modalidades-section"
+                  className="group relative inline-flex min-h-6 items-center gap-1.5 rounded-sm py-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#AA4664] dark:focus-visible:outline-[#DDB5C1]"
+                >
+                  <MapPin aria-hidden="true" className="w-4 h-4 text-[#AA4664] dark:text-[#DDB5C1]" />
+                  <span>Zaragoza · Consulta presencial y online</span>
+                  <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-[#AA4664] transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none dark:bg-[#DDB5C1]" />
+                </a>
               </div>
             </div>
 
@@ -190,7 +202,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       </section>
 
       {/* 2.5. VISIÓN RÁPIDA: SERVICIOS Y ÁREAS DE ACOMPAÑAMIENTO ("TE PUEDO AYUDAR EN") */}
-      <section id="servicios-resumen-section" data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="servicios-resumen-section" data-motion-reveal className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`p-6 sm:p-10 lg:p-12 rounded-3xl border shadow-sm transition-all ${
             isDark
@@ -556,7 +568,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       <section
         id="modalidades-section"
         data-motion-reveal
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1]">
@@ -688,7 +700,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       </section>
 
       {/* 4. QUIÉN SOY (ABOUT BEGOÑA) */}
-      <section id="about-section" data-motion-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="about-section" data-motion-reveal className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Portrait Photo */}
           <div className="lg:col-span-5 relative order-2 lg:order-1">
