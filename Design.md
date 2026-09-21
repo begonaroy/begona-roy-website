@@ -8,13 +8,14 @@ La experiencia debe sentirse serena, humana y rigurosa. El diseño evita tanto l
 
 ## Estructura de la experiencia
 
-La aplicación es una SPA React con cuatro vistas principales:
+La aplicación es una SPA React con cinco vistas principales:
 
 | Vista | Objetivo | Contenido principal |
 | --- | --- | --- |
 | Inicio | Generar confianza y orientar | Hero, credenciales, biografía, especialidades, modalidades y testimonios |
 | Psicología | Explicar las áreas terapéuticas | Servicios, metodología y llamada a solicitar cita |
 | Pericardio | Informar de la técnica presencial | Explicación, conexiones corporales, pasos de sesión y beneficios |
+| Profesionales | Acompañar al tercer sector y las ONGs | Confidencialidad, intimidad y apoyo psicológico para quienes sostienen realidades complejas |
 | Contacto | Resolver dudas y convertir | Formulario, datos de contacto, FAQ y acceso directo a WhatsApp |
 
 Los elementos transversales son la navegación, el pie, el selector de tema y los modales de biografía, detalle de servicio y textos legales.
@@ -74,7 +75,7 @@ El ritmo ha de ser pausado: evitar bloques densos, usar imágenes ambientales gr
 
 ### Navegación
 
-La barra superior permite cambiar entre Inicio, Psicología, Pericardio y Contacto, abrir la reserva y alternar el tema. Cada cambio de vista devuelve suavemente al inicio de la página.
+La barra superior permite cambiar entre Inicio, Psicología, Pericardio, Profesionales y Contacto, abrir la reserva y alternar el tema. Cada cambio de vista devuelve suavemente al inicio de la página.
 
 ### Botones
 

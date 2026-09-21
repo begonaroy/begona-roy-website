@@ -5,6 +5,7 @@ import { Footer } from './components/Footer';
 import { HomeView } from './components/HomeView';
 import { PsicologiaView } from './components/PsicologiaView';
 import { PericardioView } from './components/PericardioView';
+import { ProfesionalesView } from './components/ProfesionalesView';
 import { ContactoView } from './components/ContactoView';
 import { BioModal } from './components/BioModal';
 import { ServiceDetailModal } from './components/ServiceDetailModal';
@@ -120,6 +121,13 @@ export default function App() {
 
         {currentTab === 'pericardio' && (
           <PericardioView
+            onNavigate={handleNavigate}
+            isDark={isDark}
+          />
+        )}
+
+        {currentTab === 'profesionales' && (
+          <ProfesionalesView
             onNavigate={handleNavigate}
             isDark={isDark}
           />

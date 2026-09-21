@@ -1,4 +1,4 @@
-export type NavigationTab = 'inicio' | 'psicologia' | 'pericardio' | 'contacto';
+export type NavigationTab = 'inicio' | 'psicologia' | 'pericardio' | 'profesionales' | 'contacto';
 
 export type PsicologiaSpecialty =
   | 'ansiedad'

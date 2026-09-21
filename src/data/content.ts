@@ -37,6 +37,7 @@ export const IMAGES = {
   psicosomaticos: '/illustrations/psicosomaticos.png', // Editorial mind-body somatic awareness illustration with site colors
   espiritual: '/illustrations/despertarEspiritual.png', // Minimalist meditation in nature illustration with site colors
   pericardio: '/illustrations/pericardio.jpg', // Editorial blooming heart & osteopathic pericardium release illustration with site colors
+  profesionales: '/people/begona-roy-profesional.jpg', // Portrait used in the social-sector professionals hero
   pericardioSession: '/people/begona-roy-pericardio.jpg', // Session in treatment table image
   emdrApproach: '/people/begonaroy-emdr.jpeg', // EMDR approach image
   psicooncologiaApproach: '/img/psicooncologia-begona-roy.jpg', // Psico-oncology approach image

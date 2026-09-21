@@ -38,12 +38,31 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'inicio', label: 'Inicio' },
     { id: 'psicologia', label: 'Psicología' },
     { id: 'pericardio', label: 'Pericardio' },
+    { id: 'profesionales', label: 'Profesionales' },
     { id: 'contacto', label: 'Contacto' },
   ];
 
   const handleNavClick = (tab: NavigationTab) => {
     onNavigate(tab);
     setMobileMenuOpen(false);
+  };
+
+  const handleSpaLinkClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    tab: NavigationTab,
+  ) => {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    handleNavClick(tab);
   };
 
   return (
@@ -82,10 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={link.id}
                   id={`nav-link-${link.id}`}
                   href={ROUTES[link.id]}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    handleNavClick(link.id);
-                  }}
+                  onClick={(event) => handleSpaLinkClick(event, link.id)}
                   className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? isDark
@@ -182,10 +198,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <a
                 key={link.id}
                 href={ROUTES[link.id]}
-                onClick={(event) => {
-                  event.preventDefault();
-                  handleNavClick(link.id);
-                }}
+                onClick={(event) => handleSpaLinkClick(event, link.id)}
                 className={`w-full text-left px-4 py-3 rounded-xl text-base font-medium flex items-center justify-between transition-colors ${
                   isActive
                     ? isDark
