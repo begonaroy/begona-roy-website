@@ -41,9 +41,9 @@ export const ProfesionalesView: React.FC<ProfesionalesViewProps> = ({ isDark }) 
             <div className="relative aspect-[16/9] w-full overflow-hidden sm:aspect-[21/9]">
               <img
                 src={IMAGES.profesionales}
-                alt="Ilustración de una sesión de acompañamiento psicológico en un espacio de escucha"
-                width={1672}
-                height={941}
+                alt="Begoña Roy, psicóloga sanitaria"
+                width={2136}
+                height={1202}
                 fetchPriority="high"
                 decoding="async"
                 className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
