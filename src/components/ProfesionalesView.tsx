@@ -1,0 +1,159 @@
+import React, { useRef } from 'react';
+import { ArrowRight, Calendar, Heart, Lock, MessageSquare, ShieldCheck, Users } from 'lucide-react';
+import { CLINICAL_INFO, IMAGES } from '../data/content';
+import { useGsapPageEntrance } from '../hooks/useGsapAnimations';
+import { ROUTES } from '../routes';
+import { NavigationTab } from '../types';
+
+interface ProfesionalesViewProps {
+  onNavigate: (tab: NavigationTab) => void;
+  isDark: boolean;
+}
+
+export const ProfesionalesView: React.FC<ProfesionalesViewProps> = ({ isDark }) => {
+  const viewRef = useRef<HTMLDivElement>(null);
+  useGsapPageEntrance(viewRef);
+
+  const whatsappUrl = `https://wa.me/${CLINICAL_INFO.phone.replace(/\D/g, '')}?text=${encodeURIComponent(
+    'Hola Begoña, soy profesional del ámbito social / ONG y me gustaría concertar una cita.',
+  )}`;
+
+  return (
+    <div ref={viewRef} id="profesionales-view" className="space-y-16 pb-20 sm:space-y-24">
+      <section className="relative mx-auto max-w-7xl px-4 pt-6 sm:px-6 sm:pt-10 lg:px-8">
+        <div className="mx-auto max-w-4xl space-y-6 text-center">
+          <div data-motion-hero className="inline-flex items-center gap-2 rounded-full border border-[#E8E2D9] bg-[#FAF7F2] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#AA4664] shadow-sm dark:border-[#2D3930] dark:bg-[#1C2420] dark:text-[#DDB5C1]">
+            <Users aria-hidden="true" className="h-3.5 w-3.5" />
+            <span>Tercer sector y acción social</span>
+          </div>
+
+          <h1 data-motion-hero className="font-serif text-3xl font-medium leading-[1.2] tracking-tight text-[#222823] dark:text-[#F3EFE7] sm:text-4xl lg:text-5xl">
+            Apoyo psicológico para profesionales del ámbito social y ONGs
+          </h1>
+
+          <p data-motion-hero className="mx-auto max-w-3xl text-base leading-relaxed text-[#5A655C] dark:text-[#B7BEA3] sm:text-lg">
+            Un espacio terapéutico diseñado por y para quienes sostienen realidades complejas a diario.
+          </p>
+        </div>
+
+        <div data-motion-hero className="mx-auto mt-10 max-w-4xl">
+          <div className={`relative overflow-hidden rounded-3xl border shadow-lg ${isDark ? 'border-[#2D3930] bg-[#1C2420]' : 'border-[#E8E2D9] bg-white'}`}>
+            <div className="relative aspect-[16/9] w-full overflow-hidden sm:aspect-[21/9]">
+              <img
+                src={IMAGES.profesionales}
+                alt="Ilustración de una sesión de acompañamiento psicológico en un espacio de escucha"
+                width={1672}
+                height={941}
+                fetchPriority="high"
+                decoding="async"
+                className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
+              />
+              <div aria-hidden="true" className={`pointer-events-none absolute inset-0 bg-gradient-to-t via-transparent ${isDark ? 'from-[#151B17] to-transparent opacity-60' : 'from-[#FAF7F2] to-transparent opacity-40'}`} />
+            </div>
+            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#E8E2D9]/80 p-4 text-xs text-[#5A655C] dark:border-[#2D3930] dark:text-[#B7BEA3] sm:p-5">
+              <div className="flex items-center gap-2">
+                <ShieldCheck aria-hidden="true" className="h-4 w-4 text-[#4A5D4E] dark:text-[#A7B39A]" />
+                <span className="font-medium">Espacio de confidencialidad absoluta y rigor ético</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-[#4A5D4E] dark:bg-[#A7B39A]" />
+                <span>Modalidad presencial en Zaragoza y videoconsulta online</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-motion-reveal className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className={`space-y-8 rounded-3xl border p-8 shadow-sm sm:p-12 lg:p-14 ${isDark ? 'border-[#2D3930] bg-[#1C2420]' : 'border-[#E8E2D9] bg-white'}`}>
+          <p className="text-base font-normal leading-[1.75] text-[#3D473F] dark:text-[#D1DAD2] sm:text-lg">
+            Tras más de 25 años caminando junto al tejido asociativo y las entidades sociales, conozco de cerca lo que significa (las luces y las sombras de) trabajar por y para los demás. Sé lo que implica la gestión de recursos (lidiar con la escasez de recursos), la alta exigencia emocional, el peso de la responsabilidad y esa delgada línea donde la vocación a menudo se cruza con el agotamiento invisible.
+          </p>
+
+          <div className={`rounded-2xl border p-6 sm:p-8 ${isDark ? 'border-[#2D3930] bg-[#151B17]' : 'border-[#E8E2D9] bg-[#FAF7F2]'}`}>
+            <div className="flex items-start gap-4">
+              <div aria-hidden="true" className="mt-1 shrink-0 rounded-xl bg-[#4A5D4E]/10 p-3 text-[#4A5D4E] dark:text-[#A7B39A]">
+                <ShieldCheck className="h-6 w-6" />
+              </div>
+              <p className="text-base font-medium leading-[1.7] text-[#222823] dark:text-[#F3EFE7] sm:text-lg">
+                En este espacio ofrezco un lugar (refugio) seguro para expresarte libremente (libre de explicaciones innecesarias), donde no tienes que justificar tu compromiso para que entiendan tu cansancio.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-motion-reveal id="profesionales-quote-section" className="mx-auto max-w-4xl px-4 py-12 text-center">
+        <div className={`rounded-3xl border p-8 sm:p-12 ${isDark ? 'border-[#2D3930] bg-[#1C2420]' : 'border-[#E8E2D9] bg-[#F3EFEA]'}`}>
+          <span aria-hidden="true" className="mb-2 block font-serif text-3xl text-[#AA4664] dark:text-[#DDB5C1] sm:text-4xl">“</span>
+          <p className="font-script text-2xl font-semibold leading-[1.225] text-[#222823] dark:text-[#F3EFE7] sm:text-3xl md:text-4xl">
+            Mi objetivo es acompañarte a cuidar de ti con la misma dedicación con la que tú cuidas del mundo, ayudándote a sostener tu bienestar profesional y personal desde una experiencia real y compartida.
+          </p>
+          <div className="mt-4 flex items-center justify-center gap-2">
+            <span aria-hidden="true" className="h-px w-8 bg-[#AA4664] dark:bg-[#DDB5C1]" />
+            <span className="font-serif text-sm italic text-[#5A655C] dark:text-[#B7BEA3]">Begoña Roy · Psicóloga Sanitaria y Colaboradora en Entidades Sociales</span>
+            <span aria-hidden="true" className="h-px w-8 bg-[#AA4664] dark:bg-[#DDB5C1]" />
+          </div>
+        </div>
+      </section>
+
+      <section data-motion-reveal className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-10 max-w-2xl space-y-2 text-center">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1]">Garantía sanitaria y ética</span>
+          <h2 className="font-serif text-2xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7] sm:text-3xl">Privacidad · Intimidad · Un espacio seguro</h2>
+          <p className="text-sm text-[#5A655C] dark:text-[#B7BEA3]">Las tres coordenadas que sostienen cada encuentro terapéutico.</p>
+        </div>
+
+        <div data-motion-group className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <article className={`rounded-3xl border p-7 transition-shadow hover:shadow-md ${isDark ? 'border-[#2D3930] bg-[#1C2420]' : 'border-[#E8E2D9] bg-white'}`}>
+            <div aria-hidden="true" className="mb-5 w-fit rounded-2xl bg-[#4A5D4E]/10 p-3.5 text-[#4A5D4E] dark:text-[#A7B39A]"><Lock className="h-6 w-6" /></div>
+            <h3 className="mb-2 font-serif text-xl font-medium text-[#222823] dark:text-[#F3EFE7]">Privacidad</h3>
+            <p className="text-sm leading-relaxed text-[#5A655C] dark:text-[#D1DAD2]">Total secreto profesional amparado por el Código Deontológico de la Psicología y la legislación sanitaria. Nada de lo compartido sale de la sesión.</p>
+          </article>
+
+          <article className={`rounded-3xl border p-7 transition-shadow hover:shadow-md ${isDark ? 'border-[#2D3930] bg-[#1C2420]' : 'border-[#E8E2D9] bg-white'}`}>
+            <div aria-hidden="true" className="mb-5 w-fit rounded-2xl bg-[#AA4664]/10 p-3.5 text-[#AA4664] dark:text-[#DDB5C1]"><Heart className="h-6 w-6" /></div>
+            <h3 className="mb-2 font-serif text-xl font-medium text-[#222823] dark:text-[#F3EFE7]">Intimidad</h3>
+            <p className="text-sm leading-relaxed text-[#5A655C] dark:text-[#D1DAD2]">Un entorno libre de juicios ni evaluaciones de rendimiento laboral. Un lugar donde despojarte de la armadura profesional y atender lo que sientes.</p>
+          </article>
+
+          <article className={`rounded-3xl border p-7 transition-shadow hover:shadow-md ${isDark ? 'border-[#2D3930] bg-[#1C2420]' : 'border-[#E8E2D9] bg-white'}`}>
+            <div aria-hidden="true" className="mb-5 w-fit rounded-2xl bg-[#4A5D4E]/10 p-3.5 text-[#4A5D4E] dark:text-[#A7B39A]"><ShieldCheck className="h-6 w-6" /></div>
+            <h3 className="mb-2 font-serif text-xl font-medium text-[#222823] dark:text-[#F3EFE7]">Un espacio seguro</h3>
+            <p className="text-sm leading-relaxed text-[#5A655C] dark:text-[#D1DAD2]">Donde tu desgaste, tus dudas y tu agotamiento son legítimos. Un remanso de contención, calma y escucha respetuosa para reencontrarte.</p>
+          </article>
+        </div>
+      </section>
+
+      <section data-motion-reveal className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div className={`relative overflow-hidden rounded-3xl border p-8 text-center shadow-xl sm:p-12 lg:p-14 ${isDark ? 'border-[#7C9682]/40 bg-gradient-to-br from-[#2D3D32] to-[#151B17] text-[#F3EFE7]' : 'border-[#4A5D4E] bg-gradient-to-br from-[#4A5D4E] to-[#333F36] text-white'}`}>
+          <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
+          <div className="relative z-10 mx-auto max-w-xl space-y-5">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#EDD4CB]">A tu lado cuando lo necesites</span>
+            <h2 className="font-serif text-3xl font-medium tracking-tight sm:text-4xl">Reserva una sesión. “Hablemos”.</h2>
+            <p className="text-sm leading-relaxed text-[#E8ECE9] sm:text-base">Da el paso hacia un espacio donde ser tú sin etiquetas ni presiones. Puedes concertar una sesión presencial en Zaragoza o realizarla cómodamente online.</p>
+
+            <div className="flex flex-col items-center justify-center gap-3.5 pt-4 sm:flex-row">
+              <a href={`${ROUTES.contacto}#contact-form`} className="inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4 text-xs font-bold uppercase tracking-wider text-[#4A5D4E] shadow-lg transition-colors hover:bg-[#FAF7F2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto">
+                <Calendar aria-hidden="true" className="h-4 w-4" />
+                <span>Pedir cita para sesión</span>
+              </a>
+
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-4 text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto">
+                <MessageSquare aria-hidden="true" className="h-4 w-4 text-[#25D366]" />
+                <span>Hablemos por WhatsApp</span>
+              </a>
+            </div>
+
+            <div className="pt-3">
+              <a href={`${ROUTES.contacto}#contact-form`} className="inline-flex items-center gap-1.5 text-xs text-[#EDD4CB] underline-offset-2 hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                <span>¿Prefieres enviar una consulta escrita antes? Escríbeme desde la página de contacto</span>
+                <ArrowRight aria-hidden="true" className="h-3.5 w-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};

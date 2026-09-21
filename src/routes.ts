@@ -4,6 +4,7 @@ export const ROUTES: Record<NavigationTab, string> = {
   inicio: '/',
   psicologia: '/psicologia-zaragoza/',
   pericardio: '/liberacion-del-pericardio-zaragoza/',
+  profesionales: '/apoyo-psicologico-profesionales-ongs/',
   contacto: '/contacto-psicologa-zaragoza/',
 };
 
