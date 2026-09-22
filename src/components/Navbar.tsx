@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'inicio', label: 'Inicio' },
     { id: 'psicologia', label: 'Psicología' },
     { id: 'pericardio', label: 'Pericardio' },
-    { id: 'profesionales', label: 'Profesionales' },
+    { id: 'profesionales', label: 'Profesionales del ámbito social' },
     { id: 'contacto', label: 'Contacto' },
   ];
 
@@ -69,7 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header
       ref={headerRef}
       id="main-header"
-      className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+      className={`sticky top-0 z-40 w-full transition-[background-color,border-color,box-shadow] duration-300 ${
         isScrolled
           ? isDark
             ? 'bg-[#151B17]/90 backdrop-blur-md shadow-sm border-b border-[#2D3930]'
@@ -91,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Desktop Navigation Links */}
           <nav
             id="desktop-nav"
-            className="hidden md:flex items-center space-x-1 lg:space-x-2"
+            className="hidden xl:flex items-center space-x-1 xl:space-x-2"
             aria-label="Navegación principal"
           >
             {navLinks.map((link) => {
@@ -102,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   id={`nav-link-${link.id}`}
                   href={ROUTES[link.id]}
                   onClick={(event) => handleSpaLinkClick(event, link.id)}
-                  className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  className={`relative whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-[background-color,color] duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A5D4E] dark:focus-visible:outline-[#A7B39A] ${
                     isActive
                       ? isDark
                         ? 'text-[#F3EFE7] font-semibold bg-[#222C26]'
@@ -150,7 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               id="header-booking-cta"
               href={`${ROUTES.contacto}#contact-form`}
-              className={`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98] ${
+              className={`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-[background-color,box-shadow,transform] duration-200 shadow-sm hover:shadow active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A5D4E] dark:focus-visible:outline-[#A7B39A] ${
                 isDark
                   ? 'bg-[#7C9682] hover:bg-[#8EA694] text-[#171A17]'
                   : 'bg-[#4A5D4E] hover:bg-[#3D4C40] text-white'
@@ -165,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               id="mobile-menu-btn"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-              className={`md:hidden p-2 rounded-lg transition-colors ${
+              className={`xl:hidden p-2 rounded-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A5D4E] dark:focus-visible:outline-[#A7B39A] ${
                 isDark
                   ? 'text-[#F3EFE7] hover:bg-[#222C26]'
                   : 'text-[#222823] hover:bg-[#E8ECE9]'
@@ -186,7 +186,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div
           id="mobile-nav-drawer"
           data-motion-mobile-menu
-          className={`md:hidden border-b px-4 pt-3 pb-6 space-y-2 transition-all duration-200 ${
+          className={`xl:hidden border-b px-4 pt-3 pb-6 space-y-2 transition-[background-color,border-color] duration-200 ${
             isDark
               ? 'bg-[#151B17] border-[#2D3930]'
               : 'bg-[#FBF9F5] border-[#E8E2D9]'
@@ -199,7 +199,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={link.id}
                 href={ROUTES[link.id]}
                 onClick={(event) => handleSpaLinkClick(event, link.id)}
-                className={`w-full text-left px-4 py-3 rounded-xl text-base font-medium flex items-center justify-between transition-colors ${
+                className={`w-full text-left px-4 py-3 rounded-xl text-base font-medium flex items-center justify-between transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A5D4E] dark:focus-visible:outline-[#A7B39A] ${
                   isActive
                     ? isDark
                       ? 'bg-[#222C26] text-[#F3EFE7] font-semibold'

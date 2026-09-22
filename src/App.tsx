@@ -128,7 +128,6 @@ export default function App() {
 
         {currentTab === 'profesionales' && (
           <ProfesionalesView
-            onNavigate={handleNavigate}
             isDark={isDark}
           />
         )}

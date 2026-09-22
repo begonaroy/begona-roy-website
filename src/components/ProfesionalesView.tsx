@@ -1,22 +1,16 @@
 import React, { useRef } from 'react';
-import { ArrowRight, Calendar, MessageSquare, ShieldCheck, Users } from 'lucide-react';
-import { CLINICAL_INFO, IMAGES } from '../data/content';
+import { Calendar, ShieldCheck, Users } from 'lucide-react';
+import { IMAGES } from '../data/content';
 import { useGsapPageEntrance } from '../hooks/useGsapAnimations';
 import { ROUTES } from '../routes';
-import { NavigationTab } from '../types';
 
 interface ProfesionalesViewProps {
-  onNavigate: (tab: NavigationTab) => void;
   isDark: boolean;
 }
 
 export const ProfesionalesView: React.FC<ProfesionalesViewProps> = ({ isDark }) => {
   const viewRef = useRef<HTMLDivElement>(null);
   useGsapPageEntrance(viewRef);
-
-  const whatsappUrl = `https://wa.me/${CLINICAL_INFO.phone.replace(/\D/g, '')}?text=${encodeURIComponent(
-    'Hola Begoña, soy profesional del ámbito social / ONG y me gustaría concertar una cita.',
-  )}`;
 
   return (
     <div ref={viewRef} id="profesionales-view" className="space-y-16 pb-20 sm:space-y-24">
@@ -36,51 +30,48 @@ export const ProfesionalesView: React.FC<ProfesionalesViewProps> = ({ isDark }) 
           </p>
         </div>
 
-        <div data-motion-hero className="mx-auto mt-10 max-w-4xl">
-          <div className={`relative overflow-hidden rounded-3xl border shadow-lg ${isDark ? 'border-[#2D3930] bg-[#1C2420]' : 'border-[#E8E2D9] bg-white'}`}>
-            <div className="relative aspect-[16/9] w-full overflow-hidden sm:aspect-[21/9]">
-              <img
-                src={IMAGES.profesionales}
-                alt="Begoña Roy, psicóloga sanitaria"
-                width={2136}
-                height={1202}
-                fetchPriority="high"
-                decoding="async"
-                className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
-              />
-              <div aria-hidden="true" className={`pointer-events-none absolute inset-0 bg-gradient-to-t via-transparent ${isDark ? 'from-[#151B17] to-transparent opacity-60' : 'from-[#FAF7F2] to-transparent opacity-40'}`} />
-            </div>
-            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#E8E2D9]/80 p-4 text-xs text-[#5A655C] dark:border-[#2D3930] dark:text-[#B7BEA3] sm:p-5">
-              <div className="flex items-center gap-2">
-                <ShieldCheck aria-hidden="true" className="h-4 w-4 text-[#4A5D4E] dark:text-[#A7B39A]" />
-                <span className="font-medium">Espacio de confidencialidad absoluta y rigor ético</span>
+        <article data-motion-hero className={`mx-auto mt-10 max-w-6xl overflow-hidden rounded-3xl border shadow-lg ${isDark ? 'border-[#2D3930] bg-[#1C2420]' : 'border-[#E8E2D9] bg-white'}`}>
+          <div className="grid items-stretch lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
+            <figure className="border-b border-[#E8E2D9]/80 dark:border-[#2D3930] lg:border-b-0 lg:border-r">
+              <div className="relative aspect-[3/4] w-full overflow-hidden">
+                <img
+                  src={IMAGES.profesionales}
+                  alt="Begoña Roy, psicóloga sanitaria"
+                  width={810}
+                  height={1080}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
+                />
+                <div aria-hidden="true" className={`pointer-events-none absolute inset-0 bg-gradient-to-t via-transparent ${isDark ? 'from-[#151B17] to-transparent opacity-60' : 'from-[#FAF7F2] to-transparent opacity-40'}`} />
               </div>
-              <div className="flex items-center gap-2">
-                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-[#4A5D4E] dark:bg-[#A7B39A]" />
-                <span>Modalidad presencial en Zaragoza y videoconsulta online</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+              <figcaption className="flex flex-wrap items-center justify-between gap-3 border-t border-[#E8E2D9]/80 p-4 text-xs text-[#5A655C] dark:border-[#2D3930] dark:text-[#B7BEA3] sm:p-5">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck aria-hidden="true" className="h-4 w-4 text-[#4A5D4E] dark:text-[#A7B39A]" />
+                  <span className="font-medium">Espacio de confidencialidad absoluta y rigor ético</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span aria-hidden="true" className="h-2 w-2 rounded-full bg-[#4A5D4E] dark:bg-[#A7B39A]" />
+                  <span>Modalidad presencial en Zaragoza y videoconsulta online</span>
+                </div>
+              </figcaption>
+            </figure>
 
-      <section data-motion-reveal className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className={`space-y-8 rounded-3xl border p-8 shadow-sm sm:p-12 lg:p-14 ${isDark ? 'border-[#2D3930] bg-[#1C2420]' : 'border-[#E8E2D9] bg-white'}`}>
-          <p className="text-base font-normal leading-[1.75] text-[#3D473F] dark:text-[#D1DAD2] sm:text-lg">
-            Tras más de 25 años caminando junto al tejido asociativo y las entidades sociales, conozco de cerca lo que significa (las luces y las sombras de) trabajar por y para los demás. Sé lo que implica la gestión de recursos (lidiar con la escasez de recursos), la alta exigencia emocional, el peso de la responsabilidad y esa delgada línea donde la vocación a menudo se cruza con el agotamiento invisible.
-          </p>
-
-          <div className={`rounded-2xl border p-6 sm:p-8 ${isDark ? 'border-[#2D3930] bg-[#151B17]' : 'border-[#E8E2D9] bg-[#FAF7F2]'}`}>
-            <div className="flex items-start gap-4">
-              <div aria-hidden="true" className="mt-1 shrink-0 rounded-xl bg-[#4A5D4E]/10 p-3 text-[#4A5D4E] dark:text-[#A7B39A]">
-                <ShieldCheck className="h-6 w-6" />
-              </div>
-              <p className="text-base font-medium leading-[1.7] text-[#222823] dark:text-[#F3EFE7] sm:text-lg">
-                En este espacio ofrezco un lugar (refugio) seguro para expresarte libremente (libre de explicaciones innecesarias), donde no tienes que justificar tu compromiso para que entiendan tu cansancio.
+            <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-12">
+              <p className="text-base font-normal leading-[1.75] text-[#3D473F] dark:text-[#D1DAD2] sm:text-lg">
+                Tras más de 25 años caminando junto al tejido asociativo y las entidades sociales, conozco de cerca lo que significan las luces y las sombras de trabajar por y para los demás. Sé lo que implica la gestión de recursos —lidiar con su escasez—, la alta exigencia emocional, el peso de la responsabilidad y esa delgada línea donde la vocación a menudo se cruza con el agotamiento invisible.
               </p>
+
+              <div className="mt-8 border-t border-[#E8E2D9] pt-8 dark:border-[#2D3930]">
+                <div className="flex items-start gap-4">
+                  <p className="text-base font-normal leading-[1.75] text-[#3D473F] dark:text-[#D1DAD2] sm:text-lg">
+                    En este espacio, ofrezco un refugio seguro para expresarte libremente, sin necesidad de dar explicaciones innecesarias, donde no tienes que justificar tu compromiso para que entienda tu cansancio.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </article>
       </section>
 
       <section data-motion-reveal id="profesionales-quote-section" className="mx-auto max-w-4xl px-4 py-12 text-center">
