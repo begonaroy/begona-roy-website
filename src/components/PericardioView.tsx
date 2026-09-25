@@ -425,7 +425,7 @@ export const PericardioView: React.FC<PericardioViewProps> = ({
         >
           <div className="space-y-4 max-w-lg mx-auto">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#DDB5C1]">
-              CONSULTA EN ESPACIO K ALMA · ZARAGOZA
+              CONSULTA EN {CLINICAL_INFO.fullAddress}
             </span>
             <h2 className="font-serif text-3xl font-medium tracking-tight">
               ¿Sientes que tu corazón necesita respirar?

@@ -221,7 +221,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 Te puedo ayudar en
               </h2>
               <p className="text-sm sm:text-base text-[#5A655C] dark:text-[#B7BEA3] leading-relaxed">
-                Acompañamiento individualizado en consulta presencial en Zaragoza y online, integrando cuerpo, emoción y mente.
+                Acompañamiento individualizado en consulta presencial en Zaragoza y online, integrando cuerpo, emoción, mente y espíritu.
               </p>
             </div>
 
