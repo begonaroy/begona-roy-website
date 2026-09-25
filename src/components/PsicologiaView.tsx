@@ -42,7 +42,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
   onNavigate,
   isDark,
 }) => {
-  const [activeApproach, setActiveApproach] = useState<'integral' | 'emdr' | 'psicooncologia'>('integral');
+  const [activeApproach, setActiveApproach] = useState<'integral' | 'psicooncologia'>('integral');
   const [openAccordionId, setOpenAccordionId] = useState<string | null>('ansiedad-estres');
   const viewRef = useRef<HTMLDivElement>(null);
 
@@ -208,10 +208,10 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
             DISCIPLINAS Y ENFOQUES
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#222823] dark:text-[#F3EFE7]">
-            Nuestros Abordajes Principales
+            Mis abordajes principales
           </h2>
           <p className="text-sm text-[#5A655C] dark:text-[#B7BEA3]">
-            Descubre las bases de nuestro trabajo terapéutico adaptado a cada momento de tu vida.
+            Descubre las bases de mi trabajo terapéutico, adaptado a cada momento de tu vida.
           </p>
         </div>
 
@@ -220,8 +220,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
           <div className="inline-flex p-1.5 rounded-full border border-[#E8E2D9] dark:border-[#2D3930] bg-[#FAF7F2] dark:bg-[#1C2420] gap-1">
             {[
               { id: 'integral', label: '1. Psicología Integral' },
-              { id: 'emdr', label: '2. EMDR' },
-              { id: 'psicooncologia', label: '3. Psicooncología' }
+              { id: 'psicooncologia', label: '2. Psicooncología' }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -369,120 +368,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
           </div>
         )}
 
-        {/* APPROACH 2: EMDR */}
-        {activeApproach === 'emdr' && (
-          <div
-            data-motion-approach-panel
-            className={`rounded-3xl border p-6 sm:p-10 transition-all ${
-              isDark
-                ? 'bg-[#151B17] border-[#2D3930]'
-                : 'bg-white border-[#E8E2D9]'
-            }`}
-          >
-            <div className="flex flex-col lg:flex-row gap-8 items-start">
-              <div className="flex-1 space-y-5">
-                <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#AA4664]/10 text-[#AA4664] dark:text-[#DDB5C1]">
-                    Avalado por la OMS
-                  </span>
-                  <span className="text-xs font-medium text-[#4A5D4E] dark:text-[#A7B39A]">
-                    Desensibilización y Reprocesamiento
-                  </span>
-                </div>
-
-                <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#222823] dark:text-[#F3EFE7]">
-                  2. EMDR (Desensibilización y Reprocesamiento por Movimientos Oculares)
-                </h3>
-
-                <p className="text-sm sm:text-base leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
-                  El <strong>EMDR</strong> (Desensibilización y Reprocesamiento por Movimientos Oculares) es una terapia psicológica eficaz avalada por la <strong>Organización Mundial de la Salud (OMS)</strong>. Ayuda a sanar recuerdos dolorosos o traumáticos. El método usa movimientos de los ojos u otros estímulos rítmicos para desbloquear la mente y procesar de forma sana el pasado.
-                </p>
-
-                <div className="space-y-3.5 text-xs sm:text-sm leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">
-                  <div
-                    className={`p-4 rounded-2xl border ${
-                      isDark
-                        ? 'bg-[#1C2420] border-[#2D3930]'
-                        : 'bg-[#FAF7F2] border-[#E8E2D9]'
-                    }`}
-                  >
-                    <p className="font-medium text-[#222823] dark:text-[#F3EFE7] mb-1">
-                      🌿 Origen y Evidencia Científica:
-                    </p>
-                    <p>
-                      Fue descubierta de forma casual. En 1987, <strong>Francine Shapiro</strong>, psicóloga norteamericana, descubrió que los movimientos oculares voluntarios reducían la intensidad de la angustia de los pensamientos negativos. Los resultados de investigaciones concluyeron que EMDR reducía de manera significativa los síntomas del <strong>trastorno por estrés postraumático (TEPT)</strong>.
-                    </p>
-                  </div>
-
-                  <div
-                    className={`p-4 rounded-2xl border ${
-                      isDark
-                        ? 'bg-[#1C2420] border-[#2D3930]'
-                        : 'bg-[#FAF7F2] border-[#E8E2D9]'
-                    }`}
-                  >
-                    <p className="font-medium text-[#222823] dark:text-[#F3EFE7] mb-1">
-                      🧠 Desbloqueo del Procesamiento de Información:
-                    </p>
-                    <p>
-                      La terapia EMDR es un abordaje psicoterapéutico que trabaja sobre el sistema de procesamiento de información del paciente que puede llegar a bloquearse por diversos motivos como <strong>muertes, abusos de todo tipo (psicológicos, emocionales, físicos o sexuales), etc.</strong>, lo cual comienza a generar en el paciente una gran diversidad de síntomas.
-                    </p>
-                  </div>
-
-                  <div
-                    className={`p-4 rounded-2xl border ${
-                      isDark
-                        ? 'bg-[#1C2420] border-[#2D3930]'
-                        : 'bg-[#FAF7F2] border-[#E8E2D9]'
-                    }`}
-                  >
-                    <p className="font-medium text-[#222823] dark:text-[#F3EFE7] mb-1">
-                      ✨ Rendimiento y Otras Aplicaciones:
-                    </p>
-                    <p>
-                      También podemos utilizar la terapia EMDR para <strong>aliviar la angustia de hablar en público</strong> o para mejorar el rendimiento en el trabajo, en los deportes y en las interpretaciones artísticas.
-                    </p>
-                  </div>
-
-                  <p className="italic text-[#4A5D4E] dark:text-[#A7B39A] pt-1">
-                    La terapia EMDR puede integrarse con éxito con el resto de abordajes, ya que de un modo u otro, todos trabajan con la historia del paciente.
-                  </p>
-                </div>
-
-                <div className="pt-4 flex items-center gap-3">
-                  <a
-                    href={`${ROUTES.contacto}#contact-form`}
-                    className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
-                      isDark
-                        ? 'bg-[#7C9682] text-[#171A17] hover:bg-[#8EA694]'
-                        : 'bg-[#4A5D4E] text-white hover:bg-[#3D4C40]'
-                    }`}
-                  >
-                    <Calendar className="w-4 h-4" />
-                    <span>Pedir Cita para Terapia EMDR</span>
-                  </a>
-                </div>
-              </div>
-
-              <div className="w-full lg:w-80 h-72 lg:h-96 rounded-2xl overflow-hidden flex-shrink-0 shadow-md relative">
-                <img
-                  src={IMAGES.emdrApproach}
-                  alt="Terapia EMDR"
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="font-serif text-sm italic">
-                    "Desbloquear la mente y procesar de forma sana el pasado."
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* APPROACH 3: PSICOONCOLOGÍA */}
+        {/* APPROACH 2: PSICOONCOLOGÍA */}
         {activeApproach === 'psicooncologia' && (
           <div
             data-motion-approach-panel
@@ -501,7 +387,7 @@ export const PsicologiaView: React.FC<PsicologiaViewProps> = ({
                 </div>
 
                 <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#222823] dark:text-[#F3EFE7]">
-                  3. Psicooncología
+                  2. Psicooncología
                 </h3>
 
                 <p className="text-sm sm:text-base leading-relaxed text-[#5A655C] dark:text-[#B7BEA3]">

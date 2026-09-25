@@ -33,12 +33,12 @@ export const ProfesionalesView: React.FC<ProfesionalesViewProps> = ({ isDark }) 
         <article data-motion-hero className={`mx-auto mt-10 max-w-6xl overflow-hidden rounded-3xl border shadow-lg ${isDark ? 'border-[#2D3930] bg-[#1C2420]' : 'border-[#E8E2D9] bg-white'}`}>
           <div className="grid items-stretch lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
             <figure className="border-b border-[#E8E2D9]/80 dark:border-[#2D3930] lg:border-b-0 lg:border-r">
-              <div className="relative aspect-[3/4] w-full overflow-hidden">
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <img
                   src={IMAGES.profesionales}
-                  alt="Begoña Roy, psicóloga sanitaria"
-                  width={810}
-                  height={1080}
+                  alt="Sendero entre árboles en un entorno natural"
+                  width={1200}
+                  height={896}
                   fetchPriority="high"
                   decoding="async"
                   className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
