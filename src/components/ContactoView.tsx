@@ -53,7 +53,7 @@ export const ContactoView: React.FC<ContactoViewProps> = ({
     setFormError('');
     const modality = modalityChoice === 'presencial' ? 'Presencial en Zaragoza' : 'Online por videoconsulta';
     const body = [
-      'Solicitud de cita desde begonaroy.com',
+      'Solicitud de cita desde begoñaroypsicologa.es',
       '',
       `Nombre: ${name}`,
       `Correo de respuesta: ${email}`,

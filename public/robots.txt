@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://begonaroy.com/sitemap.xml
+Sitemap: https://xn--begoaroypsicologa-ixb.es/sitemap.xml

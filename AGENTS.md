@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Web profesional de Begoña Roy (psicóloga sanitaria en Zaragoza). SPA en React 19 + Vite + TypeScript + Tailwind CSS v4, orientada a SEO para el dominio `https://begonaroy.com`. Todo el contenido es en español (`es`).
+Web profesional de Begoña Roy (psicóloga sanitaria en Zaragoza). SPA en React 19 + Vite + TypeScript + Tailwind CSS v4, orientada a SEO para el dominio `https://xn--begoaroypsicologa-ixb.es`. Todo el contenido es en español (`es`).
 
 ## Comandos
 
