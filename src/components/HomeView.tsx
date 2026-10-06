@@ -823,6 +823,17 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </div>
           ))}
         </div>
+
+        <div className="mt-10 flex justify-center">
+          <a
+            href="https://g.page/r/CT7ix0fzsNMqECE/review"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-sage-600 px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-sage-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-terracotta-500 sm:w-auto dark:bg-sage-300 dark:text-sage-900 dark:hover:bg-sage-200 dark:focus-visible:outline-terracotta-200"
+          >
+            Déjame una reseña en Google
+          </a>
+        </div>
       </section>
     </div>
   );
