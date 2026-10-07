@@ -408,24 +408,21 @@ export const FAQS_DATA: FAQItem[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-1',
-    author: 'Carmen M.',
-    service: 'Psicooncología & Duelo',
-    quote: 'Encontrar a Begoña durante el tratamiento de mi madre fue un ancla de paz en mitad de la tormenta. Su calidez y su mirada sin juicios nos sostuvieron a todos.',
-    context: 'Acompañamiento familiar oncológico'
+    author: 'Belén C.',
+    occupation: 'Administrativa',
+    quote: 'Encontrar a Begoña fue un regalo, la escucha activa sin juicios me ayudó a encontrar un poco de paz en mi propio proceso de sanación. Mil gracias Begoña.'
   },
   {
     id: 'test-2',
-    author: 'Javier S.',
-    service: 'Gestión de la Ansiedad',
-    quote: 'Llegué con crisis de pánico casi diarias y una sensación de opresión constante en el pecho. Aprender a entender lo que mi cuerpo me decía lo cambió todo.',
-    context: 'Proceso de 6 meses en consulta'
+    author: 'Nerea I.',
+    occupation: 'Estudiante',
+    quote: 'Tengo 18 años y mi madre me aconsejó ir a Begoña, (yo me resistía, je, je), porque llevaba meses que no podía dormir bien. He realizado sesiones de pericardio y empiezo a estar mas tranquila y le he perdido miedo a la hora de dormir. Lo recomiendo.'
   },
   {
     id: 'test-3',
-    author: 'Elena R.',
-    service: 'Liberación del Pericardio',
-    quote: 'La sesión de pericardio fue una de las experiencias más reveladoras y amorosas que he vivido. Sentí que volvía a respirar con los pulmones llenos después de años.',
-    context: 'Sesiones presenciales en Zaragoza'
+    author: 'Miguel I.',
+    occupation: 'Recursos Humanos',
+    quote: 'Llegué con crisis de pánico casi diarias y una sensación de opresión constante en el pecho. Aprender a entender lo que mi cuerpo me decía lo cambió todo y por fín pude empezar a dormir, el insomnio se fue poco a poco espaciando. De vez en cuando vuelvo a las sesiones de pericardio para recordarle a mi cuerpo y mi mente la sensación de calma.'
   }
 ];
 

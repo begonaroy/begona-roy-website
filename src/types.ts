@@ -38,8 +38,7 @@ export interface Testimonial {
   id: string;
   quote: string;
   author: string;
-  service: string;
-  context: string;
+  occupation: string;
 }
 
 export interface ContactFormData {

@@ -806,19 +806,16 @@ export const HomeView: React.FC<HomeViewProps> = ({
               </div>
 
               <p className="font-serif italic text-sm sm:text-base leading-relaxed text-[#222823] dark:text-[#F3EFE7]">
-                "{item.quote}"
+                {item.quote}
               </p>
 
-              <div className="pt-4 border-t border-[#E8E2D9] dark:border-[#2D3930] flex items-center justify-between text-xs">
+              <div className="pt-4 border-t border-[#E8E2D9] dark:border-[#2D3930] text-xs">
                 <div>
                   <span className="font-semibold block text-[#222823] dark:text-[#F3EFE7]">
                     {item.author}
                   </span>
-                  <span className="text-[#AA4664] dark:text-[#DDB5C1]">{item.service}</span>
+                  <span className="text-[#AA4664] dark:text-[#DDB5C1]">{item.occupation}</span>
                 </div>
-                <span className="text-[11px] text-[#5A655C] dark:text-[#B7BEA3]">
-                  {item.context}
-                </span>
               </div>
             </div>
           ))}
