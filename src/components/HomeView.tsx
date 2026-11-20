@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { NavigationTab, ServiceDetail } from '../types';
-import { CLINICAL_INFO, IMAGES, SERVICES_DATA, TESTIMONIALS } from '../data/content';
+import { CLINICAL_INFO, IMAGES, SERVICES_DATA } from '../data/content';
+import { TestimonialsCarousel } from './TestimonialsCarousel';
 import couchImg from '../assets/images/couch.png';
 import onlineAImg from '../assets/images/online-a.png';
 import { useGsapPageEntrance } from '../hooks/useGsapAnimations';
@@ -20,7 +21,6 @@ import {
   ChevronDown,
   Feather,
   Layers,
-  Star,
 } from 'lucide-react';
 
 interface HomeViewProps {
@@ -776,52 +776,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <span className="text-xs font-semibold uppercase tracking-wider text-[#AA4664] dark:text-[#DDB5C1]">
             ESPACIO DE CONFIANZA
           </span>
-          <h2 className="font-serif text-3xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
-            Experiencias en Consulta
+          <h2 id="testimonials-title" className="font-serif text-3xl font-medium tracking-tight text-[#222823] dark:text-[#F3EFE7]">
+            Experiencias Destacadas en Consulta
           </h2>
         </div>
 
-        <div data-motion-group className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((item) => (
-            <div
-              key={item.id}
-              className={`p-6 sm:p-8 rounded-3xl border flex flex-col justify-between space-y-4 ${
-                isDark
-                  ? 'bg-[#1C2420] border-[#2D3930]'
-                  : 'bg-[#FBF9F5] border-[#E8E2D9]'
-              }`}
-            >
-              <div
-                className="flex items-center gap-1 text-[#4A5D4E] dark:text-[#B7BEA3]"
-                role="img"
-                aria-label="Valoración de 5 sobre 5 estrellas"
-              >
-                {Array.from({ length: 5 }, (_, index) => (
-                  <Star
-                    key={index}
-                    aria-hidden="true"
-                    className="w-4 h-4 fill-current"
-                  />
-                ))}
-              </div>
+        <TestimonialsCarousel />
 
-              <p className="font-serif italic text-sm sm:text-base leading-relaxed text-[#222823] dark:text-[#F3EFE7]">
-                {item.quote}
-              </p>
-
-              <div className="pt-4 border-t border-[#E8E2D9] dark:border-[#2D3930] text-xs">
-                <div>
-                  <span className="font-semibold block text-[#222823] dark:text-[#F3EFE7]">
-                    {item.author}
-                  </span>
-                  <span className="text-[#AA4664] dark:text-[#DDB5C1]">{item.occupation}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
           <a
             href="https://g.page/r/CT7ix0fzsNMqECE/review"
             target="_blank"
@@ -829,6 +791,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
             className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-sage-600 px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-sage-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-terracotta-500 sm:w-auto dark:bg-sage-300 dark:text-sage-900 dark:hover:bg-sage-200 dark:focus-visible:outline-terracotta-200"
           >
             Déjame una reseña en Google
+          </a>
+          <a
+            href="https://maps.app.goo.gl/D2NWTwB6UtPZEe2v9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-sage-500 px-6 py-3 text-center text-sm font-semibold text-sage-700 transition-colors hover:bg-sage-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-terracotta-500 sm:w-auto dark:border-sage-400 dark:text-sage-200 dark:hover:bg-sage-900 dark:focus-visible:outline-terracotta-200"
+          >
+            Ver todas las reseñas
           </a>
         </div>
       </section>

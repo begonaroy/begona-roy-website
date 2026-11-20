@@ -423,6 +423,20 @@ export const TESTIMONIALS: Testimonial[] = [
     author: 'Miguel I.',
     occupation: 'Recursos Humanos',
     quote: 'Llegué con crisis de pánico casi diarias y una sensación de opresión constante en el pecho. Aprender a entender lo que mi cuerpo me decía lo cambió todo y por fín pude empezar a dormir, el insomnio se fue poco a poco espaciando. De vez en cuando vuelvo a las sesiones de pericardio para recordarle a mi cuerpo y mi mente la sensación de calma.'
+  },
+  {
+    id: 'google-rebeca',
+    author: 'Rebeca',
+    source: 'Google',
+    rating: 5,
+    quote: 'Conocer a Begoña ha sido un regalo.\n\nEs una profesional maravillosa, pero, sobre todo, una persona con una sensibilidad, una humanidad y una capacidad de acompañar que marcan la diferencia.\n\nCon ella encuentras un espacio seguro, de confianza, donde puedes ser tú misma, conocerte, escucharte, comprenderte y trabajar en aquello que necesitas.\n\nSu trabajo va mucho más allá de las palabras. A través de herramientas como la liberación del pericardio, te acompaña a conectar contigo misma y a sentir y liberar aquello que a veces no sabes cómo expresar.\n\nGracias, Begoña, por acompañarme en este camino con tanta sensibilidad, cariño y profesionalidad. Qué suerte tengo de haberte encontrado. 💓'
+  },
+  {
+    id: 'google-julia',
+    author: 'julia rosa moreno ezquerro',
+    source: 'Google',
+    rating: 5,
+    quote: 'Begoña me ha ayudado mucho para superar la situación de burnout que he vivido, la escucha activa, el acompañamiento, su calidez y la liberación del pericardio, me han ayudado a entender muchas cosas, a darles espacio y atenderlas, a tranquilizarme para poder seguir adelante, con más herramientas, con más seguridad. Gracias Begoña.'
   }
 ];
 

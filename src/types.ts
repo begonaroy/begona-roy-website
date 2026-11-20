@@ -38,7 +38,9 @@ export interface Testimonial {
   id: string;
   quote: string;
   author: string;
-  occupation: string;
+  occupation?: string;
+  source?: 'Google';
+  rating?: number;
 }
 
 export interface ContactFormData {
